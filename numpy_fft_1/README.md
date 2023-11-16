@@ -54,3 +54,22 @@ Since we deal with a 1 dimensional time series
 y_fft: np.ndarray = np.fft.rfft(y)
 frequency_axis: np.ndarray = np.fft.rfftfreq(y.shape[0]) * sampling_frequency
 ```
+
+## Calculating a [normalized](https://de.mathworks.com/help/signal/ug/power-spectral-density-estimates-using-fft.html) power spectral density
+
+The goal is to produce a power spectral density that is compatible with the [Parseval's identity](https://en.wikipedia.org/wiki/Parseval%27s_identity). Or in other words: the sum over the power spectrum without the zero frequency has the same value as the variance of the time series.  
+
+```python
+y_power: np.ndarray = (1 / (sampling_frequency * y.shape[0])) * np.abs(y_fft) ** 2
+y_power[1:-2] *= 2
+
+if frequency_axis[-1] != (sampling_frequency / 2.0):
+    y_power[-1] *= 2
+```
+
+Check of the normalization:
+
+```python
+print(y_power[1:].sum())  # -> 0.5
+print(np.var(y))  # -> 0.5
+```
