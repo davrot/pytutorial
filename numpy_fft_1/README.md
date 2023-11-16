@@ -17,5 +17,7 @@ frequency_hz: float = 10.0
 t: np.ndarray = np.arange(0, time_series_length) * dt
 y: np.ndarray = np.sin(t * 2 * np.pi * frequency_hz)
 ```
+
+![figure 1](figure_1.png)
  
 
