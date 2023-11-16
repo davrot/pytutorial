@@ -22,9 +22,9 @@ dt: float = 1.0 / samples_per_second
 # 10 secs
 t: np.ndarray = np.arange(0, int(10 * samples_per_second)) * dt
 
-f_low = 1  # Hz
-f_mid = 10  # Hz
-f_high = 100  # Hz
+f_low: float = 1  # Hz
+f_mid: float = 10  # Hz
+f_high: float = 100  # Hz
 
 sin_low = np.sin(2 * np.pi * t * f_low)
 sin_mid = np.sin(2 * np.pi * t * f_mid)
@@ -46,7 +46,7 @@ plt.show()
 ```python
 from scipy import signal
 
-lowpass_frequency = 2.0  # Hz
+lowpass_frequency: float = 2.0  # Hz
 
 # Nint : The order of the filter.
 # Wn : The critical frequency or frequencies. For lowpass and highpass filters, Wn is a scalar; for bandpass and bandstop filters, Wn is a length-2 sequence.
@@ -78,7 +78,7 @@ plt.show()
 ```python
 from scipy import signal
 
-highpass_frequency = 20.0  # Hz
+highpass_frequency: float = 20.0  # Hz
 
 b_high, a_high = signal.butter(
     N=4, Wn=highpass_frequency, btype="highpass", fs=samples_per_second
@@ -103,8 +103,8 @@ plt.show()
 ```python
 from scipy import signal
 
-lowpass_frequency = 2.0  # Hz
-highpass_frequency = 20.0  # Hz
+lowpass_frequency: float = 2.0  # Hz
+highpass_frequency: float = 20.0  # Hz
 
 b_band, a_band = signal.butter(
     N=4,
