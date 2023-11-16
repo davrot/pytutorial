@@ -73,3 +73,9 @@ Check of the normalization:
 print(y_power[1:].sum())  # -> 0.5
 print(np.var(y))  # -> 0.5
 ```
+![figure 2](figure_2.png)
+
+Or zoomed in:
+
+![figure 3](figure_3.png)
+
