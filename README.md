@@ -1,6 +1,6 @@
 # How to Python in computational neuroscience, data mining, and more 
 
-All the tutorial are tested with Python 3.11.x. Older version might have a problem with the new versions of type anotations. 
+All the tutorials are tested with Python 3.11.x. Older version might have a problem with the new versions of type anotations. 
 
 ## Programming Basics: Python Data analysis and more
 
