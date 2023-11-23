@@ -71,6 +71,9 @@ a: Any = 0
 b: float = 0.0
 a = b
 ```
+### Never type
+This can be used to define a function that should never be called, or a function that never returns.
+
 
 ### Generic types
 
