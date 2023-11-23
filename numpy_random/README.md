@@ -56,5 +56,58 @@ import numpy as np
 rng = np.random.default_rng()
 print(rng)  # -> Generator(PCG64)
 ```
+If you don't like it there are other options:
+| | 
+| -------------|
+|[MT19937](https://numpy.org/doc/stable/reference/random/bit_generators/mt19937.html)|
+|[PCG64](https://numpy.org/doc/stable/reference/random/bit_generators/pcg64.html)|
+|[PCG64DXSM](https://numpy.org/doc/stable/reference/random/bit_generators/pcg64dxsm.html)|
+|[Philox](https://numpy.org/doc/stable/reference/random/bit_generators/philox.html)|
+|[SFC64](https://numpy.org/doc/stable/reference/random/bit_generators/sfc64.html)|
 
+## [Distributions](https://numpy.org/doc/stable/reference/random/generator.html#distributions) (you will use)
+The most important ones are in **bold**. If you see a function argument *out*, then you can reuse an existing np array (i.e. [in-place operation](https://numpy.org/doc/stable/reference/random/generator.html#in-place-vs-copy)) as target.
+| | |
+| ------------- |:-------------:|
+|**[integers(low[, high, size, dtype, endpoint])](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.integers.html#numpy.random.Generator.integers)**| Return random integers from low (inclusive) to high (exclusive), or if endpoint=True, low (inclusive) to high (inclusive). |
+|**[random([size, dtype, out])](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.random.html#numpy.random.Generator.random)** | Return random floats in the half-open interval [0.0, 1.0). |
+|**[choice(a[, size, replace, p, axis, shuffle])](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.choice.html#numpy.random.Generator.choice)** | Generates a random sample from a given array |
+|[bytes(length)](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.bytes.html#numpy.random.Generator.bytes) | Return random bytes. |
+|[binomial(n, p[, size])](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.binomial.html#numpy.random.Generator.binomial) | Draw samples from a binomial distribution.|
+|[multinomial(n, pvals[, size])](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.multinomial.html#numpy.random.Generator.multinomial) |Draw samples from a multinomial distribution. |
+|[multivariate_normal(mean, cov[, size, ...])](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.multivariate_normal.html#numpy.random.Generator.multivariate_normal) | Draw random samples from a multivariate normal distribution.|
+|**[normal([loc, scale, size])](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.normal.html#numpy.random.Generator.normal)** | Draw random samples from a normal (Gaussian) distribution.|
+|**[poisson([lam, size])](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.poisson.html#numpy.random.Generator.poisson)** | Draw samples from a Poisson distribution.|
+|[standard_normal([size, dtype, out])](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.standard_normal.html#numpy.random.Generator.standard_normal) | Draw samples from a standard Normal distribution (mean=0, stdev=1).|
+|**[uniform([low, high, size])](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.uniform.html#numpy.random.Generator.uniform)** |Draw samples from a uniform distribution. |
 
+### random
+```python
+import numpy as np
+
+rng = np.random.default_rng()
+random_values = rng.random(size=(2, 10))
+print(random_values)
+```
+Output:
+```
+[[0.75309105 0.15751286 0.49454759 0.18204807 0.88459006 0.78685769
+  0.68525047 0.4000365  0.45317167 0.62412358]
+ [0.01082224 0.13257961 0.75638974 0.84886965 0.19755022 0.18697649
+  0.47064409 0.66128207 0.30285691 0.53465021]]
+```
+### integers
+```python
+import numpy as np
+
+rng = np.random.default_rng()
+random_values = rng.integers(
+    low=1, high=3, size=(2, 10), dtype=np.uint64, endpoint=True
+)
+print(random_values)
+```
+Output:
+```
+[[2 3 3 2 1 3 1 1 2 2]
+ [3 3 2 3 3 2 3 3 1 3]]
+```
