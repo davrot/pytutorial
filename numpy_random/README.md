@@ -111,3 +111,88 @@ Output:
 [[2 3 3 2 1 3 1 1 2 2]
  [3 3 2 3 3 2 3 3 1 3]]
 ```
+
+### choice
+```python
+import numpy as np
+
+rng = np.random.default_rng()
+p = np.array([1, 2, 3]).astype(np.float64)
+p /= p.sum()
+print(f"p: {p}")
+random_values = rng.choice(a=p.shape[0], p=p, size=(2, 10))
+print(random_values)
+```
+Output:
+```
+p: [0.16666667 0.33333333 0.5       ]
+[[0 2 2 1 2 1 2 1 0 1]
+ [2 0 1 2 2 1 0 2 1 2]]
+```
+
+## [Permutations](https://numpy.org/doc/stable/reference/random/generator.html#permutations)
+| | |
+| ------------- |:-------------:|
+|[shuffle(x[, axis])](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.shuffle.html#numpy.random.Generator.shuffle)|Modify an array or sequence in-place by shuffling its contents.|
+|[permutation(x[, axis])](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.permutation.html#numpy.random.Generator.permutation)|Randomly permute a sequence, or return a permuted range.|
+|[permuted(x[, axis, out])](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.permuted.html#numpy.random.Generator.permuted)|Randomly permute x along axis axis.|
+
+|method |copy/in-place | [	axis handling](https://numpy.org/doc/stable/reference/random/generator.html#handling-the-axis-parameter) | 
+| ------------- |:-------------:|:-------------:|
+|shuffle|in-place|as if 1d|
+|permutation|copy|as if 1d|
+|permuted|either (use ‘out’ for in-place)|axis independent|
+
+### shuffle
+```python
+import numpy as np
+
+rng = np.random.default_rng()
+idx_randomized = np.arange(0, 10)
+rng.shuffle(idx_randomized)
+
+print(idx_randomized)
+```
+Output:
+```
+[0 2 8 9 5 4 3 6 1 7]
+```
+
+### permutation
+```python
+import numpy as np
+
+rng = np.random.default_rng()
+idx_randomized = rng.permutation(10)
+
+print(idx_randomized)
+```
+Output:
+```
+[9 4 7 2 6 3 1 8 5 0]
+```
+
+### permuted
+```python
+import numpy as np
+
+rng = np.random.default_rng()
+idx = np.arange(0, 10)
+
+idx_randomized = rng.permuted(idx)
+
+print(idx_randomized)
+```
+Output:
+```
+[4 1 2 8 9 6 0 5 7 3]
+```
+## All Distributions
+
+You need more distributions? [Go here.](https://numpy.org/doc/stable/reference/random/generator.html#distributions)
+
+## Multithreaded Generation
+
+The four core distribution (random, standard_normal, standard_exponential, and standard_gamma) can be used with multi-threading. Please look [here for an example](https://numpy.org/doc/stable/reference/random/multithreading.html#multithreaded-generation). 
+
+
