@@ -36,5 +36,31 @@ Variables are assigned to a type the ***first*** time when used or can be define
 a: int
 b: int = 0
 ```
+You are allowed to connect a variable ***once and only once*** to a type. If you assign a type a second time to a variable then you will get an error and have to remove the second assignment.
+
+For functions it looks a bit different because we have to handle the type of the return value with the **->** construct:
+```python
+def this_is_a_function() -> None:
+    pass
+
+def this_is_a_function() -> int:
+    return 5
+
+def this_is_a_function(a: int) -> int:
+    return a
+
+def this_is_a_function(a: int, b: int = 8) -> int:
+    return a + b
+
+def this_is_a_function(a: int, b: int = 8) -> tuple[int, int]:
+    return a, b
+```
+
+Please note, that there is a difference how type annotations worked for older version. I will cover only Python 3.10 and newer. 
+
+## MyPy under VS Code
+(also the header packages)
+
+
 
 
