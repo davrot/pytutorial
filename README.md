@@ -1,3 +1,5 @@
+![UB Logo](UHB_Logo_Web_negativ_de.png)
+
 # How to Python in computational neuroscience, data mining, and more 
 
 All the tutorials are tested with Python 3.11.x. Older version might have a problem with the new versions of type anotations. 
