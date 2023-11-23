@@ -4,7 +4,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 
 ## Programming Basics: Python Data analysis and more
 
-* [Numpy – Random numbers the non-legacy way](numpy_random/README.md)
+* [Numpy: Random numbers the non-legacy way](numpy_random/README.md)
 * [Numpy: rfft and spectral power](numpy_fft_1/README.md)
 * [scipy.signal: Butterworth low, high and band-pass](scipy.signal_butterworth/README.md)
 
