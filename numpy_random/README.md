@@ -57,6 +57,7 @@ rng = np.random.default_rng()
 print(rng)  # -> Generator(PCG64)
 ```
 If you don't like it there are other options:
+
 | | 
 | -------------|
 |[MT19937](https://numpy.org/doc/stable/reference/random/bit_generators/mt19937.html)|
@@ -67,6 +68,7 @@ If you don't like it there are other options:
 
 ## [Distributions](https://numpy.org/doc/stable/reference/random/generator.html#distributions) (you will use)
 The most important ones are in **bold**. If you see a function argument *out*, then you can reuse an existing np array (i.e. [in-place operation](https://numpy.org/doc/stable/reference/random/generator.html#in-place-vs-copy)) as target.
+
 | | |
 | ------------- |:-------------:|
 |**[integers(low[, high, size, dtype, endpoint])](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.integers.html#numpy.random.Generator.integers)**| Return random integers from low (inclusive) to high (exclusive), or if endpoint=True, low (inclusive) to high (inclusive). |
@@ -131,6 +133,7 @@ p: [0.16666667 0.33333333 0.5       ]
 ```
 
 ## [Permutations](https://numpy.org/doc/stable/reference/random/generator.html#permutations)
+
 | | |
 | ------------- |:-------------:|
 |[shuffle(x[, axis])](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.shuffle.html#numpy.random.Generator.shuffle)|Modify an array or sequence in-place by shuffling its contents.|
