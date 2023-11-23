@@ -56,10 +56,24 @@ def this_is_a_function(a: int, b: int = 8) -> tuple[int, int]:
     return a, b
 ```
 
-Please note, that there is a difference how type annotations worked for older version. I will cover only Python 3.10 and newer. 
+Please note, that there is a difference how type annotations worked for older version. I will cover only Python 3.10 and newer. The official documentation can be found [here](https://docs.python.org/3/library/typing.html).
 
 ## MyPy under VS Code
 (also the header packages)
+
+## Built-in types
+### Simple types
+### Any type (Special type indicating an unconstrained type.)
+
+```python
+from typing import Any
+a: Any = 0
+b: float = 0.0
+a = b
+```
+
+### Generic types
+
 
 
 
