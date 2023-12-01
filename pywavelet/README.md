@@ -121,3 +121,19 @@ plt.show()
 
 ![figure 3](image3.png)
 
+## Analyzing a test signal 
+First we need a test signal. We will use a 50Hz sinus for that
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+f_test: float = 50  # Hz
+t_test: np.ndarray = np.arange(0, 1000) / 1000
+test_data: np.ndarray = np.sin(2 * np.pi * f_test * t_test)
+
+plt.plot(t_test, test_data)
+plt.xlabel("time [sec]")
+plt.ylabel("time series")
+```
+![figure 4](image4.png)
+
