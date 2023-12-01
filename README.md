@@ -7,9 +7,13 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 ## Programming Basics: Python Data analysis and more
 
 * [Numpy: Random numbers the non-legacy way](numpy_random/README.md)
+* [Remove a common signal from your data](SVD_data_cleaning/README.md)
+
+## Questions of spectral nature
+
 * [Numpy: rfft and spectral power](numpy_fft_1/README.md)
 * [scipy.signal: Butterworth low, high and band-pass](scipy.signal_butterworth/README.md)
-* [Remove a common signal from your data](SVD_data_cleaning/README.md)
+* [PyWavelets: Wavelet Transforms in Python](pywavelet/README.md)
 
 ## Matlab Basics
 * [Basic Structure of a Computer](matlab/1/README.md)
