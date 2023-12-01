@@ -128,7 +128,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 f_test: float = 50  # Hz
-t_test: np.ndarray = np.arange(0, 1000) / 1000
+number_of_test_samples: int = 1000
+dt: float = 1.0 / 1000  # sec
+
+t_test: np.ndarray = np.arange(0, number_of_test_samples) * dt
 test_data: np.ndarray = np.sin(2 * np.pi * f_test * t_test)
 
 plt.plot(t_test, test_data)
@@ -136,4 +139,47 @@ plt.xlabel("time [sec]")
 plt.ylabel("time series")
 ```
 ![figure 4](image4.png)
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import pywt
+
+f_test: float = 50  # Hz
+number_of_test_samples: int = 1000
+
+# The wavelet we want to use
+mother = pywt.ContinuousWavelet("cmor1.5-1.0")
+
+# Parameters for the wavelet transform
+number_of_frequences: int = 25  # frequency bands
+frequency_range_min: float = 15  # Hz
+frequency_range_max: float = 200  # Hz
+dt: float = 1.0 / 1000  # sec
+
+t_test: np.ndarray = np.arange(0, number_of_test_samples) * dt
+test_data: np.ndarray = np.sin(2 * np.pi * f_test * t_test)
+
+# Calculate the wavelet scales we requested
+s_spacing: np.ndarray = (1.0 / (number_of_frequences - 1)) * np.log2(
+    frequency_range_max / frequency_range_min
+)
+scale: np.ndarray = np.power(2, np.arange(0, number_of_frequences) * s_spacing)
+frequency_axis_request: np.ndarray = frequency_range_min * np.flip(scale)
+wave_scales: np.ndarray = 1.0 / (frequency_axis_request * dt)
+
+complex_spectrum, frequency_axis = pywt.cwt(test_data, wave_scales, mother, dt)
+
+plt.imshow(abs(complex_spectrum) ** 2, cmap="hot", aspect="auto")
+plt.colorbar()
+
+plt.yticks(np.arange(0, frequency_axis.shape[0]), frequency_axis)
+plt.xticks(np.arange(0, t_test.shape[0]), t_test)
+
+plt.xlabel("Time [sec]")
+plt.ylabel("Frequency [Hz]")
+plt.show()
+```
+![figure 5](image5.png)
+
 
