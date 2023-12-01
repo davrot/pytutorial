@@ -115,9 +115,8 @@ plt.xlabel("Frequency [Hz]")
 plt.show()
 ```
 
-``python console
-[  8  10  12  15  19  24  31  39  50  63  80 102 130 166 211 269 342 436
- 555 708]
+```Python console
+[  8  10  12  15  19  24  31  39  50  63  80 102 130 166 211 269 342 436 555 708]
 ```
 
 ![figure 3](image3.png)
