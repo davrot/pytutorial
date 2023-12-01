@@ -16,7 +16,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [PyWavelets: Wavelet Transforms in Python](pywavelet/README.md)
 
 
-## Daily litle helper
+## Daily little helper
 * [TQDM: Make your progress visible](TQDM/README.md)
 
 
