@@ -15,4 +15,4 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [Basic Structure of a Computer](matlab/1/README.md)
 * [Representation of Numbers in the Computer](matlab/2/README.md)
 
-Note: I will transfer https://www.neurotec.uni-bremen.de/drupal/teaching to this new place (and update it). 
+Note: I will transfer [https://www.neurotec.uni-bremen.de/drupal/teaching](https://www.neurotec.uni-bremen.de/drupal/teaching) to this new place (and update it). 
