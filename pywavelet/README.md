@@ -42,10 +42,6 @@ import pywt
 
 wavelet_name: str = "cmor1.5-1.0"
 
-# "linked" to how many peaks and
-# troughs the wavelet will have
-scale: float = 10
-
 # Invoking the complex morlet wavelet object
 wav = pywt.ContinuousWavelet(wavelet_name)
 
@@ -66,3 +62,43 @@ plt.title(f"filter {wavelet_name}")
 ```
 
 ![figure 1](image1.png)
+
+## Building a frequency scale for the complex Morlet wavelet
+
+We don't want to waste computations power. Thus we want to put the frequency band for higher frequencies further away than for smaller frequencies. Thus we will use a $2^{N \cdot Scale}$ scale.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import pywt
+
+number_of_frequences: int = 20  # Number of frequency bands
+frequency_range: tuple[float, float] = (2, 200)  # Hz
+dt: float = 1 / 1000  # sec
+
+frequency_range_np: np.ndarray = np.array(frequency_range)
+
+s_spacing = (1.0 / (number_of_frequences - 1)) * np.log2(
+    frequency_range_np.max() / frequency_range_np.min()
+)
+scale = np.power(2, np.arange(0, number_of_frequences) * s_spacing)
+
+frequency_axis_np = frequency_range_np.min() * np.flip(scale)
+plt.plot(frequency_axis_np, "--*", label="Frequency we want")
+
+wave_scales = 1.0 / (frequency_axis_np * dt)
+
+frequency_axis = pywt.scale2frequency("cmor1.5-1.0", wave_scales) / dt
+
+plt.plot(frequency_axis, ".", label="Frequency we got")
+plt.legend()
+plt.xlim([0, number_of_frequences - 1])
+plt.xticks(np.arange(0, number_of_frequences))
+plt.ylabel("Frequency [Hz]")
+plt.xlabel("Frequency band")
+plt.show()
+```
+
+![figure 2](image2.png)
+
+
