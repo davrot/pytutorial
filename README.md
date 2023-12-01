@@ -15,6 +15,11 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [scipy.signal: Butterworth low, high and band-pass](scipy.signal_butterworth/README.md)
 * [PyWavelets: Wavelet Transforms in Python](pywavelet/README.md)
 
+
+## Daily litle helper
+* [TQDM: Make your progress visible](TQDM/README.md)
+
+
 ## Matlab Basics
 * [Basic Structure of a Computer](matlab/1/README.md)
 * [Representation of Numbers in the Computer](matlab/2/README.md)
