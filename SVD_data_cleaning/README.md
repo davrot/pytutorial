@@ -43,13 +43,11 @@ plt.show()
 plt.plot(t, perturbation)
 plt.xlabel("Time [s]")
 plt.ylabel("Perturbation ")
-plt.title("Perturbation waveform")
 plt.show()
 
 plt.plot(t, dirty_data)
 plt.xlabel("Time [s]")
 plt.ylabel("Dirty data waveform ")
-plt.title("Dirty data waveform")
 plt.show()
 ```
 We get three fully random time series
