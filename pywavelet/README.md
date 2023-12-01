@@ -102,3 +102,22 @@ plt.show()
 ![figure 2](image2.png)
 
 
+## Cone of influence for the complex Morlet wavelet
+
+At the edges of the time series, the wavelet is dangling out of the allowed time axis. Thus these values are nonsense and need to be removed. The size of the wavelet is connected to its scale, hence for different scales the bad zone has different sizes. For the complex Morlet wavelet the number of samples are defined by the equation $\sqrt(2) \cdot scale$ ( [A Practical Guide to Wavelet Analysis](https://paos.colorado.edu/research/wavelets/)  ->  [PDF](https://paos.colorado.edu/research/wavelets/bams_79_01_0061.pdf) ). Which looks like this: 
+
+```python
+cone_of_influence = np.ceil(np.sqrt(2) * wave_scales).astype(dtype=np.int64)
+print(cone_of_influence)
+plt.plot(frequency_axis, cone_of_influence, "*")
+plt.ylabel("Number of invalid data samples")
+plt.xlabel("Frequency [Hz]")
+plt.show()
+```
+
+``python console
+[  8  10  12  15  19  24  31  39  50  63  80 102 130 166 211 269 342 436
+ 555 708]
+```
+![figure 3](image3.png)
+
