@@ -6,7 +6,7 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 You might want to read: [A Practical Guide to Wavelet Analysis](https://paos.colorado.edu/research/wavelets/)  ->  [PDF](https://paos.colorado.edu/research/wavelets/bams_79_01_0061.pdf)
 
-```
+```shell
 pip install PyWavelets
 ```
 
@@ -19,6 +19,6 @@ wavelet_list = pywt.wavelist(kind="continuous")
 print(wavelet_list)
 ```
 
-```
+```Python console
 ['cgau1', 'cgau2', 'cgau3', 'cgau4', 'cgau5', 'cgau6', 'cgau7', 'cgau8', 'cmor', 'fbsp', 'gaus1', 'gaus2', 'gaus3', 'gaus4', 'gaus5', 'gaus6', 'gaus7', 'gaus8', 'mexh', 'morl', 'shan']
 ```
