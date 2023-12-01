@@ -31,6 +31,38 @@ print(wavelet_list)
 * The Shannon wavelets ("shanB-C" with floating point values B and C)
 * The frequency B-spline wavelets ("fpspM-B-C" with integer M and floating point B, C)
 
-  see [Choosing the scales for cwt](https://pywavelets.readthedocs.io/en/latest/ref/cwt.html#choosing-the-scales-for-cwt)
+see [Choosing the scales for cwt](https://pywavelets.readthedocs.io/en/latest/ref/cwt.html#choosing-the-scales-for-cwt)
 
-  ## Visualizing wavelets
+## Visualizing wavelets
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import pywt
+
+wavelet_name: str = "cmor1.5-1.0"
+
+# "linked" to how many peaks and
+# troughs the wavelet will have
+scale: float = 10
+
+# Invoking the complex morlet wavelet object
+wav = pywt.ContinuousWavelet(wavelet_name)
+
+# Integrate psi wavelet function from -Inf to x
+# using the rectangle integration method.
+int_psi, x = pywt.integrate_wavelet(wav, precision=10)
+int_psi /= np.abs(int_psi).max()
+wav_filter: np.ndarray = int_psi[::-1]
+
+nt: int = len(wav_filter)
+t: np.ndarray = np.linspace(-nt // 2, nt // 2, nt)
+plt.plot(t, wav_filter.real, label="real")
+plt.plot(t, wav_filter.imag, label="imaginary")
+plt.ylim([-1, 1])
+plt.legend(loc="upper left")
+plt.xlabel("time (samples)")
+plt.title(f"filter {wavelet_name}")
+```
+
+![figure 1](image1.png)
