@@ -120,4 +120,6 @@ This is the original clean data and the reconstructed clean data for the first t
 
 ![figure 5](image5.png)
 
+## Disclaimer
 
+With decreasing number of channels the reconstructions of the pertubation loses quality. This is due to the fact, that the SVD can not distinguish between the common signal which was mixed in and a random common fate of the time series. In this example, where the clean data is generated from sine waves, this effect is especially strong. You should always take a close look at u[:, 0] which is the reconstructed common signal. 
