@@ -56,6 +56,8 @@ plt.xlabel("Time [s]")
 plt.ylabel("Dirty data ")
 plt.show()
 ```
+Let us look at the first three of the 100 channels. 
+
 We get three fully random time series
 
 ![figure 1](image1.png)
@@ -69,5 +71,53 @@ Both combined with random mixing coefficients
 ![figure 3](image3.png)
 
 ## Estimating the common signal
+
+```python
+import numpy as np
+import scipy
+import matplotlib.pyplot as plt
+
+file = np.load("data.npz")
+
+clean_data = file["clean_data"]
+perturbation = file["perturbation"]
+dirty_data = file["dirty_data"].copy()
+t: np.ndarray = np.arange(0, dirty_data.shape[0]) / 1000
+
+dirty_data -= dirty_data.mean(axis=0, keepdims=True)
+u, s, Vh = scipy.linalg.svd(dirty_data, full_matrices=False)
+
+to_remove = u[:, 0][..., np.newaxis] * Vh[0, :][np.newaxis, ...] * s[0]
+
+dirty_data = file["dirty_data"].copy()
+dirty_data -= to_remove
+
+for i in range(0, 3):
+    plt.subplot(3, 1, 1 + i)
+    plt.plot(t, perturbation[:, i], label="original")
+    plt.plot(t, to_remove[:, i], "--", label="reconstructed")
+    plt.xlabel("Time [s]")
+    plt.ylabel("Perturbation ")
+    plt.legend(loc="upper right")
+plt.show()
+
+for i in range(0, 3):
+    plt.subplot(3, 1, 1 + i)
+    plt.plot(t, clean_data[:, i], label="original")
+    plt.plot(t, dirty_data[:, i], "--", label="reconstructed")
+    plt.xlabel("Time [s]")
+    plt.ylabel("clean data waveform")
+    plt.legend(loc="upper right")
+plt.show()
+```
+
+This is the original and the reconstructed pertubation for the first three channels
+
+![figure 4](image4.png)
+
+
+This is the original clean data and the reconstructed clean data for the first three channels
+
+![figure 5](image5.png)
 
 
