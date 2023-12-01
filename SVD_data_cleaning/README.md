@@ -48,7 +48,22 @@ plt.show()
 
 plt.plot(t, dirty_data)
 plt.xlabel("Time [s]")
-plt.ylabel("Perturbation ")
+plt.ylabel("Dirty data waveform ")
 plt.title("Dirty data waveform")
 plt.show()
 ```
+We get three fully random time series
+
+![figure 1](image1.png)
+
+Sine wave with random amplitudes as common perturbation
+
+![figure 2](image2.png)
+
+Both combined with random mixing coefficients
+
+![figure 3](image3.png)
+
+## Estimating the common signal
+
+
