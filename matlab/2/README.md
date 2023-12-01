@@ -76,7 +76,9 @@ Real numbers are, by their nature, analogue quantities. Hence we would expect th
 
 $\mbox{floating-point number} = \mbox{mantissa} \cdot \mbox{basis}^{\mbox{exponent}} $
 
-Thereby, the precision, with which the real number can be represented, is determined by the number of available bits."Simple precision" requires 4 Bytes, for "double precision" 8~Bytes are needed. The latter is the default configuration in Matlab. The IEEE format of double precision uses 53~Bits for the mantissa, 11~Bits for the exponent and for the basis the remaining ~2. One Bit of the mantissa respectively the exponent are used for the sign of the quantity. Thus, the exponent can vary between$-1024$ and $+1023$. The mantissa always represents a value in the interval $[1, 2[$ in the IEEE notation. Here, the $52$ Bits are utilized to add up fractions of exponents of 2. The value of the mantissa yields mantissa=$1+\sum_{i=1}^{52} b_i 2^{-i}$, with $b_i=1$ , if the $i$-th bit in the mantissa is set.
+Thereby, the precision, with which the real number can be represented, is determined by the number of available bits."Simple precision" requires 4 Bytes, for *double precision* 8~Bytes are needed. The latter is the default configuration in Matlab. The IEEE format of double precision uses 53-Bits for the mantissa, 11-Bits for the exponent and for the basis the remaining 2. One Bit of the mantissa respectively the exponent are used for the sign of the quantity. Thus, the exponent can vary between$-1024$ and $+1023$. The mantissa always represents a value in the interval $[1, 2[$ in the IEEE notation. Here, the $52$ Bits are utilized to add up fractions of exponents of 2. The value of the mantissa yields 
+$$mantissa = 1 + \sum_{i=1}^{52} b_i 2^{-i}$$ 
+, with $b_i=1$ , if the $i$-th bit in the mantissa is set.
 
 ## Range Error
 The maximal range of the floating-point numbers is determined by the number of bits used to code for the exponent. A typical number for single precision is
@@ -116,3 +118,23 @@ $\log_{10}(n!) = \log_{10}(\mbox{mantissa})+{\mbox{exponent}} $
 We now associate the integer part of $\log_{10}(n!)$ with the exponent. The post-decimal places are associated with the mantissa, i.e. mantissa = $10^a$ with $a = \log_{10}(n!)-\mbox{exponent}$. 
 
 From these examples we learn that range errors can usually be circumvented with a little creativity.
+
+## Rounding Error
+
+Rounding errors stem from the finite precision of the mantissa. The following program illustrates this fact:
+
+```matlab
+x = 1;
+
+while (1+x ~= 1)
+    x = x/2;
+end
+
+x = x*2;
+```
+
+
+One might think that this constitutes an infinite loop. To the contrary, the loop will be left in finite time. The result for double precision is $x \approx 2\times 10^{-16}$ (= Matlab variable eps). eps is the smallest number with $1+$eps$>1$, and is the \quoting{machine accuracy}. Rounding errors of this order of magnitude occur on a regular basis. For example, Matlab calculates $\sin{\pi} \approx 1.2246\times 10^{-16}$. It shall be mentioned hat the machine accuracy for double precision is exactly eps $= 2^{-52}$,
+
+since 52 bits (plus one bit for the sign) are used for the mantissa. This rounding error might appear to be small and negligible. However, if further calculations are performed with rounded numbers, the rounding errors can accumulate with each calculation and grow to a significant value.
+
