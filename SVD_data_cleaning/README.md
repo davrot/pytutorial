@@ -13,18 +13,23 @@ import matplotlib.pyplot as plt
 rng = np.random.default_rng()
 
 time_series_length: int = 1000
-number_of_channels: int = 3
+number_of_channels: int = 100
+
+t: np.ndarray = np.arange(0, time_series_length) / 1000
 
 # Clean data
+frequencies = 10 / rng.random((1, number_of_channels))
+phase = 2 * np.pi * rng.random((1, number_of_channels))
 clean_data: np.ndarray = (
-    rng.random((time_series_length, number_of_channels))
-    + 5 * np.arange(0, number_of_channels)[np.newaxis, ...]
+    0.5
+    * rng.random((1, number_of_channels))
+    * np.sin(t[..., np.newaxis] * 2 * np.pi * frequencies + phase)
+    + np.arange(0, number_of_channels)[np.newaxis, ...]
 )
 
 # Perturbation
-t: np.ndarray = np.arange(0, time_series_length) / 1000
 y: np.ndarray = np.sin(t * 2 * np.pi * 1)
-mix_coefficients: np.ndarray = 1 + rng.random((3))
+mix_coefficients: np.ndarray = 1 + rng.random((number_of_channels)) * 5
 perturbation: np.ndarray = y[..., np.newaxis] * mix_coefficients[np.newaxis, ...]
 
 # Dirty data
@@ -35,19 +40,20 @@ np.savez(
     "data.npz", clean_data=clean_data, perturbation=perturbation, dirty_data=dirty_data
 )
 
-plt.plot(t, clean_data)
+
+plt.plot(t, clean_data[..., 0:3])
 plt.xlabel("Time [s]")
 plt.ylabel("Clean data waveform")
 plt.show()
 
-plt.plot(t, perturbation)
+plt.plot(t, perturbation[..., 0:3])
 plt.xlabel("Time [s]")
 plt.ylabel("Perturbation ")
 plt.show()
 
-plt.plot(t, dirty_data)
+plt.plot(t, dirty_data[..., 0:3])
 plt.xlabel("Time [s]")
-plt.ylabel("Dirty data waveform ")
+plt.ylabel("Dirty data ")
 plt.show()
 ```
 We get three fully random time series
