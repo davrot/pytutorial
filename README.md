@@ -1,4 +1,8 @@
 # How to Python in computational neuroscience, data mining, and more 
+{:.no_toc}
+
+* TOC
+{:toc}
 
 All the tutorials are tested with Python 3.11.x. Older version might have a problem with the new versions of type anotations. 
 
