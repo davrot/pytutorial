@@ -1,0 +1,12 @@
+name: University of Bremen -- Python Tutorials
+theme: jekyll-theme-Hacker
+
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  parse_block_html: true
+  
+use_math: true
+
