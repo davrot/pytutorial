@@ -95,3 +95,19 @@ Testfile_2
 Testfile_3
 Testfile_10
 ```
+
+Alternatively without a for-loop but using [map](https://docs.python.org/3/library/functions.html#map) ,  [list](https://docs.python.org/3/library/functions.html#func-list) and [lambda functions](https://docs.python.org/3/reference/expressions.html#lambda):
+
+```python
+import glob
+from natsort import natsorted
+
+filenames = natsorted(glob.glob("*.mat"))
+filenames = list(map(lambda s: s.rsplit(".", 1)[0], filenames))
+print(filenames)
+```
+
+```python console
+['Testfile_1', 'Testfile_2', 'Testfile_3', 'Testfile_10']
+```
+
