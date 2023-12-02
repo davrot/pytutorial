@@ -45,6 +45,17 @@ print(list)
 ['Testfile_001.mat', 'Testfile_002.mat', 'Testfile_010.mat', 'Testfile_003.mat']
 ```
 
+### Sorting the filenames
+
+```python
+import glob
+
+list = sorted(glob.glob("*.mat"))
+print(list)
+```
+
+
+
 
 
 
