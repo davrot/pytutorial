@@ -124,6 +124,28 @@
         .code { color: #000000; font-family: 'Courier New', monospace; } 
         code { color: #000000; font-family: 'Courier New', monospace; } 
 
+        darkblue-title-override {
+            line-height: 37px;
+            font-size: 22px;
+            font-size: 1.375rem;
+            color: #fff
+            font-family: "SharpSansWeb-Medium","Arial",Arial,sans-serif;
+            position: static;
+        }    
+
+        darkblue-container-override {
+            position: relative;
+            padding-right: 0;
+            padding-left: 0;
+            width: 100vw;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #00326d;
+            z-index: 1;
+            overflow: hidden;
+            transition: 0.3s ease-in-out
+        }    
+        
         table {
           border-collapse: collapse;
           width: 100%;
@@ -175,9 +197,13 @@
                         </a>
                     </div>
                     <div class="lightblue-container">
-                        <div class="lightblue-bar">
-                            <div class="lightblue-title">
-                                <a href="/pytutorial/">PyTutorials</a>
+                        <div class="darkblue-container-override">
+                            <div class="lightblue-bar">
+                                <div class="lightblue-title">
+                                    <div class="darkblue-title-override">
+                                        <a href="/pytutorial/">PyTutorials</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
