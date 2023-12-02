@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page.title | default: site.title }}</title>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$']]
+            }
+        };
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <h1>{{ site.title }}</h1>
+    </header>
+
+    <!-- Main content -->
+    <main>
+        {{ content }}
+    </main>
+
+</body>
+
+</html>
+
