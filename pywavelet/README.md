@@ -19,7 +19,7 @@ wavelet_list = pywt.wavelist(kind="continuous")
 print(wavelet_list)
 ```
 
-```Python console
+```Python
 ['cgau1', 'cgau2', 'cgau3', 'cgau4', 'cgau5', 'cgau6', 'cgau7', 'cgau8', 'cmor', 'fbsp', 'gaus1', 'gaus2', 'gaus3', 'gaus4', 'gaus5', 'gaus6', 'gaus7', 'gaus8', 'mexh', 'morl', 'shan']
 ```
 
@@ -115,7 +115,7 @@ plt.xlabel("Frequency [Hz]")
 plt.show()
 ```
 
-```Python console
+```python
 [  8  10  12  15  19  24  31  39  50  63  80 102 130 166 211 269 342 436 555 708]
 ```
 
