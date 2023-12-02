@@ -199,6 +199,8 @@
             font-size: 22px;
             font-size: 1.375rem;
             color: #00326d
+            font-family: "SharpSansWeb-Medium","Arial",Arial,sans-serif;
+            position: static;            
         }
 
         .darkblue-container {
@@ -226,8 +228,14 @@
             font-size: 22px;
             font-size: 1.375rem;
             color: #fff
+            font-family: "SharpSansWeb-Medium","Arial",Arial,sans-serif;
+            position: static;
         }        
 
+        .darkblue-container .darkblue-bar .darkblue-title .a {
+            text-decoration: none;
+        }            
+        
         .container {
           width: 1150px;
           margin: 0 auto; /* This will center the container */
@@ -254,7 +262,10 @@
         tr:nth-child(odd) {
           background-color: white; /* White for odd rows */
         }
-        
+
+        th:empty {
+          display: none; /* This will make an empty header cell vanish */
+        }        
     </style>
     
 </head>
