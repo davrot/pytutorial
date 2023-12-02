@@ -162,15 +162,83 @@
         p a:hover {
             color: #c60c2b
         }        
+
+        .navbar .navbar-collapse ul.navbar-main .navbar-main-wrap .navbar-inner-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2 .navbar-inner-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap .navbar-inner-wrap2,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2 .navbar-inner-wrap2 {
+            display: inline-flex;
+            max-height: 56px;
+            white-space: nowrap;
+            transition: 0.3s ease-in-out;
+            padding: 0;
+            margin: 0;
+            list-style-type: none
+        }        
+
+        .navbar .navbar-collapse ul.navbar-main>li .overview a,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap>li .overview a,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2>li .overview a,.navbar .navbar-collapse ul.navbar-main .navbar-inner-wrap>li .overview a,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap .navbar-inner-wrap>li .overview a,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2 .navbar-inner-wrap>li .overview a,.navbar .navbar-collapse ul.navbar-main .navbar-inner-wrap2>li .overview a,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap .navbar-inner-wrap2>li .overview a,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2 .navbar-inner-wrap2>li .overview a {
+            font-size: 20px;
+            font-size: 1.25rem;
+            color: #fff;
+            padding: 10px;
+            padding-left: 20px;
+            position: relative;
+            margin-right: 32px!important;
+            margin-left: 2px;
+            margin-top: 2px
+        }
+        
+        .navbar .navbar-collapse ul.navbar-main>li .overview a:hover,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap>li .overview a:hover,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2>li .overview a:hover,.navbar .navbar-collapse ul.navbar-main .navbar-inner-wrap>li .overview a:hover,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap .navbar-inner-wrap>li .overview a:hover,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2 .navbar-inner-wrap>li .overview a:hover,.navbar .navbar-collapse ul.navbar-main .navbar-inner-wrap2>li .overview a:hover,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap .navbar-inner-wrap2>li .overview a:hover,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2 .navbar-inner-wrap2>li .overview a:hover {
+            color: #fff;
+            background-color: transparent;
+            text-decoration: underline
+        }
+        
+        .navbar .navbar-collapse ul.navbar-main>li .overview a:before,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap>li .overview a:before,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2>li .overview a:before,.navbar .navbar-collapse ul.navbar-main .navbar-inner-wrap>li .overview a:before,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap .navbar-inner-wrap>li .overview a:before,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2 .navbar-inner-wrap>li .overview a:before,.navbar .navbar-collapse ul.navbar-main .navbar-inner-wrap2>li .overview a:before,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap .navbar-inner-wrap2>li .overview a:before,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2 .navbar-inner-wrap2>li .overview a:before {
+            content: "\e258";
+            font-family: "Glyphicons Halflings";
+            position: absolute;
+            left: 0;
+            top: 11px;
+            height: 31px;
+            font-size: 15px
+        }
+        
+        .navbar .navbar-collapse ul.navbar-main>li>.dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap>li>.dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2>li>.dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-inner-wrap>li>.dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap .navbar-inner-wrap>li>.dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2 .navbar-inner-wrap>li>.dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-inner-wrap2>li>.dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap .navbar-inner-wrap2>li>.dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2 .navbar-inner-wrap2>li>.dropdown-wrap {
+            padding: 0 0 50px 30px;
+            box-shadow: 0 5px 10px 0 rgba(0,0,0,.2)
+        }
+        
+        .navbar .navbar-collapse ul.navbar-main>li>.dropdown-wrap>.overflow-wrap>ul.dropdown-menu,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap>li>.dropdown-wrap>.overflow-wrap>ul.dropdown-menu,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2>li>.dropdown-wrap>.overflow-wrap>ul.dropdown-menu,.navbar .navbar-collapse ul.navbar-main .navbar-inner-wrap>li>.dropdown-wrap>.overflow-wrap>ul.dropdown-menu,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap .navbar-inner-wrap>li>.dropdown-wrap>.overflow-wrap>ul.dropdown-menu,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2 .navbar-inner-wrap>li>.dropdown-wrap>.overflow-wrap>ul.dropdown-menu,.navbar .navbar-collapse ul.navbar-main .navbar-inner-wrap2>li>.dropdown-wrap>.overflow-wrap>ul.dropdown-menu,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap .navbar-inner-wrap2>li>.dropdown-wrap>.overflow-wrap>ul.dropdown-menu,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2 .navbar-inner-wrap2>li>.dropdown-wrap>.overflow-wrap>ul.dropdown-menu {
+            width: 100vw
+        }
+        
+        .navbar .navbar-collapse ul.navbar-main>li .dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap>li .dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2>li .dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-inner-wrap>li .dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap .navbar-inner-wrap>li .dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2 .navbar-inner-wrap>li .dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-inner-wrap2>li .dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap .navbar-inner-wrap2>li .dropdown-wrap,.navbar .navbar-collapse ul.navbar-main .navbar-main-wrap2 .navbar-inner-wrap2>li .dropdown-wrap {
+            display: none;
+            background-color: transparent;
+            width: 100%;
+            z-index: 1;
+            user-select: none;
+            position: absolute;
+            left: -50%;
+            transform: translateX(50%)
+        }        
+
+        .navbar-brand.navbar-brand-image {
+            height: 75px;
+            margin-bottom: 25px
+        }        
+        
     </style>
     
 </head>
 
 <body>
     <header>
-        <img src="/pytutorial/logo_ub_2021.png">
+        <img class="navbar-brand navbar-brand-image" src="/pytutorial/logo_ub_2021.png">
         <p>
-        <h1>{{ site.title }}</h1>
+        <ul class="navbar-inner-wrap2">
+            <li class=" ">
+            <h1>{{ site.title }}
+            </li>
+        </ul>
     </header>
 
     <!-- Main content -->
