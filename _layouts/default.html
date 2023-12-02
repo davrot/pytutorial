@@ -227,23 +227,27 @@
             font-size: 1.375rem;
             color: #fff
         }        
-        
+
+        .container {
+          width: 1150px;
+          margin: 0 auto; /* This will center the container */
+        }        
     </style>
     
 </head>
 
 <body>
     <header>
-        <a href="https://www.uni-bremen.de/"> <img class="brand-image" src="/pytutorial/logo_ub_2021.png"> </a>
-        <p>
+        <div class="container"><a href="https://www.uni-bremen.de/"> <img class="brand-image" src="/pytutorial/logo_ub_2021.png"> </a></div>
         <div class="lightblue-container"><div class="lightblue-bar"><div class="lightblue-title">Python Tutorials</div></div></div>            
-        <div class="darkblue-container"><div class="darkblue-bar"><div class="darkblue-title">Python Tutorials</div></div></div> 
+        <div class="darkblue-container"><div class="darkblue-bar"><div class="darkblue-title"><a href="/">Home</a> <a href="https://github.com/davrot/pytutorial/">GitHub Repo</a></div></div></div> 
     </header>
 
     <!-- Main content -->
     <main>
+        <div class="container">
         {{ content }}
-    
+        </div>
     </main>
 
     <footer>
