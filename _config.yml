@@ -1,3 +1,14 @@
 name: University of Bremen -- Python Tutorials
 theme: jekyll-theme-Hacker
 use_math: true
+
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  math_engine: katex
+  input: GFM
+  auto_ids: true
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+  
