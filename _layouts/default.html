@@ -223,7 +223,7 @@
             transform: translateX(50%)
         }        
 
-        .navbar-brand.navbar-brand-image {
+        .brand-image {
             height: 75px;
             margin-bottom: 25px;
             padding-top: 10px;
@@ -232,14 +232,42 @@
             padding-left: 25px;
         }        
         
+        .lightblue-container {
+            position: relative;
+            padding-right: 0;
+            padding-left: 0;
+            width: 100vw;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #d5e3f3;
+            z-index: 1;
+            overflow: hidden;
+            transition: 0.3s ease-in-out
+        }
+        
+        .lightblue-container .lightblue-bar {
+            max-width: 1180px;
+            margin: 0 auto;
+            height: 100%;
+            padding: 7px 15px
+        }
+        
+        .lightblue-container .lightblue-bar .lightblue-title {
+            line-height: 37px;
+            font-size: 22px;
+            font-size: 1.375rem;
+            color: #00326d
+        }
+        
     </style>
     
 </head>
 
 <body>
     <header>
-        <img class="navbar-brand navbar-brand-image" src="/pytutorial/logo_ub_2021.png">
+        <a href="https://www.uni-bremen.de/" <img class="brand-image" src="/pytutorial/logo_ub_2021.png"> </a>
         <p>
+        <div class="lightblue-container"><div class="lightblue-bar"><div class="lightblue-title">Python Tutorials</div></div></div>            
         <ul class="navbar-inner-wrap2">
             <li class=" ">
             <h1>{{ site.title }}
