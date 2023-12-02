@@ -7,3 +7,4 @@ kramdown:
   math_engine: mathjax
 
   
+use_math: true
