@@ -1,2 +1,3 @@
 name: University of Bremen -- Python Tutorials
 theme: jekyll-theme-Hacker
+use_math: true
