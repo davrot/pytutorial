@@ -1,4 +1,8 @@
 # Basic Structure of a Computer
+{:.no_toc}
+
+* TOC
+{:toc}
 
 By Jan Wiersig, modified by Udo Ernst and translated into English by Daniel Harnack.
 
