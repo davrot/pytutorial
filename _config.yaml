@@ -18,6 +18,3 @@ defaults:
 
 toc: true
 
-plugins:
-  - jekyll-toc
-  
