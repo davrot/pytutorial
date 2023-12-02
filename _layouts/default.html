@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <title>{{ page.title | default: site.title }}</title>
     <link rel="stylesheet" type="text/css" href="/pytutorial/css/merged-68979d1fb7b27331ef49dd6a2537c484-min.css.gzip?1699836301" media="all">
-    <script src="/pytutorial/css/merged-0ac6282b9fe882a26dcec088f8b20289-min.js.gzip?1698972301" type="text/javascript"></script>
-    <script src="/pytutorial/css/b7sectionindex.min-min.js.gzip?1698972301" type="text/javascript" defer="defer"></script>    
     <script type="text/javascript" id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
         </script>
@@ -177,18 +175,6 @@
         <!-- Main content -->
         <main>
             <div class="container">
-                
-            {% raw %}
-            {% if page.toc %}
-              <ul id="toc">
-                {% for heading in page.headings %}
-                  <li>
-                    <a href="#{{ heading.id }}">{{ heading.title }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-            {% endraw %}
     
             {{ content }}
             </div>
