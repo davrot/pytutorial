@@ -62,6 +62,7 @@ To represent negative numbers, a small trick is necessary: one specific bit code
 |10000000|	-128|
 
 Certain bit lengths have names:
+
 | | |
 | ------------- |:-------------:|
 | 1 Byte|	8 Bit|
