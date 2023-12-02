@@ -1,4 +1,9 @@
 # Remove a common signal from your data
+{:.no_toc}
+
+* TOC
+{:toc}
+
 ## Goal
 We want to remove a common signal which was mixed on top a set of data channels. There are many methods to do so. We will use SVD. Implementations are for example: [scipy.linalg.svd](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.svd.html) or [torch.svd_lowrank](https://pytorch.org/docs/stable/generated/torch.svd_lowrank.html) (which also works on the GPU)
 
