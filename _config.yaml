@@ -15,3 +15,6 @@ defaults:
       path: "" 
     values:
       layout: "default" 
+
+toc: true
+
