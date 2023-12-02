@@ -4,7 +4,10 @@
 
 All the tutorials are tested with Python 3.11.x. Older version might have a problem with the new versions of type anotations. 
 
-## Programming Basics: Python Data analysis and more
+Python: The Basics of the basics
+* [Truth Value Testing](Truth_Value_Testing/README.md)
+
+## Python Data analysis and more
 
 * [Numpy: Random numbers the non-legacy way](numpy_random/README.md)
 * [Remove a common signal from your data](SVD_data_cleaning/README.md)
