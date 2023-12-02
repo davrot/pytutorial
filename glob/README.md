@@ -77,3 +77,21 @@ print(list)
 ['Testfile_1.mat', 'Testfile_2.mat', 'Testfile_3.mat', 'Testfile_10.mat']
 ```
 
+## rsplit 
+
+And maybe you don't want to have the file extensions. Then we can use [rsplit](https://docs.python.org/3/library/stdtypes.html#str.rsplit) on the string.
+
+```python
+import glob
+from natsort import natsorted
+
+for filename in natsorted(glob.glob("*.mat")):
+    print(filename.rsplit(".", 1)[0])
+```
+
+```python console
+Testfile_1
+Testfile_2
+Testfile_3
+Testfile_10
+```
