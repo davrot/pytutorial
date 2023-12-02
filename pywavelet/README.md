@@ -7,7 +7,7 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 You might want to read: [A Practical Guide to Wavelet Analysis](https://paos.colorado.edu/research/wavelets/)  ->  [PDF](https://paos.colorado.edu/research/wavelets/bams_79_01_0061.pdf)
 
 ```shell
-pip install PyWavelets
+pip install PyWavelets 
 ```
 
 ## Which [continuous mother wavelets](https://pywavelets.readthedocs.io/en/latest/ref/cwt.html#continuous-wavelet-families) are available?
