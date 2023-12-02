@@ -7,5 +7,10 @@ kramdown:
   input: GFM
   math_engine: mathjax
 
+defaults:
+  - scope:
+      path: "" # An empty string here means all files in the project
+    values:
+      layout: "default" # Set the default layout
   
 use_math: true
