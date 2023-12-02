@@ -148,8 +148,9 @@
     
 </head>
 
-<body>
-    <header>
+<body id="p59569" class="page-59569 pagelevel-4 language-0 backendlayout-default layout-default">
+    <div id="top"></div>
+    <div class="body-bg">
         <div class="navbar-header navbar-header-main">
             <a class="navbar-brand navbar-brand-image" href="https://www.uni-bremen.de/"><img class="navbar-brand-logo-normal" src="https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Images/logo_ub_2021.png" alt="Logo Universität Bremen, zurück zur Startseite"></a>
         </div>
@@ -162,67 +163,66 @@
         </div>
         
         <div class="darkblue-container"><div class="darkblue-bar"><div class="darkblue-title"><a href="/pytutorial/">Home</a> <a href="https://github.com/davrot/pytutorial/">GitHub Repo</a></div></div></div> 
-    </header>
-
-    <!-- Main content -->
-    <main>
-        <div class="container">
-            
-        {% raw %}
-        {% if page.toc %}
-          <ul id="toc">
-            {% for heading in page.headings %}
-              <li>
-                <a href="#{{ heading.id }}">{{ heading.title }}</a>
-              </li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-        {% endraw %}
-
-        {{ content }}
-        </div>
-    </main>
-
-    
-    <footer id="footer" class="typo3-search-exclude"
-        <section class="section footer-section footer-section-content">
-            <h2 class="sr-only">Footer</h2>
+        
+        <!-- Main content -->
+        <main>
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="footernav-header">
-                            <h3>Kontakt</h3>
-                        </div>
-                        <p>
-                            Universität Bremen<br> 
-                            Postfach 330 440<br> 
-                            28334 Bremen</p><p>
-                            Telefon: +49 421 218-62003<br> 
-                            E-Mail:
-                        <div class="social"><a href="mailto:davrot@uni-bremen.de">
-                            <i class="fa fa-address-card-o" aria-hidden="true"></i> Ansprechperson </a>
-                        </div></div>
-                    <div class="col-sm-4">
-                        <div class="footernav-header">
-                            <h3>Allgemeines</h3></div>
-                        <ul class="footernav">
-                            <li><a href="https://www.uni-bremen.de/impressum">Impressum</a></li>
-                            <li><a href="https://www.uni-bremen.de/datenschutz">Datenschutz</a></li>
-                            <li><a href="https://www.uni-bremen.de/notfall">Notfall</a></li>
-                        </ul>
-                    </div><div class="col-sm-4"><div class="footernav-header">
-                        <h3>Social Media</h3>
-                    </div>
-                        <ul class="social">
-                            <li><a href="https://www.youtube.com/user/Universitaetbremen" title="Öffnet Link zu Youtube in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube fa-fw" aria-hidden="true"></i>Youtube </a></li>
-                            <li><a href="https://www.instagram.com/uni_bremen/" title="Öffnet Link zu Instagram in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram fa-fw" aria-hidden="true"></i>Instagram </a></li>
-                            <li><a href="https://www.linkedin.com/school/12668" title="Öffnet Link zu Linked In in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin fa-fw" aria-hidden="true"></i>LinkedIn </a></li>
-                            <li><a href="https://wisskomm.social/@unibremen" title="Öffnet Link zu Mastodon in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-mastodon fa-fw" aria-hidden="true"></i>Mastodon </a></li>
-                            <li><a href="https://www.tiktok.com/@unibremen" title="Öffnet Link zu TikTok in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok fa-fw" aria-hidden="true"></i>TikTok </a></li>
-                        </ul></div><div class="row UBcopyright"><p>© Universität Bremen 2023</p></div></div></div></section>        
-    </footer>
+                
+            {% raw %}
+            {% if page.toc %}
+              <ul id="toc">
+                {% for heading in page.headings %}
+                  <li>
+                    <a href="#{{ heading.id }}">{{ heading.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+            {% endraw %}
     
+            {{ content }}
+            </div>
+        </main>
+    
+        
+        <footer id="footer" class="typo3-search-exclude"
+            <section class="section footer-section footer-section-content">
+                <h2 class="sr-only">Footer</h2>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="footernav-header">
+                                <h3>Kontakt</h3>
+                            </div>
+                            <p>
+                                Universität Bremen<br> 
+                                Postfach 330 440<br> 
+                                28334 Bremen</p><p>
+                                Telefon: +49 421 218-62003<br> 
+                                E-Mail:
+                            <div class="social"><a href="mailto:davrot@uni-bremen.de">
+                                <i class="fa fa-address-card-o" aria-hidden="true"></i> Ansprechperson </a>
+                            </div></div>
+                        <div class="col-sm-4">
+                            <div class="footernav-header">
+                                <h3>Allgemeines</h3></div>
+                            <ul class="footernav">
+                                <li><a href="https://www.uni-bremen.de/impressum">Impressum</a></li>
+                                <li><a href="https://www.uni-bremen.de/datenschutz">Datenschutz</a></li>
+                                <li><a href="https://www.uni-bremen.de/notfall">Notfall</a></li>
+                            </ul>
+                        </div><div class="col-sm-4"><div class="footernav-header">
+                            <h3>Social Media</h3>
+                        </div>
+                            <ul class="social">
+                                <li><a href="https://www.youtube.com/user/Universitaetbremen" title="Öffnet Link zu Youtube in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube fa-fw" aria-hidden="true"></i>Youtube </a></li>
+                                <li><a href="https://www.instagram.com/uni_bremen/" title="Öffnet Link zu Instagram in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram fa-fw" aria-hidden="true"></i>Instagram </a></li>
+                                <li><a href="https://www.linkedin.com/school/12668" title="Öffnet Link zu Linked In in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin fa-fw" aria-hidden="true"></i>LinkedIn </a></li>
+                                <li><a href="https://wisskomm.social/@unibremen" title="Öffnet Link zu Mastodon in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-mastodon fa-fw" aria-hidden="true"></i>Mastodon </a></li>
+                                <li><a href="https://www.tiktok.com/@unibremen" title="Öffnet Link zu TikTok in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok fa-fw" aria-hidden="true"></i>TikTok </a></li>
+                            </ul></div><div class="row UBcopyright"><p>© Universität Bremen 2023</p></div></div></div></section>        
+        </footer>
+    </div>    
 </body>
 
 </html>
