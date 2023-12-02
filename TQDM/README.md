@@ -19,7 +19,7 @@ for i in trange(0, 10):
     time.sleep(1)
 ```
 
-```python console
+```python
  30%|███       | 3/10 [00:03<00:07,  1.12s/it]
 ```
 
