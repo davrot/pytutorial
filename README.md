@@ -4,7 +4,7 @@
 
 All the tutorials are tested with Python 3.11.x. Older version might have a problem with the new versions of type anotations. 
 
-Python: The Basics of the basics
+## Python: The Basics of the basics
 * [Truth Value Testing](Truth_Value_Testing/README.md)
 
 ## Python Data analysis and more
