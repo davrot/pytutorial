@@ -10,10 +10,10 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 ```python
 from pathlib import Path
 
-Path("Testfile_001.mat").touch()
-Path("Testfile_002.mat").touch()
-Path("Testfile_010.mat").touch()
-Path("Testfile_003.mat").touch()
+Path("Testfile_1.mat").touch()
+Path("Testfile_2.mat").touch()
+Path("Testfile_10.mat").touch()
+Path("Testfile_3.mat").touch()
 ```
 
 ## Using glob in a for-loop
@@ -26,10 +26,10 @@ for filename in glob.glob("*.mat"):
 ```
 
 ```python console
-Testfile_001.mat
-Testfile_002.mat
-Testfile_010.mat
-Testfile_003.mat
+Testfile_1.mat
+Testfile_2.mat
+Testfile_10.mat
+Testfile_3.mat
 ```
 
 ## Using glob to create a list
@@ -42,7 +42,7 @@ print(list)
 ```
 
 ```python console
-['Testfile_001.mat', 'Testfile_002.mat', 'Testfile_010.mat', 'Testfile_003.mat']
+['Testfile_1.mat', 'Testfile_2.mat', 'Testfile_10.mat', 'Testfile_3.mat']
 ```
 
 ### Sorting the filenames
@@ -54,6 +54,9 @@ list = sorted(glob.glob("*.mat"))
 print(list)
 ```
 
+```python console
+['Testfile_1.mat', 'Testfile_10.mat', 'Testfile_2.mat', 'Testfile_3.mat']
+```
 
 
 
