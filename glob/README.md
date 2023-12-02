@@ -41,7 +41,7 @@ list = glob.glob("*.mat")
 print(list)
 ```
 
-```python console
+```python
 ['Testfile_1.mat', 'Testfile_2.mat', 'Testfile_10.mat', 'Testfile_3.mat']
 ```
 
@@ -54,7 +54,7 @@ list = sorted(glob.glob("*.mat"))
 print(list)
 ```
 
-```python console
+```python
 ['Testfile_1.mat', 'Testfile_10.mat', 'Testfile_2.mat', 'Testfile_3.mat']
 ```
 Hmmm... This result is not helpful.
@@ -73,7 +73,7 @@ list = natsorted(glob.glob("*.mat"))
 print(list)
 ```
 
-```python console
+```python
 ['Testfile_1.mat', 'Testfile_2.mat', 'Testfile_3.mat', 'Testfile_10.mat']
 ```
 
@@ -89,7 +89,7 @@ for filename in natsorted(glob.glob("*.mat")):
     print(filename.rsplit(".", 1)[0])
 ```
 
-```python console
+```python
 Testfile_1
 Testfile_2
 Testfile_3
@@ -107,7 +107,7 @@ filenames = list(map(lambda s: s.rsplit(".", 1)[0], filenames))
 print(filenames)
 ```
 
-```python console
+```python
 ['Testfile_1', 'Testfile_2', 'Testfile_3', 'Testfile_10']
 ```
 
