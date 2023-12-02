@@ -1,4 +1,4 @@
-# [PyWavelets](https://pywavelets.readthedocs.io/en/latest/) -- Wavelet Transforms in Python
+# [PyWavelets](https://pywavelets.readthedocs.io/en/latest/) : Wavelet Transforms in Python
 ## The goal
 How do we do wavelet transforms under Python?
 
