@@ -232,6 +232,29 @@
           width: 1150px;
           margin: 0 auto; /* This will center the container */
         }        
+
+        table {
+          border-collapse: collapse;
+          width: 100%;
+          border: 2px solid black; /* 2px border around the table */
+        }
+        
+        table, th, td {
+          border: 1px solid black; /* 1px lines for cells and header */
+        }
+        
+        th {
+          background-color: white; /* White background for header */
+        }
+        
+        tr:nth-child(even) {
+          background-color: #d5e3f3; /* Blue for even rows */
+        }
+        
+        tr:nth-child(odd) {
+          background-color: white; /* White for odd rows */
+        }
+        
     </style>
     
 </head>
@@ -240,7 +263,7 @@
     <header>
         <div class="container"><a href="https://www.uni-bremen.de/"> <img class="brand-image" src="/pytutorial/logo_ub_2021.png"> </a></div>
         <div class="lightblue-container"><div class="lightblue-bar"><div class="lightblue-title">Python Tutorials</div></div></div>            
-        <div class="darkblue-container"><div class="darkblue-bar"><div class="darkblue-title"><a href="/">Home</a> <a href="https://github.com/davrot/pytutorial/">GitHub Repo</a></div></div></div> 
+        <div class="darkblue-container"><div class="darkblue-bar"><div class="darkblue-title"><a href="/pytutorial/">Home</a> <a href="https://github.com/davrot/pytutorial/">GitHub Repo</a></div></div></div> 
     </header>
 
     <!-- Main content -->
