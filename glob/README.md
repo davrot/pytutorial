@@ -1,4 +1,8 @@
 # [glob](https://docs.python.org/3/library/glob.html) : Finding files in a directory
+{:.no_toc}
+
+* TOC
+{:toc}
 
 ## Goal
 We want to deal with many files in a directory. What is an easy way to get the filename in a directory?
