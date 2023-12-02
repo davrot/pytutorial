@@ -64,11 +64,11 @@ if a != None:
 
 | | | | 
 | ------------- |:-------------:|:-------------:|
-| <	| strictly less than	| uses method: __lt__() |
-|<=	| less than or equal |	uses method: __le__() |
-|>	| strictly greater than |	uses method: __gt__() |
-|>=	| greater than or equal |	uses method: __ge__() |
-|==	| equal |	uses method: __eq__() |
+| <	| strictly less than	| uses method: \_\_lt\_\_() |
+|<=	| less than or equal |	uses method: \_\_le\_\_() |
+|>	| strictly greater than |	uses method: \_\_gt\_\_() |
+|>=	| greater than or equal |	uses method: \_\_ge\_\_() |
+|==	| equal |	uses method: \_\_eq\_\_() |
 |!=	| not equal	| |
 |is	| object identity |	|
 |is not	| negated object identity	| |
