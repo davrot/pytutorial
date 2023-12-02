@@ -296,13 +296,25 @@
     <!-- Main content -->
     <main>
         <div class="container">
-            {{ content | toc }}
-            <p>
+            
+        {% raw %}
+        {% if page.toc %}
+          <ul id="toc">
+            {% for heading in page.headings %}
+              <li>
+                <a href="#{{ heading.id }}">{{ heading.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% endraw %}
+
         {{ content }}
         </div>
     </main>
 
     <footer>
+        <section class="section footer-section footer-section-content"><h2 class="sr-only">Footer</h2><div class="container"><div class="row"><div class="col-sm-4"><div class="footernav-header"><h3>Kontakt</h3></div><p>Universität Bremen<br> Postfach 330 440<br> 28334 Bremen</p><p>Telefon: +49 421 218-<br> E-Mail:</p><div class="social"><a href="/kontakt"><i class="fa fa-address-card-o" aria-hidden="true"></i> Ansprechpersonen </a></div></div><div class="col-sm-4"><div class="footernav-header"><h3>Allgemeines</h3></div><ul class="footernav"><li><a href="/impressum">Impressum</a></li><li><a href="/datenschutz">Datenschutz</a></li><li><a href="/notfall">Notfall</a></li><li class="fleichtesprache"><a href="/leichte-sprache/"> Leichte Sprache </a></li><li class="fdgs"><a href="/dgs/"> DGS </a></li></ul></div><div class="col-sm-4"><div class="footernav-header"><h3>Social Media</h3></div><ul class="social"><!-- <li><a href="https://twitter.com/unibremen" title="Öffnet Link zu X in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i>X </a></li> --><li><a href="https://www.youtube.com/user/Universitaetbremen" title="Öffnet Link zu Youtube in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube fa-fw" aria-hidden="true"></i>Youtube </a></li><li><a href="https://www.instagram.com/uni_bremen/" title="Öffnet Link zu Instagram in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram fa-fw" aria-hidden="true"></i>Instagram </a></li><li><a href="https://www.linkedin.com/school/12668" title="Öffnet Link zu Linked In in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin fa-fw" aria-hidden="true"></i>LinkedIn </a></li><li><a href="https://wisskomm.social/@unibremen" title="Öffnet Link zu Mastodon in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-mastodon fa-fw" aria-hidden="true"></i>Mastodon </a></li><li><a href="https://www.tiktok.com/@unibremen" title="Öffnet Link zu TikTok in neuem Fenster" class="socialmedia" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-tiktok fa-fw" aria-hidden="true"></i>TikTok </a></li></ul></div><div class="row UBcopyright"><p>© Universität Bremen 2023</p></div></div></div></section>        
     </footer>
     
 </body>
