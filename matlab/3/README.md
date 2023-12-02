@@ -29,7 +29,7 @@ A major advantage of Matlab in comparison to a conventional programming language
 
 | | | |
 | ------------- |:-------------:|:-------------:|
-| `a = [3;1];`	| defines a column vector	| $\vec{a} = \left(\begin{array}{c}3\\1\\\end{array}\right)$ |
+| `a = [3;1];`	| defines a column vector	| $\vec{a} = \left(\begin{array}{c}3 & 1 \end{array}\right)$ |
 | `a(k)`	| means the vector component	| $a_k$ |
 | `b = [0,3,-4];` |	defines a row vector	| $\vec{b} = (0,3,-4)$ |
 
@@ -43,29 +43,29 @@ $3x+y = 1 $
 
 can be formulated elegantly:
 
-$$ \left(\begin{array}{cc} 1 & 2 \\\\ 3 & 1 \\ \end{array}\right) \left(\begin{array}{c} x & y \\\\ \end{array}\right) = \left(\begin{array}{c} 3 & 1 \\\\ \end{array}\right) $$
+$$ \left(\begin{array}{cc} 1 & 2 \\ 3 & 1 \end{array}\right) \left(\begin{array}{c} x & y \end{array}\right) = \left(\begin{array}{c} 3 & 1 \end{array}\right) $$
 
 respectively
 
-$D\,\vec{x} = \vec{b} $
+$$D\,\vec{x} = \vec{b} $$
 
 with the $2\times 2$ matrix
 
-$ D = \left(\begin{array}{cc}1 & 2\\3 & 1\\\end{array}\right) \begin{array}{c}\leftarrow\;\;\mbox{1. line}\\\leftarrow\;\;\mbox{2. line}\\\end{array}$
+$$ D = \left(\begin{array}{cc}1 & 2 \\ 3 & 1 \end{array}\right) \begin{array}{c}\leftarrow\;\;\mbox{1. line} \\ \leftarrow\;\;\mbox{2. line} \\ \end{array}$$
 
-$\nearrow$ $\nwarrow$
+$$\nearrow \nwarrow$$
 
 1. line 2. line
 
 and the column vectors
 
-$ \vec{x} = \left(\begin{array}{c}x\\y\\\end{array}\right) \quad\mbox{and}\quad \vec{b} = \left(\begin{array}{c}3\\ 1\\\end{array}\right) $.
+$$ \vec{x} = \left(\begin{array}{c}x & y \end{array}\right) \quad\mbox{and}\quad \vec{b} = \left(\begin{array}{c}3 & 1 \end{array}\right) $$
 
 Here, $\vec{x}$ is the solution vector being sought.
 
 The formal solution of the equation $D\,\vec{x} = \vec{b}$ is given by
 
-$\vec{x} = D^{-1}\, \vec{b} \, ,$
+&$\vec{x} = D^{-1}\, \vec{b} \, ,$&
 
 where $D^{-1}$ denotes the inverse of the matrix $D$.
 
