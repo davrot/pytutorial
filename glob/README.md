@@ -25,7 +25,7 @@ for filename in glob.glob("*.mat"):
     print(filename)
 ```
 
-```python console
+```python
 Testfile_1.mat
 Testfile_2.mat
 Testfile_10.mat
