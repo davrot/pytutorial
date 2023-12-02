@@ -16,3 +16,35 @@ Path("Testfile_010.mat").touch()
 Path("Testfile_003.mat").touch()
 ```
 
+## Using glob in a for-loop
+
+```python
+import glob
+
+for filename in glob.glob("*.mat"):
+    print(filename)
+```
+
+```python console
+Testfile_001.mat
+Testfile_002.mat
+Testfile_010.mat
+Testfile_003.mat
+```
+
+## Using glob to create a list
+
+```python
+import glob
+
+list = glob.glob("*.mat")
+print(list)
+```
+
+```python console
+['Testfile_001.mat', 'Testfile_002.mat', 'Testfile_010.mat', 'Testfile_003.mat']
+```
+
+
+
+
