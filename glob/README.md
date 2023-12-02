@@ -1,4 +1,4 @@
-# glob -- Finding files in a directory
+# [glob](https://docs.python.org/3/library/glob.html) : Finding files in a directory
 
 ## Goal
 We want to deal with many files in a directory. What is an easy way to get the filename in a directory?
@@ -57,8 +57,23 @@ print(list)
 ```python console
 ['Testfile_1.mat', 'Testfile_10.mat', 'Testfile_2.mat', 'Testfile_3.mat']
 ```
+Hmmm... This result is not helpful.
 
+### Sorting the filenames with [natsort](https://pypi.org/project/natsort/)
 
+```shell
+pip install natsort
+```
 
+```python
+import glob
+from natsort import natsorted
 
+list = natsorted(glob.glob("*.mat"))
+print(list)
+```
+
+```python console
+['Testfile_1.mat', 'Testfile_2.mat', 'Testfile_3.mat', 'Testfile_10.mat']
+```
 
