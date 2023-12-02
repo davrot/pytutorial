@@ -4,6 +4,7 @@ theme: jekyll-theme-Hacker
 markdown: kramdown
 
 kramdown:
+  input: GFM
   math_engine: mathjax
 
   
