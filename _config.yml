@@ -5,7 +5,7 @@ use_math: true
 highlighter: rouge
 markdown: kramdown
 kramdown:
-  math_engine: katex
+  math_engine: mathjax
   input: GFM
   auto_ids: true
   hard_wrap: false
