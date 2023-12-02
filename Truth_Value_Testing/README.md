@@ -1,4 +1,8 @@
 # Python -- Truth Value Testing
+{:.no_toc}
+
+* TOC
+{:toc}
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
