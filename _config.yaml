@@ -10,3 +10,8 @@ kramdown:
   
 use_math: true
 
+defaults:
+  - scope:
+      path: "" 
+    values:
+      layout: "default" 
