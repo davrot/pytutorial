@@ -7,23 +7,23 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 ## Python: The Basics of the basics
 * [Truth Value Testing](Truth_Value_Testing/README.md)
 
-## Python Data analysis and more
+## Python: Data analysis
 
 * [Numpy: Random numbers the non-legacy way](numpy_random/README.md)
 * [Remove a common signal from your data](SVD_data_cleaning/README.md)
 
-## Questions of spectral nature
+## Python: Questions of spectral nature
 
 * [Numpy: rfft and spectral power](numpy_fft_1/README.md)
 * [scipy.signal: Butterworth low, high and band-pass](scipy.signal_butterworth/README.md)
 * [PyWavelets: Wavelet Transforms in Python](pywavelet/README.md)
 
 
-## Daily little helper
+## Python: Daily little helper
 * [TQDM: Make your progress visible](TQDM/README.md)
 
 
-## Matlab Basics
+## Matlab: Basics
 * [Basic Structure of a Computer](matlab/1/README.md)
 * [Representation of Numbers in the Computer](matlab/2/README.md)
 
