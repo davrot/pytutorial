@@ -126,6 +126,22 @@
         .highlight .code { color: #000000; font-family: 'Courier New', monospace; } 
         .code { color: #000000; font-family: 'Courier New', monospace; } 
         code { color: #000000; font-family: 'Courier New', monospace; } 
+
+        th {
+          background-color: white; /* White background for header */
+        }
+        
+        tr:nth-child(even) {
+          background-color: white; /* Blue for even rows */
+        }
+        
+        tr:nth-child(odd) {
+          background-color: #d5e3f3; /* White for odd rows */
+        }
+
+        th:empty {
+          display: none; /* This will make an empty header cell vanish */
+        }    
         
         img {
           display: block;
