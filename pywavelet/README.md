@@ -1,8 +1,10 @@
 # [PyWavelets](https://pywavelets.readthedocs.io/en/latest/) : Wavelet Transforms in Python
 {:.no_toc}
 
+<nav markdown="1" class="toc-class">
 * TOC
 {:toc}
+</nav>
 
 ## The goal
 How do we do wavelet transforms under Python?
