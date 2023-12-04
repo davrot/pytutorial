@@ -282,7 +282,24 @@
                 </div>
             </section>        
         </footer>
-    </div>    
+    </div>   
+
+    <!-- Add your script at the end of the body -->
+    <script>
+        window.addEventListener('scroll', function() {
+            var headerHeight = 200; // Height of the header
+            var footerHeight = 540; // Height of the footer
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var tocElement = document.querySelector('.toc-class');
+
+            if (scrollTop > headerHeight) {
+                tocElement.style.top = '0px'; // Stick to the top of the window
+            } else {
+                tocElement.style.top = headerHeight - scrollTop + 'px'; // Adjust based on scroll position
+            }
+        });
+    </script>
+    
 </body>
 
 </html>
