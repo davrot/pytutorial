@@ -42825,7 +42825,7 @@ span.news-related-news-date {
     font-style: normal;
     font-weight: 400;
     font-display: block;
-    src: url(../../../../../../typo3conf/ext/package/Resources/Public/Styles/fontawesome-free-6.4.2-web/webfonts/fa-brands-400.woff2) format("woff2"), url(../../../../../../typo3conf/ext/package/Resources/Public/Styles/fontawesome-free-6.4.2-web/webfonts/fa-brands-400.ttf) format("truetype")
+    src: url(https://davrot.github.io/pytutorial/css/fa-brands-400.ttf) format("truetype")
 }
 
 .fab,
@@ -44887,7 +44887,7 @@ span.news-related-news-date {
     font-style: normal;
     font-weight: 900;
     font-display: block;
-    src: url(../../../../../../typo3conf/ext/package/Resources/Public/Styles/fontawesome-free-6.4.2-web/webfonts/fa-solid-900.woff2) format("woff2"), url(../../../../../../typo3conf/ext/package/Resources/Public/Styles/fontawesome-free-6.4.2-web/webfonts/fa-solid-900.ttf) format("truetype")
+    src: url(https://davrot.github.io/pytutorial/css/fa-solid-900.ttf) format("truetype")
 }
 
 .fas,
@@ -44899,14 +44899,14 @@ span.news-related-news-date {
     font-family: 'Font Awesome 5 Brands';
     font-display: block;
     font-weight: 400;
-    src: url(../../../../../../typo3conf/ext/package/Resources/Public/Styles/fontawesome-free-6.4.2-web/webfonts/fa-brands-400.woff2) format("woff2"), url(../../../../../../typo3conf/ext/package/Resources/Public/Styles/fontawesome-free-6.4.2-web/webfonts/fa-brands-400.ttf) format("truetype")
+    src: url(https://davrot.github.io/pytutorial/css/fa-brands-400.ttf) format("truetype")
 }
 
 @font-face {
     font-family: 'Font Awesome 5 Free';
     font-display: block;
     font-weight: 900;
-    src: url(../../../../../../typo3conf/ext/package/Resources/Public/Styles/fontawesome-free-6.4.2-web/webfonts/fa-solid-900.woff2) format("woff2"), url(../../../../../../typo3conf/ext/package/Resources/Public/Styles/fontawesome-free-6.4.2-web/webfonts/fa-solid-900.ttf) format("truetype")
+    src: url(https://davrot.github.io/pytutorial/css/fa-solid-900.ttf) format("truetype")
 }
 
 @font-face {
@@ -44919,13 +44919,13 @@ span.news-related-news-date {
 @font-face {
     font-family: 'FontAwesome';
     font-display: block;
-    src: url(../../../../../../typo3conf/ext/package/Resources/Public/Styles/fontawesome-free-6.4.2-web/webfonts/fa-solid-900.woff2) format("woff2"), url(../../../../../../typo3conf/ext/package/Resources/Public/Styles/fontawesome-free-6.4.2-web/webfonts/fa-solid-900.ttf) format("truetype")
+    src: url(https://davrot.github.io/pytutorial/css/fa-solid-900.ttf) format("truetype")
 }
 
 @font-face {
     font-family: 'FontAwesome';
     font-display: block;
-    src: url(../../../../../../typo3conf/ext/package/Resources/Public/Styles/fontawesome-free-6.4.2-web/webfonts/fa-brands-400.woff2) format("woff2"), url(../../../../../../typo3conf/ext/package/Resources/Public/Styles/fontawesome-free-6.4.2-web/webfonts/fa-brands-400.ttf) format("truetype")
+    src: url(https://davrot.github.io/pytutorial/css/fa-brands-400.ttf) format("truetype")
 }
 
 @font-face {
