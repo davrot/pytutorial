@@ -24726,58 +24726,58 @@ sub {
 
 @font-face {
     font-family: "ubfont";
-    src: url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/ub/ubfont.eot?jh4r45);
-    src: url("https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/ub/ubfont.eot?jh4r45#iefix") format("embedded-opentype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/ub/ubfont.ttf?jh4r45) format("truetype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/ub/ubfont.woff?jh4r45) format("woff"), url("https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/ub/ubfont.svg?jh4r45#ubfont") format("svg");
+    src: url(https://davrot.github.io/pytutorial/css/ubfont.eot?jh4r45);
+    src: url(https://davrot.github.io/pytutorial/css/ubfont.ttf?jh4r45) format("truetype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/ub/ubfont.woff?jh4r45) format("woff"), url("https://davrot.github.io/pytutorial/css/ubfont.svg?jh4r45#ubfont") format("svg");
     font-weight: 400;
     font-style: normal
 }
 
 @font-face {
     font-family: "SharpSansWeb-Bold";
-    src: url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Bold.eot);
-    src: url("https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Bold?#iefix") format("embedded-opentype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Bold.woff2) format("woff2"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Bold.woff) format("woff")
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-Bold.eot);
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans/SharpSans-Bold.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-Bold.woff) format("woff")
 }
 
 @font-face {
     font-family: "SharpSansWeb-BoldItalic";
-    src: url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-BoldItalic.eot);
-    src: url("https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-BoldItalic?#iefix") format("embedded-opentype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-BoldItalic.woff2) format("woff2"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-BoldItalic.woff) format("woff")
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-BoldItalic.eot);
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-BoldItalic.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-BoldItalic.woff) format("woff")
 }
 
 @font-face {
     font-family: "SharpSansWeb-Book";
-    src: url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Book.eot);
-    src: url("https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Book?#iefix") format("embedded-opentype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Book.woff2) format("woff2"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Book.woff) format("woff")
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-Book.eot);
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-Book.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-Book.woff) format("woff")
 }
 
 @font-face {
     font-family: "SharpSansWeb-BookItalic";
-    src: url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-BookItalic.eot);
-    src: url("https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-BookItalic?#iefix") format("embedded-opentype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-BookItalic.woff2) format("woff2"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-BookItalic.woff) format("woff")
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-BookItalic.eot);
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-BookItalic.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-BookItalic.woff) format("woff")
 }
 
 @font-face {
     font-family: "SharpSansWeb-Extrabold";
-    src: url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Extrabold.eot);
-    src: url("https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Extrabold?#iefix") format("embedded-opentype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Extrabold.woff2) format("woff2"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Extrabold.woff) format("woff")
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-Extrabold.eot);
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-Extrabold.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-Extrabold.woff) format("woff")
 }
 
 @font-face {
     font-family: "SharpSansWeb-ExtraboldItalic";
-    src: url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-ExtraboldItalic.eot);
-    src: url("https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-ExtraboldItalic?#iefix") format("embedded-opentype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-ExtraboldItalic.woff2) format("woff2"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-ExtraboldItalic.woff) format("woff")
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-ExtraboldItalic.eot);
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-ExtraboldItalic.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-ExtraboldItalic.woff) format("woff")
 }
 
 @font-face {
     font-family: "SharpSansWeb-Light";
-    src: url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Light.eot);
-    src: url("https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Light?#iefix") format("embedded-opentype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Light.woff2) format("woff2"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Light.woff) format("woff")
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-Light.eot);
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-Light.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-Light.woff) format("woff")
 }
 
 @font-face {
     font-family: "SharpSansWeb-LightItalic";
-    src: url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-LightItalic.eot);
-    src: url("https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-LightItalic?#iefix") format("embedded-opentype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-LightItalic.woff2) format("woff2"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-LightItalic.woff) format("woff")
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-LightItalic.eot);
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-LightItalic.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-LightItalic.woff) format("woff")
 }
 
 @font-face {
@@ -24788,32 +24788,32 @@ sub {
 
 @font-face {
     font-family: "SharpSansWeb-MediumItalic";
-    src: url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-MediumItalic.eot);
-    src: url("https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-MediumItalic?#iefix") format("embedded-opentype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-MediumItalic.woff2) format("woff2"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-MediumItalic.woff) format("woff")
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-MediumItalic.eot);
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-MediumItalic.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-MediumItalic.woff) format("woff")
 }
 
 @font-face {
     font-family: "SharpSansWeb-Semibold";
-    src: url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Semibold.eot);
-    src: url("https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Semibold?#iefix") format("embedded-opentype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Semibold.woff2) format("woff2"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Semibold.woff) format("woff")
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-Semibold.eot);
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-Semibold.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-Semibold.woff) format("woff")
 }
 
 @font-face {
     font-family: "SharpSansWeb-SemiboldItalic";
-    src: url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-SemiboldItalic.eot);
-    src: url("https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-SemiboldItalic?#iefix") format("embedded-opentype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-SemiboldItalic.woff2) format("woff2"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-SemiboldItalic.woff) format("woff")
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-SemiboldItalic.eot);
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-SemiboldItalic.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-SemiboldItalic.woff) format("woff")
 }
 
 @font-face {
     font-family: "SharpSansWeb-Thin";
-    src: url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Thin.eot);
-    src: url("https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Thin?#iefix") format("embedded-opentype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Thin.woff2) format("woff2"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-Thin.woff) format("woff")
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-Thin.eot);
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-Thin.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-Thin.woff) format("woff")
 }
 
 @font-face {
     font-family: "SharpSansWeb-ThinItalic";
-    src: url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-ThinItalic.eot);
-    src: url("https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-ThinItalic?#iefix") format("embedded-opentype"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-ThinItalic.woff2) format("woff2"), url(https://www.uni-bremen.de/typo3conf/ext/package/Resources/Public/Fonts/SharpSans/SharpSans-ThinItalic.woff) format("woff")
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-ThinItalic.eot);
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-ThinItalic.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-ThinItalic.woff) format("woff")
 }
 
 .breadcrumb-section {
