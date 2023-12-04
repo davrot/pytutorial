@@ -290,6 +290,7 @@
             var headerHeight = 200; // Height of the header
             var footerHeight = 540; // Height of the footer
             var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;            
             var tocElement = document.querySelector('.toc-class');
 
             if (scrollTop > headerHeight) {
@@ -297,6 +298,12 @@
             } else {
                 tocElement.style.top = headerHeight - scrollTop + 'px'; // Adjust based on scroll position
             }
+
+            if (window.innerWidth > scrollLeft){
+                tocElement.style.display = 'block'; // Show the navigation bar
+            } else {
+                tocElement.style.display = 'none'; // Hide the navigation bar
+            }            
         });
     </script>
     
