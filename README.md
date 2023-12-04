@@ -1,8 +1,10 @@
 # How to Python in computational neuroscience, data mining, and more 
 {:.no_toc}
 
+<nav markdown="1" class="toc-class">
 * TOC
 {:toc}
+</nav>
 
 All the tutorials are tested with Python 3.11.x. Older version might have a problem with the new versions of type anotations. 
 
