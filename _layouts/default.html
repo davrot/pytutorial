@@ -290,7 +290,6 @@
             var headerHeight = 200; // Height of the header
             var footerHeight = 540; // Height of the footer
             var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;            
             var tocElement = document.querySelector('.toc-class');
 
             if (scrollTop > headerHeight) {
@@ -298,6 +297,10 @@
             } else {
                 tocElement.style.top = headerHeight - scrollTop + 'px'; // Adjust based on scroll position
             }
+        });
+
+        window.addEventListener('resize', function() {
+            var tocElement = document.querySelector('.toc-class');
 
             if (window.innerWidth > 1600){
                 tocElement.style.display = 'block'; // Show the navigation bar
