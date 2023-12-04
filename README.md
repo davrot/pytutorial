@@ -13,6 +13,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 
 ## Numpy
 * [Beyond normal np.save](numpy_save_special/README.md)
+* [Dealing with Matlab files](numpy_mat_files/README.md)
 
 ## Python: Data analysis
 
