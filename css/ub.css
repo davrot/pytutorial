@@ -24782,8 +24782,8 @@ sub {
 
 @font-face {
     font-family: "SharpSansWeb-Medium";
-    src: url(https://www.neuro.uni-bremen.de/fonts_css_ub_cd/SharpSans-Medium.eot);
-    src: url(https://www.neuro.uni-bremen.de/fonts_css_ub_cd/SharpSans-Medium.woff2) format("woff2"), url(www.neuro.uni-bremen.de/fonts_css_ub_cd/SharpSans-Medium.woff) format("woff")
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-Medium.eot);
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-Medium.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-Medium.woff) format("woff")
 }
 
 @font-face {
