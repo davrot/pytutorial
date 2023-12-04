@@ -24735,7 +24735,7 @@ sub {
 @font-face {
     font-family: "SharpSansWeb-Bold";
     src: url(https://davrot.github.io/pytutorial/css/SharpSans-Bold.eot);
-    src: url(https://davrot.github.io/pytutorial/css/SharpSans/SharpSans-Bold.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-Bold.woff) format("woff")
+    src: url(https://davrot.github.io/pytutorial/css/SharpSans-Bold.woff2) format("woff2"), url(https://davrot.github.io/pytutorial/css/SharpSans-Bold.woff) format("woff")
 }
 
 @font-face {
