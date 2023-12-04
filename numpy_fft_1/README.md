@@ -1,9 +1,10 @@
 # Numpy -- rfft and spectral power
 {:.no_toc}
 
+<nav markdown="1" class="toc-class">
 * TOC
 {:toc}
-{:.toc-class}
+</nav>
 
 ## Goal
 We want to calculate a well behaved power spectral density from a 1 dimensional time series. 
