@@ -11,6 +11,9 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 ## Python: The Basics of the basics
 * [Truth Value Testing](Truth_Value_Testing/README.md)
 
+## Numpy
+* [Beyond normal np.save](numpy_save_special/README.md)
+
 ## Python: Data analysis
 
 * [Numpy: Random numbers the non-legacy way](numpy_random/README.md)
