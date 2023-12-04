@@ -16,7 +16,7 @@ Please read [NumPy for MATLAB users](https://numpy.org/doc/stable/user/numpy-fo
 
 ## Mat files under Python
 
-### MATLAB <= 7.2 format mat files
+### MATLAB < 7.3 format mat files
 
 This is a job for [scipy.io](https://docs.scipy.org/doc/scipy/reference/io.html#module-scipy.io)
 
@@ -92,3 +92,4 @@ ImportantMessage =
 
     'Hellp world!'
 ```
+### MATLAB == 7.3 format mat files
