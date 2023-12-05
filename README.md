@@ -11,6 +11,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 ## Python: The Basics of the basics
 * [Style Rulez](python_basics/style_rulez/README.md)
 * [Programming Recommendations](python_basics/programming_recommendations/README.md)
+* [Basic Math Operations](python_basics/basic_math_operations/README.md)
 * [Truth Value Testing](python_basics/truth_value_testing/README.md)
 * [Formatted String Literals](python_basics/formatted_string_literals/README.md)
 * [Flow control: match case](python_basics/match/README.md)
