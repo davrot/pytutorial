@@ -1,8 +1,10 @@
 # [scipy.signal](https://docs.scipy.org/doc/scipy/reference/signal.html) -- Butterworth low, high and band-pass
 {:.no_toc}
 
+<nav markdown="1" class="toc-class">
 * TOC
 {:toc}
+</nav>
 
 ## Goal
 
