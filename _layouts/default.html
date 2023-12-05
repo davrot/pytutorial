@@ -167,6 +167,7 @@
           width: 200px; /* Adjust as needed */
           height: 100%;
           overflow: auto;
+          font-size: .55rem;
         }
 
         .toc-class ul ul {
@@ -292,12 +293,22 @@
             var footerHeight = 540; // Height of the footer
             var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             var tocElement = document.querySelector('.toc-class');
+            var windowHeight = window.innerHeight;
+            var docHeight = document.body.offsetHeight;
 
             if (scrollTop > headerHeight) {
-                tocElement.style.top = '0px'; // Stick to the top of the window
+                tocElement.style.top = '20px'; // Stick to the top of the window
             } else {
                 tocElement.style.top = headerHeight - scrollTop + 'px'; // Adjust based on scroll position
             }
+
+            if (scrollTop + windowHeight > (docHeight - footerHeight)) {
+                // We are in the region of the footer
+                tocElement.style.height = (docHeight - scrollTop - footerHeight) + 'px';
+            } else {
+                tocElement.style.height = '100%';
+            }            
+            
         });
 
         window.addEventListener('resize', function() {
