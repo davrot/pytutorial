@@ -729,3 +729,347 @@ Why can we do that? Well, **class BaseClassA**: is just a shorthand for **cla
 
 [Object](https://docs.python.org/3/reference/datamodel.html#basic-customization) already provides us with some basic functionality like \_\_init\_\_ which is contained in all user custom classes (if not removed). 
 
+## [ABC (Abstract Base Classes)](https://docs.python.org/3/library/abc.html#module-abc) and [@abstractmethod](https://docs.python.org/3/library/abc.html#abc.abstractmethod)
+
+Maybe you need a placeholder for a future function but also want to make REALLY sure that the new class defines the function. For such a case you can use the base class ABC with @abstractmethod
+
+Deliberately not working:
+
+```python
+from abc import ABC, abstractmethod
+
+
+class BaseClassA(ABC):
+    @abstractmethod
+    def function_a(self):
+        pass
+
+
+instance = BaseClassA() # -> TypeError: Can't instantiate abstract class BaseClassA with abstract method function_a
+```
+
+Also deliberately not working:
+
+```python
+from abc import ABC, abstractmethod
+
+
+class BaseClassA(ABC):
+    @abstractmethod
+    def function_a(self):
+        pass
+
+
+class BaseClassB(BaseClassA):
+    pass
+
+instance = BaseClassB() # TypeError: Can't instantiate abstract class BaseClassB with abstract method function_a
+```
+
+This is working:
+
+```python
+from abc import ABC, abstractmethod
+
+
+class BaseClassA(ABC):
+    @abstractmethod
+    def function_a(self):
+        pass
+
+
+class BaseClassB(BaseClassA):
+    def function_a(self):
+        pass
+
+
+instance = BaseClassB()
+```
+
+## Compositions -- Against the curse of dimensionality
+
+While inherentence is a nice tool, it leads very fast to an explosion of specialized classes.
+
+An alternative is the composition approach. Here a base class for a functionality is prepared with the required abstract placeholders. This base class is then inherented by classes that provide the required spectrum of functionality. Then a composition class is designed. During instancing the composition class we plug in the functionality we want. 
+
+Hard to explain in words. Easy to show in an example: 
+
+```python
+from abc import ABC, abstractmethod
+
+
+class BaseFunction(ABC):
+    @abstractmethod
+    def add_something(self, input: int) -> int:
+        pass
+
+
+class AddOne(BaseFunction):
+    def add_something(self, input: int) -> int:
+        return input + 1
+
+
+class AddTwo(BaseFunction):
+    def add_something(self, input: int) -> int:
+        return input + 2
+
+
+class CompositionClass:
+    method_one: BaseFunction
+    method_two: BaseFunction
+
+    def __init__(self, method_one: BaseFunction, method_two: BaseFunction) -> None:
+        super().__init__()
+        self.method_one = method_one
+        self.method_two = method_two
+
+    def processing(self, input: int) -> int:
+        return self.method_two.add_something(self.method_one.add_something(input))
+
+
+variant_a = CompositionClass(method_one=AddOne(), method_two=AddOne())
+print(variant_a.processing(0))  # -> 2
+
+variant_b = CompositionClass(method_one=AddTwo(), method_two=AddTwo())
+print(variant_b.processing(0))  # -> 4
+
+variant_c = CompositionClass(method_one=AddOne(), method_two=AddTwo())
+print(variant_c.processing(0))  # -> 3
+
+variant_d = CompositionClass(method_one=AddTwo(), method_two=AddOne())
+print(variant_d.processing(0))  # -> 3
+```
+
+## [functools](https://docs.python.org/3/library/functools.html)
+
+### [@cached_property](https://docs.python.org/3/library/functools.html#functools.cached_property) (not recommended)
+
+I am not really a fan of this one. It allows you to cache calculations. However, this works only if the data behind the calculation doesn't change in any way, shape or form. If you change it then result is NOT updated. 
+
+```python
+from functools import cached_property
+
+
+class SimpleClass:
+    _a: int
+    _b: int
+
+    def __init__(self):
+        self._a = 1
+        self._b = 2
+
+    @cached_property
+    def value_x(self):
+        return self._a + self._b
+
+
+instance = SimpleClass()
+print(instance.value_x)  # -> 3
+instance._a = 7
+print(instance.value_x)  # -> 3
+```
+
+### [partialmethod](https://docs.python.org/3/library/functools.html#functools.partialmethod)
+
+Partialmethod allows you to create an alias for an already defined function but with partially pre-defined arguments:
+
+```python
+from functools import partialmethod
+
+
+class SimpleClass:
+    def function_a(self, input_1: int, input_2: int) -> int:
+        return input_1 + input_2
+
+    add_one = partialmethod(function_a, 1)
+
+
+instance = SimpleClass()
+
+print(instance.function_a(1, 1))  # -> 2
+print(instance.add_one(1))  # -> 2
+```
+
+## [Iterators](https://wiki.python.org/moin/Iterator)
+
+Iterators are used in e.g. for loops. Iterators are classes that provide the methods [\_\_iter\_\_](https://docs.python.org/3/reference/datamodel.html#object.__iter__) and [\_\_next\_\_](https://docs.python.org/3/library/stdtypes.html#iterator.__next__) . \_\_iter\_\_ just returns itself. \_\_next\_\_ does something. If \_\_next\_\_ can not do anything more (e.g. because there is not more data) then it raises the exception StopIteration.
+
+```python
+class IterExample:
+    a_max: int
+    a: int
+
+    def __init__(self):
+        self.a_max = 10
+        self.a = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.a < self.a_max:
+            self.a += 1
+        else:
+            raise StopIteration
+        return self.a**2
+
+
+instance = IterExample()
+
+for i in instance:
+    print(i)
+```
+
+We can also use the iterator class manually via [next()](https://docs.python.org/3/library/functions.html#next):
+
+```python
+class IterExample:
+    a_max: int
+    a: int
+
+    def __init__(self):
+        self.a_max = 10
+        self.a = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.a < self.a_max:
+            self.a += 1
+        else:
+            raise StopIteration
+        return self.a**2
+
+
+instance = IterExample()
+
+print(next(instance))  # -> 1
+print(next(instance))  # -> 4
+print(next(instance))  # -> 9
+print(next(instance))  # -> 16
+print(next(instance))  # -> 25
+print(next(instance))  # -> 36
+print(next(instance))  # -> 49
+print(next(instance))  # -> 64
+print(next(instance))  # -> 81
+print(next(instance))  # -> 100
+print(next(instance))  # -> StopIteration:
+```
+
+## [Generators](https://docs.python.org/3/glossary.html#term-generator)
+
+"A function which returns a [generator iterator](https://docs.python.org/3/glossary.html#term-generator-iterator). It looks like a normal function except that it contains [yield](https://docs.python.org/3/reference/simple_stmts.html#yield) expressions for producing a series of values usable in a for-loop or that can be retrieved one at a time with the [next()](https://docs.python.org/3/library/functions.html#next) function."
+
+Manually:
+
+```python
+def generator(start_value: int, end_value: int):
+    for i in range(start_value, end_value):
+        yield i**2
+
+
+i = iter(generator(1, 11))
+
+print(next(i))  # -> 1
+print(next(i))  # -> 4
+print(next(i))  # -> 9
+print(next(i))  # -> 16
+print(next(i))  # -> 25
+print(next(i))  # -> 36
+print(next(i))  # -> 49
+print(next(i))  # -> 64
+print(next(i))  # -> 81
+print(next(i))  # -> 100
+print(next(i))  # -> StopIteration:
+```
+
+Via for-loop:
+
+```python
+def generator(start_value: int, end_value: int):
+    for i in range(start_value, end_value):
+        yield i**2
+
+
+for i in generator(1, 11):
+    print(i)
+```
+
+Output:
+
+```python
+1
+4
+9
+16
+25
+36
+49
+64
+81
+100
+```
+
+## [dir](https://docs.python.org/3/library/functions.html#dir)
+
+"Without arguments, return the list of names in the current local scope. With an argument, attempt to return a list of valid attributes for that object."
+
+```python
+class BaseClassA:
+    a: int
+
+    def __init__(self):
+        super().__init__()
+        self.a = 1
+
+    def function_a(self):
+        pass
+
+    def function_b(self):
+        pass
+
+
+print(dir(BaseClassA))
+```
+
+Output
+
+```python
+['__annotations__', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'function_a', 'function_b']
+```
+
+If you look carefully through the list you will notice that the variable a is not there. The reason for this is that it doesn't exist until the instance is created:  
+
+```python
+class BaseClassA:
+    __slots__ = ["a"]
+    a: int
+
+    def __init__(self):
+        super().__init__()
+        self.a = 1
+
+    def function_a(self):
+        pass
+
+    def function_b(self):
+        pass
+
+
+instance = BaseClassA()
+print(dir(instance))
+```
+
+Output
+
+Even with \_\_slots\_\_ use, now the variable a is included in the list: 
+
+```python
+['__annotations__', '__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__slots__', '__str__', '__subclasshook__', 'a', 'function_a', 'function_b']
+```
+
+## References
+
+[Classes](https://docs.python.org/3/tutorial/classes.html)
+[Objects: Special method names](https://docs.python.org/3/reference/datamodel.html#special-method-names)
