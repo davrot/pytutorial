@@ -33,6 +33,7 @@ a_second_number = 3.33​
 a_second_number = int(a_second_number)​
 print(type(a_second_number))​ # -> <class 'int'>​
 ```
+
 |Examples|
 |---|
 |[float(x=0.0)](https://docs.python.org/3/library/functions.html#float)|
