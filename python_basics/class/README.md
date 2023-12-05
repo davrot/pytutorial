@@ -489,3 +489,243 @@ But please be aware that there are more than one putative functions for producin
 * [object.\_\_str\_\_(self)](https://docs.python.org/3/reference/datamodel.html#object.__str__) **human friendly** : Called by str(object) and the built-in functions format() and print() to compute the “informal” or nicely printable string representation of an object. The return value must be a string object.
 * [object.\_\_repr\_\_(self)](https://docs.python.org/3/reference/datamodel.html#object.__repr__)  **unambiguous** : Called by the repr() built-in function to compute the “official” string representation of an object. If at all possible, this should look like a valid Python expression that could be used to recreate an object with the same value (given an appropriate environment). If this is not possible, a string of the form <...some useful description...> should be returned. The return value must be a string object. If a class defines \_\_repr\_\_() but not \_\_str\_\_(), then \_\_repr\_\_() is also used when an “informal” string representation of instances of that class is required. This is typically used for debugging, so it is important that the representation is information-rich and unambiguous.
 
+### [@staticmethod](https://docs.python.org/3/library/functions.html#staticmethod) and [@classmethod](https://docs.python.org/3/library/functions.html#classmethod)
+**Let us be blunt here: I am not sure if you want/ need to know what @staticmethod and @classmethod does.** I was interested in this topic because I saw these decorators and asked myself what they are for. 
+
+This is a normal class method: 
+
+```python
+class SimpleClass:
+    def normal_class_method(self, input: int) -> int:
+        return input
+
+
+instance = SimpleClass()
+x = instance.normal_class_method(123)
+print(x) # -> 123
+
+print(instance.normal_class_method)  # -> <bound method SimpleClass.normal_class_method of <__main__.SimpleClass object at 0x7fcaac3334c0>>
+```
+
+The normal class method is bound (i.e. connected) to its class. 
+
+
+In the case of a **@staticmethod**, it has no first argument self. And it is not bound to the class. Or in other words: The class is just a container for this @staticmethod or "regular" function. 
+
+```python
+class SimpleClass:
+    @staticmethod
+    def static_class_method(input: int) -> int:
+        return input
+
+instance = SimpleClass()
+x = instance.static_class_method(123)
+print(x)  # -> 123
+
+print(
+    instance.static_class_method
+)  # -> <function SimpleClass.static_class_method at 0x7fca969036d0>
+```
+
+In the case of a **@classmethod**, we generate a function that can be called via the class and NOT via the 
+instance: 
+
+```python
+class SimpleClass:
+    @classmethod
+    def class_class_method(cls, input: int) -> int:
+        return input
+
+
+x = SimpleClass.class_class_method(123)
+print(x)  # -> 123
+```
+
+Note: cls is the replacement for self here. cls gives the class and self the instance to the function. 
+
+## Inherentence
+
+Inherentence allows us to add on variables and/or methods to a existing class without copying the whole source code. We inherent from a class if the put it into ( ) in the class definition:
+
+```python
+class BaseClassA:
+    a: int = 0
+
+
+class ClassA(BaseClassA):
+    b: int = 1
+
+
+instance = ClassA()
+print(instance.a)  # -> 0
+print(instance.b)  # -> 1
+```
+
+Also we can replace functions:
+
+```python
+class BaseClassA:
+    def print_something(self):
+        print("BaseClassA")
+
+
+class ClassA(BaseClassA):
+    def print_something(self):
+        print("ClassA")
+
+
+instance = ClassA()
+instance.print_something() # -> ClassA
+```
+
+## Multiple inheritance
+
+And we inherent from more than one class: 
+
+```python
+class BaseClassA:
+    def print_something(self):
+        print("BaseClassA")
+
+
+class BaseClassB:
+    def print_something(self):
+        print("BaseClassB")
+
+
+class ClassA(BaseClassA, BaseClassB):
+    pass
+
+
+class ClassB(BaseClassB, BaseClassA):
+    pass
+
+
+instance_a = ClassA()
+instance_a.print_something()  # -> BaseClassA
+instance_b = ClassB()
+instance_b.print_something()  # -> BaseClassB
+
+print(ClassA.__mro__) # -> (<class '__main__.ClassA'>, <class '__main__.BaseClassA'>, <class '__main__.BaseClassB'>, <class 'object'>)
+print(ClassB.__mro__) # -> (<class '__main__.ClassB'>, <class '__main__.BaseClassB'>, <class '__main__.BaseClassA'>, <class 'object'>)
+```
+
+As you can see: Which version of the functions survives can be complicated. If you want to understand the MRO (Method resolution order) you can look up [C3 linearization](https://en.wikipedia.org/wiki/C3_linearization). Personally, I would try to avoid this unclear situations everywhere. 
+
+We can define more precisely and prevent surprises: 
+
+```python
+class BaseClassA:
+    a = 1
+
+    def print_something(self):
+        print(f"BaseClassA {self.a}")
+
+
+class BaseClassB:
+    a = 2
+
+    def print_something(self):
+        print(f"BaseClassB {self.a}")
+
+
+class ClassA(BaseClassA, BaseClassB):
+    a = 3
+
+    def print_something(self):
+        BaseClassB.print_something(self)
+
+
+instance_a = ClassA()
+instance_a.print_something() # -> BaseClassB 3
+```
+
+If we only inherent from one class we can use super().
+
+## [super()](https://docs.python.org/3/library/functions.html#super)
+
+* "There are two typical use cases for super. In a class hierarchy with single inheritance, super can be used to refer to parent classes without naming them explicitly, thus making the code more maintainable. This use closely parallels the use of super in other programming languages."
+* "The second use case is to support cooperative multiple inheritance in a dynamic execution environment."
+
+Or in other words: super() will call the version of a function that is next in line in the MRO. 
+
+As a simple example lets look at BaseClassA -> BaseClassB -> BaseClassC: 
+
+```python
+class BaseClassA:
+    a = 1
+
+    def print_something(self):
+        print(f"BaseClassA {self.a}")
+
+
+class BaseClassB(BaseClassA):
+    a = 2
+
+    def print_something(self):
+        super().print_something()
+        print(f"BaseClassB {self.a}")
+
+
+class BaseClassC(BaseClassB):
+    a = 3
+
+    def print_something(self):
+        super().print_something()
+        print(f"BaseClassC {self.a}")
+
+
+instance_a = BaseClassC()
+instance_a.print_something()
+```
+
+Output
+
+```python
+BaseClassA 3
+BaseClassB 3
+BaseClassC 3
+```
+
+Note that for BaseClassA there is no super() because there is no higher level to call. But in the case of \_\_init\_\_ we can do that:
+
+```python
+class BaseClassA:
+    a = 1
+
+    def __init__(self):
+        super().__init__()
+        print(f"BaseClassA {self.a}")
+
+
+class BaseClassB(BaseClassA):
+    a = 2
+
+    def __init__(self):
+        super().__init__()
+        print(f"BaseClassB {self.a}")
+
+
+class BaseClassC(BaseClassB):
+    a = 3
+
+    def __init__(self):
+        super().__init__()
+        print(f"BaseClassC {self.a}")
+
+
+instance_a = BaseClassC()
+```
+
+Output
+
+```python
+BaseClassA 3
+BaseClassB 3
+BaseClassC 3
+```
+
+Why can we do that? Well, **class BaseClassA**: is just a shorthand for **class BaseClassA(object)**:
+
+[Object](https://docs.python.org/3/reference/datamodel.html#basic-customization) already provides us with some basic functionality like \_\_init\_\_ which is contained in all user custom classes (if not removed). 
+
