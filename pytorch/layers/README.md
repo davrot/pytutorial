@@ -230,6 +230,8 @@ In the following I will mark the relevant layers.
 
 ## [Recurrent Layers](https://pytorch.org/docs/stable/nn.html#recurrent-layers)
 
+RNN, GRU, LSTM and such lives here. If you don't know what this means then you don't need them...
+
 |||
 |---|---|
 |torch.nn.RNNBase|Base class for RNN modules (RNN, LSTM, GRU).|
@@ -251,7 +253,7 @@ In the following I will mark the relevant layers.
 |torch.nn.TransformerDecoderLayer|TransformerDecoderLayer is made up of self-attn, multi-head-attn and feedforward network.|
 
 
-## [Linear Layers]()
+## [Linear Layers](https://pytorch.org/docs/stable/nn.html#linear-layers)
 
 |||
 |---|---|
@@ -261,4 +263,62 @@ In the following I will mark the relevant layers.
 |**[torch.nn.LazyLinear](https://pytorch.org/docs/stable/generated/torch.nn.LazyLinear.html#torch.nn.LazyLinear)**|A torch.nn.Linear module where in_features is inferred.|
 
 
+## [Dropout Layers](https://pytorch.org/docs/stable/nn.html#dropout-layers)
+
+|||
+|---|---|
+|**[torch.nn.Dropout](https://pytorch.org/docs/stable/generated/torch.nn.Dropout.html#torch.nn.Dropout)**|During training, randomly zeroes some of the elements of the input tensor with probability p using samples from a Bernoulli distribution.|
+|**[torch.nn.Dropout1d](https://pytorch.org/docs/stable/generated/torch.nn.Dropout1d.html#torch.nn.Dropout1d)**|Randomly zero out entire channels (a channel is a 1D feature map).|
+|**[torch.nn.Dropout2d](https://pytorch.org/docs/stable/generated/torch.nn.Dropout2d.html#torch.nn.Dropout2d)**|Randomly zero out entire channels (a channel is a 2D feature map). |
+|**[torch.nn.Dropout3d](https://pytorch.org/docs/stable/generated/torch.nn.Dropout3d.html#torch.nn.Dropout3d)**|Randomly zero out entire channels (a channel is a 3D feature map)|
+|torch.nn.AlphaDropout|Applies Alpha Dropout over the input.|
+|torch.nn.FeatureAlphaDropout|Randomly masks out entire channels (a channel is a feature map)|
+
+## [Sparse Layers](https://pytorch.org/docs/stable/nn.html#sparse-layers)
+
+|||
+|---|---|
+|torch.nn.Embedding|A simple lookup table that stores embeddings of a fixed dictionary and size.|
+|torch.nn.EmbeddingBag|Computes sums or means of 'bags' of embeddings, without instantiating the intermediate embeddings.|
+
+
+## [Distance Functions](https://pytorch.org/docs/stable/nn.html#distance-functions)
+
+|||
+|---|---|
+|torch.nn.CosineSimilarity|Returns cosine similarity |
+|torch.nn.PairwiseDistance|Computes the pairwise distance between input vectors, or between columns of input matrices.|
+
+
+
+
+## [Loss Functions](https://pytorch.org/docs/stable/nn.html#loss-functions)
+
+There is a huge amount of loss function and I will only list a few selected ones. However, in 90% of the cases you will only use
+* [torch.nn.MSELoss](https://pytorch.org/docs/stable/generated/torch.nn.MSELoss.html#torch.nn.MSELoss)
+* [torch.nn.CrossEntropyLoss](https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html#torch.nn.CrossEntropyLoss)
+
+|||
+|---|---|
+|torch.nn.L1Loss|Creates a criterion that measures the mean absolute error (MAE) between each element in the input |
+|**[torch.nn.MSELoss](https://pytorch.org/docs/stable/generated/torch.nn.MSELoss.html#torch.nn.MSELoss)**|Creates a criterion that measures the mean squared error (squared L2 norm) between each element in the input |
+|**[torch.nn.CrossEntropyLoss](https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html#torch.nn.CrossEntropyLoss)**|This criterion computes the cross entropy loss between input logits and target.|
+|torch.nn.CTCLoss|The Connectionist Temporal Classification loss.|
+|torch.nn.NLLLoss|The negative log likelihood loss.|
+|torch.nn.PoissonNLLLoss|Negative log likelihood loss with Poisson distribution of target.|
+|torch.nn.GaussianNLLLoss|Gaussian negative log likelihood loss.|
+|torch.nn.KLDivLoss|The Kullback-Leibler divergence loss.|
+|torch.nn.BCELoss|Creates a criterion that measures the Binary Cross Entropy between the target and the input probabilities:|
+|torch.nn.BCEWithLogitsLoss|This loss combines a Sigmoid layer and the BCELoss in one single class.|
+|torch.nn.MarginRankingLoss|Creates a criterion that measures the loss|
+|torch.nn.HingeEmbeddingLoss|Measures the loss given an input tensor |
+|torch.nn.MultiLabelMarginLoss|Creates a criterion that optimizes a multi-class multi-classification hinge loss (margin-based loss) |
+|torch.nn.HuberLoss|Creates a criterion that uses a squared term if the absolute element-wise error falls below delta and a delta-scaled L1 term otherwise.|
+|torch.nn.SmoothL1Loss|Creates a criterion that uses a squared term if the absolute element-wise error falls below beta and an L1 term otherwise.|
+|torch.nn.SoftMarginLoss|Creates a criterion that optimizes a two-class classification logistic loss |
+|torch.nn.MultiLabelSoftMarginLoss|Creates a criterion that optimizes a multi-label one-versus-all loss based on max-entropy|
+|torch.nn.CosineEmbeddingLoss|Creates a criterion that measures the loss given input tensors  and a Tensor label |
+|torch.nn.MultiMarginLoss|Creates a criterion that optimizes a multi-class classification hinge loss (margin-based loss) |
+|torch.nn.TripletMarginLoss|Creates a criterion that measures the triplet loss given an input tensors| 
+|torch.nn.TripletMarginWithDistanceLoss|Creates a criterion that measures the triplet loss given input tensors |
 
