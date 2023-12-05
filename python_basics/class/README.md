@@ -211,11 +211,9 @@ And you get there a nice way to initialize mutable objects safely via default_fa
 ```python
 from dataclasses import dataclass, field
 
-
 @dataclass
 class SimpleClass:
     a: list = field(default_factory=list)
-
 
 instance_a = SimpleClass()
 instance_b = SimpleClass()
@@ -224,3 +222,270 @@ instance_a.a.append("X")
 print(instance_a.a)  # -> ['X']
 print(instance_b.a)  # -> []
 ```
+
+### [@property()](https://docs.python.org/3/library/functions.html#property)
+
+If a variable starts with one \_ this tells us that it is "private" and we shouldn't touch it directly with our dirty hands from the outside. However, we can use @property to control the communication with the outside world:  
+
+```python
+class SimpleClass:
+    _a: int = 0
+
+    @property
+    def a(self) -> int:
+        return self._a
+
+instance = SimpleClass()
+
+print(instance.a)  
+
+instance.a = 1  
+```
+
+```python
+0
+[...]
+AttributeError: property 'a' of 'SimpleClass' object has no setter
+```
+
+If we want to then we can allow writing and deleting of the variable too:
+
+```python
+class SimpleClass:
+    _variablename: int = 0
+
+    @property
+    def variablename(self) -> int:
+        return self._variablename
+
+    @variablename.setter
+    def variablename(self, value):
+        self._variablename = value
+
+    @variablename.deleter
+    def variablename(self):
+        del self._variablename
+
+
+instance = SimpleClass()
+
+print(instance.variablename)  # -> 0
+
+instance.variablename = 1
+print(instance.variablename)  # -> 1
+```
+
+### [\_\_slots\_\_](https://docs.python.org/3/reference/datamodel.html#slots)
+
+[They say:](https://docs.python.org/3/reference/datamodel.html#slots)
+
+* \_\_slots\_\_ allow us to explicitly declare data members (like properties) and deny the creation of [\_\_dict\_\_](https://docs.python.org/3/library/stdtypes.html#object.__dict__) and \_\_weakref\_\_ (unless explicitly declared in \_\_slots\_\_ or available in a parent.)
+The space saved over using [\_\_dict\_\_](https://docs.python.org/3/library/stdtypes.html#object.__dict__) can be significant. Attribute lookup speed can be significantly improved as well.
+Let's test if they are really smaller (Note: I will use the memory_profiler module which doesn't work with ipython: pip install memory_profiler ): 
+
+With slots:
+
+```python
+from memory_profiler import profile
+
+class SimpleClass:
+    __slots__ = ["variable_a", "variable_b", "variable_c"]
+    variable_a: int
+    variable_b: float
+    variable_c: float
+
+    def __init__(self, value) -> None:
+        self.variable_a = value
+        self.variable_b = value * 2
+        self.variable_c = value * 3
+
+
+@profile
+def main():
+    instances = []
+    for i in range(0, 100000):
+        instances.append(SimpleClass(i))
+
+main()
+```
+
+Note: The default values are set in the \_\_init\_\_ and in the section not above. \_\_slots\_\_ doesn't like it if you provide directly default values. 
+
+```python
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    17     39.2 MiB     39.2 MiB           1   @profile
+    18                                         def main():
+    19     39.2 MiB      0.0 MiB           1       instances = []
+    20     56.0 MiB     13.9 MiB      100001       for i in range(0, 100000):
+    21     56.0 MiB      2.8 MiB      100000           instances.append(SimpleClass(i))
+```
+
+Without slots:
+
+```python
+from memory_profiler import profile
+
+
+class SimpleClass:
+    variable_a: int
+    variable_b: float
+    variable_c: float
+
+    def __init__(self, value) -> None:
+        self.variable_a = value
+        self.variable_b = value * 2
+        self.variable_c = value * 3
+
+
+@profile
+def main():
+    instances = []
+    for i in range(0, 100000):
+        instances.append(SimpleClass(i))
+
+main()
+```
+
+```python
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    17     39.4 MiB     39.4 MiB           1   @profile
+    18                                         def main():
+    19     39.4 MiB      0.0 MiB           1       instances = []
+    20     65.2 MiB      6.2 MiB      100001       for i in range(0, 100000):
+    21     65.2 MiB     19.6 MiB      100000           instances.append(SimpleClass(i))
+```
+
+Why don't we use it all the time? Well, dynamic maneuvers like this are now denied:  
+
+```python
+class SimpleClass:
+    __slots__ = ["variable_a", "variable_b", "variable_c"]
+    variable_a: int
+    variable_b: float
+    variable_c: float
+
+    def __init__(self, value) -> None:
+        self.variable_a = value
+        self.variable_b = value * 2
+        self.variable_c = value * 3
+        self.b = 1 # AttributeError: 'SimpleClass' object has no attribute 'b'
+
+
+instances = SimpleClass(1)
+instances.a = 1  # AttributeError: 'SimpleClass' object has no attribute 'a'
+```
+
+## Methods
+
+**Note: If we want to use a method (or a variable) of the class from within the class we need to use the prefix self.**
+
+In this example we have defined two methods: **\_\_init\_\_** which is the constructor and **some_method** . Methods are "just" functions defined in a class. 
+
+Typically (except you deal with @classmethod or @staticmethod) the first argument of a method is **self**.
+
+```python
+class SimpleClass:
+    variable_a: int
+
+    def __init__(self) -> None:
+        self.variable_a = 1
+
+    def some_method(self, input: int) -> int:
+        return self.variable_a + input
+
+
+instance = SimpleClass()
+print(instance.some_method(678)) # -> 679
+```
+
+In case we use a function from the outside of the class, we don't see / provide **self** as an input argument.
+
+```python
+class SimpleClass:
+    variable_a: int
+
+    def __init__(self) -> None:
+        self.variable_a = 1
+
+    def some_method(self, input: int) -> int:
+        return self.variable_a + input
+
+    def some_other_method(self, input: int) -> int:
+        return self.some_method(input)
+
+
+instance = SimpleClass()
+print(instance.some_other_method(678))  # -> 679
+```
+
+### [Constructor: __init__](https://docs.python.org/3/reference/datamodel.html#object.__init__)
+
+When we [create](https://docs.python.org/3/reference/datamodel.html#object.__init__) a new instance, two internal functions of the class are called \_\_new\_\_ and \_\_init\_\_ . \_\_new\_\_ creates it and \_\_init\_\_ customize it. Normally there is no reason to touch \_\_new\_\_.
+
+**Note: No return values except None are allowed.**
+
+We will otherwise get errors like: "TypeError: \_\_init\_\_() should return None, not 'int'"
+
+The first parameter of \_\_init\_\_ is always **self**!
+
+```python
+class SimpleClass:
+    variable_a: int
+
+    def __init__(self) -> None:
+        self.variable_a = 1
+
+instance = SimpleClass()
+```
+
+We can add more arguments if we want to. Here an example with one additional argument: 
+
+```python
+class SimpleClass:
+    variable_a: int
+
+    def __init__(self, value) -> None:
+        self.variable_a = value
+
+instance = SimpleClass(1)
+```
+
+### [\_\_str\_\_](https://docs.python.org/3/reference/datamodel.html#object.__str__) and [\_\_repr\_\_](https://docs.python.org/3/reference/datamodel.html#object.__repr__)
+
+If we print our class then this happens:
+
+```python
+class SimpleClass:
+    variable_a: int
+
+    def __init__(self, value) -> None:
+        self.variable_a = value
+
+
+instance = SimpleClass(1)
+print(instance) # -> <__main__.SimpleClass object at 0x7fcab0600b80>
+```
+
+However, we can add a \_\_str\_\_ function and then we can customize our output:
+
+```python
+class SimpleClass:
+    variable_a: int
+
+    def __init__(self, value) -> None:
+        self.variable_a = value
+
+    def __str__(self) -> str:
+        return f"{self.variable_a}"
+
+instance = SimpleClass(1)
+print(instance)
+```
+
+But please be aware that there are more than one putative functions for producing output information: 
+
+* [object.\_\_str\_\_(self)](https://docs.python.org/3/reference/datamodel.html#object.__str__) **human friendly** : Called by str(object) and the built-in functions format() and print() to compute the “informal” or nicely printable string representation of an object. The return value must be a string object.
+* [object.\_\_repr\_\_(self)](https://docs.python.org/3/reference/datamodel.html#object.__repr__)  **unambiguous** : Called by the repr() built-in function to compute the “official” string representation of an object. If at all possible, this should look like a valid Python expression that could be used to recreate an object with the same value (given an appropriate environment). If this is not possible, a string of the form <...some useful description...> should be returned. The return value must be a string object. If a class defines \_\_repr\_\_() but not \_\_str\_\_(), then \_\_repr\_\_() is also used when an “informal” string representation of instances of that class is required. This is typically used for debugging, so it is important that the representation is information-rich and unambiguous.
+
