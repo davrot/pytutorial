@@ -1071,5 +1071,5 @@ Even with \_\_slots\_\_ use, now the variable a is included in the list: 
 
 ## References
 
-[Classes](https://docs.python.org/3/tutorial/classes.html)
-[Objects: Special method names](https://docs.python.org/3/reference/datamodel.html#special-method-names)
+* [Classes](https://docs.python.org/3/tutorial/classes.html)
+* [Objects: Special method names](https://docs.python.org/3/reference/datamodel.html#special-method-names)
