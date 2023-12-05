@@ -9,7 +9,7 @@
 All the tutorials are tested with Python 3.11.x. Older version might have a problem with the new versions of type anotations. 
 
 ## Python: The Basics of the basics
-* [Style_Rulez](python_basics/style_rulez/README.md)
+* [Style Rulez](python_basics/style_rulez/README.md)
 * [Programming Recommendations](python_basics/programming_recommendations/README.md)
 * [Truth Value Testing](python_basics/truth_value_testing/README.md)
 * [Formatted String Literals](python_basics/formatted_string_literals/README.md)
