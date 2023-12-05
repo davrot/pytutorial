@@ -169,33 +169,96 @@ In the following I will mark the relevant layers.
 
 |||
 |---|---|
-|torch.nn.nn.ELU|Applies the Exponential Linear Unit (ELU) function, element-wise, as described in the paper: Fast and Accurate Deep Network Learning by Exponential Linear Units (ELUs).|
-|torch.nn.nn.Hardshrink|Applies the Hard Shrinkage (Hardshrink) function element-wise.|
-|torch.nn.nn.Hardsigmoid|Applies the Hardsigmoid function element-wise.|
-|torch.nn.nn.Hardtanh|Applies the HardTanh function element-wise.|
-|torch.nn.nn.Hardswish|Applies the Hardswish function, element-wise, as described in the paper: Searching for MobileNetV3.|
-|**[torch.nn.nn.LeakyReLU](https://pytorch.org/docs/stable/generated/torch.nn.LeakyReLU.html#torch.nn.LeakyReLU)**|Applies the element-wise function:|
-|torch.nn.nn.LogSigmoid|Applies the element-wise function:|
-|torch.nn.nn.MultiheadAttention |Allows the model to jointly attend to information from different representation subspaces as described in the paper: Attention Is All You Need.|
-|torch.nn.nn.PReLU|Applies the element-wise function:|
-|**[torch.nn.nn.ReLU](https://pytorch.org/docs/stable/generated/torch.nn.ReLU.html#torch.nn.ReLU)**|Applies the rectified linear unit function element-wise:|
-|torch.nn.nn.ReLU6|Applies the element-wise function:|
-|torch.nn.nn.RReLU|Applies the randomized leaky rectified liner unit function, element-wise, as described in the paper:|
-|torch.nn.nn.SELU|Applied element-wise...|
-|torch.nn.nn.CELU|Applies the element-wise function...|
-|torch.nn.nn.GELU|Applies the Gaussian Error Linear Units function:|
-|**[torch.nn.nn.Sigmoid](https://pytorch.org/docs/stable/generated/torch.nn.Sigmoid.html#torch.nn.Sigmoid)**|Applies the element-wise function:...|
-|torch.nn.nn.SiLU|Applies the Sigmoid Linear Unit (SiLU) function, element-wise.|
-|torch.nn.nn.Mish|Applies the Mish function, element-wise.|
-|torch.nn.nn.Softplus|Applies the Softplus function |
-|torch.nn.nn.Softshrink|Applies the soft shrinkage function elementwise:|
-|torch.nn.nn.Softsign|Applies the element-wise function:...|
-|**[torch.nn.nn.Tanh](https://pytorch.org/docs/stable/generated/torch.nn.Tanh.html#torch.nn.Tanh)**|Applies the Hyperbolic Tangent (Tanh) function element-wise.|
-|torch.nn.nn.Tanhshrink |Applies the element-wise function:|
-|torch.nn.nn.Threshold |Thresholds each element of the input Tensor.|
-|torch.nn.nn.GLU |Applies the gated linear unit function |
+|torch.nn.ELU|Applies the Exponential Linear Unit (ELU) function, element-wise, as described in the paper: Fast and Accurate Deep Network Learning by Exponential Linear Units (ELUs).|
+|torch.nn.Hardshrink|Applies the Hard Shrinkage (Hardshrink) function element-wise.|
+|torch.nn.Hardsigmoid|Applies the Hardsigmoid function element-wise.|
+|torch.nn.Hardtanh|Applies the HardTanh function element-wise.|
+|torch.nn.Hardswish|Applies the Hardswish function, element-wise, as described in the paper: Searching for MobileNetV3.|
+|**[torch.nn.LeakyReLU](https://pytorch.org/docs/stable/generated/torch.nn.LeakyReLU.html#torch.nn.LeakyReLU)**|Applies the element-wise function:|
+|torch.nn.LogSigmoid|Applies the element-wise function:|
+|torch.nn.MultiheadAttention |Allows the model to jointly attend to information from different representation subspaces as described in the paper: Attention Is All You Need.|
+|torch.nn.PReLU|Applies the element-wise function:|
+|**[torch.nn.ReLU](https://pytorch.org/docs/stable/generated/torch.nn.ReLU.html#torch.nn.ReLU)**|Applies the rectified linear unit function element-wise:|
+|torch.nn.ReLU6|Applies the element-wise function:|
+|torch.nn.RReLU|Applies the randomized leaky rectified liner unit function, element-wise, as described in the paper:|
+|torch.nn.SELU|Applied element-wise...|
+|torch.nn.CELU|Applies the element-wise function...|
+|torch.nn.GELU|Applies the Gaussian Error Linear Units function:|
+|**[torch.nn.Sigmoid](https://pytorch.org/docs/stable/generated/torch.nn.Sigmoid.html#torch.nn.Sigmoid)**|Applies the element-wise function:...|
+|torch.nn.SiLU|Applies the Sigmoid Linear Unit (SiLU) function, element-wise.|
+|torch.nn.Mish|Applies the Mish function, element-wise.|
+|torch.nn.Softplus|Applies the Softplus function |
+|torch.nn.Softshrink|Applies the soft shrinkage function elementwise:|
+|torch.nn.Softsign|Applies the element-wise function:...|
+|**[torch.nn.Tanh](https://pytorch.org/docs/stable/generated/torch.nn.Tanh.html#torch.nn.Tanh)**|Applies the Hyperbolic Tangent (Tanh) function element-wise.|
+|torch.nn.Tanhshrink |Applies the element-wise function:|
+|torch.nn.Threshold |Thresholds each element of the input Tensor.|
+|torch.nn.GLU |Applies the gated linear unit function |
+
+## [Non-linear Activations (other)](https://pytorch.org/docs/stable/nn.html#non-linear-activations-other)
+
+
+|||
+|---|---|
+|torch.nn.Softmin|Applies the Softmin function to an n-dimensional input Tensor rescaling them so that the elements of the n-dimensional output Tensor lie in the range [0, 1] and sum to 1.|
+|**[torch.nn.Softmax](https://pytorch.org/docs/stable/generated/torch.nn.Softmax.html#torch.nn.Softmax)**|Applies the Softmax function to an n-dimensional input Tensor rescaling them so that the elements of the n-dimensional output Tensor lie in the range [0,1] and sum to 1.|
+|torch.nn.Softmax2d|Applies SoftMax over features to each spatial location.|
+|torch.nn.LogSoftmax|Applies the LogSoftmax|
+|torch.nn.AdaptiveLogSoftmaxWithLoss|Efficient softmax approximation as described in Efficient softmax approximation for GPUs by Edouard Grave, Armand Joulin, Moustapha Cissé, David Grangier, and Hervé Jégou.|
+
+
+## [Normalization Layers](https://pytorch.org/docs/stable/nn.html#non-linear-activations-other)
+
+|||
+|---|---|
+|**[torch.nn.BatchNorm1d](https://pytorch.org/docs/stable/generated/torch.nn.BatchNorm1d.html#torch.nn.BatchNorm1d)**|Applies Batch Normalization over a 2D or 3D input as described in the paper Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift .|
+|**[torch.nn.BatchNorm2d](https://pytorch.org/docs/stable/generated/torch.nn.BatchNorm2d.html#torch.nn.BatchNorm2d)**|Applies Batch Normalization over a 4D input (a mini-batch of 2D inputs with additional channel dimension) as described in the paper Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift .|
+|**[torch.nn.BatchNorm3d](https://pytorch.org/docs/stable/generated/torch.nn.BatchNorm3d.html#torch.nn.BatchNorm3d)**|Applies Batch Normalization over a 5D input (a mini-batch of 3D inputs with additional channel dimension) as described in the paper Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift .|
+|torch.nn.LazyBatchNorm1d|A torch.nn.BatchNorm1d module with lazy initialization of the num_features argument of the BatchNorm1d that is inferred from the input.size(1).|
+|torch.nn.LazyBatchNorm2d|A torch.nn.BatchNorm2d module with lazy initialization of the num_features argument of the BatchNorm2d that is inferred from the input.size(1).|
+|torch.nn.LazyBatchNorm3d|A torch.nn.BatchNorm3d module with lazy initialization of the num_features argument of the BatchNorm3d that is inferred from the input.size(1).|
+|torch.nn.GroupNorm|Applies Group Normalization over a mini-batch of inputs as described in the paper Group Normalization|
+|torch.nn.SyncBatchNorm|Applies Batch Normalization over a N-Dimensional input (a mini-batch of [N-2]D inputs with additional channel dimension) as described in the paper Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift .|
+|torch.nn.InstanceNorm1d|Applies Instance Normalization over a 2D (unbatched) or 3D (batched) input as described in the paper Instance Normalization: The Missing Ingredient for Fast Stylization.|
+|torch.nn.InstanceNorm2d|Applies Instance Normalization over a 4D input (a mini-batch of 2D inputs with additional channel dimension) as described in the paper Instance Normalization: The Missing Ingredient for Fast Stylization.|
+|torch.nn.InstanceNorm3d|Applies Instance Normalization over a 5D input (a mini-batch of 3D inputs with additional channel dimension) as described in the paper Instance Normalization: The Missing Ingredient for Fast Stylization.|
+|torch.nn.LazyInstanceNorm1d|A torch.nn.InstanceNorm1d module with lazy initialization of the num_features argument of the InstanceNorm1d that is inferred from the input.size(1).|
+|torch.nn.LazyInstanceNorm2d|A torch.nn.InstanceNorm2d module with lazy initialization of the num_features argument of the InstanceNorm2d that is inferred from the input.size(1).|
+|torch.nn.LazyInstanceNorm3d|A torch.nn.InstanceNorm3d module with lazy initialization of the num_features argument of the InstanceNorm3d that is inferred from the input.size(1).|
+|torch.nn.LayerNorm|Applies Layer Normalization over a mini-batch of inputs as described in the paper Layer Normalization|
+|torch.nn.LocalResponseNorm|Applies local response normalization over an input signal composed of several input planes, where channels occupy the second dimension.|
+
+## [Recurrent Layers](https://pytorch.org/docs/stable/nn.html#recurrent-layers)
+
+|||
+|---|---|
+|torch.nn.RNNBase|Base class for RNN modules (RNN, LSTM, GRU).|
+|**[torch.nn.RNN](https://pytorch.org/docs/stable/generated/torch.nn.RNN.html#torch.nn.RNN)**|Applies a multi-layer Elman |
+|**[torch.nn.LSTM](https://pytorch.org/docs/stable/generated/torch.nn.LSTM.html#torch.nn.LSTM)**|Applies a multi-layer long short-term memory (LSTM) RNN to an input sequence.|
+|**[torch.nn.GRU](https://pytorch.org/docs/stable/generated/torch.nn.GRU.html#torch.nn.GRU)**|Applies a multi-layer gated recurrent unit (GRU) RNN to an input sequence.|
+|torch.nn.RNNCell|An Elman RNN cell with tanh or ReLU non-linearity.|
+|torch.nn.LSTMCell|A long short-term memory (LSTM) cell.|
+|torch.nn.GRUCell|A gated recurrent unit (GRU) cell|
+
+### [Transformer Layers](https://pytorch.org/docs/stable/nn.html#transformer-layers)
+
+|||
+|---|---|
+|torch.nn.Transformer|A transformer model.|
+|torch.nn.TransformerEncoder|TransformerEncoder is a stack of N encoder layers.|
+|torch.nn.TransformerDecoder|TransformerDecoder is a stack of N decoder layers|
+|torch.nn.TransformerEncoderLayer|TransformerEncoderLayer is made up of self-attn and feedforward network.|
+|torch.nn.TransformerDecoderLayer|TransformerDecoderLayer is made up of self-attn, multi-head-attn and feedforward network.|
+
+
+## [Linear Layers]()
+
+|||
+|---|---|
+|**[torch.nn.Identity](https://pytorch.org/docs/stable/generated/torch.nn.Identity.html#torch.nn.Identity)**|A placeholder identity operator that is argument-insensitive|
+|**[torch.nn.Linear](https://pytorch.org/docs/stable/generated/torch.nn.Linear.html#torch.nn.Linear)**|Applies a linear transformation to the incoming data|
+|**[torch.nn.Bilinear](https://pytorch.org/docs/stable/generated/torch.nn.Bilinear.html#torch.nn.Bilinear)**|Applies a bilinear transformation to the incoming data|
+|**[torch.nn.LazyLinear](https://pytorch.org/docs/stable/generated/torch.nn.LazyLinear.html#torch.nn.LazyLinear)**|A torch.nn.Linear module where in_features is inferred.|
 
 
 
-
-### Transformer Layers
