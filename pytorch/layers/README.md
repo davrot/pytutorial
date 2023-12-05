@@ -99,7 +99,7 @@ I will skip the following layer types (because you will not care about them):
 * [Vision Layers](https://pytorch.org/docs/stable/nn.html#vision-layers)
 * [Shuffle Layers](https://pytorch.org/docs/stable/nn.html#vision-layers)
 * [DataParallel Layers (multi-GPU, distributed)](https://pytorch.org/docs/stable/nn.html#dataparallel-layers-multi-gpu-distributed)
-* [Distance Functions](https://pytorch.org/docs/stable/nn.html#distance-functions)
+
 
 In the following I will mark the relevant layers.
 
