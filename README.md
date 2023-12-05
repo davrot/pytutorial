@@ -13,7 +13,9 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [Programming Recommendations](python_basics/programming_recommendations/README.md)
 * [Truth Value Testing](python_basics/truth_value_testing/README.md)
 * [Formatted String Literals](python_basics/formatted_string_literals/README.md)
-
+* [Files](python_basics/files/README.md)
+* [os.makedirs: Creating order via sub-directories](python_basics/python_os_makedirs/README.md)
+* [glob: Finding files in a directory](python_basics/glob/README.md)
 
 ## Numpy
 * [Beyond normal np.save](numpy_save_special/README.md)
@@ -33,10 +35,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 
 ## Python: Daily little helper
 
-* [os.makedirs: Creating order via sub-directories](python_os_makedirs/README.md)
 * [TQDM: Make your progress visible](TQDM/README.md)
-* [glob: Finding files in a directory](glob/README.md)
-
 
 ## Matlab: Basics
 * [Basic Structure of a Computer](matlab/1/README.md)
