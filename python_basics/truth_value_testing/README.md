@@ -1,8 +1,10 @@
 # Python -- Truth Value Testing
 {:.no_toc}
 
+<nav markdown="1" class="toc-class">
 * TOC
 {:toc}
+</nav>
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
