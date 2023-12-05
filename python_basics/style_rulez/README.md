@@ -350,3 +350,108 @@ Inline comments are unnecessary and in fact distracting if they state the obviou
 x = x + 1                 # Increment x
 ```
 
+But sometimes, this is useful:
+```python
+x = x + 1                 # Compensate for border
+```
+
+## [Documentation Strings](https://peps.python.org/pep-0008/#documentation-strings)
+
+Conventions for writing good documentation strings (a.k.a. "docstrings") are immortalized in PEP 257.
+
+* Write docstrings for all public modules, functions, classes, and methods. Docstrings are not necessary for non-public methods, but you should have a comment that describes what the method does. This comment should appear after the def line.
+* […] Note that most importantly, the """ that ends a multiline docstring should be on a line by itself:
+
+```python
+"""Return a foobang
+
+Optional plotz says to frobnicate the bizbaz first.
+"""
+```
+
+* For one liner docstrings, please keep the closing """ on the same line:
+
+```python
+"""Return an ex-parrot."""
+```
+
+## [Naming Conventions](https://peps.python.org/pep-0008/#naming-conventions)
+
+The naming conventions of Python’s library are a bit of a mess, so we’ll never get this completely consistent – nevertheless, here are the currently recommended naming standards. New modules and packages (including third party frameworks) should be written to these standards, but where an existing library has a different style, internal consistency is preferred.
+
+### [Overriding Principle](https://peps.python.org/pep-0008/#overriding-principle)
+
+Names that are visible to the user as public parts of the API should follow conventions that reflect usage rather than implementation.
+
+### [Descriptive: Naming Styles](https://peps.python.org/pep-0008/#descriptive-naming-styles)
+
+Note: I switched to lower_case_with_underscores for everything except the name of a class definition (and its filename). There I use CapitalizedWords.
+
+### [Prescriptive: Naming Conventions](https://peps.python.org/pep-0008/#prescriptive-naming-conventions)
+
+#### [Names to Avoid](https://peps.python.org/pep-0008/#names-to-avoid)
+
+Never use the characters ‘l’ (lowercase letter el), ‘O’ (uppercase letter oh), or ‘I’ (uppercase letter eye) as single character variable names.
+
+In some fonts, these characters are indistinguishable from the numerals one and zero. When tempted to use ‘l’, use ‘L’ instead.
+
+#### [ASCII Compatibility](https://peps.python.org/pep-0008/#ascii-compatibility)
+
+Identifiers used in the standard library must be ASCII compatible as described in the [policy section](https://peps.python.org/pep-3131#policy-specification) of [PEP 3131](https://peps.python.org/pep-3131).
+
+#### [Package and Module Names](https://peps.python.org/pep-0008/#package-and-module-names)
+
+Modules should have short, all-lowercase names. Underscores can be used in the module name if it improves readability. Python packages should also have short, all-lowercase names, although the use of underscores is discouraged.
+
+#### [Class Names](https://peps.python.org/pep-0008/#class-names)
+
+Class names should normally use the CapWords convention.
+
+#### [Type Variable Names](https://peps.python.org/pep-0008/#type-variable-names)
+
+Names of type variables introduced in [PEP 484](https://peps.python.org/pep-0484) should normally use CapWords preferring short names: T, AnyStr, Num. It is recommended to add suffixes _co or _contra to the variables used to declare covariant or contravariant behavior correspondingly
+
+#### [Exception Names](https://peps.python.org/pep-0008/#exception-names)
+
+Because exceptions should be classes, the class naming convention applies here. However, you should use the suffix “Error” on your exception names (if the exception actually is an error).
+
+#### [Global Variable Names](https://peps.python.org/pep-0008/#global-variable-names)
+
+(Let’s hope that these variables are meant for use inside one module only.) The conventions are about the same as those for functions.
+
+#### [Function and Variable Names](https://peps.python.org/pep-0008/#function-and-variable-names)
+
+Function names should be lowercase, with words separated by underscores as necessary to improve readability.
+
+Variable names follow the same convention as function names.
+
+#### [Function and Method Arguments](https://peps.python.org/pep-0008/#function-and-method-arguments)
+
+* Always use self for the first argument to instance methods.
+* Always use cls for the first argument to class methods.
+
+If a function argument’s name clashes with a reserved keyword, it is generally better to append a single trailing underscore rather than use an abbreviation or spelling corruption. Thus class_ is better than clss. (Perhaps better is to avoid such clashes by using a synonym.)
+
+#### [Method Names and Instance Variables](https://peps.python.org/pep-0008/#method-names-and-instance-variables)
+
+Use the function naming rules: lowercase with words separated by underscores as necessary to improve readability.
+
+Use one leading underscore only for non-public methods and instance variables.
+
+To avoid name clashes with subclasses, use two leading underscores to invoke Python’s name mangling rules.
+
+#### [Constants](https://peps.python.org/pep-0008/#constants)
+
+Constants are usually defined on a module level and written in all capital letters with underscores separating words. Examples include MAX_OVERFLOW and TOTAL.
+
+#### [Designing for Inheritance](https://peps.python.org/pep-0008/#designing-for-inheritance)
+
+Always decide whether a class's methods and instance variables (collectively: "attributes") should be public or non-public. If in doubt, choose non-public; it's easier to make it public later than to make a public attribute non-public. […] Public attributes should have no leading underscores.
+[+ many rules we --- hopefully -- might not need in our daily use… I will spare you those.]
+
+
+
+
+
+
+
