@@ -147,7 +147,7 @@ In the following I will mark the relevant layers.
 |torch.nn.AdaptiveAvgPool2d|Applies a 2D adaptive average pooling over an input signal composed of several input planes.|
 |torch.nn.AdaptiveAvgPool3d|Applies a 3D adaptive average pooling over an input signal composed of several input planes.|
 
-## [Padding Layers](https://pytorch.org/docs/stable/nn.html#padding-layers)
+### [Padding Layers](https://pytorch.org/docs/stable/nn.html#padding-layers)
 
 |||
 |---|---|
@@ -165,7 +165,7 @@ In the following I will mark the relevant layers.
 |torch.nn.ConstantPad3d|Pads the input tensor boundaries with a constant value.|
 
 
-## [Non-linear Activations (weighted sum, nonlinearity)](https://pytorch.org/docs/stable/nn.html#non-linear-activations-weighted-sum-nonlinearity)
+### [Non-linear Activations (weighted sum, nonlinearity)](https://pytorch.org/docs/stable/nn.html#non-linear-activations-weighted-sum-nonlinearity)
 
 |||
 |---|---|
@@ -195,8 +195,7 @@ In the following I will mark the relevant layers.
 |torch.nn.Threshold |Thresholds each element of the input Tensor.|
 |torch.nn.GLU |Applies the gated linear unit function |
 
-## [Non-linear Activations (other)](https://pytorch.org/docs/stable/nn.html#non-linear-activations-other)
-
+### [Non-linear Activations (other)](https://pytorch.org/docs/stable/nn.html#non-linear-activations-other)
 
 |||
 |---|---|
@@ -207,7 +206,7 @@ In the following I will mark the relevant layers.
 |torch.nn.AdaptiveLogSoftmaxWithLoss|Efficient softmax approximation as described in Efficient softmax approximation for GPUs by Edouard Grave, Armand Joulin, Moustapha Cissé, David Grangier, and Hervé Jégou.|
 
 
-## [Normalization Layers](https://pytorch.org/docs/stable/nn.html#non-linear-activations-other)
+### [Normalization Layers](https://pytorch.org/docs/stable/nn.html#non-linear-activations-other)
 
 |||
 |---|---|
@@ -228,7 +227,7 @@ In the following I will mark the relevant layers.
 |torch.nn.LayerNorm|Applies Layer Normalization over a mini-batch of inputs as described in the paper Layer Normalization|
 |torch.nn.LocalResponseNorm|Applies local response normalization over an input signal composed of several input planes, where channels occupy the second dimension.|
 
-## [Recurrent Layers](https://pytorch.org/docs/stable/nn.html#recurrent-layers)
+### [Recurrent Layers](https://pytorch.org/docs/stable/nn.html#recurrent-layers)
 
 RNN, GRU, LSTM and such lives here. If you don't know what this means then you don't need them...
 
@@ -253,7 +252,7 @@ RNN, GRU, LSTM and such lives here. If you don't know what this means then you d
 |torch.nn.TransformerDecoderLayer|TransformerDecoderLayer is made up of self-attn, multi-head-attn and feedforward network.|
 
 
-## [Linear Layers](https://pytorch.org/docs/stable/nn.html#linear-layers)
+### [Linear Layers](https://pytorch.org/docs/stable/nn.html#linear-layers)
 
 |||
 |---|---|
@@ -263,7 +262,7 @@ RNN, GRU, LSTM and such lives here. If you don't know what this means then you d
 |**[torch.nn.LazyLinear](https://pytorch.org/docs/stable/generated/torch.nn.LazyLinear.html#torch.nn.LazyLinear)**|A torch.nn.Linear module where in_features is inferred.|
 
 
-## [Dropout Layers](https://pytorch.org/docs/stable/nn.html#dropout-layers)
+### [Dropout Layers](https://pytorch.org/docs/stable/nn.html#dropout-layers)
 
 |||
 |---|---|
@@ -274,7 +273,7 @@ RNN, GRU, LSTM and such lives here. If you don't know what this means then you d
 |torch.nn.AlphaDropout|Applies Alpha Dropout over the input.|
 |torch.nn.FeatureAlphaDropout|Randomly masks out entire channels (a channel is a feature map)|
 
-## [Sparse Layers](https://pytorch.org/docs/stable/nn.html#sparse-layers)
+### [Sparse Layers](https://pytorch.org/docs/stable/nn.html#sparse-layers)
 
 |||
 |---|---|
@@ -282,17 +281,14 @@ RNN, GRU, LSTM and such lives here. If you don't know what this means then you d
 |torch.nn.EmbeddingBag|Computes sums or means of 'bags' of embeddings, without instantiating the intermediate embeddings.|
 
 
-## [Distance Functions](https://pytorch.org/docs/stable/nn.html#distance-functions)
+### [Distance Functions](https://pytorch.org/docs/stable/nn.html#distance-functions)
 
 |||
 |---|---|
 |torch.nn.CosineSimilarity|Returns cosine similarity |
 |torch.nn.PairwiseDistance|Computes the pairwise distance between input vectors, or between columns of input matrices.|
 
-
-
-
-## [Loss Functions](https://pytorch.org/docs/stable/nn.html#loss-functions)
+### [Loss Functions](https://pytorch.org/docs/stable/nn.html#loss-functions)
 
 There is a huge amount of loss function and I will only list a few selected ones. However, in 90% of the cases you will only use
 * [torch.nn.MSELoss](https://pytorch.org/docs/stable/generated/torch.nn.MSELoss.html#torch.nn.MSELoss)
@@ -321,4 +317,18 @@ There is a huge amount of loss function and I will only list a few selected ones
 |torch.nn.MultiMarginLoss|Creates a criterion that optimizes a multi-class classification hinge loss (margin-based loss) |
 |torch.nn.TripletMarginLoss|Creates a criterion that measures the triplet loss given an input tensors| 
 |torch.nn.TripletMarginWithDistanceLoss|Creates a criterion that measures the triplet loss given input tensors |
+
+### [Utilities](https://pytorch.org/docs/stable/nn.html#dropout-layers)
+
+In this category you will find a lot of utility functions... A lot!
+
+|||
+|---|---|
+|**[torch.nn.Flatten](https://pytorch.org/docs/stable/generated/torch.nn.Flatten.html#torch.nn.Flatten)**|Flattens a contiguous range of dims into a tensor.|
+|**[torch.nn.Unflatten](https://pytorch.org/docs/stable/generated/torch.nn.Unflatten.html#torch.nn.Unflatten)**|Unflattens a tensor dim expanding it to a desired shape.|
+
+### [Quantization](https://pytorch.org/docs/stable/nn.html#quantized-functions)
+
+The probability that you need it is low but I listed it here because we are working on it. And if I need to find the [link](https://pytorch.org/docs/stable/quantization.html#quantization-doc)... 
+
 
