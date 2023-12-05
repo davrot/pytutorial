@@ -167,7 +167,7 @@
           width: 200px; /* Adjust as needed */
           height: 100%;
           overflow: auto;
-          font-size: .55rem;
+          
         }
 
         .toc-class ul ul {
@@ -175,6 +175,10 @@
             padding-bottom: 10px;
         }        
 
+        .toc-class li {
+            font-size: .55rem;
+        }           
+        
     </style>
     
 </head>
@@ -302,9 +306,9 @@
                 tocElement.style.top = headerHeight - scrollTop + 'px'; // Adjust based on scroll position
             }
 
-            if (scrollTop + windowHeight > (docHeight - footerHeight)) {
+            if (scrollTop + 20 + windowHeight > (docHeight - footerHeight)) {
                 // We are in the region of the footer
-                tocElement.style.height = (docHeight - scrollTop - footerHeight) + 'px';
+                tocElement.style.height = (docHeight - scrollTop - footerHeight - 20) + 'px';
             } else {
                 tocElement.style.height = '100%';
             }            
