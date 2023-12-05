@@ -8,6 +8,30 @@
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
+## Number is Python
+
+### Integer
+
+```python
+a_number = 0​
+print(type(a_number))​ # -> <class 'int'>​
+```
+
+## FLOATing point number
+
+```python
+a_second_number = 3.33​
+print(type(a_second_number))​ # -> <class 'float'>​
+```
+
+## Conversion (i.e. casts) between types
+
+```python
+a_second_number = 3.33​
+a_second_number = int(a_second_number)​
+print(type(a_second_number))​ # -> <class 'int'>​
+```
+
 ## [Basic math operations​](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex​)
 
 Order of operations​:
@@ -38,6 +62,7 @@ Order of operations​:
 |pow(x, y)​|x to the power y​|
 |x ** y​|x to the power y​|
 
+
 ## "True division"
 
 ```python
@@ -52,8 +77,29 @@ print(5 // 2)​ # -> 2
 print(6 // 2)​ # -> 3
 ```
 
-## [Bitwise Operations on Integer Types​](https://docs.python.org/3/library/stdtypes.html?highlight=elif#bitwise-operations-on-integer-types​)
+## [Boolean Operations — and, or, not​](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not)
 
+|Operation​|Result​|
+|---|---|
+|x or y​|if x is false, then y, else x​|
+|x and y​|if x is false, then x, else y​|
+|not x​|if x is false, then True, else False​|
+
+## [Comparisons](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not)
+
+|Operation|Meaning|
+|---|---|
+|<|strictly less than|
+|<=|less than or equal|
+|>|strictly greater than|
+|>=|greater than or equal|
+|==|equal|
+|!=|not equal|
+|is|object identity|
+|is not|negated object identity
+
+
+## [Bitwise Operations on Integer Types​](https://docs.python.org/3/library/stdtypes.html?highlight=elif#bitwise-operations-on-integer-types​)
 
 |Operation​|Result​|
 |---|---|
