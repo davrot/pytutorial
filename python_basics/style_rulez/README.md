@@ -32,6 +32,10 @@ Note: If you don’t trust you editor or your editor hasn’t this capability th
 
 *Blackened code looks the same regardless of the project you're reading. Formatting becomes transparent after a while and you can focus on the content instead. Black makes code review faster by producing the smallest diffs possible.*
 
+The main style rulez will be presented very condensed.
+
+I can not stress enough: Use a good editor!!! Then you don't even read this text. Well... except the programming recommendations. 
+
 ## [PEP 20 – The Zen of Python](https://peps.python.org/pep-0020/)
 
 The rules behind Python are:
@@ -57,13 +61,10 @@ The rules behind Python are:
 |If the implementation is easy to explain, it may be a good idea.|
 |Namespaces are one honking great idea -- let's do more of those!|
 
-## The main style rulez... (condensed)
 
-I can not stress enough: Use a good editor!!! Then you don't even read this text. Well... except the programming recommendations. 
+## [Code Lay-out](https://peps.python.org/pep-0008/#code-lay-out)
 
-### [Code Lay-out](https://peps.python.org/pep-0008/#code-lay-out)
-
-#### [Indentation](https://peps.python.org/pep-0008/#indentation)
+### [Indentation](https://peps.python.org/pep-0008/#indentation)
 
 Use 4 spaces per indentation level. Spaces are the preferred indentation method.
 
@@ -86,11 +87,11 @@ foo = long_function_name(
     var_three, var_four)
 ```
 
-#### [Tabs or Spaces?](https://peps.python.org/pep-0008/#tabs-or-spaces)
+### [Tabs or Spaces?](https://peps.python.org/pep-0008/#tabs-or-spaces)
 
 Spaces are the preferred indentation method.
 
-#### [Maximum Line Length](https://peps.python.org/pep-0008/#maximum-line-length)
+### [Maximum Line Length](https://peps.python.org/pep-0008/#maximum-line-length)
 
 * **Limit all lines to a maximum of 79 characters.**
 * For flowing long blocks of text with fewer structural restrictions **(docstrings or comments), the line length should be limited to 72 characters.**
@@ -103,7 +104,7 @@ with open('/path/to/some/file/you/want/to/read') as file_1, \
     file_2.write(file_1.read())
 ```
 
-#### [Should a Line Break Before or After a Binary Operator?](https://peps.python.org/pep-0008/#should-a-line-break-before-or-after-a-binary-operator)
+### [Should a Line Break Before or After a Binary Operator?](https://peps.python.org/pep-0008/#should-a-line-break-before-or-after-a-binary-operator)
 
 ```python
 # Correct:
@@ -115,20 +116,20 @@ income = (gross_wages
           - student_loan_interest)
 ```
 
-#### [Blank Lines](https://peps.python.org/pep-0008/#blank-lines)
+## [Blank Lines](https://peps.python.org/pep-0008/#blank-lines)
 
 * Surround top-level function and class definitions with two blank lines.
 * Method definitions inside a class are surrounded by a single blank line.
 * Extra blank lines may be used (sparingly) to separate groups of related functions. Blank lines may be omitted between a bunch of related one-liners (e.g. a set of dummy implementations).
 * Use blank lines in functions, sparingly, to indicate logical sections.
 
-#### [Source File Encoding](https://peps.python.org/pep-0008/#source-file-encoding)
+## [Source File Encoding](https://peps.python.org/pep-0008/#source-file-encoding)
 
 * Code [...] should always use UTF-8 […]
 * […] All identifiers in the Python standard library MUST use ASCII-only identifiers, and SHOULD use English words wherever feasible (in many cases, abbreviations and technical terms are used which aren't English). In addition, string literals and comments must also be in ASCII. […]
 * […] Open source projects with a global audience are encouraged to adopt a similar policy.
 
-#### [Imports](https://peps.python.org/pep-0008/#imports)
+## [Imports](https://peps.python.org/pep-0008/#imports)
 
 * Imports should usually be on separate lines:
 ```python
@@ -168,4 +169,184 @@ from myclass import MyClass
 from foo.bar.yourclass import YourClass
 ```
 
-* **Wildcard imports (from <module> import *) should be avoided** [...]
+* **Wildcard imports** (from <module> import *) **should be avoided** [...]
+
+## [Module Level Dunder Names](https://peps.python.org/pep-0008/#module-level-dunder-names)
+
+Module level “dunders” (i.e. names with two leading and two trailing underscores) such as __all__, __author__, __version__, etc. should be placed after the module docstring but before any import statements except from __future__ imports. Python mandates that future-imports must appear in the module before any other code except docstrings:
+
+```python
+"""This is the example module.
+
+This module does stuff.
+"""
+
+from __future__ import barry_as_FLUFL
+
+__all__ = ['a', 'b', 'c']
+__version__ = '0.1'
+__author__ = 'Cardinal Biggles'
+
+import os
+import sys
+```
+
+## [String Quotes](https://peps.python.org/pep-0008/#string-quotes)
+
+In Python, single-quoted strings and double-quoted strings are the same. This PEP does not make a recommendation for this. Pick a rule and stick to it. When a string contains single or double quote characters, however, use the other one to avoid backslashes in the string. It improves readability.
+
+For triple-quoted strings, always use double quote characters to be consistent with the docstring convention in [PEP 257](https://peps.python.org/pep-0257).
+
+## [Whitespace in Expressions and Statements](https://peps.python.org/pep-0008/#whitespace-in-expressions-and-statements)
+
+* Immediately inside parentheses, brackets or braces:
+
+```python
+# Correct:
+spam(ham[1], {eggs: 2})
+```  
+
+* Between a trailing comma and a following close parenthesis:
+
+```python
+# Correct:
+foo = (0,)
+```  
+
+* Immediately before a comma, semicolon, or colon:
+
+```python
+# Correct:
+if x == 4: print(x, y); x, y = y, x
+``` 
+* Immediately before the open parenthesis that starts the argument list of a function call:
+
+```python
+# Correct:
+spam(1)
+```
+
+* Immediately before the open parenthesis that starts an indexing or slicing:
+
+```python
+# Correct:
+dct['key'] = lst[index]
+```  
+
+* However, in a slice the colon acts like a binary operator, and should have equal amounts on either side (treating it as the operator with the lowest priority). In an extended slice, both colons must have the same amount of spacing applied. Exception: when a slice parameter is omitted, the space is omitted:
+
+```python
+# Correct:
+ham[1:9], ham[1:9:3], ham[:9:3], ham[1::3], ham[1:9:]
+ham[lower:upper], ham[lower:upper:], ham[lower::step]
+ham[lower+offset : upper+offset]
+ham[: upper_fn(x) : step_fn(x)], ham[:: step_fn(x)]
+ham[lower + offset : upper + offset]
+```  
+
+* More than one space around an assignment (or other) operator to align it with another:
+
+```python
+# Correct:
+x = 1
+y = 2
+long_variable = 3
+```
+
+## [Other Recommendations](https://peps.python.org/pep-0008/#other-recommendations)
+
+* Avoid trailing whitespace anywhere.
+* Always surround these binary operators with a single space on either side: assignment (=), augmented assignment (+=, -= etc.), comparisons (==, <, >, !=, <>, <=, >=, in, not in, is, is not), Booleans (and, or, not).
+* If operators with different priorities are used, consider adding whitespace around the operators with the lowest priority(ies). 
+
+```python
+# Correct:
+i = i + 1
+submitted += 1
+x = x*2 - 1
+hypot2 = x*x + y*y
+c = (a+b) * (a-b)
+```
+
+* Function annotations should use the normal rules for colons and always have spaces around the -> arrow if present.
+
+```python
+# Correct:
+def munge(input: AnyStr): ...
+def munge() -> PosInt: ...
+```
+
+* Don't use spaces around the = sign when used to indicate a keyword argument, or when used to indicate a default value for an unannotated function parameter:
+
+```python
+# Correct:
+def complex(real, imag=0.0):
+    return magic(r=real, i=imag)
+```
+
+* When combining an argument annotation with a default value, however, do use spaces around the = sign:
+
+```python
+# Correct:
+def munge(sep: AnyStr = None): ...
+def munge(input: AnyStr, sep: AnyStr = None, limit=1000): ...
+```
+
+* Compound statements (multiple statements on the same line) are generally discouraged:
+
+```python
+# Correct:
+if foo == 'blah':
+    do_blah_thing()
+do_one()
+do_two()
+do_three()
+```
+
+## When to Use Trailing Commas
+
+Trailing commas are usually optional, except they are mandatory when making a tuple of one element [...] For clarity, it is recommended to surround the latter in (technically redundant) parentheses:
+
+```python
+# Correct:
+FILES = ('setup.cfg',)
+```
+
+When trailing commas are redundant, they are often helpful when a version control system is used, [...] However it does not make sense to have a trailing comma on the same line as the closing delimiter (except in the above case of singleton tuples):
+
+```python
+# Correct:
+FILES = [
+    'setup.cfg',
+    'tox.ini',
+    ]
+initialize(FILES,
+           error=True,
+           )
+```
+
+## [Comments](https://peps.python.org/pep-0008/#comments)
+
+Comments that contradict the code are worse than no comments. Always make a priority of keeping the comments up-to-date when the code changes!
+Comments should be complete sentences. The first word should be capitalized, unless it is an identifier that begins with a lower case letter (never alter the case of identifiers!).
+[...]
+Ensure that your comments are clear and easily understandable to other speakers of the language you are writing in.
+Python coders from non-English speaking countries: please write your comments in English, unless you are 120% sure that the code will never be read by people who don't speak your language.
+
+### [Block Comments](https://peps.python.org/pep-0008/#block-comments)
+
+Block comments generally apply to some (or all) code that follows them, and are indented to the same level as that code. Each line of a block comment starts with a # and a single space (unless it is indented text inside the comment).
+
+Paragraphs inside a block comment are separated by a line containing a single #
+
+### [Inline Comments](https://peps.python.org/pep-0008/#inline-comments)
+
+Use inline comments sparingly.
+An inline comment is a comment on the same line as a statement. Inline comments should be separated by at least two spaces from the statement. They should start with a # and a single space.
+
+Inline comments are unnecessary and in fact distracting if they state the obvious. Don't do this:
+
+```python
+x = x + 1                 # Increment x
+```
+
