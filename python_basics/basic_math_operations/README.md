@@ -10,6 +10,8 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 ## Number is Python
 
+In Python everything is a class. Numbers are classes as well. 
+
 ### Integer
 
 ```python
@@ -31,6 +33,15 @@ a_second_number = 3.33​
 a_second_number = int(a_second_number)​
 print(type(a_second_number))​ # -> <class 'int'>​
 ```
+Examples are here:
+* [float(x=0.0)](https://docs.python.org/3/library/functions.html#float)
+* [bin(x)](https://docs.python.org/3/library/functions.html#bin)
+* [bool(x=False)](https://docs.python.org/3/library/functions.html#bool)
+* [bytes(source=b'')](https://docs.python.org/3/library/functions.html#func-bytes)
+* [complex(real=0, imag=0)](https://docs.python.org/3/library/functions.html#complex)
+* [hex(x)](https://docs.python.org/3/library/functions.html#hex)
+* [int(x=0)](https://docs.python.org/3/library/functions.html#int)
+* [str(object='')](https://docs.python.org/3/library/functions.html#func-str)
 
 ## [Basic math operations​](https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex​)
 
