@@ -9,7 +9,7 @@
 All the tutorials are tested with Python 3.11.x. Older version might have a problem with the new versions of type anotations. 
 
 ## Python: The Basics of the basics
-* [Truth Value Testing](Truth_Value_Testing/README.md)
+* [Truth Value Testing](python_basics/truth_value_testing/README.md)
 
 ## Numpy
 * [Beyond normal np.save](numpy_save_special/README.md)
