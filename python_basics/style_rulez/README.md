@@ -132,6 +132,7 @@ income = (gross_wages
 ## [Imports](https://peps.python.org/pep-0008/#imports)
 
 * Imports should usually be on separate lines:
+  
 ```python
 # Correct:
 import os
