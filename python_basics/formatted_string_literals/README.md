@@ -198,6 +198,30 @@ print(f"{d:%Y-%m-%d %H:%M:%S}")
 
 see [here](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes) for the date formats 
 
+## [Escape Sequence​](https://docs.python.org/3/reference/lexical_analysis.html#escape-sequences)
+
+|Escape Sequence|Meaning|
+|---|---|
+|\<newline>|Backslash and newline ignored|
+|\\ \\ |Backslash (\\)|
+|\\'|Single quote (')|
+|\\"|Double quote (")|
+|\a|ASCII Bell (BEL)|
+|\b|ASCII Backspace (BS)|
+|\f|ASCII Formfeed (FF)|
+|\n|ASCII Linefeed (LF)|
+|\r|ASCII Carriage Return (CR)|
+|\t|ASCII Horizontal Tab (TAB)|
+|\v|ASCII Vertical Tab (VT)|
+|\ooo|Character with octal value ooo|
+|\xhh|Character with hex value hh|
+
+|Escape Sequence|Meaning|
+|---|---|
+|\N{name}| Character named name in the Unicode database>
+|\uxxxx|Character with 16-bit hex value xxxx|
+|\Uxxxxxxxx|Character with 32-bit hex value xxxxxxxx|
+
 ## Reference
 * [Formatted String Literals](https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals)
 * [Format Specification Mini-Language](https://docs.python.org/3/library/string.html#formatspec)
