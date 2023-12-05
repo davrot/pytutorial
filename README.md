@@ -16,7 +16,8 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [Files](python_basics/files/README.md)
 * [Creating order via sub-directories: os.makedirs](python_basics/os_makedirs/README.md)
 * [Finding files in a directory: glob](python_basics/glob/README.md)
-* [Class](python_basics/class/README.md) 
+* [Class](python_basics/class/README.md)
+* [Exceptions](python_basics/exceptions/README.md)
 
 
 ## Numpy
