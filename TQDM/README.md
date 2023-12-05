@@ -1,8 +1,10 @@
 # [TQDM](https://tqdm.github.io/) -- Make your progress visible
 {:.no_toc}
 
+<nav markdown="1" class="toc-class">
 * TOC
 {:toc}
+</nav>
 
 ## Goal
 Introducing a nice progress bar for for loops.
