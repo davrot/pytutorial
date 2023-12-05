@@ -1,8 +1,10 @@
 # Representation of Numbers in the Computer
 {:.no_toc}
 
+<nav markdown="1" class="toc-class">
 * TOC
 {:toc}
+</nav>
 
 By Jan Wiersig, modified by Udo Ernst and translated into English by Daniel Harnack.
 
