@@ -1,8 +1,10 @@
 # Numpy -- Random numbers the non-legacy way
 {:.no_toc}
 
+<nav markdown="1" class="toc-class">
 * TOC
 {:toc}
+</nav>
 
 ## Goal
 If you don't see something like **np.random.default_rng()** in your code then you are probably using the old [Legacy Random Generation](https://numpy.org/doc/stable/reference/random/legacy.html#legacy-random-generation).
