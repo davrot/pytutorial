@@ -14,8 +14,8 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [Truth Value Testing](python_basics/truth_value_testing/README.md)
 * [Formatted String Literals](python_basics/formatted_string_literals/README.md)
 * [Files](python_basics/files/README.md)
-* [os.makedirs: Creating order via sub-directories](python_basics/os_makedirs/README.md)
-* [glob: Finding files in a directory](python_basics/glob/README.md)
+* [Creating order via sub-directories: os.makedirs](python_basics/os_makedirs/README.md)
+* [Finding files in a directory: glob](python_basics/glob/README.md)
 * [Class](python_basics/class/README.md) 
 
 
