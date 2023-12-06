@@ -12,6 +12,10 @@ Let us look what kind of options we have for flow control in Python.
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
+**Logic blocks need to be indented.​**
+**Preferable with 4 spaces!**
+
+
 There is called a so called [The Python Language Reference](https://docs.python.org/3/reference/index.html)
 
 |Selection statements​|
