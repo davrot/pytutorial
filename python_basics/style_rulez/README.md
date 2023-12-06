@@ -39,6 +39,7 @@ I can not stress enough: Use a good editor!!! Then you don't even read this text
 ## [PEP 20 – The Zen of Python](https://peps.python.org/pep-0020/)
 
 The rules behind Python are:
+
 ||
 |---|
 |**Beautiful is better than ugly.**|
@@ -174,7 +175,7 @@ from foo.bar.yourclass import YourClass
 
 ## [Module Level Dunder Names](https://peps.python.org/pep-0008/#module-level-dunder-names)
 
-Module level “dunders” (i.e. names with two leading and two trailing underscores) such as __all__, __author__, __version__, etc. should be placed after the module docstring but before any import statements except from __future__ imports. Python mandates that future-imports must appear in the module before any other code except docstrings:
+Module level “dunders” (i.e. names with two leading and two trailing underscores) such as \_\_all\_\_, \_\_author\_\_, \_\_version\_\_, etc. should be placed after the module docstring but before any import statements except from \_\_future\_\_ imports. Python mandates that future-imports must appear in the module before any other code except docstrings:
 
 ```python
 """This is the example module.
