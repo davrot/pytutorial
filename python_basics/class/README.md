@@ -224,6 +224,9 @@ print(instance_b.a)  # -> []
 ```
 
 ### [@property()](https://docs.python.org/3/library/functions.html#property)
+{: .topic-optional}
+This is an optional topic!
+
 
 If a variable starts with one \_ this tells us that it is "private" and we shouldn't touch it directly with our dirty hands from the outside. However, we can use @property to control the communication with the outside world:  
 
