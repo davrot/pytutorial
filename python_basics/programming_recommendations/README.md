@@ -14,7 +14,7 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 # The recommendations
 
-*Comparisons to singletons like None should always be done with is or is not, never the equality operators.
+* Comparisons to singletons like None should always be done with is or is not, never the equality operators.
 *Use is not operator rather than not ... is. While both expressions are functionally identical, the former is more readable and preferred:
 
 ```python
