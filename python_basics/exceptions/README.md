@@ -271,6 +271,10 @@ finally:
 
 ## Chaining exceptions
 
+{: .topic-optional}
+This is an optional topic!
+
+
 Instead of just re-raising an exception we can also add to it with **from**. 
 
 ```python
