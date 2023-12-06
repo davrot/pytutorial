@@ -281,6 +281,9 @@ print(instance.variablename)  # -> 1
 
 ### [\_\_slots\_\_](https://docs.python.org/3/reference/datamodel.html#slots)
 
+{: .topic-optional}
+This is an optional topic!
+
 [They say:](https://docs.python.org/3/reference/datamodel.html#slots)
 
 * \_\_slots\_\_ allow us to explicitly declare data members (like properties) and deny the creation of [\_\_dict\_\_](https://docs.python.org/3/library/stdtypes.html#object.__dict__) and \_\_weakref\_\_ (unless explicitly declared in \_\_slots\_\_ or available in a parent.)
@@ -424,7 +427,7 @@ instance = SimpleClass()
 print(instance.some_other_method(678))  # -> 679
 ```
 
-### [Constructor: __init__](https://docs.python.org/3/reference/datamodel.html#object.__init__)
+### [Constructor: \_\_init\_\_](https://docs.python.org/3/reference/datamodel.html#object.__init__)
 
 When we [create](https://docs.python.org/3/reference/datamodel.html#object.__init__) a new instance, two internal functions of the class are called \_\_new\_\_ and \_\_init\_\_ . \_\_new\_\_ creates it and \_\_init\_\_ customize it. Normally there is no reason to touch \_\_new\_\_.
 
@@ -494,6 +497,10 @@ But please be aware that there are more than one putative functions for producin
 * [object.\_\_repr\_\_(self)](https://docs.python.org/3/reference/datamodel.html#object.__repr__)  **unambiguous** : Called by the repr() built-in function to compute the “official” string representation of an object. If at all possible, this should look like a valid Python expression that could be used to recreate an object with the same value (given an appropriate environment). If this is not possible, a string of the form <...some useful description...> should be returned. The return value must be a string object. If a class defines \_\_repr\_\_() but not \_\_str\_\_(), then \_\_repr\_\_() is also used when an “informal” string representation of instances of that class is required. This is typically used for debugging, so it is important that the representation is information-rich and unambiguous.
 
 ### [@staticmethod](https://docs.python.org/3/library/functions.html#staticmethod) and [@classmethod](https://docs.python.org/3/library/functions.html#classmethod)
+
+{: .topic-optional}
+This is an optional topic!
+
 **Let us be blunt here: I am not sure if you want/ need to know what @staticmethod and @classmethod does.** I was interested in this topic because I saw these decorators and asked myself what they are for. 
 
 This is a normal class method: 
@@ -583,6 +590,9 @@ instance.print_something() # -> ClassA
 ```
 
 ## Multiple inheritance
+
+{: .topic-optional}
+This is an optional topic!
 
 And we inherent from more than one class: 
 
@@ -735,6 +745,9 @@ Why can we do that? Well, **class BaseClassA**: is just a shorthand for **cla
 
 ## [ABC (Abstract Base Classes)](https://docs.python.org/3/library/abc.html#module-abc) and [@abstractmethod](https://docs.python.org/3/library/abc.html#abc.abstractmethod)
 
+{: .topic-optional}
+This is an optional topic!
+
 Maybe you need a placeholder for a future function but also want to make REALLY sure that the new class defines the function. For such a case you can use the base class ABC with @abstractmethod
 
 Deliberately not working:
@@ -792,6 +805,9 @@ instance = BaseClassB()
 
 ## Compositions -- Against the curse of dimensionality
 
+{: .topic-optional}
+This is an optional topic!
+
 While inherentence is a nice tool, it leads very fast to an explosion of specialized classes.
 
 An alternative is the composition approach. Here a base class for a functionality is prepared with the required abstract placeholders. This base class is then inherented by classes that provide the required spectrum of functionality. Then a composition class is designed. During instancing the composition class we plug in the functionality we want. 
@@ -848,6 +864,9 @@ print(variant_d.processing(0))  # -> 3
 
 ### [@cached_property](https://docs.python.org/3/library/functools.html#functools.cached_property) (not recommended)
 
+{: .topic-optional}
+This is an optional topic!
+
 I am not really a fan of this one. It allows you to cache calculations. However, this works only if the data behind the calculation doesn't change in any way, shape or form. If you change it then result is NOT updated. 
 
 ```python
@@ -874,6 +893,9 @@ print(instance.value_x)  # -> 3
 ```
 
 ### [partialmethod](https://docs.python.org/3/library/functools.html#functools.partialmethod)
+
+{: .topic-optional}
+This is an optional topic!
 
 Partialmethod allows you to create an alias for an already defined function but with partially pre-defined arguments:
 
@@ -1016,6 +1038,9 @@ Output:
 ```
 
 ## [dir](https://docs.python.org/3/library/functions.html#dir)
+
+{: .topic-optional}
+This is an optional topic!
 
 "Without arguments, return the list of names in the current local scope. With an argument, attempt to return a list of valid attributes for that object."
 
