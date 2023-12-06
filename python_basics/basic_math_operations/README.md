@@ -64,6 +64,9 @@ Order of operations​:
 |-x​|x negated​|
 |+x​|x unchanged​|
 
+
+
+
 |Operator|Description​|
 |---|---|
 |abs(x)​|absolute value or magnitude of x​|
@@ -89,6 +92,24 @@ print(6 / 2)​ # -> 3.0
 print(5 // 2)​ # -> 2
 print(6 // 2)​ # -> 3
 ```
+
+## Inplace Operation
+
+|Inplace Operation|Short for|
+|---|---|
+|a += b| a = a + b|
+|a &= b| a = a & b |
+|a //= b|a = a // b|
+|a <<= b| a = a << b|
+|a %= b| a = a % b|
+|a *= b| a = a * b|
+|a @= b| a = a @ b|
+|a \|= b| a = a \| b|
+|a **= b| a = a ** b|
+|a >>= b| a = a >> b|
+|a -= b| a = a - b|
+|a /= b| a = a / b|
+|a ^= b| a = a ^ b|
 
 ## [Boolean Operations — and, or, not​](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not)
 
@@ -250,6 +271,24 @@ These are the ["Mapping Operators to Functions"](https://docs.python.org/3/libra
 |Ordering|a >= b|ge(a, b)|
 |Ordering|a > b|gt(a, b)|
 
+[In-place Operators](https://docs.python.org/3/library/operator.html#in-place-operators)
+
+|||
+|---|---|
+|a += b| a = iadd(a, b)|
+|a &= b| a = iand(a, b) |
+|a += b for a and b **sequences**| a = iconcat(a, b)|
+|a //= b|a = ifloordiv(a, b)|
+|a <<= b| a = ilshift(a, b)|
+|a %= b| a = imod(a, b)|
+|a *= b| a = imul(a, b)|
+|a @= b| a = imatmul(a, b)|
+|a \|= b| a = ior(a, b)|
+|a **= b| a = ipow(a, b)|
+|a >>= b| a = irshift(a, b)|
+|a -= b| a = isub(a, b)|
+|a /= b| a = itruediv(a, b)|
+|a ^= b| a = ixor(a, b)|
 
 
 
