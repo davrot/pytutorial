@@ -57,6 +57,10 @@ I don't know what to do with a 3!
 
 ## Unpacking parameters 
 
+{: .topic-optional}
+This is an optional topic!
+
+
 Different from a normal switch we can deal with several input parameters at the same time and even use wildcards:
 
 ```python
@@ -115,7 +119,11 @@ Input: Hello!
 I don't know what to do with Hello!- E!
 ```
 
-## OR
+### OR
+
+{: .topic-optional}
+This is an optional topic!
+
 
 We can combine patter by | (or):
 
@@ -197,7 +205,12 @@ for i in range(0, 2):
     what_to_do(input)
 ```
 
-## If guards
+### If guards
+
+{: .topic-optional}
+This is an optional topic!
+
+
 We can distinguish between cases by using **if guard**:
 
 ```python
@@ -240,7 +253,11 @@ Input: (1, 1)
 Both are 1 - A 
 ```
 
-## Data classes
+### Data classes
+
+{: .topic-optional}
+This is an optional topic!
+
 We can combine it nicely with data classes:
 
 ```python
@@ -299,7 +316,11 @@ I am broken!
 What?
 ```
 
-## As
+### As
+
+{: .topic-optional}
+This is an optional topic!
+
 
 We can use **as** to name a variable in a case clause (if you have a sequence i.e. tuple or list of elements then you can use **as** on the individual elements): 
 
@@ -359,7 +380,11 @@ I am broken!
 What?
 ```
 
-## List
+### List
+
+{: .topic-optional}
+This is an optional topic!
+
 
 This is how we can deal with lists that have different length:
 
@@ -411,7 +436,11 @@ Hello
 What?
 ```
 
-## Dictionaries
+### Dictionaries
+
+{: .topic-optional}
+This is an optional topic!
+
 
 The whole match apparatus works also with dictionaries. You can even distinguish between what kind of variable is stored behind a key (e.g. int vs str): 
 
