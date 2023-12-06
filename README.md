@@ -17,6 +17,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [Formatted String Literals](python_basics/formatted_string_literals/README.md)
 * [Flow Control Overview](python_basics/flow_control_overview/README.md)
   - [Flow Control: if, elif, else](python_basics/if/README.md)
+  - [Flow Control: while, pass, break, continue](python_basics/while/README.md)
   - [Flow Control: match case](python_basics/match/README.md)
 * [Files](python_basics/files/README.md)
 * [Creating order via sub-directories: os.makedirs](python_basics/os_makedirs/README.md)
