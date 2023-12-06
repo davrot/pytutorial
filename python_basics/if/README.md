@@ -35,3 +35,32 @@ if_stmt ::=  "if" assignment_expression ":" suite
              ["else" ":" suite]
 ```
 
+## if, elif, else with lists
+
+```python
+A = 1​
+if A in [0, 2, 4, 6, 8]:​
+    print("found")​
+else:​
+    print("NOT found")​
+```
+
+Output 
+
+```python
+NOT found
+```
+
+```python
+A = 2
+if A in [0, 2, 4, 6, 8]:​
+    print("found")​
+else:​
+    print("NOT found")​
+```
+
+Output 
+
+```python
+found
+```
