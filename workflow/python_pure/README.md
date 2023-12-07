@@ -73,10 +73,22 @@ pip3 install torch torchvision torchaudio torchtext  --index-url https://downloa
 
 |Package||
 |---|---|
-|torch||
-|torchvision||
-|torchaudio||
-|torchtext||
+|torch|[PyTorch is a Python package that provides two high-level features: a. Tensor computation (like NumPy) with strong GPU acceleration b. Deep neural networks built on a tape-based autograd system](https://pytorch.org/)|
+|torchvision|[The torchvision package consists of popular datasets, model architectures, and common image transformations for computer vision.](https://github.com/pytorch/vision)|
+|torchaudio|[The aim of torchaudio is to apply PyTorch to the audio domain.](https://github.com/pytorch/audio)|
+|torchtext|[Models, data loaders and abstractions for language processing, powered by PyTorch](https://github.com/pytorch/text)|
 
+### TensorFlow 
 
+#### CPU only
+
+pip install tensorflow
+
+#### NVidia GPU
+
+python3 -m pip install tensorflow[and-cuda]
+
+|Package||
+|---|---|
+|tensorflow|[TensorFlow is an open source software library for high performance numerical computation. Its flexible architecture allows easy deployment of computation across a variety of platforms (CPUs, GPUs, TPUs), and from desktops to clusters of servers to mobile and edge devices.](https://www.tensorflow.org/)|
 
