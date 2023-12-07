@@ -14,6 +14,8 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 ## The configuration 
 
+**Press Ctrl + Shift + P then "Preference: Open Settings (JSON)"​**
+
 You will need to adapt it to your needs...
 
 ```json
