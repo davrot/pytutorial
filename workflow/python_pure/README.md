@@ -28,7 +28,21 @@ We need to update pip first:
 python.exe -m pip install --upgrade pip
 ```
 
-### Numba 
+### ffmpeg
+
+You might need to create mp4 files. E.g. for saving matplotlib animations
+
+Thus you need ffmpeg binaries. You find them here:
+[https://www.gyan.dev/ffmpeg/builds/](https://www.gyan.dev/ffmpeg/builds/)
+
+I went for 
+[https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-6.0-full_build.7z](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-6.0-full_build.7z)
+
+There are differnt way to install the ffmpeg binaries (ffmpeg.exe, ffplay.exe, and ffprobe.exe). The easiest way is to put them here: 
+%LOCALAPPDATA%\Programs\Python\Python311
+
+
+## Numba 
 
 {: .topic-optional}
 This is an optional topic!
