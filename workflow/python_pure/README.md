@@ -94,6 +94,8 @@ pip3 install numpy scipy pandas flake8 pep8-naming black matplotlib seaborn ipyt
 
 [Check here](https://pytorch.org/get-started/locally/#start-locally) for a installation configurator.
 
+**Note: Even if you don't want to use TensorFlow, you want to install it too due to the tensorboard package.** Tensorboard allows to track the progress during learning. 
+
 #### CPU only
 
 ```shell
