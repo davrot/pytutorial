@@ -1,3 +1,15 @@
+# Python installation (Windows)
+{:.no_toc}
+
+<nav markdown="1" class="toc-class">
+* TOC
+{:toc}
+</nav>
+
+## Goal
+Install your very own Python and keep everything under control.
+
+Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 ## Windows
 
@@ -6,19 +18,25 @@ We need to download a suitable Python version from [https://www.python.org](http
 I downloded this file: 
 [https://www.python.org/ftp/python/3.11.7/python-3.11.7-amd64.exe](https://www.python.org/ftp/python/3.11.7/python-3.11.7-amd64.exe)
 
-Image1.png 
+![figure 1](Image1.png)
 
 Select "Add python.exe to Path" and then press "Install Now".
 
 We need to update pip first:
 
+```shell
 python.exe -m pip install --upgrade pip
+```
 
 ### Numba 
 
+```shell
 pip install numpy
+```
 
+```shell
 pip install numba
+```
 
 |Package||
 |---|---|
@@ -26,7 +44,9 @@ pip install numba
 
 ## Basic Packages you want to install
 
+```shell
 pip3 install numpy scipy pandas flake8 pep8-naming black matplotlib seaborn ipython jupyterlab mypy dataclasses-json dataconf ipympl pywavelets scikit-image opencv-python scikit-learn tqdm argh sympy jsmin pybind11 pybind11-stubgen pigar asciichartpy natsort ipykernel 
+```
 
 |Package||
 |---|---|
@@ -65,11 +85,15 @@ pip3 install numpy scipy pandas flake8 pep8-naming black matplotlib seaborn ipyt
 
 #### CPU only
 
+```shell
 pip3 install torch torchvision torchaudio torchtext 
+```
 
 #### NVidia GPU
 
+```shell
 pip3 install torch torchvision torchaudio torchtext  --index-url https://download.pytorch.org/whl/cu121
+```
 
 |Package||
 |---|---|
@@ -82,11 +106,15 @@ pip3 install torch torchvision torchaudio torchtext  --index-url https://downloa
 
 #### CPU only
 
+```shell
 pip install tensorflow
+```
 
 #### NVidia GPU
 
+```shell
 python3 -m pip install tensorflow[and-cuda]
+```
 
 |Package||
 |---|---|
