@@ -8,6 +8,9 @@
 
 All the tutorials are tested with Python 3.11.x. Older version might have a problem with the new versions of type anotations. 
 
+## Workflow
+* [Python installation](workflow/python_pure/README.md)
+
 ## Python: The Basics of the basics
 * [Hello, Python](python_basics/hello_python/README.md)
 * [Style Rulez](python_basics/style_rulez/README.md)
