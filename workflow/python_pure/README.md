@@ -15,7 +15,7 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 We need to download a suitable Python version from [https://www.python.org](https://www.python.org). In the case we want to use PyTorch [check here](https://pytorch.org/get-started/locally/#windows-python) or TensorFlow [check here](https://www.tensorflow.org/install/pip#software_requirements) we need to check if the Python version is okay. 
 
-I downloded this file: 
+I downloaded this file: 
 [https://www.python.org/ftp/python/3.11.7/python-3.11.7-amd64.exe](https://www.python.org/ftp/python/3.11.7/python-3.11.7-amd64.exe)
 
 ![figure 1](Image1.png)
@@ -30,12 +30,23 @@ python.exe -m pip install --upgrade pip
 
 ### Numba 
 
+{: .topic-optional}
+This is an optional topic!
+
+The question is: Is numba broken in the moment or not? First we install numpy and then numba. We will observe if numba tried to change the numpy version.
+
 ```shell
 pip install numpy
 ```
 
 ```shell
 pip install numba
+```
+
+If so then you have to decide if you want to remove numba and the downgraded numpy version before continuing. I would remove it! 
+
+```shell
+pip uninstall numpy numba
 ```
 
 |Package||
