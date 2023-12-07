@@ -1,6 +1,19 @@
+# VS Code installation
+{:.no_toc}
+
+<nav markdown="1" class="toc-class">
+* TOC
+{:toc}
+</nav>
+
+## The goal
+
+Install VS Code as editor for Python.
+
+Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 
-I assume that you have installed Python.
+**I assume that you have installed Python.**
 
 
 ## Download and installation
@@ -77,9 +90,30 @@ Which also installs:
 
 ![Figure 10b](Image10b.png)
 
+### C/C++ (C++ development / PyBind11)
 
+![Figure 12](Image12.png)
 
+### C/C++ Extension Pack (C++ development / PyBind11)
 
+![Figure 13](Image13.png)
 
+Which also installs:
+
+![Figure 13b](Image13b.png)
+
+(I don't know who installs CMake and CMake tools)
+
+### C/C++ Include Guard (C++ development / PyBind11)
+
+![Figure 14](Image14.png)
+
+### Arduino (Arduino)
+
+![Figure 15](Image15.png)
+
+Which also installs:
+
+![Figure 15b](Image15b.png)
 
 
