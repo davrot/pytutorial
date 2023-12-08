@@ -56,6 +56,23 @@ cd /home/[YOURUSERNAME]/P3.11/bin
 ./pip3 install --upgrade pip
 ```
 
+#### Bash (.bash_profile)
+
+```shell
+alias pyhton3=/home/[YOURUSERNAME]/P3.11/bin/python3
+alias pyhton=/home/[YOURUSERNAME]/P3.11/bin/python3
+alias ipyhton=/home/[YOURUSERNAME]/P3.11/bin/ipython
+alias ipyhton3=/home/[YOURUSERNAME]/P3.11/bin/ipython
+alias python3=/home/[YOURUSERNAME]/P3.11/bin/python3
+alias python=/home/[YOURUSERNAME]/P3.11/bin/python3
+alias ipython=/home/[YOURUSERNAME]/P3.11/bin/ipython
+alias ipython3=/home/[YOURUSERNAME]/P3.11/bin/ipython
+alias pip3=/home/[YOURUSERNAME]/P3.11/bin/pip3
+alias pip=/home/[YOURUSERNAME]/P3.11/bin/pip3
+```
+
+And add **/home/[YOURUSERNAME]/P3.11/bin** to the **export PATH=** command. 
+
 ## Numba 
 
 {: .topic-optional}
