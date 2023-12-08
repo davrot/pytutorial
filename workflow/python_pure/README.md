@@ -211,16 +211,34 @@ cd /home/[YOURUSERNAME]/P3.11/bin
 
 ### TensorFlow 
 
-#### CPU only
+#### Windows 
+
+##### CPU only
 
 ```shell
 pip install tensorflow
 ```
 
-#### NVidia GPU
+##### NVidia GPU
 
 ```shell
-python3 -m pip install tensorflow[and-cuda]
+pip install tensorflow[and-cuda]
+```
+
+#### Linux
+
+##### CPU only
+
+```shell
+cd /home/[YOURUSERNAME]/P3.11/bin
+./pip install tensorflow
+```
+
+##### NVidia GPU
+
+```shell
+cd /home/[YOURUSERNAME]/P3.11/bin
+./pip install tensorflow[and-cuda]
 ```
 
 |Package||
