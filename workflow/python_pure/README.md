@@ -43,6 +43,18 @@ There are differnt way to install the ffmpeg binaries (ffmpeg.exe, ffplay.exe, a
 
 ### Linux
 
+**Please check the [dependencies](https://devguide.python.org/getting-started/setup-building/#install-dependencies) beforehand!!!** 
+
+For Fedora: 
+
+Honestly, I didn't get this depencency thing working. And I couldn't find a solution. However, I am installing a huge amount of packages anyway such that the required stuff is part of it. :-) 
+
+```shell
+sudo dnf install dnf-plugins-core  # install this to use 'dnf builddep'
+sudo dnf builddep python3
+```
+Python installation (after the dependencies are solved): 
+
 ```shell
 mkdir PySource
 cd PySource
