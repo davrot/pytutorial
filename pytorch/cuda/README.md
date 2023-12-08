@@ -8,14 +8,16 @@
 
 ## The goal
 
-Convince PyTorch and Nvidia's GPUs working together. **I assume you installed the PyTorch and/or TensorFlow version for CUDA. (see Python installation instructions on thsi site...)**
+Convince PyTorch and Nvidia's GPUs working together. **I assume you installed the PyTorch and/or TensorFlow version for CUDA. (see Python installation instructions on this site...)**
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
-## Windows
+## Windows / Linux
 
 * Download and install [CUDA driver](https://developer.nvidia.com/cuda-downloads)
 * Download and install [cuDNN toolkit](https://developer.nvidia.com/rdp/cudnn-download) (you will need to create an account :-( )
+
+For Linux use a repo if possible. Windows and Linux require that you have install working graphic driver beforehand. At least that is what I believe is a requirement.  
 
 ## Test the PyTorch
 
