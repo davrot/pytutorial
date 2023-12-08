@@ -54,6 +54,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [TQDM: Make your progress visible](TQDM/README.md)
 
 ## PyTorch 
+* [Get CUDA ready!](pytorch/cuda/README.md)
 * [Layers](pytorch/layers/README.md)
 
 ## Matlab: Basics
