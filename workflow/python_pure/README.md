@@ -63,6 +63,8 @@ This is an optional topic!
 
 The question is: Is numba broken in the moment or not? First we install numpy and then numba. We will observe if numba tried to change the numpy version.
 
+### Windows
+
 ```shell
 pip install numpy
 ```
@@ -77,15 +79,44 @@ If so then you have to decide if you want to remove numba and the downgraded num
 pip uninstall numpy numba
 ```
 
+### Linux
+
+```shell
+cd /home/[YOURUSERNAME]/P3.11/bin
+./pip install numpy
+```
+
+```shell
+cd /home/[YOURUSERNAME]/P3.11/bin
+./pip install numba
+```
+
+If so then you have to decide if you want to remove numba and the downgraded numpy version before continuing. I would remove it! 
+
+```shell
+cd /home/[YOURUSERNAME]/P3.11/bin
+./pip uninstall numpy numba
+```
+
 |Package||
 |---|---|
 |numba|[Numba is an open source JIT compiler that translates a subset of Python and NumPy code into fast machine code.](https://numba.pydata.org/)|
 
 ## Basic Packages you want to install
 
+### Windows
+
 ```shell
 pip3 install numpy scipy pandas flake8 pep8-naming black matplotlib seaborn ipython jupyterlab mypy dataclasses-json dataconf ipympl pywavelets scikit-image opencv-python scikit-learn tqdm argh sympy jsmin pybind11 pybind11-stubgen pigar asciichartpy natsort ipykernel 
 ```
+
+### Linux
+
+```shell
+cd /home/[YOURUSERNAME]/P3.11/bin
+./pip3 install numpy scipy pandas flake8 pep8-naming black matplotlib seaborn ipython jupyterlab mypy dataclasses-json dataconf ipympl pywavelets scikit-image opencv-python scikit-learn tqdm argh sympy jsmin pybind11 pybind11-stubgen pigar asciichartpy natsort ipykernel 
+```
+
 
 |Package||
 |---|---|
@@ -124,16 +155,34 @@ pip3 install numpy scipy pandas flake8 pep8-naming black matplotlib seaborn ipyt
 
 **Note: Even if you don't want to use TensorFlow, you want to install it too due to the tensorboard package.** Tensorboard allows to track the progress during learning. 
 
-#### CPU only
+#### Windows
+
+##### CPU only
 
 ```shell
 pip3 install torch torchvision torchaudio torchtext 
 ```
 
-#### NVidia GPU
+##### NVidia GPU
 
 ```shell
 pip3 install torch torchvision torchaudio torchtext  --index-url https://download.pytorch.org/whl/cu121
+```
+
+#### Linux
+
+##### CPU only
+
+```shell
+cd /home/[YOURUSERNAME]/P3.11/bin
+./pip3 install torch torchvision torchaudio torchtext --index-url https://download.pytorch.org/whl/cpu
+```
+
+##### NVidia GPU
+
+```shell
+cd /home/[YOURUSERNAME]/P3.11/bin
+./pip3 install torch torchvision torchaudio torchtext
 ```
 
 |Package||
