@@ -41,7 +41,7 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 > The modules described in this chapter provide a variety of specialized data types such as dates and times, fixed-type arrays, heap queues, double-ended queues, and enumerations.​
 
-​|||
+|||
 |---|---|
 |**datetime** | **Basic date and time types​**|
 |zoneinfo | IANA time zone support​|
@@ -52,7 +52,7 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 |bisect | Array bisection algorithm​|
 |array | Efficient arrays of numeric values​|
 |weakref | Weak references​|
-|**types** | Dynamic type creation and names for built-in types​|
+|**types** | **Dynamic type creation and names for built-in types​**|
 |copy | Shallow and deep copy operations​|
 |pprint | Data pretty printer​|
 |reprlib | Alternate repr() implementation​|
