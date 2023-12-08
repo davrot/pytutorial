@@ -9,13 +9,13 @@
 All the tutorials are tested with Python 3.11.x. Older version might have a problem with the new versions of type anotations. 
 
 ## Workflow
-* [Overview](workflow/where_to_start/README.md)
 * [Python installation](workflow/python_pure/README.md)
 * [VS Code installation](workflow/vscode_install/README.md)
 * [VS Code configuration](workflow/vscode_config/README.md)
 
 
 ## Python: The Basics of the basics
+* [Overview](python_basics/where_to_start/README.md)
 * [Hello, Python](python_basics/hello_python/README.md)
 * [Style Rulez](python_basics/style_rulez/README.md)
 * [Programming Recommendations](python_basics/programming_recommendations/README.md)
