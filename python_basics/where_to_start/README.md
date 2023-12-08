@@ -49,8 +49,43 @@ You need an editor for writing Python code. We suggest to use [VS code](https://
 
 > pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool, built on top of the Python programming language.
 
-[10 minutes to pandas](https://pandas.pydata.org/docs/user_guide/10min.html)
+* [10 minutes to pandas](https://pandas.pydata.org/docs/user_guide/10min.html)
+
+## [SciPy](https://scipy.org/)
+
+> Fundamental algorithms for scientific computing in Python
+
+* [SciPy User Guide](https://docs.scipy.org/doc/scipy/tutorial/index.html)
+
+## [scikit-learn](https://scikit-learn.org/stable/)
+
+> Simple and efficient tools for predictive data analysis
+
+* [Getting Started](https://scikit-learn.org/stable/getting_started.html)
+* [User Guide](https://scikit-learn.org/stable/user_guide.html#user-guide)
+
+## [PyTorch](https://pytorch.org/)
+
+> An open source machine learning framework that accelerates the path from research prototyping to production deployment.
+
+* [PyTorch Tutorials](https://pytorch.org/tutorials/)
+
+## [TensorFlow](https://www.tensorflow.org/)
+  
+> TensorFlow is an end-to-end open source platform for machine learning. It has a comprehensive, flexible ecosystem of tools, libraries and community resources that lets researchers push the state-of-the-art in ML and developers easily build and deploy ML powered applications.​
+
+* [Tutorials](https://www.tensorflow.org/tutorials)
+
+## [OpenCV](https://opencv.org/)
+
+> Open Source Computer Vision
+
+* [OpenCV-Python Tutorials](https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html)
+
+  
 
 
+
+  
 
 
