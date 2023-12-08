@@ -11,9 +11,9 @@ Install your very own Python and keep everything under control.
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
-## Windows
-
 We need to download a suitable Python version from [https://www.python.org](https://www.python.org). In the case we want to use PyTorch [check here](https://pytorch.org/get-started/locally/#windows-python) or TensorFlow [check here](https://www.tensorflow.org/install/pip#software_requirements) we need to check if the Python version is okay. 
+
+## Windows
 
 I downloaded this file: 
 [https://www.python.org/ftp/python/3.11.7/python-3.11.7-amd64.exe](https://www.python.org/ftp/python/3.11.7/python-3.11.7-amd64.exe)
@@ -41,6 +41,18 @@ I went for
 There are differnt way to install the ffmpeg binaries (ffmpeg.exe, ffplay.exe, and ffprobe.exe). The easiest way is to put them here: 
 %LOCALAPPDATA%\Programs\Python\Python311
 
+### Linux
+
+```shell
+mkdir PySource
+cd PySource
+wget https://www.python.org/ftp/python/3.11.7/Python-3.11.7.tgz
+tar -xvzf Python-3.11.7.tgz
+cd Python-3.11.7
+./configure --prefix=/home/[YOURUSERNAME]/P3.11 --enable-optimizations
+make -j 10
+make install
+```
 
 ## Numba 
 
