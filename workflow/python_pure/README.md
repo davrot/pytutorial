@@ -1,4 +1,4 @@
-# Python installation (Windows)
+# Python installation (Windows / Linux)
 {:.no_toc}
 
 <nav markdown="1" class="toc-class">
@@ -52,6 +52,8 @@ cd Python-3.11.7
 ./configure --prefix=/home/[YOURUSERNAME]/P3.11 --enable-optimizations
 make -j 10
 make install
+cd /home/[YOURUSERNAME]/P3.11/bin
+./pip3 install --upgrade pip
 ```
 
 ## Numba 
