@@ -229,6 +229,28 @@ print("AA" not in collection_of_strings) # -> False
 print("XX" not in collection_of_strings) # -> True
 ```
 
+## + 
+
+```python
+collection_of_strings_a = [
+    "AA",
+    "BB",
+    "CC",
+    "DD",
+]
+collection_of_strings_b = [
+    "EE",
+    "FF",
+    "GG",
+    "HH",
+]
+print(collection_of_strings_a)  # -> ['AA', 'BB', 'CC', 'DD']
+print(collection_of_strings_b)  # -> ['EE', 'FF', 'GG', 'HH']
+collection_of_strings = collection_of_strings_a + collection_of_strings_b
+
+print(collection_of_strings)  # -> ['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH']
+```
+
 ## [Additional commands](https://docs.python.org/3/tutorial/datastructures.html)
 
 ||
