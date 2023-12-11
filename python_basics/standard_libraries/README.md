@@ -277,5 +277,113 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 |xmlrpc.server | Basic XML-RPC servers​|
 |ipaddress | IPv4/IPv6 manipulation library|
 
+## [Multimedia Service](https://docs.python.org/3/library/mm.html)
+​
+> The modules described in this chapter implement various algorithms or interfaces that are mainly useful for multimedia applications. They are available at the discretion of the installation. ​
 
+|||
+|---|---|
+|audioop | Manipulate raw audio data​|
+|aifc | Read and write AIFF and AIFC files​|
+|sunau | Read and write Sun AU files​|
+|wave | Read and write WAV files​|
+|chunk | Read IFF chunked data​|
+|colorsys | Conversions between color systems​|
+|imghdr | Determine the type of an image​|
+|sndhdr | Determine type of sound file​|
+|ossaudiodev | Access to OSS-compatible audio devices|
 
+## [Internationalization​](https://docs.python.org/3/library/i18n.html)
+
+> The modules described in this chapter help you write software that is independent of language and locale by providing mechanisms for selecting a language to be used in program messages or by tailoring output to match local conventions.
+
+|||
+|---|---|
+|gettext | Multilingual internationalization services​|
+|locale | Internationalization services|
+​
+## [Program Frameworks​](https://docs.python.org/3/library/frameworks.html​)
+
+> The modules described in this chapter are frameworks that will largely dictate the structure of your program. Currently the modules described here are all oriented toward writing command-line interfaces.
+
+​
+|||
+|---|---|
+|turtle | Turtle graphics​|
+|cmd | Support for line-oriented command interpreters​|
+|shlex | Simple lexical analysis|
+
+## [Graphical User Interfaces with Tk​](​https://docs.python.org/3/library/tk.html)
+
+|||
+|---|---|
+|**[tkinter](https://docs.python.org/3/library/tkinter.html)** | **Python interface to Tcl/Tk​**|
+|tkinter.colorchooser | Color choosing dialog​|
+|tkinter.font | Tkinter font wrapper​|
+|tkinter.messagebox | Tkinter message prompts​|
+|tkinter.scrolledtext | Scrolled Text Widget​|
+|tkinter.dnd | Drag and drop support​|
+|tkinter.ttk | Tk themed widgets​|
+|tkinter.tix | Extension widgets for Tk​|
+
+## [Development Tools](https://docs.python.org/3/library/development.html​)
+
+> The modules described in this chapter help you write software. For example, the pydoc module takes a module and generates documentation based on the module’s contents. The doctest and unittest modules contains frameworks for writing unit tests that automatically exercise code and verify that the expected output is produced.
+
+|||
+|---|---|
+|**[typing](https://docs.python.org/3/library/typing.html)** | **Support for type hints​**|
+|pydoc | Documentation generator and online help system​|
+|doctest | Test interactive Python examples​|
+|unittest | Unit testing framework​|
+|unittest.mock | mock object library​|
+|unittest.mock | getting started​|
+|2to3 | Automated Python 2 to 3 code translation​|
+|test | Regression tests package for Python​|
+|test.support | Utilities for the Python test suite​|
+|test.support.socket_helper | Utilities for socket tests​|
+|test.support.script_helper | Utilities for the Python execution tests​|
+|test.support.bytecode_helper | Support tools for testing correct bytecode generation​|
+
+## [Debugging and Profiling​](​https://docs.python.org/3/library/debug.html)
+
+> These libraries help you with Python development: the debugger enables you to step through code, analyze stack frames and set breakpoints etc., and the profilers run code and give you a detailed breakdown of execution times, allowing you to identify bottlenecks in your programs. Auditing events provide visibility into runtime behaviors that would otherwise require intrusive debugging or patching.
+
+|||
+|---|---|
+|bdb | Debugger framework​|
+|faulthandler | Dump the Python traceback​|
+|pdb | The Python Debugger​|
+|timeit | Measure execution time of small code snippets​|
+|trace | Trace or track Python statement execution​|
+|tracemalloc | Trace memory allocations|
+
+## [Software Packaging and Distribution​](https://docs.python.org/3/library/distribution.html​)
+
+> ​These libraries help you with publishing and installing Python software. While these modules are designed to work in conjunction with the Python Package Index, they can also be used with a local index server, or without any index server at all.
+
+|||
+|---|---|
+|distutils | Building and installing Python modules​|
+|ensurepip | Bootstrapping the pip installer​|
+|venv | Creation of virtual environments​|
+|zipapp | Manage executable Python zip archives|
+
+## [Python Runtime Services](https://docs.python.org/3/library/python.html​)
+
+|||
+|---|---|
+|**[sys](https://docs.python.org/3/library/sys.html)** | **System-specific parameters and functions​**|
+|sysconfig | Provide access to Python’s configuration information​|
+|builtins | Built-in objects​|
+|**[\_\_main\_\_](https://docs.python.org/3/library/__main__.html)** | **Top-level script environment​**|
+|warnings | Warning control​|
+|**[dataclasses](https://docs.python.org/3/library/dataclasses.html)** | **Data Classes​**|
+|**[contextlib](https://docs.python.org/3/library/contextlib.html)** | **Utilities for with-statement contexts​**|
+|**[abc](https://docs.python.org/3/library/abc.html)** | **Abstract Base Classes​**|
+|atexit | Exit handlers​|
+|traceback | Print or retrieve a stack traceback​|
+|\_\_future\_\_ | Future statement definitions​|
+|gc | Garbage Collector interface​|
+|inspect | Inspect live objects​|
+|site | Site-specific configuration hook|
