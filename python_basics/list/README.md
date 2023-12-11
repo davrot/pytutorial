@@ -83,6 +83,10 @@ print(collection_of_strings[:3])  # -> ['AA', 'BB', 'CC']
 print(collection_of_strings[3:])  # -> ['DD', 'EE', 'FF', 'GG', 'HH']
 print(collection_of_strings[1:-1])  # -> ['BB', 'CC', 'DD', 'EE', 'FF', 'GG']
 print(collection_of_strings[-3:])  # -> ['FF', 'GG', 'HH']
+print(collection_of_strings[0:3])  # -> ['AA', 'BB', 'CC']
+print(collection_of_strings[0:3:1])  # -> ['AA', 'BB', 'CC']
+print(collection_of_strings[0:3:2])  # -> ['AA', 'CC']
+print(collection_of_strings[::2])  # -> ['AA', 'CC', 'EE', 'GG']
 ```
 
 ## Changing lists
@@ -112,6 +116,8 @@ collection_of_strings[:4] = [
 print(collection_of_strings)  # -> ['MM', 'NN', 'OO', 'PP', 'EE', 'FF', 'GG', 'HH']
 ```
 
+
+
 ## List functions
 
 ### [len()](https://docs.python.org/3/library/functions.html#len) and [sorted()](https://docs.python.org/3/library/functions.html#sorted)
@@ -134,14 +140,81 @@ print(len(collection_of_strings))  # -> 8
 print(sorted(collection_of_strings)) # -> ['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH']
 ```
 
-### [max()](https://docs.python.org/3/library/functions.html#max) and [sum()](https://docs.python.org/3/library/functions.html#sum)
+### [max()](https://docs.python.org/3/library/functions.html#max), [min](https://docs.python.org/3/library/functions.html#min) and [sum()](https://docs.python.org/3/library/functions.html#sum)
 
 ```python
 primes = [2, 3, 5, 7]
 print(sum(primes)) # -> 17
 print(max(primes)) # -> 7
+print(min(primes)) # -> 2
 ```
 
+
+
+## in 
+
+Is **x in list**?
+
+```python
+collection_of_strings = [
+    "AA",
+    "BB",
+    "CC",
+    "DD",
+    "EE",
+    "FF",
+    "GG",
+    "HH",
+]
+print("AA" in collection_of_strings) # -> True
+print("XX" in collection_of_strings) # -> False
+print("AA" not in collection_of_strings) # -> False
+print("XX" not in collection_of_strings) # -> True
+```
+
+## [Index](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
+
+Which index id has an element in a list?
+
+```python
+collection_of_strings = [
+    "AA",
+    "BB",
+    "CC",
+    "DD",
+    "EE",
+    "FF",
+    "GG",
+    "HH",
+]
+
+print(collection_of_strings.index("CC"))  # -> 2
+print(collection_of_strings.index("XX"))  # -> ValueError: 'XX' is not in list
+```
+
+Maybe we don't want to start in the beginning of the list or don't want to search until the end of the list:
+
+```python
+collection_of_strings = [
+    "AA",
+    "BB",
+    "CC",
+    "DD",
+    "EE",
+    "BB",
+    "FF",
+    "GG",
+    "BB",
+    "HH",
+]
+print(collection_of_strings.index("BB"))  # -> 1
+# At or after 2
+print(collection_of_strings.index("BB", 2))  # -> 5
+# Before 6
+print(collection_of_strings.index("BB", 2, 6)) # -> 5
+# Before 4
+print(collection_of_strings.index("BB", 2, 4))  # ValueError: 'BB' is not in list
+```
 ### [append()](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists), [pop()](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists), and [remove()](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
 
 ```python
@@ -176,25 +249,9 @@ collection_of_strings.remove("BB")
 print(collection_of_strings)  # -> ValueError: list.remove(x): x not in list
 ```
 
-## [Index](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
-
-```python
-collection_of_strings = [
-    "AA",
-    "BB",
-    "CC",
-    "DD",
-    "EE",
-    "FF",
-    "GG",
-    "HH",
-]
-
-print(collection_of_strings.index("CC"))  # -> 2
-print(collection_of_strings.index("XX"))  # -> ValueError: 'XX' is not in list
-```
-
 ## [del](https://docs.python.org/3/tutorial/datastructures.html#the-del-statement) and [insert()](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
+
+Insert and delete an element.
 
 ```python
 collection_of_strings = []
@@ -210,26 +267,11 @@ del collection_of_strings[1]
 print(collection_of_strings)  # -> ['AA', 'CC', 'DD']
 ```
 
-## in
 
-```python
-collection_of_strings = [
-    "AA",
-    "BB",
-    "CC",
-    "DD",
-    "EE",
-    "FF",
-    "GG",
-    "HH",
-]
-print("AA" in collection_of_strings) # -> True
-print("XX" in collection_of_strings) # -> False
-print("AA" not in collection_of_strings) # -> False
-print("XX" not in collection_of_strings) # -> True
-```
 
 ## + 
+
+Concatenating lists. 
 
 ```python
 collection_of_strings_a = [
@@ -249,6 +291,43 @@ print(collection_of_strings_b)  # -> ['EE', 'FF', 'GG', 'HH']
 collection_of_strings = collection_of_strings_a + collection_of_strings_b
 
 print(collection_of_strings)  # -> ['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH']
+```
+
+## * 
+
+Repeat a list several times. 
+
+```python
+collection_of_strings = [
+    "AA",
+    "BB",
+    "CC",
+]
+print(3 * collection_of_strings) # -> ['AA', 'BB', 'CC', 'AA', 'BB', 'CC', 'AA', 'BB', 'CC']
+print(collection_of_strings * 3) # -> ['AA', 'BB', 'CC', 'AA', 'BB', 'CC', 'AA', 'BB', 'CC']
+```
+
+## count()
+
+How often does an element occur in the list?
+
+```python
+collection_of_strings = [
+    "AA",
+    "AA",
+    "BB",
+    "BB",
+    "BB",
+    "CC",
+    "DD",
+    "EE",
+    "FF",
+    "GG",
+    "HH",
+]
+print(collection_of_strings.count("AA"))  # -> 2
+print(collection_of_strings.count("BB"))  # -> 3
+print(collection_of_strings.count("CC"))  # -> 1
 ```
 
 ## [Additional commands](https://docs.python.org/3/tutorial/datastructures.html)
