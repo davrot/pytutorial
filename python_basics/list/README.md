@@ -142,7 +142,7 @@ print(sum(primes)) # -> 17
 print(max(primes)) # -> 7
 ```
 
-### [append()](), [pop()](), and [remove()]()
+### [append()](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists), [pop()](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists), and [remove()](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
 
 ```python
 collection_of_strings = [
@@ -165,7 +165,47 @@ print(collection_of_strings.pop())  # -> II
 print(
     collection_of_strings
 )  # -> ['AA', 'BB', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH']
+
 collection_of_strings.remove("BB")
 print(collection_of_strings)  # -> ['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH']
+
+collection_of_strings.remove("BB")
+print(collection_of_strings)  # -> ['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH']
+
+collection_of_strings.remove("BB")
+print(collection_of_strings)  # -> ValueError: list.remove(x): x not in list
 ```
 
+## [Index](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
+
+```python
+collection_of_strings = [
+    "AA",
+    "BB",
+    "CC",
+    "DD",
+    "EE",
+    "FF",
+    "GG",
+    "HH",
+]
+
+print(collection_of_strings.index("CC"))  # -> 2
+print(collection_of_strings.index("XX"))  # -> ValueError: 'XX' is not in list
+```
+
+## [del](https://docs.python.org/3/tutorial/datastructures.html#the-del-statement) and [insert](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
+
+```python
+collection_of_strings = []
+collection_of_strings.append("BB")
+collection_of_strings.append("CC")
+collection_of_strings.append("DD")
+print(collection_of_strings)  # -> ['BB', 'CC', 'DD']
+
+collection_of_strings.insert(0, "AA")
+print(collection_of_strings)  # -> ['AA', 'BB', 'CC', 'DD']
+
+del collection_of_strings[1]
+print(collection_of_strings)  # -> ['AA', 'CC', 'DD']
+```
