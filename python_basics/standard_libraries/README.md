@@ -387,3 +387,85 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 |gc | Garbage Collector interface​|
 |inspect | Inspect live objects​|
 |site | Site-specific configuration hook|
+
+## [Custom Python Interpreters​](https://docs.python.org/3/library/custominterp.html)
+
+> The modules described in this chapter allow writing interfaces similar to Python’s interactive interpreter. If you want a Python interpreter that supports some special feature in addition to the Python language, you should look at the code module. (The codeop module is lower-level, used to support compiling a possibly-incomplete chunk of Python code.)
+
+|||
+|---|---|
+|code | Interpreter base classes​|
+|codeop | Compile Python code|
+
+## [Importing Modules​](https://docs.python.org/3/library/modules.html​)
+
+> The modules described in this chapter provide new ways to import other Python modules and hooks for customizing the import process.
+
+|||
+|---|---|
+|zipimport | Import modules from Zip archives​|
+|pkgutil | Package extension utility​|
+|modulefinder | Find modules used by a script​|
+|runpy | Locating and executing Python modules|​
+|importlib | The implementation of import​|
+
+## [Python Language Services​](https://docs.python.org/3/library/language.html​)
+
+> Python provides a number of modules to assist in working with the Python language. These modules support tokenizing, parsing, syntax analysis, bytecode disassembly, and various other facilities.​
+
+|||
+|---|---|
+|parser | Access Python parse trees​|
+|ast | Abstract Syntax Trees​|
+|symtable | Access to the compiler’s symbol tables​|
+|symbol | Constants used with Python parse trees​|
+|token | Constants used with Python parse trees​|
+|keyword | Testing for Python keywords​|
+|tokenize | Tokenizer for Python source​|
+|tabnanny | Detection of ambiguous indentation​|
+|pyclbr | Python module browser support​|
+|py_compile | Compile Python source files​|
+|compileall | Byte-compile Python libraries​|
+|dis | Disassembler for Python bytecode​|
+|pickletools | Tools for pickle developers|
+
+## [Miscellaneous Services](https://docs.python.org/3/library/misc.html​)
+
+> The modules described in this chapter provide miscellaneous services that are available in all Python versions.
+
+|||
+|---|---|
+|formatter | Generic output formatting​|
+
+## [MS Windows Specific Services​](https://docs.python.org/3/library/windows.html)
+
+> This chapter describes modules that are only available on MS Windows platforms.
+
+|||
+|---|---|
+|msilib | Read and write Microsoft Installer files​|
+|msvcrt | Useful routines from the MS VC++ runtime​|
+|winreg | Windows registry access​|
+|winsound | Sound-playing interface for Windows|
+
+## [Unix Specific Services​](​https://docs.python.org/3/library/unix.html)
+
+> The modules described in this chapter provide interfaces to features that are unique to the Unix operating system, or in some cases to some or many variants of it.
+
+|||
+|---|---|
+|posix | The most common POSIX system calls​|
+|pwd | The password database​|
+|spwd | The shadow password database​|
+|grp | The group database​|
+|crypt | Function to check Unix passwords​|
+|termios | POSIX style tty control​|
+|tty | Terminal control functions​|
+|pty | Pseudo-terminal utilities​|
+|fcntl | The fcntl and ioctl system calls​|
+|pipes | Interface to shell pipelines​|
+|resource | Resource usage information|​
+|nis | Interface to Sun’s NIS (Yellow Pages)​|
+|syslog | Unix syslog library routines|
+
+
