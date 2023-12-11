@@ -114,7 +114,7 @@ print(collection_of_strings)  # -> ['MM', 'NN', 'OO', 'PP', 'EE', 'FF', 'GG', 'H
 
 ## List functions
 
-# [len()](https://docs.python.org/3/library/functions.html#len) and [sorted()](https://docs.python.org/3/library/functions.html#sorted)
+### [len()](https://docs.python.org/3/library/functions.html#len) and [sorted()](https://docs.python.org/3/library/functions.html#sorted)
 
 
 ```python
@@ -141,3 +141,31 @@ primes = [2, 3, 5, 7]
 print(sum(primes)) # -> 17
 print(max(primes)) # -> 7
 ```
+
+### [append()](), [pop()](), and [remove()]()
+
+```python
+collection_of_strings = [
+    "AA",
+    "BB",
+    "BB",
+    "CC",
+    "DD",
+    "EE",
+    "FF",
+    "GG",
+    "HH",
+]
+
+collection_of_strings.append("II")
+print(
+    collection_of_strings
+)  # -> ['AA', 'BB', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH', 'II']
+print(collection_of_strings.pop())  # -> II
+print(
+    collection_of_strings
+)  # -> ['AA', 'BB', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH']
+collection_of_strings.remove("BB")
+print(collection_of_strings)  # -> ['AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH']
+```
+
