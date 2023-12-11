@@ -32,6 +32,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [Finding files in a directory: glob](python_basics/glob/README.md)
 * [Class](python_basics/class/README.md)
 * [Exceptions (try / except)](python_basics/exceptions/README.md)
+* [The Python Standard Library​](python_basics/standard_libraries/README.md)
 
 
 ## Numpy
