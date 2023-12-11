@@ -27,6 +27,8 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
   - [Flow Control: for-loop](python_basics/for/README.md)
   - [Flow Control: while, pass, break, continue](python_basics/while/README.md)
   - [Flow Control: match case](python_basics/match/README.md)
+* Sequence Types
+  - [Lists](python_basics/list/README.md)
 * [Files](python_basics/files/README.md)
 * [Creating order via sub-directories: os.makedirs](python_basics/os_makedirs/README.md)
 * [Finding files in a directory: glob](python_basics/glob/README.md)
