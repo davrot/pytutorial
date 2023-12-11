@@ -210,6 +210,25 @@ del collection_of_strings[1]
 print(collection_of_strings)  # -> ['AA', 'CC', 'DD']
 ```
 
+## in
+
+```python
+collection_of_strings = [
+    "AA",
+    "BB",
+    "CC",
+    "DD",
+    "EE",
+    "FF",
+    "GG",
+    "HH",
+]
+print("AA" in collection_of_strings) # -> True
+print("XX" in collection_of_strings) # -> False
+print("AA" not in collection_of_strings) # -> False
+print("XX" not in collection_of_strings) # -> True
+```
+
 ## [Additional commands](https://docs.python.org/3/tutorial/datastructures.html)
 
 ||
