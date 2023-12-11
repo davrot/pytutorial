@@ -194,7 +194,7 @@ print(collection_of_strings.index("CC"))  # -> 2
 print(collection_of_strings.index("XX"))  # -> ValueError: 'XX' is not in list
 ```
 
-## [del](https://docs.python.org/3/tutorial/datastructures.html#the-del-statement) and [insert](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
+## [del](https://docs.python.org/3/tutorial/datastructures.html#the-del-statement) and [insert()](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
 
 ```python
 collection_of_strings = []
@@ -209,3 +209,22 @@ print(collection_of_strings)  # -> ['AA', 'BB', 'CC', 'DD']
 del collection_of_strings[1]
 print(collection_of_strings)  # -> ['AA', 'CC', 'DD']
 ```
+
+## [Additional commands](https://docs.python.org/3/tutorial/datastructures.html)
+
+||
+|---|
+|list.append(x)​|
+|list.extend(iterable)​|
+|list.insert(i, x)​|
+|list.remove(x)|​
+|list.pop([i])|​
+|list.clear()​|
+|list.index(x[, start[, end]])​|
+|list.count(x)​|
+|list.sort(*, key=None, reverse=False)​|
+|list.reverse()|​
+|list.copy()​|
+
+
+
