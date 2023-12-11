@@ -241,7 +241,8 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 |xml.sax.saxutils | SAX Utilities​|
 |xml.sax.xmlreader | Interface for XML parsers​|
 |xml.parsers.expat | Fast XML parsing using Expat|
-​
+
+
 ## [Internet Protocols and Support​](https://docs.python.org/3/library/internet.html)
 
 > The modules described in this chapter implement Internet protocols and support for related technology. They are all implemented in Python. Most of these modules require the presence of the system-dependent module socket, which is currently supported on most popular platforms.
@@ -301,6 +302,7 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 |---|---|
 |gettext | Multilingual internationalization services​|
 |locale | Internationalization services|
+
 ​
 ## [Program Frameworks​](https://docs.python.org/3/library/frameworks.html​)
 
