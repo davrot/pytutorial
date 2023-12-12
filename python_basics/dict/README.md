@@ -134,5 +134,52 @@ print("xxx" not in a)  # -> True
 print("one" not in a)  # -> False
 ```
 
-# iter()
+# iter over keys and reversed()
+
+```python
+a = dict(one=1, two=2, three=3)
+for i in a:
+    print(i)
+```
+
+Output:
+
+```python
+one
+two
+three
+```
+
+```python
+a = dict(one=1, two=2, three=3)
+for i in reversed(a):
+    print(i)
+```
+
+Output:
+
+```python
+three
+two
+one
+```
+
+## clear()
+
+```python
+a = dict(one=1, two=2, three=3)
+print(a) # -> {'one': 1, 'two': 2, 'three': 3}
+a.clear()
+print(a) # -> {}
+```
+
+## get()
+
+```python
+a = dict(one=1, two=2, three=3)
+print(a.get("one")) # -> 1
+print(a.get("nine", 99)) # -> 99
+print(a.get("nine")) # -> None
+```
+
 
