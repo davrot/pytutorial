@@ -34,6 +34,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
   - [Flow Control: match case](python_basics/match/README.md)
 * Sequence Types
   - [Lists](python_basics/list/README.md)
+  - [Tuple](python_basics/tuple/README.md)
 * [Files](python_basics/files/README.md)
 * [Creating order via sub-directories: os.makedirs](python_basics/os_makedirs/README.md)
 * [Finding files in a directory: glob](python_basics/glob/README.md)
