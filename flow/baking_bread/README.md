@@ -1,40 +1,61 @@
+# Baking bread
+{:.no_toc}
 
+<nav markdown="1" class="toc-class">
+* TOC
+{:toc}
+</nav>
 
+## The goal
+
+Disassembling the process of baking bread as a flow chart. 
+
+Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
+
+## Baking bread
 
 {% raw %} 
 
   <pre class="mermaid">
     graph TD
     A(["Start"]) --> B{"Ingredients Ready?"}
-    B -->|"Yes"| C["Preheat Oven"]
+    B -->|"Yes"| C("Preheat Oven")
     B -->|"No"| D[["Gather Ingredients"]]
     D --> C
-    C --> md[["Make Dough"]] --> E["Knead Dough"]
+    C --> md[["Make Dough"]] --> E("Knead Dough")
     E --> F{"First Rise Complete?"}
-    F -->|"Yes"| G["Punch Down Dough"]
+    F -->|"Yes"| G("Punch Down Dough")
     F -->|"No"| E
-    G --> H["Shape Loaf"]
+    G --> H("Shape Loaf")
     H --> I{"Second Rise Complete?"}
-    I -->|"Yes"| J["Bake"]
+    I -->|"Yes"| J("Bake")
     I -->|"No"| H
     J --> K(["Stop"])
   </pre>  
-  
+{% endraw %}
+
+## Function Gather Ingredients
+
+{% raw %} 
   <pre class="mermaid">
     graph TD
-      gi[["Gather Ingredients"]] --> A(["Start"]) --> B["Go to Kitchen"]
-      B --> C["Open Pantry"]
-      C --> D1["Get Flour"]
-      D1 --> D2["Get Sugar"]
-      D2 --> D3["Get Salt"]
-      D3 --> E["Close Pantry"]
-      E --> F["Open Refrigerator"]
-      F --> G1["Get Water"]
-      G1 --> G2["Get Yeast"]
-      G2 --> H["Close Refrigerator"]
+      gi[["Gather Ingredients"]] --> A(["Start"]) --> B("Go to Kitchen")
+      B --> C("Open Pantry")
+      C --> D1("Get Flour")
+      D1 --> D2("Get Sugar")
+      D2 --> D3("Get Salt")
+      D3 --> E("Close Pantry")
+      E --> F("Open Refrigerator")
+      F --> G1("Get Water")
+      G1 --> G2("Get Yeast")
+      G2 --> H("Close Refrigerator")
       H --> I(["Stop"])
       </pre>  
+{% endraw %}
 
+## Function Make Dough
+
+{% raw %} 
   <pre class="mermaid">
     graph TD
         md[["Make Dough"]] --> A(["Start"])
