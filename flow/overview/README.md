@@ -1,3 +1,17 @@
+# Flowchart (ISO 5807)
+{:.no_toc}
+
+<nav markdown="1" class="toc-class">
+* TOC
+{:toc}
+</nav>
+
+## The goal
+
+Flowcharts can be used to plan a program. I will try to emulate the norm ISO 5807. 
+
+Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
+
 
 ## Terminal 
 
