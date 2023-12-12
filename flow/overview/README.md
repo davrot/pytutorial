@@ -1,9 +1,14 @@
+
+## Terminal 
 {% raw %} 
   <pre class="mermaid">
-        graph TD 
-        A[Client] --> B[Load Balancer] 
-        B --> C[Server01] 
-        B --> D[Server02]
+    flowchart LR
+      id1([Start])
   </pre>
+  <pre class="mermaid">
+    flowchart LR
+      id1([Stop])
+  </pre>  
 {% endraw %}
+
 
