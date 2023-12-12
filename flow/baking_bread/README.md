@@ -38,16 +38,16 @@
   <pre class="mermaid">
     graph TD
         md[["Make Dough"]] --> A(["Start"])
-        A --> C["Create Dough Object"]
-        C --> D1["Add Flour to Dough"]
-        D1 --> D2["Add Water to Dough"]
-        D2 --> D3["Add Yeast to Dough"]
-        D3 --> D4["Add Salt to Dough"]
-        D4 --> D5["Add Sugar to Dough"]
-        D5 --> E["Mix Ingredients"]
-        E --> F1["Stir until Combined"]
-        F1 --> F2["Beat until Smooth"]
-        F2 --> F3["Stir in Remaining Flour"]
+        A --> C("Create Dough Object")
+        C --> Initialization{{"Initialize spoon = 0"}} --> Condition{"spoon < 10"} --> Action("Add a spoon of flour to dough") --> Increment("spoon = spoon + 1") --> Condition
+        Condition -- "No" --> D2("Add Water to Dough")
+        D2 --> D3("Add Yeast to Dough")
+        D3 --> D4("Add Salt to Dough")
+        D4 --> Initialization2{{"Initialize spoon = 0"}} --> Condition2{"spoon < 3"} --> Action2("Add a spoon of Sugar to dough") --> Increment2("spoon = spoon + 1") --> Condition2
+        Condition2 -- "No" --> E("Mix Ingredients")
+        E --> F1("Stir until Combined")
+        F1 --> F2("Beat until Smooth")
+        F2 --> F3("Stir in Remaining Flour")
         F3 --> I(["Stop"])
       </pre>  
 {% endraw %}
