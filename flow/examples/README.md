@@ -28,7 +28,7 @@ This program does nothing.
 {% raw %} 
   <pre class="mermaid">
     flowchart TD
-      start([Start]) --> inita{{$a <- 1$}} -->stop([Stop])
+      start([Start]) --> inita{{"a ← 1"}} -->stop([Stop])
   </pre>
 {% endraw %}
 
