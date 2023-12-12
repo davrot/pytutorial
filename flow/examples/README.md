@@ -101,10 +101,10 @@ while counter < counter_max:
   <pre class="mermaid">
     flowchart TD
     start([Start]) --> inputa[/"Input integer a"/] --> Condition1{"a < 1"}
-    Condition1 -- Yes --> print1[/"print condition 1"/]
+    Condition1 -- Yes --> Action1[/"print condition 1"/]
     Condition1 -- No --> Condition2{"a == 2"}
-    Condition2 -- Yes --> print2[/"print condition 2"/]
-    Condition2 -- No --> print3[/"print condition else"/]
+    Condition2 -- Yes --> Action2[/"print condition 2"/]
+    Condition2 -- No --> ElseAction[/"print condition else"/]
     Action1 --> stop([Stop])
     Action2 --> stop
     ElseAction --> stop
