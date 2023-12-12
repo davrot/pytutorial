@@ -6,7 +6,8 @@
 {% raw %} 
   <pre class="mermaid">
     flowchart LR
-      id1([Start])
+      id1:::terminal([Start])
+      classDef terminal fill:#0f0 stroke:#000
   </pre>
 {% endraw %}
 
@@ -56,5 +57,26 @@ For arithmetic operations and data-manipulations.
       id1[[Function]]
   </pre>  
 {% endraw %}
+
+## Initialization
+
+{% raw %} 
+  <pre class="mermaid">
+    flowchart LR
+      id1{{Initialization}}
+  </pre>  
+{% endraw %}
+
+## File
+
+{% raw %} 
+  <pre class="mermaid">
+    flowchart LR
+      id1[(File)]
+  </pre>  
+{% endraw %}
+
+
+
 
 
