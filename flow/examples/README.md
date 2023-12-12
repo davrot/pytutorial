@@ -70,7 +70,7 @@ print(c)
 {% raw %} 
   <pre class="mermaid">
     flowchart TD
-    start([Start]) --> inita{{"counter ← 0"}} --> inita{{"counter_max ← 100"}} --> Condition{"counter < counter_max"}
+    start([Start]) --> initcounter{{"counter ← 0"}} --> initcountermax{{"counter_max ← 100"}} --> Condition{"counter < counter_max"}
     Condition -- Yes --> printcounter[/"print counter"/] --> Action["counter ← counter + 1"]
     Action --> Condition
     Condition -- No --> End(End)
