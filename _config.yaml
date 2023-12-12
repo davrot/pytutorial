@@ -9,12 +9,6 @@ kramdown:
   parse_block_html: true
   
 use_math: true
-
-plugins:
-  - jekyll-mermaid
-
-whitelist:
-  - jekyll-mermaid
   
 defaults:
   - scope:
