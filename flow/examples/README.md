@@ -23,6 +23,12 @@ This program does nothing.
   </pre>
 {% endraw %}
 
+In Python:
+
+```python
+pass
+```
+
 ## a+b=c
 
 {% raw %} 
@@ -58,3 +64,34 @@ b = int(input())
 c = a + b
 print(c)
 ```
+
+## for-loop / while loop
+
+{% raw %} 
+  <pre class="mermaid">
+    flowchart TD
+    start([Start]) --> inita{{"counter ← 0"}} --> inita{{"counter_max ← 100"}} --> Condition{"counter < counter_max"}
+    Condition -- Yes --> printcounter[/"print counter"/] --> Action["counter ← counter + 1"]
+    Action --> Condition
+    Condition -- No --> End(End)
+  </pre>
+{% endraw %}
+
+In Python:
+
+```python
+counter_max = 100
+for counter in range(0, counter_max):
+    print(counter)
+```
+
+or
+
+```python
+counter = 0
+counter_max = 100
+while counter < counter_max:
+    print(counter)
+    counter += 1
+```
+
