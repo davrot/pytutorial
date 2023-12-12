@@ -13,6 +13,9 @@ use_math: true
 plugins:
   - jekyll-mermaid
 
+whitelist:
+  - jekyll-mermaid
+  
 defaults:
   - scope:
       path: "" 
