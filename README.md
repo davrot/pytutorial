@@ -11,6 +11,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 ## Flow chart
 * [Flow chart symbols](flow/overview/README.md)
 * [Examples](flow/examples/README.md)
+* [Flow chart for baking bread](flow/baking_bread/README.md)
 
 ## Workflow
 * [Python installation](workflow/python_pure/README.md)
