@@ -33,6 +33,7 @@ This program does nothing.
 {% endraw %}
 
 In Python:
+
 ```python
 a=1
 b=1
@@ -50,6 +51,7 @@ print(c)
 {% endraw %}
 
 In Python:
+
 ```python
 a = int(input())
 b = int(input())
