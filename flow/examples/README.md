@@ -12,15 +12,23 @@ Looking into some flow chart examples.
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
-## Most simple programm
+## Most simple program
 
 This program does nothing. 
 
 {% raw %} 
   <pre class="mermaid">
     flowchart TD
-      id1([Start])-->id2([Stop])
+      start([Start])-->stop([Stop])
   </pre>
 {% endraw %}
 
+## Most a+b=c program
+
+{% raw %} 
+  <pre class="mermaid">
+    flowchart TD
+      start([Start]) --> inita{{$a <- 1$}} -->stop([Stop])
+  </pre>
+{% endraw %}
 
