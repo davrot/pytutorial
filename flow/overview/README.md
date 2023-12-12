@@ -7,7 +7,7 @@
   <pre class="mermaid">
     flowchart LR
       id1:::terminal([Start])
-      classDef terminal fill:#0f0 stroke:#000
+      classDef terminal fill:#0f0,stroke:#000
   </pre>
 {% endraw %}
 
