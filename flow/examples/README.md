@@ -23,7 +23,7 @@ This program does nothing.
   </pre>
 {% endraw %}
 
-## Most a+b=c program
+## a+b=c
 
 {% raw %} 
   <pre class="mermaid">
@@ -37,5 +37,22 @@ In Python:
 a=1
 b=1
 c=a+b
+print(c)
+```
+
+## a+b=c with input from user
+
+{% raw %} 
+  <pre class="mermaid">
+    flowchart TD
+      start([Start]) --> inputa[/"Input integer a"/] --> inputb[/"Input integer b"/] --> add("c ← a+b") --> printc[/"print c"/] -->stop([Stop])
+  </pre>
+{% endraw %}
+
+In Python:
+```python
+a = int(input())
+b = int(input())
+c = a + b
 print(c)
 ```
