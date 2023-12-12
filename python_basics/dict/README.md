@@ -125,6 +125,15 @@ a["one"] = "Hello"
 print(a["one"]) # -> Hello
 ```
 
+## del
+
+```python
+a = dict(one=1, two=2, three=3)
+
+del a["two"]
+print(a) # -> {'one': 1, 'three': 3}
+```
+
 ## in
 
 ```python
@@ -182,4 +191,36 @@ print(a.get("nine", 99)) # -> 99
 print(a.get("nine")) # -> None
 ```
 
+## \| and \|=
 
+```python
+a = dict(one=1, two=2, three=3)
+b = dict(four=4, five=5, six=6, one=99)
+
+c = a | b
+print(c) # -> {'one': 99, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6}
+```
+
+```python
+a = dict(one=1, two=2, three=3)
+b = dict(four=4, five=5, six=6, one=99)
+
+a |= b
+print(a) # -> {'one': 99, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6}
+```
+
+## items(), keys() and values()
+
+```python
+a = dict(one=1, two=2, three=3)
+
+print(a.items()) # -> dict_items([('one', 1), ('two', 2), ('three', 3)])
+print(a.keys()) # -> dict_keys(['one', 'two', 'three'])
+print(a.values()) # -> dict_values([1, 2, 3])
+
+print(list(a.items())[0]) # -> ('one', 1)
+print(list(a.keys())[0]) # -> one
+print(list(a.values())[0]) # -> 1
+
+print(a.values()[0]) # -> TypeError: 'dict_values' object is not subscriptable
+```
