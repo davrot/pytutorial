@@ -165,17 +165,17 @@ else:
 
   <pre class="mermaid">
     flowchart TD
-    Function1[["function_1()"]] --> Start([Start]) --> Print[/print("condition 1")/] --> End([Stop])
+    Function1[["function_1()"]] --> Start([Start]) --> Print[/"print condition 1"/] --> End([Stop])
   </pre>
 
   <pre class="mermaid">
     flowchart TD
-    Function2[["function_2()"]] --> Start([Start]) --> Print[/print("condition 2")/] --> End([Stop])
+    Function2[["function_2()"]] --> Start([Start]) --> Print[/"print condition 2"/] --> End([Stop])
   </pre>
 
   <pre class="mermaid">
     flowchart TD
-    FunctionElse[["function_else()"]] --> Start([Start]) --> Print[/print("condition else")/] --> End([Stop])
+    FunctionElse[["function_else()"]] --> Start([Start]) --> Print[/"print condition else"/] --> End([Stop])
   </pre>
       
 {% endraw %}
