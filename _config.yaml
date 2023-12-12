@@ -10,6 +10,9 @@ kramdown:
   
 use_math: true
 
+plugins:
+  - jekyll-mermaid
+
 defaults:
   - scope:
       path: "" 
