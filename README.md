@@ -8,6 +8,9 @@
 
 All the tutorials are tested with Python 3.11.x. Older version might have a problem with the new versions of type anotations. 
 
+## Flow chart
+* [Flow chart symbols](flow/overview/README.md)
+
 ## Workflow
 * [Python installation](workflow/python_pure/README.md)
 * [VS Code installation](workflow/vscode_install/README.md)
