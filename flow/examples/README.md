@@ -73,7 +73,7 @@ print(c)
     start([Start]) --> initcounter{{"counter ← 0"}} --> initcountermax{{"counter_max ← 100"}} --> Condition{"counter < counter_max"}
     Condition -- Yes --> printcounter[/"print counter"/] --> Action["counter ← counter + 1"]
     Action --> Condition
-    Condition -- No --> End(End)
+    Condition -- No --> stop([Stop])
   </pre>
 {% endraw %}
 
@@ -93,5 +93,31 @@ counter_max = 100
 while counter < counter_max:
     print(counter)
     counter += 1
+```
+
+## if, elif, else
+
+{% raw %} 
+  <pre class="mermaid">
+    flowchart TD
+    start([Start]) --> inputa[/"Input integer a"/] --> Condition1{"a < 1"}
+    Condition1 -- Yes --> print1[/"print condition 1"/]
+    Condition1 -- No --> Condition2{"a == 2"}
+    Condition2 -- Yes --> print2[/"print condition 2"/]
+    Condition2 -- No --> print3[/"print condition else"/]
+    Action1 --> stop([Stop])
+    Action2 --> stop
+    ElseAction --> stop
+  </pre>
+{% endraw %}
+
+```python
+a = int(input())
+if a < 1:
+    print("condition 1")
+elif a == 2:
+    print("condition 2")
+else: 
+    print("condition else")
 ```
 
