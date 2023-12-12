@@ -34,7 +34,6 @@
       G2 --> H["Close Refrigerator"]
       H --> I(["Stop"])
       </pre>  
-{% endraw %}
 
   <pre class="mermaid">
     graph TD
