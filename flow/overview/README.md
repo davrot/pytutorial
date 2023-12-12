@@ -6,7 +6,7 @@
 {% raw %} 
   <pre class="mermaid">
     flowchart LR
-      id1:::terminal([Start])
+      id1([Start])
   </pre>
 {% endraw %}
 
