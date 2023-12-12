@@ -8,7 +8,7 @@
 
 ## The goal
 
-
+A combination of JSON (JavaScript Object Notation) file and dictionaries allows to organize parameters in an external file. 
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
@@ -67,7 +67,7 @@ Content of data_in.json:
 }
 ```
 
-Note: You need to change the filetype from **JSON** to **JSON with comments**. Lower right corner. 
+Note for **VS Code**: You need to change the filetype from **JSON** to **JSON with comments**. Lower right corner. 
 
  The normal JSON functions fails:
 
