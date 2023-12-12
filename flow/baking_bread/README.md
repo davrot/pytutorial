@@ -7,7 +7,7 @@
     graph TD
     A(["Start"]) --> B{"Ingredients Ready?"}
     B -->|"Yes"| C["Preheat Oven"]
-    B -->|"No"| D[["Gather Ingredients"]]]
+    B -->|"No"| D[["Gather Ingredients"]]
     D --> C
     C --> md[["Make Dough"]] --> E["Knead Dough"]
     E --> F{"First Rise Complete?"}
@@ -37,8 +37,8 @@
 
   <pre class="mermaid">
     graph TD
-        md[["Make Dough"]] --> A(["Start"]) -->
-        B --> C["Create Dough Object"]
+        md[["Make Dough"]] --> A(["Start"])
+        A --> C["Create Dough Object"]
         C --> D1["Add Flour to Dough"]
         D1 --> D2["Add Water to Dough"]
         D2 --> D3["Add Yeast to Dough"]
