@@ -175,7 +175,7 @@ options:
 ```
 
 ## Reference 
-** [Argh](https://argh.readthedocs.io/en/latest/reference.html)
+* [Argh](https://argh.readthedocs.io/en/latest/reference.html)
 
 
 
