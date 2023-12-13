@@ -61,8 +61,23 @@ Please note, that there is a difference how type annotations worked for older ve
 ## MyPy under VS Code
 (also the header packages)
 
-## Built-in types
-### Simple types
+## [Built-in types](https://mypy.readthedocs.io/en/latest/builtin_types.html)
+
+### [Simple types](https://mypy.readthedocs.io/en/latest/builtin_types.html#simple-types)
+
+> Here are examples of some common built-in types:
+
+|Type|Description|
+|---|---|
+|int|integer|
+|float|floating point number|
+|bool|boolean value (subclass of int)|
+|str|text, sequence of unicode codepoints|
+|bytes|8-bit string, sequence of byte values|
+|object|an arbitrary object (object is the common base class)|
+
+
+
 ### Any type (Special type indicating an unconstrained type.)
 
 ```python
