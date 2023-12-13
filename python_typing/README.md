@@ -347,6 +347,48 @@ import torch
 a: torch.Tensor = torch.zeros((10, 1))
 ```
 
+## [Callable](https://docs.python.org/3/library/typing.html#annotating-callable-objects)
+
+Callable means "function". As you know, you can shove functions objects around and also use then as function arguments of other function. It is helpful to make sure that the function you get has the properties you expect. 
+
+```python
+Callable[[Arg1Type, Arg2Type], ReturnType]
+```
+
+```python
+from typing import Callable
+
+
+def function_a(x: int) -> int:
+    return x + 1
+
+
+def function_a_bad(x: int, y: int) -> int:
+    return x + y
+
+
+def function_b(x, other_function: Callable[[int], int]) -> int:
+    return other_function(x) ** 2
+
+
+print(function_b(1, function_a))  # -> 4
+
+print(function_b(1, function_b)) # -> Argument 2 to "function_b" has incompatible type "Callable[[Any, Callable[[int], int]], int]"; expected "Callable[[int], int]"
+```
+
+## [NewType](https://docs.python.org/3/library/typing.html#newtype), [Generics](https://docs.python.org/3/library/typing.html#generics), [User-defined generic types](https://docs.python.org/3/library/typing.html#user-defined-generic-types)
+
+{: .topic-optional}
+This is an optional topic!
+
+Well... this exists... never used it. 
+
+|||
+|---|---|
+|NewType | Use the NewType helper to create distinct types|
+|Generics| Since type information about objects kept in containers cannot be statically inferred in a generic way, many container classes in the standard library support subscription to denote the expected types of container elements. |
+|User-defined generic types|A user-defined class can be defined as a generic class.|
+
 
 ## References
 
