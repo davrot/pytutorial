@@ -61,6 +61,7 @@ Important VS Code notes:
 * [Constants](numpy/constants/README.md)
 * [Math functions](numpy/math_functions/README.md)
 * [Random numbers the non-legacy way](numpy/random/README.md)
+* [Statistics](numpy/statistics/README.md)
   
 ## Numpy
 * [Beyond normal np.save](numpy_save_special/README.md)
