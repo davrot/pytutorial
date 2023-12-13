@@ -23,7 +23,14 @@
 
 ## [Hyperbolic functions](https://numpy.org/doc/stable/reference/routines.math.html#hyperbolic-functions)
 
-[here](https://numpy.org/doc/stable/reference/routines.math.html#hyperbolic-functions) 
+|||
+|---|---|
+|sinh(x, /[, out, where, casting, order, ...]) |Hyperbolic sine, element-wise.|
+|cosh(x, /[, out, where, casting, order, ...]) |Hyperbolic cosine, element-wise.|
+|tanh(x, /[, out, where, casting, order, ...]) |Compute hyperbolic tangent element-wise.|
+|arcsinh(x, /[, out, where, casting, order, ...]) |Inverse hyperbolic sine element-wise.|
+|arccosh(x, /[, out, where, casting, order, ...]) |Inverse hyperbolic cosine, element-wise.|
+|arctanh(x, /[, out, where, casting, order, ...]) |Inverse hyperbolic tangent element-wise.|
 
 ## [Rounding](https://numpy.org/doc/stable/reference/routines.math.html#rounding)
 
