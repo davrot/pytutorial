@@ -75,14 +75,14 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 |[set()](https://docs.python.org/3/library/functions.html#func-set)|Return a new set object, optionally with elements taken from iterable.|
 |[setattr()](https://docs.python.org/3/library/functions.html#setattr)|This is the counterpart of getattr(). |
 |[slice()](https://docs.python.org/3/library/functions.html#slice)|Return a slice object representing the set of indices specified by range(start, stop, step). The start and step arguments default to None.|
-|[sorted()]()|
-|[staticmethod()]()|
-|[str()]()|
-|[sum()]()|
-|[super()]()|
-|[tuple()]()|
-|[type()]()|
-|[vars()]()|
-|[zip()]()|
-|[\_\_import\_\_()]()|
+|[sorted()](https://docs.python.org/3/library/functions.html#sorted)|Return a new sorted list from the items in iterable.|
+|[staticmethod()](https://docs.python.org/3/library/functions.html#staticmethod)|Transform a method into a static method.|
+|[str()](https://docs.python.org/3/library/functions.html#func-str)|Return a str version of object.|
+|[sum()](https://docs.python.org/3/library/functions.html#sum)|Sums start and the items of an iterable from left to right and returns the total. |
+|[super()](https://docs.python.org/3/library/functions.html#super)|Return a proxy object that delegates method calls to a parent or sibling class of type. This is useful for accessing inherited methods that have been overridden in a class.|
+|[tuple()](https://docs.python.org/3/library/functions.html#func-tuple)|Rather than being a function, tuple is actually an immutable sequence type|
+|[type()](https://docs.python.org/3/library/functions.html#type)|With one argument, return the type of an object. |
+|[vars()](https://docs.python.org/3/library/functions.html#vars)|Return the \_\_dict\_\_ attribute for a module, class, instance, or any other object with a \_\_dict\_\_ attribute.|
+|[zip()](https://docs.python.org/3/library/functions.html#zip)|Iterate over several iterables in parallel, producing tuples with an item from each one.|
+|[\_\_import\_\_()](https://docs.python.org/3/library/functions.html#import__)|This function is invoked by the import statement.|
 
