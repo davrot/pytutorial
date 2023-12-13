@@ -210,13 +210,117 @@ def f(a, L=None):
     L.append(a)
     return L
 
-
 print(f(1))  # -> [1]
 print(f(2))  # -> [2]
 print(f(3))  # -> [3]
 ```
 
+## Mutable arguments don't need return values​
 
-## Arguments and Keywords
+```python
+def f(x):
+    x.append(1)
+
+y = []
+f(y)
+print(y)
+```
+
+## [Arguments: Positional and Keywords](https://docs.python.org/3/tutorial/controlflow.html#special-parameters)
+
+> A function definition may look like:
+
+```python
+def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
+      -----------    ----------     ----------
+        |             |                  |
+        |        Positional or keyword   |
+        |                                - Keyword only
+         -- Positional only
+```
+
+**This is the typical case:**
+
+[Positional-or-Keyword Arguments](https://docs.python.org/3/tutorial/controlflow.html#positional-or-keyword-arguments)
+> **If / and * are not present** in the function definition, arguments may be passed to a function by position or by keyword.
+
+[Keyword Arguments](https://docs.python.org/3/tutorial/controlflow.html#keyword-arguments)
+
+{: .topic-optional}
+This is an optional topic!
+
+> Functions can also be called using keyword arguments of the form kwarg=value.
+
+[Positional-Only Parameters](https://docs.python.org/3/tutorial/controlflow.html#positional-only-parameters)
+
+{: .topic-optional}
+This is an optional topic!
+
+>  If positional-only, the parameters’ order matters, and the parameters cannot be passed by keyword.
+>
+> If there is no / in the function definition, there are no positional-only parameters.
+
+[Keyword-Only Arguments](https://docs.python.org/3/tutorial/controlflow.html#keyword-only-arguments)
+
+{: .topic-optional}
+This is an optional topic!
+
+> To mark parameters as keyword-only, indicating the parameters must be passed by keyword argument, place an * in the arguments list just before the first keyword-only parameter.
+
+## [Arbitrary Argument Lists](https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists) 
+
+```python
+def f(p1, *arguments, **keywords):
+    print("p1:")
+    print(p1)
+    print()
+
+    print("*arguments")
+    for arg in arguments:
+        print(arg)
+    print()
+
+    print("**keywords")
+    for kw in keywords:
+        print(f"{kw}: {keywords[kw]}")
+    print()
 
 
+f(1, 2, 3, a=4, b=5)
+```
+
+Output:
+
+```python
+p1:
+1
+
+*arguments
+2
+3
+
+**keywords
+a: 4
+b: 5
+```
+
+[Unpacking Argument Lists](https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists)
+
+```python
+def f(a: int, b: int, c: int, d: int) -> int:
+    return a * b * c * d
+
+print(f(2, 3, 4, 5))  # -> 120
+
+my_list_a = [2, 3, 4]
+my_list_b = [2, 3, 4, 5]
+my_list_c = [3, 4, 5]
+print(f(*my_list_a, 5))  # -> 120 (plus a false warning: 'Too many arguments for "f"' from MyPy)
+print(f(*my_list_b))  # -> 120
+print(f(2, *my_list_c))  # -> 120
+
+my_tuple_c = [3, 4, 5]
+print(f(2, *my_tuple_c))  # -> 120
+```
+
+## Documentation strings​
