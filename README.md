@@ -50,6 +50,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 
 ## Numpy: The Basics of the basics
 * [New matrix](numpy/new_matrix/README.md)
+* [Available dtype](numpy/dtype/README.md)
 * [Constants](numpy/constants/README.md)
 * [Random numbers the non-legacy way](numpy/random/README.md)
   
