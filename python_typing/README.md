@@ -58,8 +58,34 @@ def this_is_a_function(a: int, b: int = 8) -> tuple[int, int]:
 
 Please note, that there is a difference how type annotations worked for older version. I will cover only Python 3.10 and newer. The official documentation can be found [here](https://docs.python.org/3/library/typing.html).
 
+## Ignore a line
+
+You can force MyPy to ignore a line if you add the comment # type: ignore to that line.
+
+## MyPy (command line)
+
+
+```shell
+pip install mypy
+```
+
+If you don't vs code then you can use the mypy command line tool:
+
+```shell
+mypy test2.py 
+```
+
+```shell
+test2.py:3: error: Incompatible types in assignment (expression has type "float", variable has type "int")
+Found 1 error in 1 file (checked 1 source file)
+```
+
+
 ## MyPy under VS Code
-(also the header packages)
+
+Go under Extensions and install the **Mypy Type Checker** from **Microsoft**.
+
+![figure 1](image0.png)
 
 ## [Built-in types](https://mypy.readthedocs.io/en/latest/builtin_types.html)
 
