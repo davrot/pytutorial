@@ -1,8 +1,17 @@
+# Markdown
+{:.no_toc}
 
+<nav markdown="1" class="toc-class">
+* TOC
+{:toc}
+</nav>
 
-## Markdown
+## The goal
 
 The VS Code Python cell have [markdown](https://www.markdownguide.org/basic-syntax/)!​
+
+Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
+
 
 ## Equations
 
