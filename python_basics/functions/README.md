@@ -325,7 +325,46 @@ my_tuple_c = [3, 4, 5]
 print(f(2, *my_tuple_c))  # -> 120
 ```
 
-## Documentation strings​
+## [Documentation strings​](https://peps.python.org/pep-0257/)
+
+```python
+def my_function():
+    """This is a universal function.
+    It does nothing."""
+    pass
+
+help(my_function)
+```
+
+Output:
+
+```python
+Help on function my_function in module __main__:
+
+my_function()
+    This is a universal function.
+    It does nothing.
+```
+
+One liner:
+
+```python
+def my_function():
+    """This is a universal function."""
+    pass
+```
+
+Novelization: 
+
+```python
+def my_function():
+    """This is a universal function.
+        a
+        b
+        d
+        end"""
+    pass
+```
 
 ## [Lambda expressions / anonymous functions​](https://docs.python.org/3/reference/expressions.html#lambda)
 
