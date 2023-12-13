@@ -1,4 +1,11 @@
-# Python -- Type annotations and static type checking for Python
+# Type annotations and static type checking for Python
+{:.no_toc}
+
+<nav markdown="1" class="toc-class">
+* TOC
+{:toc}
+</nav>
+
 ## Goal
 We want to use static type checking and type annotations in our Python code for detecting errors we made. We will use the mypy extension in VS code for that. 
 
