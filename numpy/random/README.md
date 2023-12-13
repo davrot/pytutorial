@@ -9,7 +9,9 @@
 ## Goal
 If you don't see something like **np.random.default_rng()** in your code then you are probably using the old [Legacy Random Generation](https://numpy.org/doc/stable/reference/random/legacy.html#legacy-random-generation).
 
-**Don't use the legacy methods** for new source code!!!
+**Don't use the [legacy](https://numpy.org/doc/stable/reference/random/legacy.html) methods** for new source code!!!
+
+**numpy.random.random() == old == bad == don't use​**
 
 Do it like this:
 ```python
@@ -65,13 +67,13 @@ print(rng)  # -> Generator(PCG64)
 ```
 If you don't like it there are other options:
 
-| | 
-| -------------|
-|[MT19937](https://numpy.org/doc/stable/reference/random/bit_generators/mt19937.html)|
-|[PCG64](https://numpy.org/doc/stable/reference/random/bit_generators/pcg64.html)|
-|[PCG64DXSM](https://numpy.org/doc/stable/reference/random/bit_generators/pcg64dxsm.html)|
-|[Philox](https://numpy.org/doc/stable/reference/random/bit_generators/philox.html)|
-|[SFC64](https://numpy.org/doc/stable/reference/random/bit_generators/sfc64.html)|
+|||
+|---|---|
+|[PCG64](https://numpy.org/doc/stable/reference/random/bit_generators/pcg64.html) -- **The default**| A fast generator that can be advanced by an arbitrary amount. See the documentation for advance. PCG-64 has a period of 2^128. See the PCG author’s page for more details about this class of PRNG.​|
+|[MT19937](https://numpy.org/doc/stable/reference/random/bit_generators/mt19937.html)| The standard Python BitGenerator. Adds a MT19937.jumped function that returns a new generator with state as-if 2^128 draws have been made.|
+|[PCG64DXSM](https://numpy.org/doc/stable/reference/random/bit_generators/pcg64dxsm.html)| An upgraded version of PCG-64 with better statistical properties in parallel contexts. See Upgrading PCG64 with PCG64DXSM for more information on these improvements.​|
+|[Philox](https://numpy.org/doc/stable/reference/random/bit_generators/philox.html)|A counter-based generator capable of being advanced an arbitrary number of steps or generating independent streams. See the Random123 page for more details about this class of bit generators.​|
+|[SFC64](https://numpy.org/doc/stable/reference/random/bit_generators/sfc64.html)|A fast generator based on random invertible mappings. Usually the fastest generator of the four. See the SFC author’s page for (a little) more detail.​|
 
 ## [Distributions](https://numpy.org/doc/stable/reference/random/generator.html#distributions) (you will use)
 The most important ones are in **bold**. If you see a function argument *out*, then you can reuse an existing np array (i.e. [in-place operation](https://numpy.org/doc/stable/reference/random/generator.html#in-place-vs-copy)) as target.
