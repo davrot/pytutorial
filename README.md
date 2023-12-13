@@ -58,6 +58,7 @@ Important VS Code notes:
 * [New matrix](numpy/new_matrix/README.md)
 * [Available dtypes](numpy/dtype/README.md)
 * [Constants](numpy/constants/README.md)
+* [Math functions](numpy/math_functions/README.md)
 * [Random numbers the non-legacy way](numpy/random/README.md)
   
 ## Numpy
