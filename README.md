@@ -49,7 +49,8 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [The Python Standard Library​](python_basics/standard_libraries/README.md)
 
 ## Numpy: The Basics of the basics
-* [Numpy: Random numbers the non-legacy way](numpy/random/README.md)
+* [New matrix](numpy/new_matrix/README.md)
+* [Random numbers the non-legacy way](numpy/random/README.md)
   
 ## Numpy
 * [Beyond normal np.save](numpy_save_special/README.md)
