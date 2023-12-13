@@ -1,7 +1,7 @@
 # [Mathematical functions](https://numpy.org/doc/stable/reference/routines.math.html)
 
 
-**I will focus on the important ones.** 
+**I will focus on the important ones. Those will get a link.** 
 
 ## [Trigonometric functions](https://numpy.org/doc/stable/reference/routines.math.html#trigonometric-functions)
 
@@ -133,3 +133,36 @@
 |[imag](https://numpy.org/doc/stable/reference/generated/numpy.imag.html#numpy.imag)(val) |Return the imaginary part of the complex argument.|
 |[conj](https://numpy.org/doc/stable/reference/generated/numpy.conj.html#numpy.conj)(x, /[, out, where, casting, order, ...]) |Return the complex conjugate, element-wise.|
 |[conjugate](https://numpy.org/doc/stable/reference/generated/numpy.conjugate.html#numpy.conjugate)(x, /[, out, where, casting, ...]) |Return the complex conjugate, element-wise.|
+
+
+## [Extrema Finding](https://numpy.org/doc/stable/reference/routines.math.html#extrema-finding)
+
+|||
+|---|---|
+|[maximum](https://numpy.org/doc/stable/reference/generated/numpy.maximum.html#numpy.maximum)(x1, x2, /[, out, where, casting, ...]) |Element-wise maximum of array elements.|
+|[max](https://numpy.org/doc/stable/reference/generated/numpy.max.html#numpy.max)(a[, axis, out, keepdims, initial, where])|Return the maximum of an array or maximum along an axis.|
+|[amax](https://numpy.org/doc/stable/reference/generated/numpy.amax.html#numpy.amax)(a[, axis, out, keepdims, initial, where])|Return the maximum of an array or maximum along an axis.|
+|[fmax](https://numpy.org/doc/stable/reference/generated/numpy.fmax.html#numpy.fmax)(x1, x2, /[, out, where, casting, ...])|Element-wise maximum of array elements.|
+|[nanmax](https://numpy.org/doc/stable/reference/generated/numpy.nanmax.html#numpy.nanmax)(a[, axis, out, keepdims, initial, where])|Return the maximum of an array or maximum along an axis, ignoring any NaNs.|
+|[minimum](https://numpy.org/doc/stable/reference/generated/numpy.minimum.html#numpy.minimum)(x1, x2, /[, out, where, casting, ...])|Element-wise minimum of array elements.|
+|[min](https://numpy.org/doc/stable/reference/generated/numpy.min.html#numpy.min)(a[, axis, out, keepdims, initial, where])|Return the minimum of an array or minimum along an axis.|
+|[amin](https://numpy.org/doc/stable/reference/generated/numpy.amin.html#numpy.amin)(a[, axis, out, keepdims, initial, where])|Return the minimum of an array or minimum along an axis.|
+|[fmin](https://numpy.org/doc/stable/reference/generated/numpy.fmin.html#numpy.fmin)(x1, x2, /[, out, where, casting, ...])|Element-wise minimum of array elements.|
+|[nanmin](https://numpy.org/doc/stable/reference/generated/numpy.nanmin.html#numpy.nanmin)(a[, axis, out, keepdims, initial, where])|Return minimum of an array or minimum along an axis, ignoring any NaNs.|
+
+## [Miscellaneous](https://numpy.org/doc/stable/reference/routines.math.html#miscellaneous)
+
+|||
+|---|---|
+|[convolve](https://numpy.org/doc/stable/reference/generated/numpy.convolve.html#numpy.convolve)(a, v[, mode])|Returns the discrete, linear convolution of two one-dimensional sequences.|
+|[clip](https://numpy.org/doc/stable/reference/generated/numpy.clip.html#numpy.clip)(a, a_min, a_max[, out])|Clip (limit) the values in an array.|
+|[sqrt](https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html#numpy.sqrt)(x, /[, out, where, casting, order, ...])|Return the non-negative square-root of an array, element-wise.|
+|[cbrt](https://numpy.org/doc/stable/reference/generated/numpy.cbrt.html#numpy.cbrt)(x, /[, out, where, casting, order, ...])|Return the cube-root of an array, element-wise.|
+|[square](https://numpy.org/doc/stable/reference/generated/numpy.square.html#numpy.square)(x, /[, out, where, casting, order, ...])|Return the element-wise square of the input.|
+|[absolute](https://numpy.org/doc/stable/reference/generated/numpy.absolute.html#numpy.absolute)(x, /[, out, where, casting, order, ...])|Calculate the absolute value element-wise.|
+|[fabs](https://numpy.org/doc/stable/reference/generated/numpy.fabs.html#numpy.fabs)(x, /[, out, where, casting, order, ...])|Compute the absolute values element-wise.|
+|[sign](https://numpy.org/doc/stable/reference/generated/numpy.sign.html#numpy.sign)(x, /[, out, where, casting, order, ...])|Returns an element-wise indication of the sign of a number.|
+|[heaviside](https://numpy.org/doc/stable/reference/generated/numpy.heaviside.html#numpy.heaviside)(x1, x2, /[, out, where, casting, ...])|Compute the Heaviside step function.|
+|[nan_to_num](https://numpy.org/doc/stable/reference/generated/numpy.nan_to_num.html#numpy.nan_to_num)(x[, copy, nan, posinf, neginf])|Replace NaN with zero and infinity with large finite numbers (default behaviour) or with the numbers defined by the user using the nan, posinf and/or neginf keywords.|
+|[real_if_close](https://numpy.org/doc/stable/reference/generated/numpy.real_if_close.html#numpy.real_if_close)(a[, tol])|If input is complex with all imaginary parts close to zero, return real parts.|
+|[interp](https://numpy.org/doc/stable/reference/generated/numpy.interp.html#numpy.interp)(x, xp, fp[, left, right, period])|One-dimensional linear interpolation for monotonically increasing sample points.|
