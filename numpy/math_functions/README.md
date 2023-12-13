@@ -47,3 +47,16 @@
 ## [Sums, products, differences](https://numpy.org/doc/stable/reference/routines.math.html#sums-products-differences)
 
 
+|||
+|---|---|
+|[prod](https://numpy.org/doc/stable/reference/generated/numpy.prod.html#numpy.prod)(a[, axis, dtype, out, keepdims, ...]) |Return the product of array elements over a given axis.|
+|[sum](https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum)(a[, axis, dtype, out, keepdims, ...])|Sum of array elements over a given axis.|
+|[nanprod](https://numpy.org/doc/stable/reference/generated/numpy.nanprod.html#numpy.nanprod)(a[, axis, dtype, out, keepdims, ...])|Return the product of array elements over a given axis treating Not a Numbers (NaNs) as ones.|
+|[nansum](https://numpy.org/doc/stable/reference/generated/numpy.nansum.html#numpy.nansum)(a[, axis, dtype, out, keepdims, ...])|Return the sum of array elements over a given axis treating Not a Numbers (NaNs) as zero.|
+|[cumprod](https://numpy.org/doc/stable/reference/generated/numpy.cumprod.html#numpy.cumprod)(a[, axis, dtype, out])|Return the cumulative product of elements along a given axis.|
+|[cumsum](https://numpy.org/doc/stable/reference/generated/numpy.cumsum.html#numpy.cumsum)(a[, axis, dtype, out])|Return the cumulative sum of the elements along a given axis.|
+|[nancumprod](https://numpy.org/doc/stable/reference/generated/numpy.nancumprod.html#numpy.nancumprod)(a[, axis, dtype, out])|Return the cumulative product of array elements over a given axis treating Not a Numbers (NaNs) as one.|
+|[nancumsum](https://numpy.org/doc/stable/reference/generated/numpy.nancumsum.html#numpy.nancumsum)(a[, axis, dtype, out])|Return the cumulative sum of array elements over a given axis treating Not a Numbers (NaNs) as zero.|
+|[diff](https://numpy.org/doc/stable/reference/generated/numpy.diff.html#numpy.diff)(a[, n, axis, prepend, append])|Calculate the n-th discrete difference along the given axis.|
+|[cross](https://numpy.org/doc/stable/reference/generated/numpy.cross.html#numpy.cross)(a, b[, axisa, axisb, axisc, axis])|Return the cross product of two (arrays of) vectors.|
+
