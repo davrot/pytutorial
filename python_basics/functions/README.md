@@ -8,9 +8,11 @@
 
 ## The goal
 
-
+A function allows to seperate a part of the code in a logical module that can be reused. 
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
+
+**Logic blocks need to be indented.​ Preferable with 4 spaces!**
 
 ## [Most simple function](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
 
@@ -350,3 +352,39 @@ print(pairs) # -> [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
 print((lambda x: x[1])(pairs)) # -> (2, 'two')
 print(f(pairs)) # -> (2, 'two')
 ```
+
+Example 2:
+
+With a normal function:
+
+```python
+pairs = [(1, "one"), (2, "two"), (3, "three"), (4, "four")]
+
+def f(x):
+    return x[1]
+
+print(pairs)  # -> [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
+
+pairs.sort(key=f) 
+print(pairs) # -> [(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+```
+
+```python
+pairs = [(1, "one"), (2, "two"), (3, "three"), (4, "four")]
+
+
+print(pairs)  # -> [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
+
+pairs.sort(key=(lambda x: x[1]))
+print(pairs) # -> [(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
+```
+
+Small warning: 
+
+```python
+print(pairs.sort()) # -> None
+```
+
+because **.sort()** is an inplace function.
+
+
