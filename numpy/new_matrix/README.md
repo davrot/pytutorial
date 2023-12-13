@@ -117,6 +117,38 @@ M = np.zeros((2, *d))
 print(M)
 ```
 
+## np.empty is not np.zeros
+
+If you are sure that you don’t care about what is inside the matrix in the beginning use​
+
+```python
+M = numpy.empty((DIM_0, DIM_1, DIM_2,...))​
+```
+
+Empty claims a region in the memory and uses it for a matrix. Zeros goes one step further. It fills the memory with zeros. 
+
+Thus random junk​ (i.e. data that was stored prior at that memory position) with be the content of a matrix if you use empty. However, np.empty() is faster than np.zeros().
+
+```python
+​import numpy as np
+M = np.empty((10, 4))
+print(M)
+```
+
+```python
+[[1.66706425e-316 0.00000000e+000 6.89933729e-310 6.89933730e-310]
+ [6.89933729e-310 6.89933730e-310 6.89933729e-310 6.89933730e-310]
+ [6.89933730e-310 6.89933730e-310 6.89933729e-310 6.89933729e-310]
+ [6.89933730e-310 6.89933729e-310 6.89933730e-310 6.89933729e-310]
+ [6.89933730e-310 4.30513389e-317 4.30321296e-317 6.89933825e-310]
+ [4.30389280e-317 6.89933822e-310 4.30366750e-317 6.89933822e-310]
+ [4.30311810e-317 4.30480583e-317 4.30462401e-317 4.30336316e-317]
+ [6.89933822e-310 4.30386513e-317 4.30358055e-317 4.30571886e-317]
+ [4.30568724e-317 4.30659237e-317 6.89933822e-310 6.89933822e-310]
+ [6.89933822e-310 6.89933822e-310 4.30289676e-317 6.89920336e-310]]
+```
+ 
+
 ## [From shape or value](https://numpy.org/doc/stable/reference/routines.array-creation.html#from-shape-or-value)
 
 |||
