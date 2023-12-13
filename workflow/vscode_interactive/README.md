@@ -16,7 +16,11 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 If you don't know what I am talking about, please read: [Python Interactive window](https://code.visualstudio.com/docs/python/jupyter-support-py)
 
-## Interactive plotting in # %% cells​
+## [Interactive plotting in # %% cells​](https://matplotlib.org/ipympl/)
+
+```shell
+pip install ipympl
+```
 
 We can activate the interactive plotting mode via ​
 
@@ -69,6 +73,15 @@ print(handles)
 ```python
 [<matplotlib.lines.Line2D object at 0x7fe130f75310>, <matplotlib.spines.Spine object at 0x7fe130f1d710>, <matplotlib.spines.Spine object at 0x7fe130f1dcd0>, <matplotlib.spines.Spine object at 0x7fe130f1e210>, <matplotlib.spines.Spine object at 0x7fe130f1e750>, <matplotlib.axis.XAxis object at 0x7fe130f1ecd0>, <matplotlib.axis.YAxis object at 0x7fe1310b7350>, Text(0.5, 1.0, ''), Text(0.0, 1.0, ''), Text(1.0, 1.0, ''), <matplotlib.patches.Rectangle object at 0x7fe130f3cf10>]
 ```
+
+You can use
+
+```python
+display(fig)
+```
+
+for replotting the plot. However you will get a message from VS Code that display is not defined. It is defined but it doesn't know it. 
+
 
 This allows us to do this: 
 
