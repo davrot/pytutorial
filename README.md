@@ -52,7 +52,7 @@ Important VS Code notes:
 * [Finding files in a directory: glob](python_basics/glob/README.md)
 * [Class](python_basics/class/README.md)
 * [Exceptions (try / except)](python_basics/exceptions/README.md)
-* [Built-in Functions](python_basics/built_in/exceptions/README.md)
+* [Built-in Functions](python_basics/built_in/README.md)
 * [The Python Standard Library​](python_basics/standard_libraries/README.md)
 
 ## Numpy: The Basics of the basics
