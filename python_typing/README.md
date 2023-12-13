@@ -205,6 +205,42 @@ a: np.ndarray  | torch.Tensor = torch.zeros((100,))
 
 This is called a [Union](https://docs.python.org/3/library/typing.html#typing.Union). The Union with **None** is called [Optional](https://docs.python.org/3/library/typing.html#typing.Optional). But nowadays you just need to remember **\|**. 
 
+In the real world I encountered this problem:
+
+```python
+a: int | None = 1
+b: int
+
+b = a  # Incompatible types in assignment (expression has type "int | None", variable has type "int")
+```
+
+The solution is to use [assert](https://docs.python.org/3/reference/simple_stmts.html#the-assert-statement):
+
+```python
+a: int | None = 1
+b: int
+
+assert a is not None
+
+b = a
+```
+
+
+## [TypeAlias](https://docs.python.org/3/library/typing.html#typing.TypeAlias)
+
+You can create an alias for more complicated types
+
+```python
+from typing import TypeAlias
+
+Numbis: TypeAlias = int | float
+a: Numbis
+
+a = 1
+a = 1.1
+a = "Hello" # Incompatible types in assignment (expression has type "str", variable has type "int | float")
+```
+
 ## [Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)
 
 ```python
@@ -249,7 +285,68 @@ mylist.append(
 print(mylist) # -> [1, 2, 'Hello']
 ```
 
-## Dict
+## [Dict](https://docs.python.org/3/library/typing.html#typing.Dict)
+
+Generic dictionary: 
+
+```python
+mydict: dict = {"A": 1, "B": 3.14, "C": "Hello"}
+```
+
+We can give it more information. However, we have to be careful to include the types correctly. 
+
+This is wrong: 
+
+```python
+mydict_a: dict[str, int] = {"A": 1, "B": 3.14, "C": "Hello", 1: 1}
+```
+
+We get these errors: 
+
+```python
+Dict entry 1 has incompatible type "str": "float"; expected "str": "int"
+Dict entry 2 has incompatible type "str": "str"; expected "str": "int"
+Dict entry 3 has incompatible type "int": "int"; expected "str": "int"
+```
+
+These are correct ways to handle it: 
+
+```python
+mydict_a: dict[str | int, str | int | float] = {"A": 1, "B": 3.14, "C": "Hello", 1: 1}
+mydict_b: dict[str, str | int | float] = {"A": 1, "B": 3.14, "C": "Hello", "1": 1}
+```
+
+## [Numpy](https://numpy.org/devdocs/reference/typing.html)
+
+Generic:
+
+```python
+import numpy as np
+a: np.ndarray = np.zeros((10, 1))
+```
+
+Protecting against a wrong dtype:
+
+
+```python
+import numpy as np
+from typing import Any
+
+a: np.ndarray[Any, np.dtype[np.uint64]]
+
+a = np.zeros((10, 1), dtype=np.uint64)
+a = np.zeros((10, 1)) # -> Incompatible types in assignment (expression has type "ndarray[Any, dtype[floating[_64Bit]]]", variable has type "ndarray[Any, dtype[unsignedinteger[_64Bit]]]")
+```
+
+## PyTorch
+Please note the big T!
+
+```python
+import torch
+
+a: torch.Tensor = torch.zeros((10, 1))
+```
+
 
 ## References
 
