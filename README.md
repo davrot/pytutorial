@@ -17,6 +17,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [Python installation](workflow/python_pure/README.md)
 * [VS Code installation](workflow/vscode_install/README.md)
 * [VS Code configuration](workflow/vscode_config/README.md)
+* [VS Code Markdown](workflow/vscode_markdown/README.md)
 
 
 ## Python: The Basics of the basics
