@@ -1,4 +1,4 @@
-# Numpy -- Random numbers the non-legacy way
+# Random numbers the non-legacy way
 {:.no_toc}
 
 <nav markdown="1" class="toc-class">
