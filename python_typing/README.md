@@ -62,6 +62,8 @@ Please note, that there is a difference how type annotations worked for older ve
 
 You can force MyPy to ignore a line if you add the comment # type: ignore to that line.
 
+Please check [Common issues and solutions](https://mypy.readthedocs.io/en/stable/common_issues.html) if you run in strange problems. 
+
 ## MyPy (command line)
 
 
