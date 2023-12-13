@@ -1,4 +1,16 @@
 # [Mathematical functions](https://numpy.org/doc/stable/reference/routines.math.html)
+{:.no_toc}
+
+<nav markdown="1" class="toc-class">
+* TOC
+{:toc}
+</nav>
+
+## The goal
+
+Matrices alone are useless. We need some math functions to act upon them.
+
+Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 
 **I will focus on the important ones. Those will get a link.** 
