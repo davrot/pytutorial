@@ -18,8 +18,13 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [VS Code installation](workflow/vscode_install/README.md)
 * [VS Code configuration](workflow/vscode_config/README.md)
 * [VS Code Microsoft Tutorials](workflow/microsoft_tutorials/README.md)
+* [Python Interactive window](workflow/vscode_interactive/README.md)
 * [VS Code Markdown](workflow/vscode_markdown/README.md)
 
+Important VS Code notes:
+* You can mark segments of source node with your mouse (or keyboard) and use the TAB key to increase the level of the indentation or use SHIFT + TAB do decrease the indentation level. ​
+* CTRL + SHIFT + 7 toggles between comment and normal source code.​
+* The function key F2 allows you to change variable and function names. VS Code goes through all the node in your Project directory and changes all occurrences of the function or variable name accordingly. The same is true if you change a file name in a project directory.   
 
 ## Python: The Basics of the basics
 * [Overview](python_basics/where_to_start/README.md)
