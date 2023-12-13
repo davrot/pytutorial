@@ -178,10 +178,44 @@ def my_function(a=2, b=7, c=5, d=8):
     return a + b**2 + c**3 + d**4
 
 print(my_function(b=2,a=3)) # -> 4228
+print(my_function(d=7))  # -> 2577
 print(my_function(3,2)) # -> 4228
+print(my_function(3,b=2))  # -> 4228
+print(my_function(b=2,3)) # SyntaxError: positional argument follows keyword argument
 ```
 
 In the case of **my_function(3,2)**, the default values are replaced in the order the arguments of the function are defined. a,b,c, and finally d. When using the keyword e.g. d. Then I can overwrite only selected arguments.
+
+## [Important warning](https://docs.python.org/3/tutorial/controlflow.html#default-argument-values) -- Mutable objects
+
+> Important warning: **The default value is evaluated only once**. This makes a difference when the default is a mutable object such as a list, dictionary, or instances of most classes.
+
+Deadly: 
+
+```python
+def f(a, L=[]):
+    L.append(a)
+    return L
+
+print(f(1)) # -> [1]
+print(f(2)) # -> [1, 2]
+print(f(3)) # -> [1, 2, 3]
+```
+
+Correct:
+```python
+def f(a, L=None):
+    if L is None:
+        L = []
+    L.append(a)
+    return L
+
+
+print(f(1))  # -> [1]
+print(f(2))  # -> [2]
+print(f(3))  # -> [3]
+```
+
 
 ## Arguments and Keywords
 
