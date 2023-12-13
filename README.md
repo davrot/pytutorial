@@ -48,14 +48,15 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [Exceptions (try / except)](python_basics/exceptions/README.md)
 * [The Python Standard Library​](python_basics/standard_libraries/README.md)
 
-
+## Numpy: The Basics of the basics
+* [Numpy: Random numbers the non-legacy way](numpy/random/README.md)
+  
 ## Numpy
 * [Beyond normal np.save](numpy_save_special/README.md)
 * [Dealing with Matlab files](numpy_mat_files/README.md)
 
 ## Python: Data analysis
 
-* [Numpy: Random numbers the non-legacy way](numpy_random/README.md)
 * [Remove a common signal from your data](SVD_data_cleaning/README.md)
 
 ## Python: Questions of spectral nature
