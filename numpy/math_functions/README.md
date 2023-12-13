@@ -58,5 +58,78 @@
 |[nancumprod](https://numpy.org/doc/stable/reference/generated/numpy.nancumprod.html#numpy.nancumprod)(a[, axis, dtype, out])|Return the cumulative product of array elements over a given axis treating Not a Numbers (NaNs) as one.|
 |[nancumsum](https://numpy.org/doc/stable/reference/generated/numpy.nancumsum.html#numpy.nancumsum)(a[, axis, dtype, out])|Return the cumulative sum of array elements over a given axis treating Not a Numbers (NaNs) as zero.|
 |[diff](https://numpy.org/doc/stable/reference/generated/numpy.diff.html#numpy.diff)(a[, n, axis, prepend, append])|Calculate the n-th discrete difference along the given axis.|
+|ediff1d(ary[, to_end, to_begin])|The differences between consecutive elements of an array.|
+|gradient(f, *varargs[, axis, edge_order])|Return the gradient of an N-dimensional array.|
 |[cross](https://numpy.org/doc/stable/reference/generated/numpy.cross.html#numpy.cross)(a, b[, axisa, axisb, axisc, axis])|Return the cross product of two (arrays of) vectors.|
+|trapz(y[, x, dx, axis])|Integrate along the given axis using the composite trapezoidal rule.|
 
+## [Exponents and logarithms](https://numpy.org/doc/stable/reference/routines.math.html#exponents-and-logarithms)
+
+|||
+|---|---|
+|[exp](https://numpy.org/doc/stable/reference/generated/numpy.exp.html#numpy.exp)(x, /[, out, where, casting, order, ...])|Calculate the exponential of all elements in the input array.|
+|[expm1](https://numpy.org/doc/stable/reference/generated/numpy.expm1.html#numpy.expm1)(x, /[, out, where, casting, order, ...])|Calculate exp(x) - 1 for all elements in the array.|
+|[exp2](https://numpy.org/doc/stable/reference/generated/numpy.exp2.html#numpy.exp2)(x, /[, out, where, casting, order, ...])|Calculate 2**p for all p in the input array.|
+|[log](https://numpy.org/doc/stable/reference/generated/numpy.log.html#numpy.log)(x, /[, out, where, casting, order, ...])|Natural logarithm, element-wise.|
+|[log10](https://numpy.org/doc/stable/reference/generated/numpy.log10.html#numpy.log10)(x, /[, out, where, casting, order, ...])|Return the base 10 logarithm of the input array, element-wise.|
+|[log2](https://numpy.org/doc/stable/reference/generated/numpy.log2.html#numpy.log2)(x, /[, out, where, casting, order, ...])|Base-2 logarithm of x.|
+|[log1p](https://numpy.org/doc/stable/reference/generated/numpy.log1p.html#numpy.log1p)(x, /[, out, where, casting, order, ...])|Return the natural logarithm of one plus the input array, element-wise.|
+|[logaddexp](https://numpy.org/doc/stable/reference/generated/numpy.logaddexp.html#numpy.logaddexp)(x1, x2, /[, out, where, casting, ...])|Logarithm of the sum of exponentiations of the inputs.|
+|[logaddexp2](https://numpy.org/doc/stable/reference/generated/numpy.logaddexp2.html#numpy.logaddexp2)(x1, x2, /[, out, where, casting, ...])|Logarithm of the sum of exponentiations of the inputs in base-2.|
+
+## [Other special functions](https://numpy.org/doc/stable/reference/routines.math.html#other-special-functions)
+
+|||
+|---|---|
+|i0(x)|Modified Bessel function of the first kind, order 0.|
+|sinc(x)|Return the normalized sinc function.|
+
+## [Floating point routines](https://numpy.org/doc/stable/reference/routines.math.html#floating-point-routines)
+
+|||
+|---|---|
+|signbit(x, /[, out, where, casting, order, ...])|Returns element-wise True where signbit is set (less than zero).|
+|copysign(x1, x2, /[, out, where, casting, ...])|Change the sign of x1 to that of x2, element-wise.|
+|frexp(x[, out1, out2], / [[, out, where, ...])|Decompose the elements of x into mantissa and twos exponent.|
+|ldexp(x1, x2, /[, out, where, casting, ...])|Returns x1 * 2**x2, element-wise.|
+|nextafter(x1, x2, /[, out, where, casting, ...])|Return the next floating-point value after x1 towards x2, element-wise.|
+|spacing(x, /[, out, where, casting, order, ...])|Return the distance between x and the nearest adjacent number.|
+
+## [Rational routines](https://numpy.org/doc/stable/reference/routines.math.html#rational-routines)
+
+|||
+|---|---|
+|lcm(x1, x2, /[, out, where, casting, order, ...])|Returns the lowest common multiple of \|x1\| and \|x2\||
+|gcd(x1, x2, /[, out, where, casting, order, ...])|Returns the greatest common divisor of \|x1\| and \|x2\||
+
+
+## [Arithmetic operations](https://numpy.org/doc/stable/reference/routines.math.html#arithmetic-operations)
+
+|||
+|---|---|
+|[add](https://numpy.org/doc/stable/reference/generated/numpy.add.html#numpy.add)(x1, x2, /[, out, where, casting, order, ...])|Add arguments element-wise.|
+|[reciprocal](https://numpy.org/doc/stable/reference/generated/numpy.reciprocal.html#numpy.reciprocal)(x, /[, out, where, casting, ...])|Return the reciprocal of the argument, element-wise.|
+|positive(x, /[, out, where, casting, order, ...])|Numerical positive, element-wise.|
+|negative(x, /[, out, where, casting, order, ...])|Numerical negative, element-wise.|
+|[multiply](https://numpy.org/doc/stable/reference/generated/numpy.multiply.html#numpy.multiply)(x1, x2, /[, out, where, casting, ...])|Multiply arguments element-wise.|
+|[divide](https://numpy.org/doc/stable/reference/generated/numpy.divide.html#numpy.divide)(x1, x2, /[, out, where, casting, ...])|Divide arguments element-wise.|
+|[power](https://numpy.org/doc/stable/reference/generated/numpy.power.html#numpy.power)(x1, x2, /[, out, where, casting, ...])|First array elements raised to powers from second array, element-wise.|
+|[subtract](https://numpy.org/doc/stable/reference/generated/numpy.subtract.html#numpy.subtract)(x1, x2, /[, out, where, casting, ...])|Subtract arguments, element-wise.|
+|[true_divide](https://numpy.org/doc/stable/reference/generated/numpy.true_divide.html#numpy.true_divide)(x1, x2, /[, out, where, ...])|Divide arguments element-wise.|
+|[floor_divide](https://numpy.org/doc/stable/reference/generated/numpy.floor_divide.html#numpy.floor_divide)(x1, x2, /[, out, where, ...])|Return the largest integer smaller or equal to the division of the inputs.|
+|[float_power](https://numpy.org/doc/stable/reference/generated/numpy.float_power.html#numpy.float_power)(x1, x2, /[, out, where, ...])|First array elements raised to powers from second array, element-wise.|
+|[fmod](https://numpy.org/doc/stable/reference/generated/numpy.fmod.html#numpy.fmod)(x1, x2, /[, out, where, casting, ...])|Returns the element-wise remainder of division.|
+|[mod](https://numpy.org/doc/stable/reference/generated/numpy.mod.html#numpy.mod)(x1, x2, /[, out, where, casting, order, ...])|Returns the element-wise remainder of division.|
+|[modf](https://numpy.org/doc/stable/reference/generated/numpy.modf.html#numpy.modf)(x[, out1, out2], / [[, out, where, ...])|Return the fractional and integral parts of an array, element-wise.|
+|[remainder](https://numpy.org/doc/stable/reference/generated/numpy.remainder.html#numpy.remainder)(x1, x2, /[, out, where, casting, ...])|Returns the element-wise remainder of division.|
+|[divmod](https://numpy.org/doc/stable/reference/generated/numpy.divmod.html#numpy.divmod)(x1, x2[, out1, out2], / [[, out, ...])|Return element-wise quotient and remainder simultaneously.|
+
+## [Handling complex numbers](https://numpy.org/doc/stable/reference/routines.math.html#handling-complex-numbers)
+
+|||
+|---|---|
+|[angle](https://numpy.org/doc/stable/reference/generated/numpy.angle.html#numpy.angle)(z[, deg]) |Return the angle of the complex argument.|
+|[real](https://numpy.org/doc/stable/reference/generated/numpy.real.html#numpy.real)(val) |Return the real part of the complex argument.|
+|[imag](https://numpy.org/doc/stable/reference/generated/numpy.imag.html#numpy.imag)(val) |Return the imaginary part of the complex argument.|
+|[conj](https://numpy.org/doc/stable/reference/generated/numpy.conj.html#numpy.conj)(x, /[, out, where, casting, order, ...]) |Return the complex conjugate, element-wise.|
+|[conjugate](https://numpy.org/doc/stable/reference/generated/numpy.conjugate.html#numpy.conjugate)(x, /[, out, where, casting, ...]) |Return the complex conjugate, element-wise.|
