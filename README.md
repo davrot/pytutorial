@@ -38,6 +38,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
   - [Tuple](python_basics/tuple/README.md)
 * Mapping Types
   - [Dict​](python_basics/dict/README.md)
+* [Functions](python_basics/functions/README.md)
 * [Type annotations](python_basics/python_typing/README.md)
 * [Files](python_basics/files/README.md)
 * [JSON and dict for parameter files](python_basics/json/README.md)
