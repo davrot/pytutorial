@@ -50,3 +50,22 @@ scipy.stats.fisher_exact(table, alternative='two-sided')
 |[nanmean](https://numpy.org/doc/stable/reference/generated/numpy.nanmean.html#numpy.nanmean)(a[, axis, dtype, out, keepdims, where])|Compute the arithmetic mean along the specified axis, ignoring NaNs.|
 |[nanstd](https://numpy.org/doc/stable/reference/generated/numpy.nanstd.html#numpy.nanstd)(a[, axis, dtype, out, ddof, ...])|Compute the standard deviation along the specified axis, while ignoring NaNs.|
 |[nanvar](https://numpy.org/doc/stable/reference/generated/numpy.nanvar.html#numpy.nanvar)(a[, axis, dtype, out, ddof, ...]) |Compute the variance along the specified axis, while ignoring NaNs.|
+
+## [Correlating](https://numpy.org/doc/stable/reference/routines.statistics.html#correlating)
+
+|||
+|---|---|
+|[corrcoef](https://numpy.org/doc/stable/reference/generated/numpy.corrcoef.html#numpy.corrcoef)(x[, y, rowvar, bias, ddof, dtype])|Return Pearson product-moment correlation coefficients.|
+|[correlate](https://numpy.org/doc/stable/reference/generated/numpy.correlate.html#numpy.correlate)(a, v[, mode])|Cross-correlation of two 1-dimensional sequences.|
+|[cov](https://numpy.org/doc/stable/reference/generated/numpy.cov.html#numpy.cov)(m[, y, rowvar, bias, ddof, fweights, ...])|Estimate a covariance matrix, given data and weights.|
+
+## [Histograms](https://numpy.org/doc/stable/reference/routines.statistics.html#histograms)
+
+|||
+|---|---|
+|[histogram](https://numpy.org/doc/stable/reference/generated/numpy.histogram.html#numpy.histogram)(a[, bins, range, density, weights])|Compute the histogram of a dataset.|
+|[histogram2d](https://numpy.org/doc/stable/reference/generated/numpy.histogram2d.html#numpy.histogram2d)(x, y[, bins, range, density, ...])|Compute the bi-dimensional histogram of two data samples.|
+|[histogramdd](https://numpy.org/doc/stable/reference/generated/numpy.histogramdd.html#numpy.histogramdd)(sample[, bins, range, density, ...])|Compute the multidimensional histogram of some data.|
+|[bincount](https://numpy.org/doc/stable/reference/generated/numpy.bincount.html#numpy.bincount)(x, /[, weights, minlength])|Count number of occurrences of each value in array of non-negative ints.|
+|[histogram_bin_edges](https://numpy.org/doc/stable/reference/generated/numpy.histogram_bin_edges.html#numpy.histogram_bin_edges)(a[, bins, range, weights])|Function to calculate only the edges of the bins used by the histogram function.|
+|[digitize](https://numpy.org/doc/stable/reference/generated/numpy.digitize.html#numpy.digitize)(x, bins[, right])|Return the indices of the bins to which each value in input array belongs.|
