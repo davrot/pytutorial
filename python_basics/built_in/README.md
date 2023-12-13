@@ -53,28 +53,28 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 |[isinstance()](https://docs.python.org/3/library/functions.html#isinstance)|Return True if the object argument is an instance of the classinfo argument, or of a (direct, indirect, or virtual) subclass thereof. If object is not an object of the given type, the function always returns False. If classinfo is a tuple of type objects (or recursively, other such tuples) or a Union Type of multiple types, return True if object is an instance of any of the types.|
 |[issubclass()](https://docs.python.org/3/library/functions.html#issubclass)|Return True if class is a subclass (direct, indirect, or virtual) of classinfo. A class is considered a subclass of itself. |
 |[iter()](https://docs.python.org/3/library/functions.html#iter)|Return an iterator object.|
-|[len()]()|
-|[list()]()|
-|[locals()]()|
-|[map()]()|
-|[max()]()|
-|[memoryview()]()|
-|[min()]()|
-|[next()]()|
-|[object()]()|
-|[oct()]()|
-|[open()]()|
-|[ord()]()|
-|[pow()]()|
-|[print()]()|
-|[property()]()|
-|[range()]()|
-|[repr()]()|
-|[reversed()]()|
-|[round()]()|
-|[set()]()|
-|[setattr()]()|
-|[slice()]()|
+|[len()](https://docs.python.org/3/library/functions.html#len)|Return the length (the number of items) of an object.|
+|[list()](https://docs.python.org/3/library/functions.html#func-list)|Rather than being a function, list is actually a mutable sequence type|
+|[locals()](https://docs.python.org/3/library/functions.html#locals)|Update and return a dictionary representing the current local symbol table.|
+|[map()](https://docs.python.org/3/library/functions.html#map)|Return an iterator that applies function to every item of iterable, yielding the results. |
+|[max()](https://docs.python.org/3/library/functions.html#max)|Return the largest item in an iterable or the largest of two or more arguments.|
+|[memoryview()](https://docs.python.org/3/library/functions.html#func-memoryview)|Return a “memory view” object created from the given argument. |
+|[min()](https://docs.python.org/3/library/functions.html#min)|Return the smallest item in an iterable or the smallest of two or more arguments.|
+|[next()](https://docs.python.org/3/library/functions.html#next)|Retrieve the next item from the iterator by calling its \_\_next\_\_() method.|
+|[object()](https://docs.python.org/3/library/functions.html#object)|Return a new featureless object. object is a base for all classes.|
+|[oct()](https://docs.python.org/3/library/functions.html#oct)|Convert an integer number to an octal string prefixed with “0o”. |
+|[open()](https://docs.python.org/3/library/functions.html#open)|Open file and return a corresponding file object.|
+|[ord()](https://docs.python.org/3/library/functions.html#ord)|Given a string representing one Unicode character, return an integer representing the Unicode code point of that character.|
+|[pow()](https://docs.python.org/3/library/functions.html#pow)|Return base to the power exp|
+|[print()](https://docs.python.org/3/library/functions.html#print)|Print objects to the text stream|
+|[property()](https://docs.python.org/3/library/functions.html#property)|Return a property attribute.|
+|[range()](https://docs.python.org/3/library/functions.html#func-range)|Rather than being a function, range is actually an immutable sequence type|
+|[repr()](https://docs.python.org/3/library/functions.html#repr)|Return a string containing a printable representation of an object.|
+|[reversed()](https://docs.python.org/3/library/functions.html#reversed)|Return a reverse iterator. |
+|[round()](https://docs.python.org/3/library/functions.html#round)|Return number rounded to ndigits precision after the decimal point. If ndigits is omitted or is None, it returns the nearest integer to its input.|
+|[set()](https://docs.python.org/3/library/functions.html#func-set)|Return a new set object, optionally with elements taken from iterable.|
+|[setattr()](https://docs.python.org/3/library/functions.html#setattr)|This is the counterpart of getattr(). |
+|[slice()](https://docs.python.org/3/library/functions.html#slice)|Return a slice object representing the set of indices specified by range(start, stop, step). The start and step arguments default to None.|
 |[sorted()]()|
 |[staticmethod()]()|
 |[str()]()|
