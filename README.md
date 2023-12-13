@@ -65,7 +65,9 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 
 ## Python: Daily little helper
 
-* [TQDM: Make your progress visible](TQDM/README.md)
+* [TQDM: Make your progress visible](helper/TQDM/README.md)
+* [Argh: Organize your command line arguments](helper/argh/README.md)
+
 
 ## PyTorch 
 * [Get CUDA ready!](pytorch/cuda/README.md)
