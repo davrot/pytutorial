@@ -304,7 +304,7 @@ a: 4
 b: 5
 ```
 
-[Unpacking Argument Lists](https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists)
+## [Unpacking Argument Lists](https://docs.python.org/3/tutorial/controlflow.html#unpacking-argument-lists)
 
 ```python
 def f(a: int, b: int, c: int, d: int) -> int:
@@ -324,3 +324,29 @@ print(f(2, *my_tuple_c))  # -> 120
 ```
 
 ## Documentation strings​
+
+## [Lambda expressions / anonymous functions​](https://docs.python.org/3/reference/expressions.html#lambda)
+
+```python
+lambda_expr ::=  "lambda" [parameter_list] ":" expression
+```
+> Lambda expressions (sometimes called lambda forms) are used to create anonymous functions. The expression lambda parameters: expression yields a function object. The unnamed object behaves like a function object defined with:
+
+```python
+def <lambda>(parameters):
+    return expression
+```
+
+Example 1:
+
+```python
+pairs = [(1, "one"), (2, "two"), (3, "three"), (4, "four")]
+
+def f(x):
+    return x[1]
+
+print(pairs) # -> [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
+
+print((lambda x: x[1])(pairs)) # -> (2, 'two')
+print(f(pairs)) # -> (2, 'two')
+```
