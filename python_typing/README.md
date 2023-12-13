@@ -63,6 +63,65 @@ Please note, that there is a difference how type annotations worked for older ve
 
 ## [Built-in types](https://mypy.readthedocs.io/en/latest/builtin_types.html)
 
+* If the type starts with an upper letter then you might import it from the typing module like
+
+```python
+from typing import Any
+```
+
+* If you have no clue what type something has, well use **type()**:
+
+```python
+import numpy as np
+import torch
+
+
+def func() -> None:
+    return
+
+
+a = 0
+b = np.zeros((10,))
+c = torch.zeros((10, 1))
+d = func
+
+print(type(a))
+print(type(b))
+print(type(c))
+print(type(d))
+```
+
+Output:
+
+```python
+<class 'int'>
+<class 'numpy.ndarray'>
+<class 'torch.Tensor'>
+<class 'function'>
+```
+
+The correct typing would have been: 
+
+```python
+import numpy as np
+import torch
+from typing import Callable
+
+
+def func() -> None:
+    return
+
+
+a: int = 0
+b: np.ndarray = np.zeros((10,))
+c: torch.Tensor = torch.zeros((10, 1))
+d: Callable = func
+```
+
+As you can see, we had to change **b** a bit because we didn't use **import numpy** but used **import numpy as np**. Thus we had to use **np.ndarray** instead of **numpy.ndarray**.
+
+Concerning **<class 'function'>**, this is a specical case. And requires an import from the typing module via **from typing import Callable**. More about that later. 
+
 ### [Simple types](https://mypy.readthedocs.io/en/latest/builtin_types.html#simple-types)
 
 > Here are examples of some common built-in types:
@@ -76,9 +135,16 @@ Please note, that there is a difference how type annotations worked for older ve
 |bytes|8-bit string, sequence of byte values|
 |object|an arbitrary object (object is the common base class)|
 
+```python
+a: int = 0
+b: float = 0.0
+c: bool = True
+d: str = "LaLa"
+```
 
+### [Any type](https://mypy.readthedocs.io/en/latest/builtin_types.html#any-type) 
 
-### Any type (Special type indicating an unconstrained type.)
+Special type indicating an unconstrained type.
 
 ```python
 from typing import Any
@@ -86,13 +152,107 @@ a: Any = 0
 b: float = 0.0
 a = b
 ```
-### Never type
-This can be used to define a function that should never be called, or a function that never returns.
 
+### [Generic types](https://mypy.readthedocs.io/en/latest/builtin_types.html#generic-types)
 
-### Generic types
+|Type|Description|
+|---|---|
+|list[str]|list of str objects|
+|tuple[int, int]|tuple of two int objects (tuple[()] is the empty tuple)|
+|tuple[int, ...]|tuple of an arbitrary number of int objects|
+|dict[str, int]|dictionary from str keys to int values|
+|Iterable[int]|iterable object containing ints|
+|Sequence[bool]|sequence of booleans (read-only)|
+|Mapping[str, int]|mapping from str keys to int values (read-only)|
+|type[C]|type object of C (C is a class/type variable/union of types)|
 
+Examples: 
 
+```python
+la: list = ["a", 1, 3.3]
 
+ta: tuple = ("a", 1, 3.3)
+tb: tuple[str, int, float] = ("a", 1, 3.3)
+```
 
+Wrong:
+
+```python
+la: list[str, int, float] = ["a", 1, 3.3]
+```
+
+Correct:
+
+```python
+la: list[str | int | float] = ["a", 1, 3.3]
+```
+
+## [\|](https://docs.python.org/3/library/typing.html#typing.Union)
+
+In the case you expect a variable that can have differnt types over it's lifetime. Let us say you initialize it with None and later want to store integer in it:
+
+```python
+a: None | int = None
+```
+
+An other example is this:
+
+```python
+import torch
+import numpy as np
+a: np.ndarray  | torch.Tensor = torch.zeros((100,))
+```
+
+This is called a [Union](https://docs.python.org/3/library/typing.html#typing.Union). The Union with **None** is called [Optional](https://docs.python.org/3/library/typing.html#typing.Optional). But nowadays you just need to remember **\|**. 
+
+## [Tuple](https://docs.python.org/3/library/typing.html#typing.Tuple)
+
+```python
+a: tuple[int, str, int] = (5, "Hello", 6)
+a = (
+    "Hello",
+    4,
+    4,
+)  # Incompatible types in assignment (expression has type "Tuple[str, int, int]", variable has type "Tuple[int, str, int]")
+```
+
+Or if you don't care about what is in the tuple
+
+```python
+a: tuple = (5, "Hello", 6)
+a = ("Hello", 4, 4)
+```
+
+## [List](https://docs.python.org/3/library/typing.html#typing.List)
+
+A generic list:
+
+```python
+mylist: list = []
+
+mylist.append(1)
+mylist.append(2)
+mylist.append("Hello")
+```
+
+Or defining more details about the list: 
+
+```python
+mylist: list[int] = []
+
+mylist.append(1)
+mylist.append(2)
+mylist.append(
+    "Hello"
+)  # Argument 1 to "append" of "list" has incompatible type "str"; expected "int"
+
+print(mylist) # -> [1, 2, 'Hello']
+```
+
+## Dict
+
+## References
+
+* [Type hints cheat sheet](https://mypy.readthedocs.io/en/stable/cheat_sheet_py3.html)
+* [typing — Support for type hints](https://docs.python.org/3/library/typing.html)
 
