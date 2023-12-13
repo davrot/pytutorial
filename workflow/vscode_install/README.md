@@ -28,7 +28,7 @@ Then install it. So far not very eventful.
 
 ## Extensions 
 
-![Figure 10(image_ext.png)
+![Figure 0](image_ext.png)
 
 ### Python 
 
