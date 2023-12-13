@@ -69,7 +69,7 @@ fib = fibo.fib
 fib(500) # -> 0 1 1 2 3 5 8 13 21 34 55 89 144 233 377
 ```
 
-## [More on Modules](https://docs.python.org/3/tutorial/modules.html#more-on-modules)
+## [from](https://docs.python.org/3/tutorial/modules.html#more-on-modules)
 
 > A module can contain executable statements as well as function definitions. These statements are intended to initialize the module. They are executed only the first time the module name is encountered in an import statement. (They are also run if the file is executed as a script.)
 >
@@ -96,6 +96,75 @@ from fibo import *
 > This imports all names except those beginning with an underscore (_).​
 
 **However, this is bad style!!! Don't use "import \*" or you are a bad person!**
+
+
+## [as](https://docs.python.org/3/tutorial/modules.html#more-on-modules)
+
+If the module name is followed by **as**, then the name following as is bound directly to the imported module.​
+
+```python
+import fibo as fib
+fib.fib(500)
+```
+
+> This is effectively importing the module in the same way that import fibo will do, with the only difference of it being available as fib.
+
+Typical examples are: 
+
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+```
+
+## [as and from](https://docs.python.org/3/tutorial/modules.html#more-on-modules)
+
+> It can also be used when utilising from with similar effects:​
+
+```python
+from fibo import fib as fibonacci
+fibonacci(500)
+```
+
+## [Changing a loaded lib](https://docs.python.org/3/tutorial/modules.html#more-on-modules)
+
+> **Note** For efficiency reasons, each module is only imported once per interpreter session. Therefore, if you change your modules, you must restart the interpreter – or, if it’s just one module you want to test interactively, use importlib.reload(), e.g.
+
+```python
+import importlib
+importlib.reload(modulename)
+```
+
+## [The import statement](https://docs.python.org/3/reference/simple_stmts.html#the-import-statement)
+
+```python
+import_stmt     ::=  "import" module ["as" identifier] ("," module ["as" identifier])*
+                     | "from" relative_module "import" identifier ["as" identifier]
+                     ("," identifier ["as" identifier])*
+                     | "from" relative_module "import" "(" identifier ["as" identifier]
+                     ("," identifier ["as" identifier])* [","] ")"
+                     | "from" relative_module "import" "*"
+module          ::=  (identifier ".")* identifier
+relative_module ::=  "."* module | "."+
+```
+
+Python code in one [module](https://docs.python.org/3/glossary.html#term-module) gains access to the code in another module by the process of [importing](https://docs.python.org/3/glossary.html#term-importing) it. 
+
+see [The import system](https://docs.python.org/3/reference/import.html) for more details. 
+
+## Subdirectories
+
+If a file **myfunctions.py** with **thefunction** is places in a subdirectory **sub1** then we need to write:​
+
+```python
+from sub1.myfunctions import thefunction
+```
+
+If a file **myfunctions.py** with **thefunction** is places in a subdirectory **sub1/sub2** (**sub1\\sub2** depending on the OS) then we need to write:​
+
+```python
+from sub1.sub2.myfunctions import thefunction
+```
 
 
 
