@@ -15,6 +15,49 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 > **pylab** is a historic interface and **its use is strongly discouraged**. The equivalent replacement is matplotlib.pyplot
 
+## Simple example with plot
+
+
+![image0](image0.png)
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt  # type: ignore
+
+f: float = 10
+t = np.linspace(0, 1.0, 10000)
+y = np.sin(t * 2 * np.pi * f)
+z = np.cos(t * 2 * np.pi * f)
+
+plt.figure(1)
+plt.plot(t, y, label="Sin")
+plt.plot(t, z, label="Cos")
+plt.xlabel("t")
+plt.ylabel("f(t)")
+plt.title("Some Functions")
+plt.legend()
+plt.savefig("Test.pdf")
+
+plt.show()  # This is optinal in Interactive Cell mode
+```
+
+
+
+
+#### Format Strings
+
+A format string consists of a part for color, marker and line:
+
+```python
+fmt = '[marker][line][color]'
+```
+Each of them is optional. If not provided, the value from the style cycle is used. Exception: If line is given, but no marker, the data will be a line without markers.
+
+Other combinations such as [color][marker][line] are also supported, but note that their parsing may be ambiguous.
+
+
+
+
 ## [Managing Figure and Axes](https://matplotlib.org/stable/api/pyplot_summary.html#managing-figure-and-axes)
 
 |||
