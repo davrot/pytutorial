@@ -173,6 +173,17 @@ A combination of indexing and slicing can be done but requires some thought. Oth
 ```python
 import numpy as np
 
+a = np.arange(1, 28).reshape(3, 3, 3)
+idx = [[1, 1], [1, 1]]
+
+print(a[:, idx, :].shape) # -> (3, 2, 2, 3)
+```
+
+You want another example?
+
+```python
+import numpy as np
+
 a = np.empty((10, 20, 30, 40, 50))
 
 
