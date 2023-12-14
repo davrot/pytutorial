@@ -297,6 +297,84 @@ matplotlib.pyplot.show(*, block=None)
 
 > Display all open figures.
 
+## Simple example with imshow
+
+![image1](image1.png)
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt  # type: ignore
+
+rng = np.random.default_rng()
+data = rng.random((5, 10))
+
+plt.figure(1)
+plt.imshow(data, cmap="hot")
+plt.colorbar()
+
+plt.xlabel("Parameter 0 -- data: dim0")
+plt.ylabel("Parameter 1 -- data: dim1")
+plt.title("Some Functions")
+
+plt.show()  # This is optinal in Interactive Cell mode
+```
+
+### [plt.imshow()](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html)
+
+```python
+matplotlib.pyplot.imshow(X, cmap=None, norm=None, *, aspect=None, interpolation=None, alpha=None, vmin=None, vmax=None, origin=None, extent=None, interpolation_stage=None, filternorm=True, filterrad=4.0, resample=None, url=None, data=None, **kwargs)
+```
+
+> Display data as an image, i.e., on a 2D regular raster.
+> 
+> The input may either be actual RGB(A) data, or 2D scalar data, which will be rendered as a pseudocolor image. For displaying a grayscale image, set up the colormapping using the parameters cmap='gray', vmin=0, vmax=255.
+
+There is a collection of [arguments](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html) available. Here are the most important ones: 
+
+
+> **X**: array-like or PIL image
+>     The image data. Supported array shapes are:
+> 
+>     (M, N): an image with scalar data. The values are mapped to colors using normalization and a colormap. See parameters norm, cmap, vmin, vmax.
+> 
+>     (M, N, 3): an image with RGB values (0-1 float or 0-255 int).
+> 
+>     (M, N, 4): an image with RGBA values (0-1 float or 0-255 int), i.e. including transparency.
+> 
+>     The first two dimensions (M, N) define the rows and columns of the image.
+> 
+>     Out-of-range RGB(A) values are clipped.
+
+> **cmap** : str or Colormap, default: rcParams["image.cmap"] (default: 'viridis')
+>    The Colormap instance or registered colormap name used to map scalar data to colors.
+> 
+>    This parameter is ignored if X is RGB(A).
+
+
+> **vmin**, **vmax** : float, optional
+>    When using scalar data and no explicit norm, vmin and vmax define the data range that the colormap covers. By default, the colormap covers the complete value range of the supplied data. It is an error to use vmin/vmax when a norm instance is given (but using a str norm name together with vmin/vmax is acceptable).
+> 
+>     This parameter is ignored if X is RGB(A).
+
+> *aspect* : {'equal', 'auto'} or float or None, default: None
+>     The aspect ratio of the Axes. This parameter is particularly relevant for images since it determines whether data pixels are square.
+> 
+>    This parameter is a shortcut for explicitly calling Axes.set_aspect. See there for further details.
+>    
+>    'equal': Ensures an aspect ratio of 1. Pixels will be square (unless pixel sizes are explicitly made non-square in data coordinates using extent).
+>    
+>    'auto': The Axes is kept fixed and the aspect is adjusted so that the data fit in the Axes. In general, this will result in non-square pixels.
+>    
+>    Normally, None (the default) means to use rcParams["image.aspect"] (default: 'equal'). However, if the image uses a transform that does not contain the axes data transform, then None means to not modify the axes aspect at all (in that case, directly call Axes.set_aspect if desired).
+
+> **interpolation** : str, default: rcParams["image.interpolation"] (default: 'antialiased')
+
+
+
+### [plt.colorbar()]()
+
+
+
 
 ## [Managing Figure and Axes](https://matplotlib.org/stable/api/pyplot_summary.html#managing-figure-and-axes)
 
