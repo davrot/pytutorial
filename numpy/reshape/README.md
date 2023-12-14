@@ -55,5 +55,81 @@ Output:
 
 **Highest dimension is continuously filled first.**
 
+```python
+import numpy as np
 
+a = np.arange(0, 30)
+
+b_3d = np.reshape(a, (5, 3, 2))
+
+print(f"View: {np.may_share_memory(a, b_3d)}")  # -> View: True
+print(b_3d.shape)  # -> (5, 3, 2)
+print(b_3d)
+```
+
+Output: 
+```python
+[[[ 0  1]
+  [ 2  3]
+  [ 4  5]]
+
+ [[ 6  7]
+  [ 8  9]
+  [10 11]]
+
+ [[12 13]
+  [14 15]
+  [16 17]]
+
+ [[18 19]
+  [20 21]
+  [22 23]]
+
+ [[24 25]
+  [26 27]
+  [28 29]]]
+```
+
+This is how you can expect the data to be reordered (except the view part...)​
+
+```python
+import numpy as np
+
+a = np.arange(0, 30)
+
+b_3d = np.empty((5, 3, 2))
+
+counter = 0
+for idx_0 in range(0, b_3d.shape[0]):
+    for idx_1 in range(0, b_3d.shape[1]):
+        for idx_2 in range(0, b_3d.shape[2]):
+            b_3d[idx_0, idx_1, idx_2] = a[counter]
+            counter += 1
+
+print(b_3d)
+```
+
+Output: 
+
+```python
+[[[ 0.  1.]
+  [ 2.  3.]
+  [ 4.  5.]]
+
+ [[ 6.  7.]
+  [ 8.  9.]
+  [10. 11.]]
+
+ [[12. 13.]
+  [14. 15.]
+  [16. 17.]]
+
+ [[18. 19.]
+  [20. 21.]
+  [22. 23.]]
+
+ [[24. 25.]
+  [26. 27.]
+  [28. 29.]]]
+```
 
