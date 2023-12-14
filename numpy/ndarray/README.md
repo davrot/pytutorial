@@ -89,6 +89,69 @@ A = np.ones((3, 3))
 print(A.size) # -> 9
 ```
 
+## [numpy.ndarray.nbytes](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.nbytes.html)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+ndarray.nbytes
+```
+
+> Total bytes consumed by the elements of the array.
+
+
+## [numpy.ndarray.itemsize](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.itemsize.html)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+ndarray.itemsize
+```
+
+> Length of one array element in bytes.
+
+## [numpy.ndarray.copy](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.copy.html)
+
+```python
+ndarray.copy(order='C')
+```
+
+> Return a copy of the array.
+
+
+## [numpy.ndarray.view](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.view.html)
+
+```python
+ndarray.view([dtype][, type])
+```
+
+> New view of array with the same data.
+
+## [numpy.ndarray.reshape](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.reshape.html)
+
+```python
+ndarray.reshape(shape, order='C')
+```
+
+> Returns an array containing the same data with a new shape.
+
+```python
+import numpy as np
+
+A = np.arange(0, 6)
+print(A.reshape((2, 3)))
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]]
+```
+
+
 
 ## [Array methods](https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-methods)
 
