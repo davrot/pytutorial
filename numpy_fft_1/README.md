@@ -68,7 +68,7 @@ The goal is to produce a power spectral density that is compatible with the [Par
 
 ```python
 y_power: np.ndarray = (1 / (sampling_frequency * y.shape[0])) * np.abs(y_fft) ** 2
-y_power[1:-2] *= 2
+y_power[1:-1] *= 2
 
 if frequency_axis[-1] != (sampling_frequency / 2.0):
     y_power[-1] *= 2
@@ -77,7 +77,7 @@ if frequency_axis[-1] != (sampling_frequency / 2.0):
 Check of the normalization:
 
 ```python
-print(y_power[1:].sum())  # -> 0.5
+print(y_power[1:].sum()/ (time_series_length * dt))  # -> 0.5
 print(np.var(y))  # -> 0.5
 ```
 ![figure 2](figure_2.png)
