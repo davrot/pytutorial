@@ -65,6 +65,7 @@ Important VS Code notes:
 * [Statistics](numpy/statistics/README.md)
 
 ## Matplotlib.pyplot
+* [Simple plot and imshow examples](matplotlib/basics/README.md)
 * [Overview of the available functions](matplotlib/overview/README.md)
 
 ## Numpy
