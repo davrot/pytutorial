@@ -153,7 +153,7 @@ Output:
 
 **WARNING!!! Don't confuse reshape with resize!**
 
-## [numpy.ndarray.squeeze]
+## [numpy.ndarray.squeeze](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.squeeze.html)
 
 ```python
 ndarray.squeeze(axis=None)
