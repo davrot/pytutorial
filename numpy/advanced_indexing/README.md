@@ -193,6 +193,87 @@ idx_1 = np.ones((2, 3, 4), dtype=int)
 print(a[:, idx_0, idx_1].shape)  # -> (10, 2, 3, 4, 40, 50)
 print(a[:, idx_0, :, idx_1].shape)  # -> (2, 3, 4, 10, 30, 50)
 ```
+Not even Bing Chat was able to predict the second result correctly. 
+
+However, not all is lost!
+
+If we use 1d indices, everything is well understandable:
+
+```python
+import numpy as np
+
+a = np.arange(1, 10).reshape((3, 3))
+idx_1 = np.arange(0, 2)
+
+print(a)
+print()
+print(a[:, idx_1])
+print()
+print(a[:, idx_1].shape)
+```
+
+Output: 
+
+```python
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+
+[[1 2]
+ [4 5]
+ [7 8]]
+
+(3, 2)
+```
+
+If we stick to two quasi 1d index vector (quasi = we add a dimension with size 1 for broadcasting), we can still understand what is goind on: 
+
+```python
+import numpy as np
+
+a = np.arange(1, 28).reshape((3, 3, 3))
+idx_0 = np.arange(0, 3).reshape(3, 1)
+idx_1 = np.arange(0, 2).reshape(1, 2)
+
+print(a)
+print()
+print(a[:, idx_0, idx_1])
+print()
+print(a[:, idx_0, idx_1].shape)
+```
+
+Output: 
+
+```python
+[[[ 1  2  3]
+  [ 4  5  6]
+  [ 7  8  9]]
+
+ [[10 11 12]
+  [13 14 15]
+  [16 17 18]]
+
+ [[19 20 21]
+  [22 23 24]
+  [25 26 27]]]
+
+[[[ 1  2]
+  [ 4  5]
+  [ 7  8]]
+
+ [[10 11]
+  [13 14]
+  [16 17]]
+
+ [[19 20]
+  [22 23]
+  [25 26]]]
+
+(3, 3, 2)
+```
+
+
+
 
 ## [numpy.ix_](https://numpy.org/doc/stable/reference/generated/numpy.ix_.html)
 
