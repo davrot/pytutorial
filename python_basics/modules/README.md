@@ -148,7 +148,7 @@ module          ::=  (identifier ".")* identifier
 relative_module ::=  "."* module | "."+
 ```
 
-Python code in one [module](https://docs.python.org/3/glossary.html#term-module) gains access to the code in another module by the process of [importing](https://docs.python.org/3/glossary.html#term-importing) it. 
+> Python code in one [module](https://docs.python.org/3/glossary.html#term-module) gains access to the code in another module by the process of [importing](https://docs.python.org/3/glossary.html#term-importing) it. 
 
 see [The import system](https://docs.python.org/3/reference/import.html) for more details. 
 
@@ -166,5 +166,38 @@ If a file **myfunctions.py** with **thefunction** is places in a subdirectory **
 from sub1.sub2.myfunctions import thefunction
 ```
 
+## [Executing modules as scripts​](https://docs.python.org/3/tutorial/modules.html#more-on-modules)
 
+When you run a Python module with​
+
+```shell
+python fibo.py <arguments>
+```
+
+> the code in the module will be executed, just as if you imported it, but with the \_\_name\_\_ set to "\_\_main\_\_". That means that by adding this code at the end of your module:
+
+```python
+if __name__ == "__main__":
+    import sys
+    fib(int(sys.argv[1]))
+```
+
+> you can make the file usable as a script as well as an importable module, because the code that parses the command line only runs if the module is executed as the “main” file:​
+
+```shell
+python fibo.py 50​
+```
+
+Output: 
+```shell
+1 1 2 3 5 8 13 21 34
+```
+
+> If the module is just imported,
+
+```python
+import fibo
+```
+
+> the code is not run.​
 
