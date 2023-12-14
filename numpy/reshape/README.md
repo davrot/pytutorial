@@ -1,4 +1,4 @@
-# Reshape, flatten 
+# Reshape and flatten 
 {:.no_toc}
 
 <nav markdown="1" class="toc-class">
@@ -8,6 +8,7 @@
 
 ## The goal
 
+Sometimes you have to change the shape of a matrix. 
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
@@ -132,4 +133,52 @@ Output:
   [26. 27.]
   [28. 29.]]]
 ```
+
+## [.flatten()](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flatten.html)
+
+**.flatten()** is the "inverse" operation of reshape
+
+```python
+ndarray.flatten(order='C')
+```
+
+> Return a copy of the array collapsed into one dimension.
+
+> **order** : {‘C’, ‘F’, ‘A’, ‘K’}, **optional**
+>   ‘C’ means to flatten in row-major (C-style) order. ‘F’ means to flatten in column-major (Fortran- style) order. ‘A’ means to flatten in column-major order if a is Fortran contiguous in memory, row-major order otherwise. ‘K’ means to flatten a in the order the elements occur in memory. The default is ‘C’.
+
+Example:
+
+```python
+import numpy as np
+
+a = np.arange(0, 30)
+b_3d = np.reshape(a, (5, 3, 2))
+
+c = b_3d.flatten()
+print(f"View: {np.may_share_memory(c, b_3d)}")  # -> View: False
+print(c.shape)  # -> (30,)
+print(c) # -> [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29]
+```
+
+**Note: This is not a view!**
+
+If you want a view, you can use reshape too. 
+
+```python
+import numpy as np
+
+a = np.arange(0, 30)
+b_3d = np.reshape(a, (5, 3, 2))
+
+c = b_3d.reshape((np.prod(b_3d.shape),))
+print(f"View: {np.may_share_memory(c, b_3d)}")  # -> View: True
+print(c.shape)  # -> (30,)
+print(c) # -> [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29]
+```
+
+
+
+
+
 
