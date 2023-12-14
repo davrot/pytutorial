@@ -79,7 +79,7 @@ Output:
 
 ## Index vs Slices / Views
 
-This procedure is called indexing: 
+If we get put indices in we get a non-view out. This procedure is called indexing: 
 
 ```python
 import numpy as np
@@ -110,3 +110,37 @@ print(np.may_share_memory(a, b))  # -> True
 
 As you can see lies the biggest different in the creation of a view when we use slicing. Indexing creates a new object instead. 
 
+## Advanced Indexing
+
+In the following we address the matrix **a** accoring **ndarray[[First dim],​ [Second dim]​, [... more dims if your array has them]]​**:
+
+```python
+import numpy as np
+
+a = np.arange(0, 9).reshape((3, 3))
+print(a)
+print()
+
+b = a[[0, 1, 2], [0, 1, 2]]
+print(b)
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+
+[0 4 8]
+```
+
+
+
+Errors are punished via exceptions​ and not silently and creatively circumvented like with slices​:
+
+```python
+import numpy as np
+a = np.arange(0, 9).reshape((3, 3))
+b = a[[0, 1, 3], [0, 1, 2]] # -> IndexError: index 3 is out of bounds for axis 0 with size 3
+```
