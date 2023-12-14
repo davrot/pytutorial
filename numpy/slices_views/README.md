@@ -94,10 +94,19 @@ print(a[4:-2:-1]) # -> []
 print(a[-1:5:-1]) # -> [9 8 7 6]
 ```
 
-## Views
-
 ### [... (Ellipsis)](https://docs.python.org/dev/library/constants.html#Ellipsis)
 
 > The same as the ellipsis literal “...”. Special value used mostly in conjunction with extended slicing syntax for user-defined container data types. Ellipsis is the sole instance of the types.EllipsisType type.
 
- 
+```python
+import numpy as np
+
+a = np.empty((2, 3, 4, 5, 6, 7, 8))
+print(a.shape)  # -> (2, 3, 4, 5, 6, 7, 8)
+print(a[..., 1:2].shape)  # -> (2, 3, 4, 5, 6, 7, 1)
+print(a[:, :, 1:2, ...].shape)  # -> (2, 3, 1, 5, 6, 7, 8)
+print(a[0, ...].shape)  # -> (3, 4, 5, 6, 7, 8)
+print(a[0, ..., 0].shape)  # -> (3, 4, 5, 6, 7)
+```
+
+## Views
