@@ -8,6 +8,7 @@
 
 ## The goal
 
+Collections of functions can be organized into modules. These modules are then imported into a programm or another module. 
 
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
