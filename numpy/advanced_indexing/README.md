@@ -77,3 +77,36 @@ Output:
  [1 1 1]]
 ```
 
+## Index vs Slices / Views
+
+This procedure is called indexing: 
+
+```python
+import numpy as np
+
+a = np.arange(0, 10)
+idx = np.arange(2,5)
+b = a[idx]
+
+print(idx) # -> [2 3 4]
+print()
+print(b) # -> [2 3 4]
+print()
+print(np.may_share_memory(a,b)) # -> False
+```
+
+While this is called slicing:
+
+```python
+import numpy as np
+
+a = np.arange(0, 10)
+b = a[2:5]
+
+print(b)  # -> [2 3 4]
+print()
+print(np.may_share_memory(a, b))  # -> True
+```
+
+As you can see lies the biggest different in the creation of a view when we use slicing. Indexing creates a new object instead. 
+
