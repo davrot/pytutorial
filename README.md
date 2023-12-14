@@ -63,7 +63,10 @@ Important VS Code notes:
 * [Math functions](numpy/math_functions/README.md)
 * [Random numbers the non-legacy way](numpy/random/README.md)
 * [Statistics](numpy/statistics/README.md)
-  
+
+## Matplotlib.pyplot
+* [Overview of the available functions](matplotlib/overview/README.md)
+
 ## Numpy
 * [Beyond normal np.save](numpy_save_special/README.md)
 * [Dealing with Matlab files](numpy_mat_files/README.md)
