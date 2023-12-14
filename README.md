@@ -67,6 +67,7 @@ Important VS Code notes:
 * [Available dtypes](numpy/dtype/README.md)
 * [Constants](numpy/constants/README.md)
 * [Math functions](numpy/math_functions/README.md)
+* [Linear algebra](numpy/linear_alg/README.md)
 * [Random numbers the non-legacy way](numpy/random/README.md)
 * [Statistics](numpy/statistics/README.md)
 
