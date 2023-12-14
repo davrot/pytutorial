@@ -8,7 +8,7 @@
 
 ## The goal
 
-
+**where** allows to modifiy or combine matricies based on a given condition. 
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
