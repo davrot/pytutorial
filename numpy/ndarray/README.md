@@ -23,6 +23,71 @@ print(b) # -> 1.0
 
 ## [numpy.ndarray.fill​](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.fill.html)
 
+```python
+ndarray.fill(value)
+```
+
+> Fill the array with a scalar value.
+
+```python
+import numpy as np
+A = np.ones((3, 3))
+A.fill(7)
+print(A)
+```
+
+Output: 
+
+```python
+[[7. 7. 7.]
+ [7. 7. 7.]
+ [7. 7. 7.]]
+```
+
+## [numpy.ndarray.ndim​](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.ndim.html)
+
+```python
+ndarray.ndim
+```
+
+> Number of array dimensions.
+
+```python
+import numpy as np
+
+A = np.ones((3, 3))
+print(A.ndim)  # -> 2
+```
+
+## [numpy.ndarray.shape](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.shape.html)
+
+```python
+ndarray.shape
+```
+
+> Tuple of array dimensions.
+
+```python
+import numpy as np
+
+A = np.ones((3, 3))
+print(A.shape)  # -> (3, 3)
+```
+
+## [numpy.ndarray.size](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.size.html)
+
+```python
+ndarray.size
+```
+
+> Number of elements in the array.
+
+```python
+import numpy as np
+
+A = np.ones((3, 3))
+print(A.size) # -> 9
+```
 
 
 ## [Array methods](https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-methods)
