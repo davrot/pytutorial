@@ -62,6 +62,7 @@ Important VS Code notes:
 * [Slices and Views](numpy/slices_views/README.md)
 * [Where](numpy/where/README.md)
 * [Boolean matricies and logic functions](numpy/bool_matrix/README.md)
+* [Advanced Indexing](numpy/advanced_indexing/README.md)
 * [Available dtypes](numpy/dtype/README.md)
 * [Constants](numpy/constants/README.md)
 * [Math functions](numpy/math_functions/README.md)
