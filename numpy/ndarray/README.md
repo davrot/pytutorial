@@ -47,237 +47,91 @@ print(b) # -> 1.0
 |[ndarray.setflags([write, align, uic])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.setflags.html#numpy.ndarray.setflags)|Set array flags WRITEABLE, ALIGNED, WRITEBACKIFCOPY, respectively.|
 |[ndarray.fill(value)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.fill.html#numpy.ndarray.fill)|Fill the array with a scalar value.|
 
-### Shape manipulation
+### [Shape manipulation](https://numpy.org/doc/stable/reference/arrays.ndarray.html#shape-manipulation)
 
 |||
 |---|---|
+|[ndarray.reshape(shape[, order])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.reshape.html#numpy.ndarray.reshape)|Returns an array containing the same data with a new shape.|
+|[ndarray.resize(new_shape[, refcheck])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.resize.html#numpy.ndarray.resize)|Change shape and size of array in-place.|
+|[ndarray.transpose(*axes)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.transpose.html#numpy.ndarray.transpose)|Returns a view of the array with axes transposed.|
+|[ndarray.swapaxes(axis1, axis2)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.swapaxes.html#numpy.ndarray.swapaxes)|Return a view of the array with axis1 and axis2 interchanged.|
+|[ndarray.flatten([order])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flatten.html#numpy.ndarray.flatten)|Return a copy of the array collapsed into one dimension.|
+|[ndarray.ravel([order])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.ravel.html#numpy.ndarray.ravel)|Return a flattened array.|
+|[ndarray.squeeze([axis])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.squeeze.html#numpy.ndarray.squeeze)|Remove axes of length one from a.|
 
-|[ndarray.reshape(shape[, order])]()|
-Returns an array containing the same data with a new shape.
+### [Item selection and manipulation](https://numpy.org/doc/stable/reference/arrays.ndarray.html#item-selection-and-manipulation)
 
-|[ndarray.resize(new_shape[, refcheck])]()|
-Change shape and size of array in-place.
-
-|[ndarray.transpose(*axes)]()|
-Returns a view of the array with axes transposed.
-
-|[ndarray.swapaxes(axis1, axis2)]()|
-Return a view of the array with axis1 and axis2 interchanged.
-
-|[ndarray.flatten([order])]()|
-Return a copy of the array collapsed into one dimension.
-
-|[ndarray.ravel([order])]()|
-Return a flattened array.
-
-|[ndarray.squeeze([axis])]()|
-Remove axes of length one from a.
-
-### Item selection and manipulation
-
-|[ndarray.take(indices[, axis, out, mode])]()|
-Return an array formed from the elements of a at the given indices.
-
-|[ndarray.put(indices, values[, mode])]()|
-Set a.flat[n] = values[n] for all n in indices.
-
-|[ndarray.repeat(repeats[, axis])]()|
-Repeat elements of an array.
-
-|[ndarray.choose(choices[, out, mode])]()|
-Use an index array to construct a new array from a set of choices.
-
-|[ndarray.sort([axis, kind, order])]()|
-Sort an array in-place.
-
-|[ndarray.argsort([axis, kind, order])]()|
-Returns the indices that would sort this array.
-
-|[ndarray.partition(kth[, axis, kind, order])]()|
-Rearranges the elements in the array in such a way that the value of the element in kth position is in the position it would be in a sorted array.
-
-|[ndarray.argpartition(kth[, axis, kind, order])]()|
-Returns the indices that would partition this array.
-
-|[ndarray.searchsorted(v[, side, sorter])]()|
-Find indices where elements of v should be inserted in a to maintain order.
-
-|[ndarray.nonzero()]()|
-Return the indices of the elements that are non-zero.
-
-|[ndarray.compress(condition[, axis, out])]()|
-Return selected slices of this array along given axis.
-
-|[ndarray.diagonal([offset, axis1, axis2])]()|
-Return specified diagonals.
+|||
+|---|---|
+|[ndarray.take(indices[, axis, out, mode])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.take.html#numpy.ndarray.take)|Return an array formed from the elements of a at the given |indices.
+|[ndarray.put(indices, values[, mode])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.put.html#numpy.ndarray.put)|Set a.flat[n] = values[n] for all n in indices.|
+|[ndarray.repeat(repeats[, axis])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.repeat.html#numpy.ndarray.repeat)|Repeat elements of an array.|
+|[ndarray.choose(choices[, out, mode])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.choose.html#numpy.ndarray.choose)|Use an index array to construct a new array from a set of choices.|
+|[ndarray.sort([axis, kind, order])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.sort.html#numpy.ndarray.sort)|Sort an array in-place.|
+|[ndarray.argsort([axis, kind, order])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.argsort.html#numpy.ndarray.argsort)|Returns the indices that would sort this array.|
+|[ndarray.partition(kth[, axis, kind, order])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.partition.html#numpy.ndarray.partition)|Rearranges the elements in the array in such a way that the value of the element in kth position is in the position it would be in a sorted array.|
+|[ndarray.argpartition(kth[, axis, kind, order])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.argpartition.html#numpy.ndarray.argpartition)|Returns the indices that would partition |this array.
+|[ndarray.searchsorted(v[, side, sorter])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.searchsorted.html#numpy.ndarray.searchsorted)|Find indices where elements of v should be inserted in a to maintain order.|
+|[ndarray.nonzero()](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.nonzero.html#numpy.ndarray.nonzero)|Return the indices of the elements that are non-zero.|
+|[ndarray.compress(condition[, axis, out])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.compress.html#numpy.ndarray.compress)|Return selected slices of this array along given axis.|
+|[ndarray.diagonal([offset, axis1, axis2])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.diagonal.html#numpy.ndarray.diagonal)|Return specified diagonals.|
 
 ### [Calculation](https://numpy.org/doc/stable/reference/arrays.ndarray.html#calculation)
 
-|[ndarray.max([axis, out, keepdims, initial, ...])]()|
-Return the maximum along a given axis.
-
-|[ndarray.argmax([axis, out, keepdims])]()|
-Return indices of the maximum values along the given axis.
-
-|[ndarray.min([axis, out, keepdims, initial, ...])]()|
-Return the minimum along a given axis.
-
-|[ndarray.argmin([axis, out, keepdims])]()|
-Return indices of the minimum values along the given axis.
-
-|[ndarray.ptp([axis, out, keepdims])]()|
-Peak to peak (maximum - minimum) value along a given axis.
-
-|[ndarray.clip([min, max, out])]()|
-Return an array whose values are limited to [min, max].
-
-|[ndarray.conj()]()|
-Complex-conjugate all elements.
-
-|[ndarray.round([decimals, out])]()|
-Return a with each element rounded to the given number of decimals.
-
-|[ndarray.trace([offset, axis1, axis2, dtype, out])]()|
-Return the sum along diagonals of the array.
-
-|[ndarray.sum([axis, dtype, out, keepdims, ...])]()|
-Return the sum of the array elements over the given axis.
-
-|[ndarray.cumsum([axis, dtype, out])]()|
-Return the cumulative sum of the elements along the given axis.
-
-|[ndarray.mean([axis, dtype, out, keepdims, where])]()|
-Returns the average of the array elements along given axis.
-
-|[ndarray.var([axis, dtype, out, ddof, ...])]()|
-Returns the variance of the array elements, along given axis.
-
-|[ndarray.std([axis, dtype, out, ddof, ...])]()|
-Returns the standard deviation of the array elements along given axis.
-
-|[ndarray.prod([axis, dtype, out, keepdims, ...])]()|
-Return the product of the array elements over the given axis
-
-|[ndarray.cumprod([axis, dtype, out])]()|
-Return the cumulative product of the elements along the given axis.
-
-|[ndarray.all([axis, out, keepdims, where])]()|
-Returns True if all elements evaluate to True.
-
-|[ndarray.any([axis, out, keepdims, where])]()|
-Returns True if any of the elements of a evaluate to True.
+|||
+|---|---|
+|[ndarray.max([axis, out, keepdims, initial, ...])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.max.html#numpy.ndarray.max)|Return the maximum along a given axis.|
+|[ndarray.argmax([axis, out, keepdims])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.argmax.html#numpy.ndarray.argmax)|Return indices of the maximum values along the given axis.|
+|[ndarray.min([axis, out, keepdims, initial, ...])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.min.html#numpy.ndarray.min)|Return the minimum along a given axis.|
+|[ndarray.argmin([axis, out, keepdims])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.argmin.html#numpy.ndarray.argmin)|Return indices of the minimum values along the given axis.|
+|[ndarray.ptp([axis, out, keepdims])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.ptp.html#numpy.ndarray.ptp)|Peak to peak (maximum - minimum) value along a given axis.|
+|[ndarray.clip([min, max, out])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.clip.html#numpy.ndarray.clip)|Return an array whose values are limited to [min, max].|
+|[ndarray.conj()](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.conj.html#numpy.ndarray.conj)|Complex-conjugate all elements.|
+|[ndarray.round([decimals, out])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.round.html#numpy.ndarray.round)|Return a with each element rounded to the given number of decimals.|
+|[ndarray.trace([offset, axis1, axis2, dtype, out])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.trace.html#numpy.ndarray.trace)|Return the sum along diagonals of the array.|
+|[ndarray.sum([axis, dtype, out, keepdims, ...])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.sum.html#numpy.ndarray.sum)|Return the sum of the array elements over the given axis.|
+|[ndarray.cumsum([axis, dtype, out])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.cumsum.html#numpy.ndarray.cumsum)|Return the cumulative sum of the elements along the given axis.|
+|[ndarray.mean([axis, dtype, out, keepdims, where])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.mean.html#numpy.ndarray.mean)|Returns the average of the array elements along given axis.|
+|[ndarray.var([axis, dtype, out, ddof, ...])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.var.html#numpy.ndarray.var)|Returns the variance of the array elements, along given axis.|
+|[ndarray.std([axis, dtype, out, ddof, ...])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.std.html#numpy.ndarray.std)|Returns the standard deviation of the array elements along given axis.|
+|[ndarray.prod([axis, dtype, out, keepdims, ...])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.prod.html#numpy.ndarray.prod)|Return the product of the array elements over the given axis|
+|[ndarray.cumprod([axis, dtype, out])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.cumprod.html#numpy.ndarray.cumprod)|Return the cumulative product of the elements along the given axis.|
+|[ndarray.all([axis, out, keepdims, where])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.all.html#numpy.ndarray.all)|Returns True if all elements evaluate to True.|
+|[ndarray.any([axis, out, keepdims, where])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.any.html#numpy.ndarray.any)|Returns True if any of the elements of a evaluate to True.|
 
 ## [Arithmetic, matrix multiplication, and comparison operations](https://numpy.org/doc/stable/reference/arrays.ndarray.html#arithmetic-matrix-multiplication-and-comparison-operations)
 
-|[ndarray.\_\_lt\_\_(value, /)]()|
-Return self<value.
+> Each of the arithmetic operations (+, -, *, /, //, %, divmod(), ** or pow(), <<, >>, &, ^, |, ~) and the comparisons (==, <, >, <=, >=, !=) is equivalent to the corresponding universal function (or ufunc for short) in NumPy. 
 
-|[ndarray.\_\_le\_\_(value, /)]()|
-Return self<=value.
+for in-place operations see [here](https://numpy.org/doc/stable/reference/arrays.ndarray.html#arithmetic-matrix-multiplication-and-comparison-operations)
 
-|[ndarray.\_\_gt\_\_(value, /)]()|
-Return self>value.
-
-|[ndarray.\_\_ge\_\_(value, /)]()|
-Return self>=value.
-
-|[ndarray.\_\_eq\_\_(value, /)]()|
-Return self==value.
-
-|[ndarray.\_\_ne\_\_(value, /)]()|
-Return self!=value.
-
-|[ndarray.\_\_bool\_\_(/)]()|
-True if self else False
-
-|[ndarray.\_\_neg\_\_(/)]()|
--self
-
-|[ndarray.\_\_pos\_\_(/)]()|
-+self
-
-|[ndarray.\_\_abs\_\_(self)]()|
-
-|[ndarray.\_\_invert\_\_(/)]()|
-~self
-
-|[ndarray.\_\_add\_\_(value, /)]()|
-Return self+value.
-
-|[ndarray.\_\_sub\_\_(value, /)]()|
-Return self-value.
-
-|[ndarray.\_\_mul\_\_(value, /)]()|
-Return self*value.
-
-|[ndarray.\_\_truediv\_\_(value, /)]()|
-Return self/value.
-
-|[ndarray.\_\_floordiv\_\_(value, /)]()|
-Return self//value.
-
-|[ndarray.\_\_mod\_\_(value, /)]()|
-Return self%value.
-
-|[ndarray.\_\_divmod\_\_(value, /)]()|
-Return divmod(self, value).
-
-|[ndarray.\_\_pow\_\_(value[, mod])]()|
-Return pow(self, value, mod).
-
-|[ndarray.\_\_lshift\_\_(value, /)]()|
-Return self<<value.
-
-|[ndarray.\_\_rshift\_\_(value, /)]()|
-Return self>>value.
-
-|[ndarray.\_\_and\_\_(value, /)]()|
-Return self&value.
-
-|[ndarray.\_\_or\_\_(value, /)]()|
-Return self|value.
-
-|[ndarray.\_\_xor\_\_(value, /)]()|
-Return self^value.
-
-|[ndarray.\_\_iadd\_\_(value, /)]()|
-Return self+=value.
-
-|[ndarray.\_\_isub\_\_(value, /)]()|
-Return self-=value.
-
-|[ndarray.\_\_imul\_\_(value, /)]()|
-Return self*=value.
-
-|[ndarray.\_\_itruediv\_\_(value, /)]()|
-Return self/=value.
-
-|[ndarray.\_\_ifloordiv\_\_(value, /)]()|
-Return self//=value.
-
-|[ndarray.\_\_imod\_\_(value, /)]()|
-Return self%=value.
-
-|[ndarray.\_\_ipow\_\_(value, /)]()|
-Return self**=value.
-
-|[ndarray.\_\_ilshift\_\_(value, /)]()|
-Return self<<=value.
-
-|[ndarray.\_\_irshift\_\_(value, /)]()|
-Return self>>=value.
-
-|[ndarray.\_\_iand\_\_(value, /)]()|
-Return self&=value.
-
-|[ndarray.\_\_ior\_\_(value, /)]()|
-Return self|=value.
-
-|[ndarray.\_\_ixor\_\_(value, /)]()|
-Return self^=value.
-
-|[ndarray.\_\_matmul\_\_(value, /)]()|
-Return self@value.
+|||
+|---|---|
+|[ndarray.\_\_lt\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__lt__.html#numpy.ndarray.__lt__)|Return self<value.|
+|[ndarray.\_\_le\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__le__.html#numpy.ndarray.__le__)|Return self<=value.|
+|[ndarray.\_\_gt\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__gt__.html#numpy.ndarray.__gt__)|Return self>value.|
+|[ndarray.\_\_ge\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__ge__.html#numpy.ndarray.__ge__)|Return self>=value.|
+|[ndarray.\_\_eq\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__eq__.html#numpy.ndarray.__eq__)|Return self==value.|
+|[ndarray.\_\_ne\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__ne__.html#numpy.ndarray.__ne__)|Return self!=value.|
+|[ndarray.\_\_bool\_\_(/)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__bool__.html#numpy.ndarray.__bool__)|True if self else False|
+|[ndarray.\_\_neg\_\_(/)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__neg__.html#numpy.ndarray.__neg__)|-self|
+|[ndarray.\_\_pos\_\_(/)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__pos__.html#numpy.ndarray.__pos__)|+self|
+|[ndarray.\_\_abs\_\_(self)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__abs__.html#numpy.ndarray.__abs__)||
+|[ndarray.\_\_invert\_\_(/)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__invert__.html#numpy.ndarray.__invert__)|~self|
+|[ndarray.\_\_add\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__add__.html#numpy.ndarray.__add__)|Return self+value.|
+|[ndarray.\_\_sub\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__sub__.html#numpy.ndarray.__sub__)|Return self-value.|
+|[ndarray.\_\_mul\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__mul__.html#numpy.ndarray.__mul__)|Return self*value.|
+|[ndarray.\_\_truediv\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__truediv__.html#numpy.ndarray.__truediv__)|Return self/value.|
+|[ndarray.\_\_floordiv\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__floordiv__.html#numpy.ndarray.__floordiv__)|Return self//value.|
+|[ndarray.\_\_mod\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__mod__.html#numpy.ndarray.__mod__)|Return self%value.|
+|[ndarray.\_\_divmod\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__divmod__.html#numpy.ndarray.__divmod__)|Return divmod(self, value).|
+|[ndarray.\_\_pow\_\_(value[, mod])](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__pow__.html#numpy.ndarray.__pow__)|Return pow(self, value, mod).|
+|[ndarray.\_\_lshift\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__lshift__.html#numpy.ndarray.__lshift__)|Return self<<value.|
+|[ndarray.\_\_rshift\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__rshift__.html#numpy.ndarray.__rshift__)|Return self>>value.|
+|[ndarray.\_\_and\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__and__.html#numpy.ndarray.__and__)|Return self&value.|
+|[ndarray.\_\_or\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__or__.html#numpy.ndarray.__or__)|Return self|value.|
+|[ndarray.\_\_xor\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__xor__.html#numpy.ndarray.__xor__)|Return self^value.|
+|[ndarray.\_\_matmul\_\_(value, /)](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.__matmul__.html#numpy.ndarray.__matmul__)|Return self@value.|
 
 
 ### [Special methods](https://numpy.org/doc/stable/reference/arrays.ndarray.html#special-methods)
