@@ -12,7 +12,7 @@ Sometimes we want to use or see only a part of the matrix. This can be done via 
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
-## Reminder 
+## Reminder: 1-d slines 
 
 We assume N as the number of elements and 1d:​
 
@@ -35,4 +35,48 @@ print(a[:6])  # -> [0 1 2 3 4 5]
 print(a[5:])  # -> [5 6 7 8 9]
 print(a[:])  # -> [0 1 2 3 4 5 6 7 8 9]
 print(a[...])  # -> [0 1 2 3 4 5 6 7 8 9]
+```
+
+* Negative values for start and stop are understood as N-\|start\| and N-\|stop\|
+* N-1 is the last valid index. ​
+* Thus A[-1] gives us the last element of A.​
+
+Extracting a value based on a negative index: 
+
+```python
+import numpy as np
+
+a = np.arange(0, 10)
+print(a[-1])  # -> 9
+print(a[-2])  # -> 8
+print(a[-9])  # -> 1
+print(a[-10])  # -> 0
+print(a[-11])  # IndexError: index -11 is out of bounds for axis 0 with size 10
+```
+
+Extracting a slice based on a negative stop point: 
+
+```python
+import numpy as np
+
+a = np.arange(0, 10)
+print(a)  # -> [0 1 2 3 4 5 6 7 8 9]
+print(a[:-1])  # -> [0 1 2 3 4 5 6 7 8]
+print(a[:-5])  # -> [0 1 2 3 4]
+print(a[:-8])  # -> [0 1]
+print(a[:-11])  # -> []
+print(a[:-12])  # -> []
+print(a[:-999])  # -> []
+```
+
+Extracting a slice based on a negative start point: 
+
+```python
+import numpy as np
+
+a = np.arange(0, 10)
+print(a)  # -> [0 1 2 3 4 5 6 7 8 9]
+print(a[-3:-1])  # -> [7 8]
+print(a[-1:-8])  # -> []
+print(a[-9999:])  # -> [0 1 2 3 4 5 6 7 8 9]
 ```
