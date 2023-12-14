@@ -212,3 +212,28 @@ Output:
  [ 0  0  0]]
 ```
 
+## x and y are matricies
+
+x and y (if both are matricies) need the same size as the conditon has.
+
+```python
+import numpy as np
+
+a = np.arange(0, 15).reshape((5, 3))
+
+b = np.arange(15, 30).reshape((5, 3))
+c = np.arange(30, 45).reshape((5, 3))
+
+a = np.where(a > 7, b, c)
+print(a)
+```
+
+Output:
+
+```python
+[[30 31 32]
+ [33 34 35]
+ [36 37 23]
+ [24 25 26]
+ [27 28 29]]
+```
