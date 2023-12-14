@@ -128,6 +128,32 @@ Output:
 (array([0, 1, 1, 1]), array([2, 0, 1, 2]))
 ```
 
+For reversing it, you can use this:
+
+```python
+import numpy as np
+
+a = np.arange(0, 6).reshape((2, 3))
+a = (a > 1)
+print(a)
+idx = np.nonzero(a)
+print()
+
+b = np.zeros((2, 3), dtype=bool)
+b[idx] = True
+print(b)
+```
+
+Output: 
+
+```python
+[[False False  True]
+ [ True  True  True]]
+
+[[False False  True]
+ [ True  True  True]]
+```
+
 ## [Logic functions](https://numpy.org/doc/stable/reference/routines.logic.html)
 
 ### [Truth value testing](https://numpy.org/doc/stable/reference/routines.logic.html#truth-value-testing)
