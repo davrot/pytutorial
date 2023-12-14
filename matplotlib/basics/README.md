@@ -369,12 +369,81 @@ There is a collection of [arguments](https://matplotlib.org/stable/api/_as_gen/m
 
 > **interpolation** : str, default: rcParams["image.interpolation"] (default: 'antialiased')
 
+#### [Colormaps](https://matplotlib.org/stable/users/explain/colors/colormaps.html)
 
+There are a lot of [colormaps](https://matplotlib.org/stable/users/explain/colors/colormaps.html).
 
-### [plt.colorbar()]()
+```python
+plot_color_gradients('Perceptually Uniform Sequential',
+                     ['viridis', 'plasma', 'inferno', 'magma', 'cividis'])
 
+plot_color_gradients('Sequential',
+                     ['Greys', 'Purples', 'Blues', 'Greens', 'Oranges', 'Reds',
+                      'YlOrBr', 'YlOrRd', 'OrRd', 'PuRd', 'RdPu', 'BuPu',
+                      'GnBu', 'PuBu', 'YlGnBu', 'PuBuGn', 'BuGn', 'YlGn'])                     
 
+plot_color_gradients('Sequential (2)',
+                     ['binary', 'gist_yarg', 'gist_gray', 'gray', 'bone',
+                      'pink', 'spring', 'summer', 'autumn', 'winter', 'cool',
+                      'Wistia', 'hot', 'afmhot', 'gist_heat', 'copper'])
 
+plot_color_gradients('Diverging',
+                     ['PiYG', 'PRGn', 'BrBG', 'PuOr', 'RdGy', 'RdBu', 'RdYlBu',
+                      'RdYlGn', 'Spectral', 'coolwarm', 'bwr', 'seismic'])
+
+plot_color_gradients('Cyclic', ['twilight', 'twilight_shifted', 'hsv'])
+
+plot_color_gradients('Qualitative',
+                     ['Pastel1', 'Pastel2', 'Paired', 'Accent', 'Dark2',
+                      'Set1', 'Set2', 'Set3', 'tab10', 'tab20', 'tab20b',
+                      'tab20c'])
+
+plot_color_gradients('Miscellaneous',
+                     ['flag', 'prism', 'ocean', 'gist_earth', 'terrain',
+                      'gist_stern', 'gnuplot', 'gnuplot2', 'CMRmap',
+                      'cubehelix', 'brg', 'gist_rainbow', 'rainbow', 'jet',
+                      'turbo', 'nipy_spectral', 'gist_ncar'])
+
+```
+                      
+### [plt.colorbar()](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.colorbar.html)
+
+```python
+matplotlib.pyplot.colorbar(mappable=None, cax=None, ax=None, **kwargs)
+```
+
+> Add a colorbar to a plot.
+
+#### Other Parameters:
+
+A selecton of the important [parameters](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.colorbar.html):
+
+> **location** : None or {'left', 'right', 'top', 'bottom'}
+>     The location, relative to the parent axes, where the colorbar axes is created. It also determines the orientation of the colorbar (colorbars on the left and right are vertical, colorbars at the top and bottom are horizontal). If None, the location will come from the orientation if it is set (vertical colorbars on the right, horizontal ones at the bottom), or default to 'right' if orientation is unset.
+
+> **orientation** : None or {'vertical', 'horizontal'}
+>    The orientation of the colorbar. It is preferable to set the location of the colorbar, as that also determines the orientation; passing incompatible values for location and orientation raises an exception.
+
+> **fraction** : float, default: 0.15
+>     Fraction of original axes to use for colorbar.
+
+> **shrink** : float, default: 1.0
+>    Fraction by which to multiply the size of the colorbar.
+
+> **aspect** : float, default: 20
+>     Ratio of long to short dimensions.
+
+> **pad** : float, default: 0.05 if vertical, 0.15 if horizontal
+>     Fraction of original axes between colorbar and new image axes.
+
+> **anchor** : (float, float), optional
+>    The anchor point of the colorbar axes. Defaults to (0.0, 0.5) if vertical; (0.5, 1.0) if horizontal.
+
+> **ticks** : None or list of ticks or Locator
+>    If None, ticks are determined automatically from the input.
+
+> **label** : str
+>     The label on the colorbar's long axis.
 
 ## [Managing Figure and Axes](https://matplotlib.org/stable/api/pyplot_summary.html#managing-figure-and-axes)
 
