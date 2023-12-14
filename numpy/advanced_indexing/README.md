@@ -12,7 +12,7 @@ Beside slicing there is something called advanced indexing
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
-## Boolean Array​
+## [Boolean Array​](https://numpy.org/doc/stable/user/basics.indexing.html#boolean-array-indexing)
 
 We can use Boolean arrays for more complicate indexing: 
 
@@ -77,7 +77,7 @@ Output:
  [1 1 1]]
 ```
 
-## Index vs Slices / Views
+## [Basic indexing](https://numpy.org/doc/stable/user/basics.indexing.html#basics-indexing) vs [Slices](https://numpy.org/doc/stable/user/basics.indexing.html#slicing-and-striding) / Views
 
 If we get put indices in we get a non-view out. This procedure is called indexing: 
 
@@ -110,7 +110,9 @@ print(np.may_share_memory(a, b))  # -> True
 
 As you can see lies the biggest different in the creation of a view when we use slicing. Indexing creates a new object instead. 
 
-## Advanced Indexing
+## [Advanced Indexing](https://numpy.org/doc/stable/user/basics.indexing.html#advanced-indexing)
+
+### 1-d indices
 
 In the following we address the matrix **a** accoring **ndarray[[First dim],​ [Second dim]​, [... more dims if your array has them]]​**:
 
@@ -134,13 +136,49 @@ Output:
 
 [0 4 8]
 ```
-
-
-
 Errors are punished via exceptions​ and not silently and creatively circumvented like with slices​:
 
 ```python
 import numpy as np
 a = np.arange(0, 9).reshape((3, 3))
-b = a[[0, 1, 3], [0, 1, 2]] # -> IndexError: index 3 is out of bounds for axis 0 with size 3
+b = a[[0, 1, 3], [0, 1, 2]] # IndexError: index 3 is out of bounds for axis 0 with size 3
+```
+
+### n-d indices
+
+Other shapes and repetitions are acceptable too:
+
+```python
+import numpy as np
+
+a = np.arange(0, 4).reshape((2, 2))
+
+idx_0 = [[1, 1], [1, 1]]
+idx_1 = [[0, 0], [0, 0]]
+
+print(a[idx_0, idx_1])
+```
+
+Output:
+
+```python
+[[2 2]
+ [2 2]]
+```
+
+## Advanced slices​
+
+A combination of indexing and slicing can be done but requires some thought. Otherwise it can be confusing like here: 
+
+```python
+import numpy as np
+
+a = np.empty((10, 20, 30, 40, 50))
+
+
+idx_0 = np.ones((2, 3, 4), dtype=int)
+idx_1 = np.ones((2, 3, 4), dtype=int)
+
+print(a[:, idx_0, idx_1].shape)  # -> (10, 2, 3, 4, 40, 50)
+print(a[:, idx_0, :, idx_1].shape)  # -> (2, 3, 4, 10, 30, 50)
 ```
