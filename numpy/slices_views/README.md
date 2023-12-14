@@ -137,6 +137,12 @@ Output
 
 a and b are not independent. If I change b this changes automatically a too. **It is of high importance to understand when a view is created.** Otherwise you will get totally wrong results.  
 
+Operations which are known to create views are: 
+* Slicing
+* Reshaping
+* ndarray.view()
+* Transposition
+
 
 * Using [start:stop:step] for slicing out segments results in a view. b = a[:-1]
 * A simple assignment keeps a view as a view.​ e.g. b = a
@@ -187,6 +193,72 @@ print(np.may_share_memory(a, b))  # -> False
 
 The a[0,0] does not create a view, because this creates an interger instead of a np.ndarray. And this kind of type conversion requires the creation of a new object. 
 
+```python
+import numpy as np
 
+a = np.zeros((2, 3))
+b = a.T
+print(np.may_share_memory(a, b))  # -> True
+```
 
+Math operations normally create new objects: 
 
+```python
+import numpy as np
+
+a = np.zeros((2, 3))
+b = a**2
+print(np.may_share_memory(a, b))  # -> False
+
+b = np.exp(a)
+print(np.may_share_memory(a, b))  # -> False
+
+b = a+1
+print(np.may_share_memory(a, b))  # -> False
+```
+
+## [numpy.copy](https://numpy.org/doc/stable/reference/generated/numpy.copy.html)
+
+Using [copy()](https://numpy.org/doc/stable/reference/generated/numpy.copy.html) ensures that you continue to with *no* view. 
+
+```python
+numpy.copy(a, order='K', subok=False)
+```
+> Return an array copy of the given object.
+
+```python
+import numpy as np
+
+a = np.zeros((2, 3))
+b = a.copy()
+
+print(np.may_share_memory(a, b))  # -> False
+
+b = a[1:2, 2:3].copy()
+print(np.may_share_memory(a, b))  # -> False
+```
+
+## dtype casting ([numpy.ndarray.astype](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.astype.html))
+
+dtype casting destroys / prevent views. However, don’t cast to the original dtype. Use copy() instead!
+
+```python
+ndarray.astype(dtype, order='K', casting='unsafe', subok=True, copy=True)
+```
+
+> Copy of the array, cast to a specified type.
+
+```python
+import numpy as np
+
+a = np.zeros((2, 3))
+
+b = a.astype(dtype=np.float32)
+print(np.may_share_memory(a, b))  # -> False
+
+b = a.astype(dtype=np.float64)
+print(np.may_share_memory(a, b))  # -> False
+
+b = a.astype(dtype=a.dtype)
+print(np.may_share_memory(a, b))  # -> False
+```
