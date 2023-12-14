@@ -199,6 +199,8 @@ print(a[:, idx_0, :, idx_1].shape)  # -> (2, 3, 4, 10, 30, 50)
 {: .topic-optional}
 This is an optional topic!
 
+We can use ix_() to build grids:​
+
 ```python
 numpy.ix_(*args)
 ```
