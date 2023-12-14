@@ -151,7 +151,47 @@ Output:
  [3 4 5]]
 ```
 
+**WARNING!!! Don't confuse reshape with resize!**
 
+## [numpy.ndarray.squeeze]
+
+```python
+ndarray.squeeze(axis=None)
+```
+
+> Remove axes of length one from a.
+
+```python
+import numpy as np
+
+A = np.zeros((4, 1, 1)) 
+print(A.shape) # -> (4, 1, 1)
+A = A.squeeze()
+print(A.shape) # -> (4,)
+
+A = np.zeros((4, 1, 9, 1)) # -> (4, 1, 9, 1)
+print(A.shape)
+B = A.squeeze(axis=1) # -> (4, 9, 1)
+print(B.shape)
+```
+## [numpy.moveaxis](https://numpy.org/doc/stable/reference/generated/numpy.moveaxis.html)
+
+```python
+numpy.moveaxis(a, source, destination)
+```
+
+> Move axes of an array to new positions.
+> 
+> Other axes remain in their original order.
+
+```python
+import numpy as np
+
+A = np.zeros((4, 1, 9, 1)) 
+print(A.shape) # -> (4, 1, 9, 1)
+B = np.moveaxis(A, 0, 1)
+print(B.shape) # -> (1, 4, 9, 1)
+```
 
 ## [Array methods](https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-methods)
 
