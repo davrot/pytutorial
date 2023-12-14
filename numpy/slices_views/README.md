@@ -140,9 +140,14 @@ a and b are not independent. If I change b this changes automatically a too. **I
 Operations which are known to create views are: 
 * Slicing
 * Reshaping
-* ndarray.view()
-* Transposition
+* Transposition (e.g. b=a.T)
+* [ndarray.view()](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.view.html)
 
+```python
+ndarray.view([dtype][, type])
+```
+
+> New view of array with the same data
 
 * Using [start:stop:step] for slicing out segments results in a view. b = a[:-1]
 * A simple assignment keeps a view as a view.​ e.g. b = a
