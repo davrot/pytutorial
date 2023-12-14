@@ -60,6 +60,7 @@ Important VS Code notes:
 * [New matrix](numpy/new_matrix/README.md)
 * [Reshape and flatten](numpy/reshape/README.md)
 * [Where](numpy/where/README.md)
+* [Boolean matricies and logic functions](numpy/bool_matrix/README.md)
 * [Available dtypes](numpy/dtype/README.md)
 * [Constants](numpy/constants/README.md)
 * [Math functions](numpy/math_functions/README.md)
