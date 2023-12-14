@@ -68,3 +68,43 @@ import numpy as np
 
 print(np.arange(-3, 0, 0.5, dtype=int)) # -> [-3 -2 -1  0  1  2]
 ```
+
+
+## [numpy.linspace](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html)
+
+```python
+numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)
+```
+
+> Return evenly spaced numbers over a specified interval.
+> 
+> Returns num evenly spaced samples, calculated over the interval [start, stop].
+> 
+> The endpoint of the interval can optionally be excluded.
+
+> **start** : array_like
+> 
+>  The starting value of the sequence.
+
+> **stop** : array_like
+> 
+>  The end value of the sequence, unless endpoint is set to False. In that case, the sequence consists of all but the last of num + 1 evenly spaced samples, so that stop is excluded. Note that the step size changes when endpoint is False.
+
+> **num** : int, optional
+> 
+>  Number of samples to generate. Default is 50. Must be non-negative.
+
+> **endpoint** : bool, optional
+> 
+>  If True, stop is the last sample. Otherwise, it is not included. Default is True.
+
+## [numpy.logspace](https://numpy.org/doc/stable/reference/generated/numpy.logspace.html)
+
+```python
+numpy.logspace(start, stop, num=50, endpoint=True, base=10.0, dtype=None, axis=0)
+```
+
+> Return numbers spaced evenly on a log scale.
+>
+> In linear space, the sequence starts at base ** start (base to the power of start) and ends with base ** stop (see endpoint below).
+
