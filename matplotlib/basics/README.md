@@ -41,6 +41,14 @@ plt.savefig("Test.pdf")
 plt.show()  # This is optinal in Interactive Cell mode
 ```
 
+### [plt.figure()](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.figure.html)
+
+```python
+matplotlib.pyplot.figure(num=None, figsize=None, dpi=None, *, facecolor=None, edgecolor=None, frameon=True, FigureClass=<class 'matplotlib.figure.Figure'>, clear=False, **kwargs)
+```
+
+> Create a new figure, or activate an existing figure.
+
 ### [plt.plot()](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html)
 
 
@@ -50,7 +58,7 @@ matplotlib.pyplot.plot(*args, scalex=True, scaley=True, data=None, **kwargs)
 
 > Plot y versus x as lines and/or markers.
 
-This function definition is not very helpful. 
+Well, this function definition is not very helpful. 
 
 Some examples:
 
@@ -192,6 +200,68 @@ fmt = '[marker][line][color]'
 |[solid_joinstyle](https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D.set_solid_joinstyle)|JoinStyle or {'miter', 'round', 'bevel'}|
 |[url](https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_url.html#matplotlib.artist.Artist.set_url)|str|
 |[visible](https://matplotlib.org/stable/api/_as_gen/matplotlib.artist.Artist.set_visible.html#matplotlib.artist.Artist.set_visible)|bool|
+
+### [plt.xlabel()](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html)
+
+```python
+matplotlib.pyplot.xlabel(xlabel, fontdict=None, labelpad=None, *, loc=None, **kwargs)
+```
+
+> Set the label for the x-axis.
+
+### [plt.ylabel()](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html)
+
+```python
+matplotlib.pyplot.ylabel(ylabel, fontdict=None, labelpad=None, *, loc=None, **kwargs)
+```
+
+> Set the label for the y-axis.
+
+
+### [plt.title()](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.title.html)
+
+```python
+matplotlib.pyplot.title(label, fontdict=None, loc=None, pad=None, *, y=None, **kwargs)
+```
+
+> Set a title for the Axes.
+>
+> Set one of the three available Axes titles. The available titles are positioned above the Axes in the center, flush with the left edge, and flush with the right edge.
+
+### [plt.legend()](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html)
+
+```python
+matplotlib.pyplot.legend(*args, **kwargs)
+```
+> Place a legend on the Axes.
+
+[There are parameters](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html). A lot. However, you mainly need loc for locations of the legend. 
+
+#### Location String
+
+**loc** : str or pair of floats, default: rcParams["legend.loc"] (default: 'best')
+
+|Location| Code|
+|---|---|
+|'best' (Axes only)|0|
+|'upper right'|1|
+|'upper left'|2|
+|'lower left'|3|
+|'lower right'|4|
+|'right'|5|
+|'center left'|6|
+|'center right'|7|
+|'lower center'|8|
+|'upper center'|9|
+|'center'|10|
+
+### [plt.savefig()]()
+
+
+### [plt.show()]()
+
+
+
 
 ## [Managing Figure and Axes](https://matplotlib.org/stable/api/pyplot_summary.html#managing-figure-and-axes)
 
