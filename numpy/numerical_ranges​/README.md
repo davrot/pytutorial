@@ -34,3 +34,37 @@ numpy.arange([start, ]stop, [step, ]dtype=None, *, like=None)
 > **When using a non-integer step, such as 0.1, it is often better to use numpy.linspace.**
 >
 > 
+
+ Examples: 
+
+```python
+import numpy as np
+
+print(np.arange(5)) # -> [0 1 2 3 4]
+print(np.arange(0, 5)) # -> [0 1 2 3 4]
+print(np.arange(2, 5)) # -> [2 3 4]
+print(np.arange(0, 5, 2)) # -> [0 2 4]
+```
+
+It can be nicely combined with **reshape()**:
+
+```python
+import numpy as np
+print(np.arange(0, 9).reshape(3, 3))
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+```
+
+**Do not use it with non-integer values for step!!!** This can happen and you don't want this to happen: 
+
+```python
+import numpy as np
+
+print(np.arange(-3, 0, 0.5, dtype=int)) # -> [-3 -2 -1  0  1  2]
+```
