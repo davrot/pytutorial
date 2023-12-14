@@ -59,6 +59,7 @@ Important VS Code notes:
 ## Numpy: The Basics of the basics
 * [New matrix](numpy/new_matrix/README.md)
 * [Reshape and flatten](numpy/reshape/README.md)
+* [Slices and Views](numpy/slices_views/README.md)
 * [Where](numpy/where/README.md)
 * [Boolean matricies and logic functions](numpy/bool_matrix/README.md)
 * [Available dtypes](numpy/dtype/README.md)
