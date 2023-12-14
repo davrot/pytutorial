@@ -272,7 +272,45 @@ Output:
 (3, 3, 2)
 ```
 
+This results in something that can be predicted too: 
 
+```python
+import numpy as np
+
+a = np.arange(1, 3025).reshape((6, 7, 8, 9))
+idx_0 = np.arange(0, 3).reshape(3, 1)
+idx_1 = np.arange(0, 2).reshape(1, 2)
+
+print(a.shape)  # -> (6, 7, 8, 9)
+print(a[:, :, idx_0, idx_1].shape)  # -> (6, 7, 3, 2)
+print(a[:, idx_0, idx_1, :].shape)  # -> (6, 3, 2, 9)
+print(a[idx_0, idx_1, :, :].shape)  # -> (3, 2, 8, 9)
+```
+
+This on the other hand is strange again: 
+
+```python
+import numpy as np
+
+a = np.arange(1, 3025).reshape((6, 7, 8, 9))
+idx_0 = np.arange(0, 3).reshape(3, 1)
+idx_1 = np.arange(0, 2).reshape(1, 2)
+
+print(a[idx_0, :, idx_1, :].shape)  # -> (3, 2, 7, 9)
+```
+
+After torturing Bing Chat and Google Bard, the moral of the story is: Don't do it. Replace the inbetween : with a 1-d index array.  
+
+
+```python
+import numpy as np
+
+a = np.arange(1, 3025).reshape((6, 7, 8, 9))
+idx_0 = np.arange(0, 3).reshape(3, 1, 1)
+idx_1 = np.arange(0, 2).reshape(1, 1, 2)
+idx_s = np.arange(0, a.shape[1]).reshape(1, a.shape[1], 1)
+print(a[idx_0, idx_s, idx_1, :].shape)  # -> (3, 7, 2, 9)
+```
 
 
 ## [numpy.ix_](https://numpy.org/doc/stable/reference/generated/numpy.ix_.html)
