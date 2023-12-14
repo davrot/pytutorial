@@ -193,3 +193,41 @@ idx_1 = np.ones((2, 3, 4), dtype=int)
 print(a[:, idx_0, idx_1].shape)  # -> (10, 2, 3, 4, 40, 50)
 print(a[:, idx_0, :, idx_1].shape)  # -> (2, 3, 4, 10, 30, 50)
 ```
+
+## [numpy.ix_](https://numpy.org/doc/stable/reference/generated/numpy.ix_.html)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+numpy.ix_(*args)
+```
+
+> Construct an open mesh from multiple sequences.
+> 
+> This function takes N 1-D sequences and returns N outputs with N dimensions each, such that the shape is 1 in all but one dimension and the dimension with the non-unit shape value cycles through all N dimensions.
+
+```python
+import numpy as np
+
+a = np.arange(0, 9).reshape(3, 3)
+print(a)
+print()
+print(a[np.ix_([0, 1], [0, 1])])
+print()
+print(a[np.ix_([0, 1], [0, 2])])
+```
+
+Output:
+```python
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+
+[[0 1]
+ [3 4]]
+
+[[0 2]
+ [3 5]]
+```
+
