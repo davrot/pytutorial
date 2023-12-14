@@ -98,6 +98,24 @@ numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, ax
 > 
 >  If True, stop is the last sample. Otherwise, it is not included. Default is True.
 
+An example:
+
+```python
+import numpy as np
+
+print(np.linspace(0, 1, num=10, endpoint=False))  # -> [0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9]
+print(np.arange(0, 10) / 10)  # -> [0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9]
+```
+
+Be mindful concerning the endpoint setting (**Notice the ... 8 10]**): 
+
+```python
+import numpy as np
+
+print(np.linspace(0, 10, num=10, endpoint=False, dtype=int))  # -> [0 1 2 3 4 5 6 7 8 9]
+print(np.linspace(0, 10, num=10, endpoint=True, dtype=int))  # -> [ 0  1  2  3  4  5  6  7  8 10]
+```
+
 ## [numpy.logspace](https://numpy.org/doc/stable/reference/generated/numpy.logspace.html)
 
 ```python
