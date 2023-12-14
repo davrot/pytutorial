@@ -56,9 +56,15 @@ matplotlib.pyplot.figure(num=None, figsize=None, dpi=None, *, facecolor=None, ed
 matplotlib.pyplot.plot(*args, scalex=True, scaley=True, data=None, **kwargs)
 ```
 
+Well, this function definition is not very helpful. 
+
+
 > Plot y versus x as lines and/or markers.
 
-Well, this function definition is not very helpful. 
+```python
+plot([x], y, [fmt], *, data=None, **kwargs)
+plot([x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs)
+```
 
 Some examples:
 
@@ -233,7 +239,15 @@ matplotlib.pyplot.title(label, fontdict=None, loc=None, pad=None, *, y=None, **k
 ```python
 matplotlib.pyplot.legend(*args, **kwargs)
 ```
+
 > Place a legend on the Axes.
+
+```python
+legend()
+legend(handles, labels)
+legend(handles=handles)
+legend(labels)
+```
 
 [There are parameters](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html). A lot. However, you mainly need loc for locations of the legend. 
 
@@ -257,10 +271,31 @@ matplotlib.pyplot.legend(*args, **kwargs)
 
 ### [plt.savefig()]()
 
+```python
+matplotlib.pyplot.savefig(*args, **kwargs)
+```
 
-### [plt.show()]()
+> Save the current figure.
 
+```python
+savefig(fname, *, transparent=None, dpi='figure', format=None,
+        metadata=None, bbox_inches=None, pad_inches=0.1,
+        facecolor='auto', edgecolor='auto', backend=None,
+        **kwargs
+       )
+```
 
+> The available output formats depend on the backend being used.
+
+**Note: savefig has to be done before show, otherwise the exported image will be empty.**
+
+### [plt.show()](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html)
+
+```python
+matplotlib.pyplot.show(*, block=None)
+```
+
+> Display all open figures.
 
 
 ## [Managing Figure and Axes](https://matplotlib.org/stable/api/pyplot_summary.html#managing-figure-and-axes)
