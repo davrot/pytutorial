@@ -8,16 +8,80 @@
 
 ## The goal
 
+Overview over the linear algebra functions of Numpy. 
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
+**There more functions in the [scipy linalg package](https://docs.scipy.org/doc/scipy/reference/linalg.html)!!!**
 
-The @ operator
-Introduced in NumPy 1.10.0, the @ operator is preferable to other methods when computing the matrix product between 2d arrays. The numpy.matmul function implements the @ operator.
+## The @ operator
+
+@ => Matrix product​
+
+\* => outer product A[i] * B[i]​
+
+The @ operator is preferable to other methods when computing the matrix product between 2d arrays. The numpy.matmul function implements the @ operator.
+
+```python
+import numpy as np
+
+a = np.arange(0, 3).reshape(3, 1)
+b = np.arange(4, 7).reshape(1, 3)
+
+print(a)
+print()
+print(b)
+print()
+print(a @ b)
+print()
+print(b @ a)
+```
+
+Output:
+
+```python
+[[0]
+ [1]
+ [2]]
+
+[[4 5 6]]
+
+[[ 0  0  0]
+ [ 4  5  6]
+ [ 8 10 12]]
+
+[[17]]
+```
+
+For comparison the outer product:
+
+```python
+import numpy as np
+
+a = np.arange(0, 3).reshape(3, 1)
+b = np.arange(4, 7).reshape(1, 3)
+
+print(a * b)
+print()
+print(b * a)
+```
+
+Output:
+
+```python
+[[ 0  0  0]
+ [ 4  5  6]
+ [ 8 10 12]]
+
+[[ 0  0  0]
+ [ 4  5  6]
+ [ 8 10 12]]
+```
+
 
 ## [numpy.linalg](https://numpy.org/doc/stable/reference/routines.linalg.html)
 
-### Matrix and vector products
+### [Matrix and vector products](https://numpy.org/doc/stable/reference/routines.linalg.html#matrix-and-vector-products)
 
 
 |||
@@ -34,7 +98,7 @@ Introduced in NumPy 1.10.0, the @ operator is preferable to other methods when c
 |[linalg.matrix_power(a, n)](https://numpy.org/doc/stable/reference/generated/numpy.linalg.matrix_power.html#numpy.linalg.matrix_power)|Raise a square matrix to the (integer) power n.|
 |[kron(a, b)](https://numpy.org/doc/stable/reference/generated/numpy.kron.html#numpy.kron)|Kronecker product of two arrays.|
 
-### Decompositions
+### [Decompositions](https://numpy.org/doc/stable/reference/routines.linalg.html#decompositions)
 
 |||
 |---|---|
@@ -42,7 +106,7 @@ Introduced in NumPy 1.10.0, the @ operator is preferable to other methods when c
 |[linalg.qr(a[, mode])](https://numpy.org/doc/stable/reference/generated/numpy.linalg.qr.html#numpy.linalg.qr)|Compute the qr factorization of a matrix.|
 |[**linalg.svd(a[, full_matrices, compute_uv, ...])**](https://numpy.org/doc/stable/reference/generated/numpy.linalg.svd.html#numpy.linalg.svd)|**Singular Value Decomposition.**|
 
-### Matrix eigenvalues
+### [Matrix eigenvalues](https://numpy.org/doc/stable/reference/routines.linalg.html#matrix-eigenvalues)
 
 |||
 |---|---|
@@ -51,7 +115,7 @@ Introduced in NumPy 1.10.0, the @ operator is preferable to other methods when c
 |[linalg.eigvals(a)](https://numpy.org/doc/stable/reference/generated/numpy.linalg.eigvals.html#numpy.linalg.eigvals)|Compute the eigenvalues of a general matrix.|
 |[linalg.eigvalsh(a[, UPLO])](https://numpy.org/doc/stable/reference/generated/numpy.linalg.eigvalsh.html#numpy.linalg.eigvalsh)|Compute the eigenvalues of a complex Hermitian or real symmetric matrix.|
 
-### Norms and other numbers
+### [Norms and other numbers](https://numpy.org/doc/stable/reference/routines.linalg.html#norms-and-other-numbers)
 
 |||
 |---|---|
@@ -62,7 +126,7 @@ Introduced in NumPy 1.10.0, the @ operator is preferable to other methods when c
 |[linalg.slogdet(a)](https://numpy.org/doc/stable/reference/generated/numpy.linalg.slogdet.html#numpy.linalg.slogdet)|Compute the sign and (natural) logarithm of the determinant of an array.|
 |[**trace(a[, offset, axis1, axis2, dtype, out])**](https://numpy.org/doc/stable/reference/generated/numpy.trace.html#numpy.trace)|**Return the sum along diagonals of the array.**|
 
-### Solving equations and inverting matrices
+### [Solving equations and inverting matrices](https://numpy.org/doc/stable/reference/routines.linalg.html#solving-equations-and-inverting-matrices)
 
 |||
 |---|---|
