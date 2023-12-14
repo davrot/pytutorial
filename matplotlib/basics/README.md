@@ -41,7 +41,51 @@ plt.savefig("Test.pdf")
 plt.show()  # This is optinal in Interactive Cell mode
 ```
 
+### [plt.plot()](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html)
 
+
+```python
+matplotlib.pyplot.plot(*args, scalex=True, scaley=True, data=None, **kwargs)
+```
+
+> Plot y versus x as lines and/or markers.
+
+This function definition is not very helpful. 
+
+Some examples:
+
+```python
+plot(x, y)        # plot x and y using default line style and color
+plot(x, y, 'bo')  # plot x and y using blue circle markers
+plot(y)           # plot y using x as index array 0..N-1
+plot(y, 'r+')     # ditto, but with red plusses
+plot(x, y, 'go--', linewidth=2, markersize=12)
+plot(x, y, color='green', marker='o', linestyle='dashed',linewidth=2, markersize=12)
+```
+
+#### Plotting multiple sets of data
+
+> The most straight forward way is just to call plot multiple times. Example:
+
+```python
+plot(x1, y1, 'bo')
+plot(x2, y2, 'go')
+```
+
+> By default, each line is assigned a different style specified by a 'style cycle'. The fmt and line property parameters are only necessary if you want explicit deviations from these defaults. Alternatively, you can also change the style cycle using rcParams["axes.prop_cycle"] (default: cycler('color', ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf'])).
+
+#### Main parameter
+
+**x, y** : array-like or scalar
+    The horizontal / vertical coordinates of the data points. x values are optional and default to range(len(y)).
+    Commonly, these parameters are 1D arrays.
+    They can also be scalars, or two-dimensional (in that case, the columns represent separate data sets).
+    These arguments cannot be passed as keywords.
+
+**fmt** : str, optional
+    A format string, e.g. 'ro' for red circles. See the Notes section for a full description of the format strings.
+    Format strings are just an abbreviation for quickly setting basic line properties. All of these and more can also be controlled by keyword arguments.
+    This argument cannot be passed as keyword.
 
 
 #### Format Strings
