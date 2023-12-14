@@ -11,6 +11,122 @@
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
+## Boolean matrices
+
+There are different ways to get a Boolean matrix. For example the result of a **np.isfinite()** (checks if the values in a matrix are infite values) is a Boolean matrix.
+
+```python
+import numpy as np
+
+a = 1.0 / np.arange(0, 6).reshape((2, 3))
+print(a)
+print()
+print(np.isfinite(a))
+```
+
+Output: 
+
+```python
+[[       inf 1.         0.5       ]
+ [0.33333333 0.25       0.2       ]]
+
+[[False  True  True]
+ [ True  True  True]]
+<ipython-input-3-7ead4ee291d3>:4: RuntimeWarning: divide by zero encountered in divide
+  a = 1.0 / np.arange(0, 6).reshape((2, 3))
+```
+
+However, there are other ways to produce Boolean matrixes:
+
+```python
+import numpy as np
+
+a = np.arange(0, 6).reshape((2, 3))
+print(a)
+print()
+print((a > 1))
+```
+
+Output: 
+
+```python
+[[0 1 2]
+ [3 4 5]]
+
+[[False False  True]
+ [ True  True  True]]
+```
+
+## Calculating with boolean matrices
+
+You can treat them a matricies that are filled with 0 (False) and 1 (True):
+
+```python
+import numpy as np
+
+a = np.arange(0, 6).reshape((2, 3))
+print(a)
+print()
+print((a > 1) * (a < 4))
+```
+
+Output: 
+
+```python
+[[0 1 2]
+ [3 4 5]]
+
+[[False False  True]
+ [ True False False]]
+```
+
+Or you can use Boolean logical matrix functions:
+
+```python
+import numpy as np
+
+a = np.arange(0, 6).reshape((2, 3))
+print(a)
+print()
+print(np.logical_and((a > 1), (a < 4)))
+```
+
+Output: 
+
+```python
+[[0 1 2]
+ [3 4 5]]
+
+[[False False  True]
+ [ True False False]]
+```
+
+## [np.nonzero()](https://numpy.org/doc/stable/reference/generated/numpy.nonzero.html)
+
+```python
+numpy.nonzero(a)
+```
+> Return the indices of the elements that are non-zero.
+
+We can use nonzero for extracting the positions where the boolean value is true:
+
+```python
+import numpy as np
+
+a = np.arange(0, 6).reshape((2, 3))
+print(a)
+print()
+print(np.nonzero(a > 1))
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]]
+
+(array([0, 1, 1, 1]), array([2, 0, 1, 2]))
+```
 
 ## [Logic functions](https://numpy.org/doc/stable/reference/routines.logic.html)
 
