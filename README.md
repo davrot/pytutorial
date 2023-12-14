@@ -58,6 +58,7 @@ Important VS Code notes:
 
 ## Numpy: The Basics of the basics
 * [New matrix](numpy/new_matrix/README.md)
+* [Reshape and flatten](numpy/reshape/README.md)
 * [Available dtypes](numpy/dtype/README.md)
 * [Constants](numpy/constants/README.md)
 * [Math functions](numpy/math_functions/README.md)
