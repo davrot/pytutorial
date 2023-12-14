@@ -27,6 +27,12 @@ numpy.where(condition, [x, y, ]/)
 
 ## Finding indices 
 
+We are using where is this mode: 
+
+```python
+idx = numpy.where(condition)
+```
+
 ### 2d example
 
 ```python
@@ -114,3 +120,95 @@ a = np.arange(0, 30).reshape((5, 3, 2))
 a[np.where(a > 15)] = 42
 print(a)
 ```
+
+## Using conditions
+
+```python
+numpy.where(condition, x, y)
+```
+
+## Identity
+
+In this example nothing happens because independent of the condition the value from **a** is used: 
+
+```python
+import numpy as np
+
+a = np.arange(0, 15).reshape((5, 3))
+
+a = np.where(a > 7, a, a)
+print(a)
+```
+
+Output:
+
+```python
+[[ 0  1  2]
+ [ 3  4  5]
+ [ 6  7  8]
+ [ 9 10 11]
+ [12 13 14]]
+```
+
+## x is a number
+
+```python
+import numpy as np
+
+a = np.arange(0, 15).reshape((5, 3))
+
+a = np.where(a > 7, 42, a)
+print(a)
+```
+
+Output:
+
+```python
+[[ 0  1  2]
+ [ 3  4  5]
+ [ 6  7 42]
+ [42 42 42]
+ [42 42 42]]
+```
+
+## y is a number
+
+```python
+import numpy as np
+
+a = np.arange(0, 15).reshape((5, 3))
+
+a = np.where(a > 7, a, 42)
+print(a)
+```
+
+Output:
+
+```python
+[[42 42 42]
+ [42 42 42]
+ [42 42  8]
+ [ 9 10 11]
+ [12 13 14]]
+```
+
+## x and y are numbers
+
+```python
+import numpy as np
+
+a = np.arange(0, 15).reshape((5, 3))
+
+a = np.where(a > 7, 0, 42)
+print(a)
+```
+
+Output:
+```python
+[[42 42 42]
+ [42 42 42]
+ [42 42  0]
+ [ 0  0  0]
+ [ 0  0  0]]
+```
+
