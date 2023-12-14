@@ -110,3 +110,83 @@ print(a[0, ..., 0].shape)  # -> (3, 4, 5, 6, 7)
 ```
 
 ## Views
+
+What does **view** mean? It means that two objects share the same memory. 
+
+```python
+import numpy as np
+
+a = np.zeros((2, 3))
+b=a
+print(a)
+print()
+b[0,0] = 1
+
+print(a)
+```
+
+Output
+
+```python
+[[0. 0. 0.]
+ [0. 0. 0.]]
+
+[[1. 0. 0.]
+ [0. 0. 0.]]
+```
+
+a and b are not independent. If I change b this changes automatically a too. **It is of high importance to understand when a view is created.** Otherwise you will get totally wrong results.  
+
+
+* Using [start:stop:step] for slicing out segments results in a view. b = a[:-1]
+* A simple assignment keeps a view as a view.​ e.g. b = a
+* A mathematical operation on a view **may** create a new real ndarray. ​
+
+### [numpy.may_share_memory](https://numpy.org/doc/stable/reference/generated/numpy.may_share_memory.html)
+
+```python
+numpy.may_share_memory(a, b, /, max_work=None)
+```
+
+> Determine if two arrays might share memory
+>
+> A return of True does not necessarily mean that the two arrays share any element. It just means that they might.
+>
+> Only the memory bounds of a and b are checked by default.
+
+A simple example: 
+
+```python
+import numpy as np
+
+a = np.zeros((2, 3))
+
+b=a
+print(np.may_share_memory(a,b)) # -> True  
+```
+
+```python
+import numpy as np
+
+a = np.zeros((2, 3))
+b = a[1:2, 2:3]
+print(np.may_share_memory(a, b))  # -> True
+
+b = a[:, 2:3]
+print(np.may_share_memory(a, b))  # -> True
+
+b = a[:, ::2]
+print(np.may_share_memory(a, b))  # -> True
+
+b = a[0, :]
+print(np.may_share_memory(a, b))  # -> True
+
+b = a[0, 0]
+print(np.may_share_memory(a, b))  # -> False
+```
+
+The a[0,0] does not create a view, because this creates an interger instead of a np.ndarray. And this kind of type conversion requires the creation of a new object. 
+
+
+
+
