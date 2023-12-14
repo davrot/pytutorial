@@ -12,7 +12,7 @@ Sometimes we want to use or see only a part of the matrix. This can be done via 
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
-## Reminder: 1-d slines 
+## 1-d slices 
 
 We assume N as the number of elements and 1d:​
 
@@ -93,3 +93,11 @@ print(a[::-1])  # -> [9 8 7 6 5 4 3 2 1 0]
 print(a[4:-2:-1]) # -> []
 print(a[-1:5:-1]) # -> [9 8 7 6]
 ```
+
+## Views
+
+### [... (Ellipsis)](https://docs.python.org/dev/library/constants.html#Ellipsis)
+
+> The same as the ellipsis literal “...”. Special value used mostly in conjunction with extended slicing syntax for user-defined container data types. Ellipsis is the sole instance of the types.EllipsisType type.
+
+ 
