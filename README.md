@@ -71,6 +71,9 @@ Important VS Code notes:
 * [Linear algebra](numpy/linear_alg/README.md)
 * [Random numbers the non-legacy way](numpy/random/README.md)
 * [Statistics](numpy/statistics/README.md)
+* FFT
+  - * [Numpy: rfft and spectral power](numpy/numpy_fft_1/README.md)
+
 
 ## Matplotlib.pyplot
 * [Simple plot and imshow examples](matplotlib/basics/README.md)
@@ -86,7 +89,7 @@ Important VS Code notes:
 
 ## Python: Questions of spectral nature
 
-* [Numpy: rfft and spectral power](numpy_fft_1/README.md)
+
 * [scipy.signal: Butterworth low, high and band-pass](scipy.signal_butterworth/README.md)
 * [PyWavelets: Wavelet Transforms in Python](pywavelet/README.md)
 
