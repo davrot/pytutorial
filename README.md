@@ -72,7 +72,7 @@ Important VS Code notes:
 * [Random numbers the non-legacy way](numpy/random/README.md)
 * [Statistics](numpy/statistics/README.md)
 * [FFT](numpy/fft/README.md)
-  - [Numpy: rfft and spectral power](numpy/numpy_fft_1/README.md)
+  - [rfft and spectral power](numpy/numpy_fft_1/README.md)
 
 
 ## Matplotlib.pyplot
