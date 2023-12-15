@@ -60,7 +60,7 @@ x = np.sin(t * f * 2 * np.pi)
 
 plt.plot(t, x)
 plt.ylabel("sin(x)")
-plt.xlabel("sin(x)")
+plt.xlabel("t")
 plt.show()
 ```
 
@@ -88,11 +88,26 @@ f = [0, 1, ...,   n/2-1,     -n/2, ..., -1] / (d*n)   if n is even
 f = [0, 1, ..., (n-1)/2, -(n-1)/2, ..., -1] / (d*n)   if n is odd
 ```
 
-## [numpy.fft.rfftfreq](https://numpy.org/doc/stable/reference/generated/numpy.fft.rfftfreq.html#numpy-fft-rfftfreq)
+### [numpy.fft.rfftfreq](https://numpy.org/doc/stable/reference/generated/numpy.fft.rfftfreq.html#numpy-fft-rfftfreq)
 
 ```python
 fft.rfftfreq(n, d=1.0)
 ```
+
+### Comparison (cont.)
+
+The frequency axes:
+
+```python
+dt = t[1] - t[0]
+fft_freq = np.fft.fftfreq(x.shape[0],dt)
+print(fft_freq.shape) # -> (10000,)
+
+rfft_freq = np.fft.rfftfreq(x.shape[0],dt)
+print(rfft_freq.shape) # -> (5001,)
+```
+
+
 
 > Return the Discrete Fourier Transform sample frequencies (for usage with rfft, irfft).
 >
@@ -106,6 +121,8 @@ f = [0, 1, ..., (n-1)/2-1, (n-1)/2] / (d*n)   if n is odd
 ```
 
 > Unlike fftfreq (but like scipy.fftpack.rfftfreq) the Nyquist frequency component is considered to be positive.
+
+
 
 ## [Discrete Fourier Transform (numpy.fft)](https://numpy.org/doc/stable/reference/routines.fft.html#discrete-fourier-transform-numpy-fft)
 
