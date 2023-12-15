@@ -405,6 +405,185 @@ A = np.array(1 + 0.5j)
 print(A.conj()) # -> (1-0.5j)
 ```
 
+
+## [numpy.ndarray.sort](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.sort.html)
+
+```python
+ndarray.sort(axis=-1, kind=None, order=None)
+```
+
+> Sort an array **in-place**. Refer to numpy.sort for full documentation.
+
+```python
+import numpy as np
+
+A = np.arange(0, 6)
+A = np.concatenate((A, A))
+
+print(A) # -> [0 1 2 3 4 5 0 1 2 3 4 5]
+print()
+A.sort()
+print(A) # -> [0 0 1 1 2 2 3 3 4 4 5 5]
+```
+
+## [numpy.ndarray.argsort](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.argsort.html)
+
+```python
+ndarray.argsort(axis=-1, kind=None, order=None)
+```
+
+> Returns the indices that would sort this array.
+
+```python
+import numpy as np
+
+A = np.arange(0, 6)
+A = np.concatenate((A, A))
+
+print(A)  # -> [0 1 2 3 4 5 0 1 2 3 4 5]
+print()
+idx = A.argsort()
+print(idx)  # -> [ 0  6  1  7  2  8  3  9  4 10  5 11]
+```
+
+## [numpy.ndarray.sum](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.sum.html)
+
+```python
+ndarray.sum(axis=None, dtype=None, out=None, keepdims=False, initial=0, where=True)
+```
+
+> Return the sum of the array elements over the given axis.
+
+```python
+import numpy as np
+
+A = np.arange(0, 6).reshape((2, 3))
+
+print(A.sum())  # -> 15
+print(A.sum(axis=0))  # -> [3 5 7]
+print(A.sum(axis=0).shape)  # -> (3,)
+print(A.sum(axis=1))  # -> [ 3 12]
+print(A.sum(axis=1).shape)  # -> (2,)
+
+print(A.sum(axis=0, keepdims=True))
+print(A.sum(axis=0, keepdims=True).shape) # -> (1, 3)
+print()
+print(A.sum(axis=1, keepdims=True))
+print(A.sum(axis=0, keepdims=True).shape) # -> (1, 3)
+```
+
+Output:
+
+```python
+[[3 5 7]]
+
+[[ 3]
+ [12]]
+```
+
+## [numpy.ndarray.cumsum](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.cumsum.html)
+
+```python
+ndarray.cumsum(axis=None, dtype=None, out=None)
+```
+
+> Return the cumulative sum of the elements along the given axis.
+
+```python
+import numpy as np
+
+A = np.arange(0, 6).reshape((2, 3))
+
+print(A)
+print()
+print(A.cumsum())  # -> [ 0  1  3  6 10 15]
+print(A.cumsum().shape)  # -> (6,)
+print(A.cumsum(axis=0))
+print()
+print(A.cumsum(axis=0).shape)  # -> (2, 3)
+print(A.cumsum(axis=1))  
+print(A.cumsum(axis=1).shape)  # -> (2, 3)
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]]
+
+[[0 1 2]
+ [3 5 7]]
+
+[[ 0  1  3]
+ [ 3  7 12]]
+```
+
+## [numpy.ndarray.prod](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.prod.html)
+
+```python
+ndarray.prod(axis=None, dtype=None, out=None, keepdims=False, initial=1, where=True)
+```
+
+> Return the product of the array elements over the given axis
+
+```python
+import numpy as np
+
+A = np.arange(1, 7).reshape((2, 3))
+
+print(A)
+print(A.prod())  # -> 720
+print(A.prod().shape)  # -> ()
+print(A.prod(axis=0)) # -> [ 4 10 18]
+print(A.prod(axis=0).shape) # -> (3,)
+print(A.prod(axis=1))  # -> [  6 120]
+print(A.prod(axis=1).shape)  # -> (2,)
+```
+
+Output:
+
+```python
+[[1 2 3]
+ [4 5 6]]
+```
+
+## [numpy.ndarray.cumprod](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.cumprod.html)
+
+```python
+ndarray.cumprod(axis=None, dtype=None, out=None)
+```
+
+> Return the cumulative product of the elements along the given axis.
+
+```python
+import numpy as np
+
+A = np.arange(1, 7).reshape((2, 3))
+
+print(A)
+print()
+print(A.cumprod())  # -> [  1   2   6  24 120 720]
+print(A.cumprod().shape)  # -> (6,)
+print(A.cumprod(axis=0)) 
+print()
+print(A.cumprod(axis=0).shape) # -> (2, 3)
+print(A.cumprod(axis=1))  
+print(A.cumprod(axis=1).shape)  # -> (2, 3)
+```
+
+Output:
+
+```python
+[[1 2 3]
+ [4 5 6]]
+
+[[ 1  2  3]
+ [ 4 10 18]]
+
+ [[  1   2   6]
+ [  4  20 120]]
+```
+
 ## [Array methods](https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-methods)
 
 ### [Array conversion](https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-conversion)
