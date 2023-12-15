@@ -275,6 +275,135 @@ Output:
 [0 1 2 3 4 5]
 ```
 
+## [numpy.ndarray.flat](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flat.html)
+
+```python
+ndarray.flat
+```
+
+> A 1-D iterator over the array.
+> 
+> This is a numpy.flatiter instance, which acts similarly to, but is not a subclass of, Python’s built-in iterator object.
+
+```python
+import numpy as np
+
+A = np.arange(0, 6)
+A = A.reshape((2, 3))
+
+print(A.flat[0]) # -> 0
+print(A.flat[1]) # -> 1
+print(A.flat[2]) # -> 2
+print(A.flat[3]) # -> 3
+print(A.flat[4]) # -> 4
+print(A.flat[5]) # -> 5
+
+for i in A:
+    print(i)
+
+print("----")
+
+for i in A.flat:
+    print(i)
+```
+
+Output:
+
+```python
+[0 1 2]
+[3 4 5]
+----
+0
+1
+2
+3
+4
+5
+```
+
+## [numpy.ndarray.dtype](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.dtype.html)
+
+```python
+ndarray.dtype
+```
+
+> Data-type of the array’s elements.
+
+```python
+import numpy as np
+
+A = np.zeros((0, 6), dtype=np.float32)
+print(A.dtype) # -> float32
+B = A.astype(dtype=np.int64)
+print(B.dtype) # -> int64
+print(np.may_share_memory(A, B)) # -> False
+```
+
+## [numpy.ndarray.astype](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.astype.html)
+
+```python
+ndarray.astype(dtype, order='K', casting='unsafe', subok=True, copy=True)
+```
+
+> Copy of the array, cast to a specified type.
+
+```python
+import numpy as np
+
+A = np.zeros((0, 6), dtype=np.float32)
+print(A.dtype) # -> float32
+B = A.astype(dtype=np.int64)
+print(B.dtype) # -> int64
+print(np.may_share_memory(A, B)) # -> False
+```
+
+## Complex numbers
+
+### [numpy.ndarray.real](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.real.html)
+
+```python
+ndarray.real
+```
+
+> The real part of the array.
+
+```python
+import numpy as np
+
+A = np.array(1 + 0.5j)
+print(A.real) # -> 1.0
+```
+
+### [numpy.ndarray.imag](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.imag.html)
+
+```python
+ndarray.imag
+```
+
+
+> The imaginary part of the array.
+
+```python
+import numpy as np
+
+A = np.array(1 + 0.5j)
+print(A.imag) # -> 0.5
+```
+
+### [numpy.ndarray.conj](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.conj.html)
+
+```python
+ndarray.conj()
+```
+
+> Complex-conjugate all elements.
+
+```python
+import numpy as np
+
+A = np.array(1 + 0.5j)
+print(A.conj()) # -> (1-0.5j)
+```
 
 ## [Array methods](https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-methods)
 
