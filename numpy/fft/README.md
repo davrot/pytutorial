@@ -151,6 +151,15 @@ plt.show()
 ```
 ![image3a](image3a.png)
 
+```python
+plt.plot(t, np.imag(np.fft.ifft(fft_result)))
+plt.ylabel("imag(ifft(fft(x)))")
+plt.xlabel("t")
+plt.title("FFT")
+plt.show()
+```
+![image3b](image3b.png)
+
 
 ```python
 plt.plot(t, x - np.real(np.fft.irfft(rfft_result)))
@@ -161,6 +170,17 @@ plt.show()
 ```
 
 ![image4](image4.png)
+
+
+```python
+plt.plot(t, np.imag(np.fft.irfft(rfft_result)))
+plt.ylabel("imag(irfft(rfft(x)))")
+plt.xlabel("t")
+plt.title("rFFT")
+plt.show()
+```
+
+![image4b](image4b.png)
 
 ## [Discrete Fourier Transform (numpy.fft)](https://numpy.org/doc/stable/reference/routines.fft.html#discrete-fourier-transform-numpy-fft)
 
