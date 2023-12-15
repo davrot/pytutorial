@@ -584,6 +584,77 @@ Output:
  [  4  20 120]]
 ```
 
+## [numpy.ndarray.clip](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.clip.html)
+
+```python
+ndarray.clip(min=None, max=None, out=None, **kwargs)
+```
+
+> Return an array whose values are limited to [min, max]. One of max or min must be given.
+
+```python
+import numpy as np
+
+A = np.arange(0, 8).reshape((2, 4))
+print(A)
+print()
+print(A.clip(min=1, max=6))
+```
+
+Output:
+
+```python
+[[0 1 2 3]
+ [4 5 6 7]]
+
+[[1 1 2 3]
+ [4 5 6 6]]
+```
+
+## [numpy.ndarray.max](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.max.html#numpy.ndarray.max) and [numpy.ndarray.min](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.min.html#numpy.ndarray.min)
+
+```python
+ndarray.max(axis=None, out=None, keepdims=False, initial=<no value>, where=True)
+```
+
+> Return the maximum along a given axis.
+
+```python
+ndarray.min(axis=None, out=None, keepdims=False, initial=<no value>, where=True)
+```
+
+> Return the minimum along a given axis.
+
+```python
+import numpy as np
+
+A = np.arange(0, 6).reshape((2, 3))
+
+print(A)
+print()
+print(A.max())  # -> 5
+print(A.max(axis=0))  # -> [3 4 5]
+print(A.max(axis=0).shape)  # -> (3,)
+print(A.max(axis=1))  # -> [2 5]
+print(A.max(axis=1).shape)  # -> (2,)
+print(A.max(axis=0, keepdims=True)) # -> [[3 4 5]]
+print(A.max(axis=0, keepdims=True).shape) # -> (1, 3)
+print(A.max(axis=1, keepdims=True))
+print(A.max(axis=0, keepdims=True).shape) # -> (1, 3)
+```
+
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]]
+
+[[2]
+ [5]]
+```
+
+
 ## [Array methods](https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-methods)
 
 ### [Array conversion](https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-conversion)
