@@ -75,7 +75,7 @@ print(rfft_result.shape) # -> (5001,)
 ### [numpy.fft.fftfreq](https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html#numpy-fft-fftfreq)
 
 ```python
-fft.fftfreq(n, d=1.0)[source]
+fft.fftfreq(n, d=1.0)
 ```
 > Return the Discrete Fourier Transform sample frequencies.
 > 
@@ -87,6 +87,25 @@ fft.fftfreq(n, d=1.0)[source]
 f = [0, 1, ...,   n/2-1,     -n/2, ..., -1] / (d*n)   if n is even
 f = [0, 1, ..., (n-1)/2, -(n-1)/2, ..., -1] / (d*n)   if n is odd
 ```
+
+## [numpy.fft.rfftfreq](https://numpy.org/doc/stable/reference/generated/numpy.fft.rfftfreq.html#numpy-fft-rfftfreq)
+
+```python
+fft.rfftfreq(n, d=1.0)
+```
+
+> Return the Discrete Fourier Transform sample frequencies (for usage with rfft, irfft).
+>
+> The returned float array f contains the frequency bin centers in cycles per unit of the sample spacing (with zero at the start). For instance, if the sample spacing is in seconds, then the frequency unit is cycles/second.
+>
+> Given a window length n and a sample spacing d:
+
+```python
+f = [0, 1, ...,     n/2-1,     n/2] / (d*n)   if n is even
+f = [0, 1, ..., (n-1)/2-1, (n-1)/2] / (d*n)   if n is odd
+```
+
+> Unlike fftfreq (but like scipy.fftpack.rfftfreq) the Nyquist frequency component is considered to be positive.
 
 ## [Discrete Fourier Transform (numpy.fft)](https://numpy.org/doc/stable/reference/routines.fft.html#discrete-fourier-transform-numpy-fft)
 
