@@ -446,13 +446,20 @@ idx = A.argsort()
 print(idx)  # -> [ 0  6  1  7  2  8  3  9  4 10  5 11]
 ```
 
-## [numpy.ndarray.sum](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.sum.html)
+## [numpy.ndarray.sum](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.sum.html) and [numpy.ndarray.mean](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.mean.html#numpy.ndarray.mean)
 
 ```python
 ndarray.sum(axis=None, dtype=None, out=None, keepdims=False, initial=0, where=True)
 ```
 
 > Return the sum of the array elements over the given axis.
+
+```python
+ndarray.mean(axis=None, dtype=None, out=None, keepdims=False, *, where=True)
+```
+
+> Returns the average of the array elements along given axis.
+
 
 ```python
 import numpy as np
@@ -654,6 +661,48 @@ Output:
  [5]]
 ```
 
+## [numpy.ndarray.argmax](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.argmax.html#numpy.ndarray.argmax) and [numpy.ndarray.argmin](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.argmin.html#numpy.ndarray.argmin)
+
+```python
+ndarray.argmax(axis=None, out=None, *, keepdims=False)
+```
+
+> Return indices of the maximum values along the given axis.
+
+```python
+ndarray.argmin(axis=None, out=None, *, keepdims=False)
+```
+
+> Return indices of the minimum values along the given axis.
+
+
+```python
+import numpy as np
+
+A = np.arange(0, 6).reshape((2, 3))
+
+print(A)
+print()
+print(A.argmax())  # -> 5
+print(A.argmax(axis=0))  # -> [1 1 1]
+print(A.argmax(axis=0).shape)  # -> (3,)
+print(A.argmax(axis=1))  # -> [2 2]
+print(A.argmax(axis=1).shape)  # -> (2,)
+print(A.argmax(axis=0, keepdims=True))  # -> [[1 1 1]]
+print(A.argmax(axis=0, keepdims=True).shape)  # -> (1, 3)
+print(A.argmax(axis=1, keepdims=True))
+print(A.argmax(axis=0, keepdims=True).shape)  # -> (1, 3)
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]]
+
+[[2]
+ [2]]
+```
 
 ## [Array methods](https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-methods)
 
