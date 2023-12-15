@@ -704,6 +704,50 @@ Output:
  [2]]
 ```
 
+## [numpy.ndarray.std](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.std.html) and [numpy.ndarray.var](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.var.html)
+
+```python
+ndarray.std(axis=None, dtype=None, out=None, ddof=0, keepdims=False, *, where=True)
+```
+
+> Returns the standard deviation of the array elements along given axis.
+
+```python
+ndarray.var(axis=None, dtype=None, out=None, ddof=0, keepdims=False, *, where=True)
+```
+
+> Returns the variance of the array elements, along given axis.
+
+```python
+import numpy as np
+
+rng = np.random.default_rng()
+A = rng.random((2, 3))
+
+print(A)
+print()
+print(A.var())  # -> 0.15743358550255018
+print(A.var(axis=0))  # -> [0.19429192 0.15604444 0.00441136]
+print(A.var(axis=0).shape)  # -> (3,)
+print(A.var(axis=1))  # -> [0.18135622 0.00196335]
+print(A.var(axis=1).shape)  # -> (2,)
+print(A.var(axis=0, keepdims=True))  # -> [[0.19429192 0.15604444 0.00441136]]
+print(A.var(axis=0, keepdims=True).shape)  # -> (1, 3)
+print(A.var(axis=1, keepdims=True))
+print(A.var(axis=0, keepdims=True).shape)  # -> (1, 3)
+```
+
+Output:
+
+```python
+[[0.9804056  0.82416017 0.00909   ]
+ [0.09883446 0.03411095 0.1419262 ]]
+
+[[0.18135622]
+ [0.00196335]]
+```
+
+
 ## [Array methods](https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-methods)
 
 ### [Array conversion](https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-conversion)
