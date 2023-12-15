@@ -107,7 +107,7 @@ f = [0, 1, ..., (n-1)/2-1, (n-1)/2] / (d*n)   if n is odd
 
 > Unlike fftfreq (but like scipy.fftpack.rfftfreq) the Nyquist frequency component is considered to be positive.
 
-### Comparison (cont.)
+### Comparison (fftfreq)
 
 The frequency axes:
 
@@ -127,8 +127,8 @@ plt.xlabel("Frequency")
 plt.title("FFT")
 plt.show()
 ```
+![image1](image1.png)
 
-![image2](image2.png)
 
 ```python
 plt.plot(rfft_freq, np.abs(rfft_result) ** 2)
@@ -137,8 +137,30 @@ plt.xlabel("Frequency")
 plt.title("rFFT")
 plt.show()
 ```
+![image2](image2.png)
 
-![image1](image1.png)
+
+### Comparison (ifft)
+
+```python
+plt.plot(t, x - np.real(np.fft.ifft(fft_result)))
+plt.ylabel("Error x - ifft(fft(x))")
+plt.xlabel("t")
+plt.title("FFT")
+plt.show()
+```
+![image3a](image3a.png)
+
+
+```python
+plt.plot(t, x - np.real(np.fft.irfft(rfft_result)))
+plt.ylabel("Error x - irfft(rfft(x))")
+plt.xlabel("t")
+plt.title("rFFT")
+plt.show()
+```
+
+![image4](image4.png)
 
 ## [Discrete Fourier Transform (numpy.fft)](https://numpy.org/doc/stable/reference/routines.fft.html#discrete-fourier-transform-numpy-fft)
 
