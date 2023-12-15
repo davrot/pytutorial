@@ -32,7 +32,7 @@ fft.fft(a, n=None, axis=-1, norm=None)[source]
 > 
 > This function computes the one-dimensional n-point discrete Fourier Transform (DFT) with the efficient Fast Fourier Transform (FFT) algorithm [CT].
 
-## [numpy.fft.rfft](https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.html)
+### [numpy.fft.rfft](https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.html)
 
 ```python
 fft.rfft(a, n=None, axis=-1, norm=None)[source]
@@ -42,6 +42,36 @@ fft.rfft(a, n=None, axis=-1, norm=None)[source]
 > 
 > This function computes the one-dimensional n-point discrete Fourier Transform (DFT) of a real-valued array by means of an efficient algorithm called the Fast Fourier Transform (FFT).
 
+### Comparison
+
+If the input array is **real-valued** (i.e. no complex numbers) then use **rfft**. Otherwise use **fft**. However, you can always use **fft** if you want but you might need to add extra steps to remove the complex noise from the results. E.g. if x is real-valued ifft(fft(x)) can be complex, due to numerical noise.
+
+
+The test signal: 
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Test signal
+f: float = 10.0
+t = np.linspace(0, 10, 10000)
+x = np.sin(t * f * 2 * np.pi)
+
+plt.plot(t, x)
+plt.ylabel("sin(x)")
+plt.xlabel("sin(x)")
+plt.show()
+```
+
+![image0](image0.png)
+
+```python
+fft_result = np.fft.fft(x)
+print(fft_result.shape) # -> (10000,)
+rfft_result = np.fft.rfft(x)
+print(rfft_result.shape) # -> (5001,)
+```
 
 
 ## [Discrete Fourier Transform (numpy.fft)](https://numpy.org/doc/stable/reference/routines.fft.html#discrete-fourier-transform-numpy-fft)
