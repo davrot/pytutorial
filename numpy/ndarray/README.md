@@ -747,6 +747,35 @@ Output:
  [0.00196335]]
 ```
 
+## [numpy.ndarray.round](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.round.html#numpy.ndarray.round)
+
+```python
+ndarray.round(decimals=0, out=None)
+```
+
+> Return a with each element rounded to the given number of decimals.
+
+```python
+import numpy as np
+
+A = np.array(np.pi)
+print(A)  # -> 3.141592653589793
+print(A.round(decimals=0))  # -> 3.0
+print(A.round(decimals=1))  # -> 3.1
+print(A.round(decimals=2))  # -> 3.14
+print(A.round(decimals=3))  # -> 3.142
+```
+
+**WARNING!!! This might be unexpected behavior for you:​**
+
+```python
+import numpy as np
+
+print(np.round(1.5))  # -> 2.0
+print(np.round(2.5))  # -> 2.0
+print(np.round(2.5 + 1e-15))  # -> 3.0
+```
+
 
 ## [Array methods](https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-methods)
 
