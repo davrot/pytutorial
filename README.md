@@ -89,7 +89,6 @@ Important VS Code notes:
 
 ## Python: Questions of spectral nature
 
-
 * [scipy.signal: Butterworth low, high and band-pass](scipy.signal_butterworth/README.md)
 * [PyWavelets: Wavelet Transforms in Python](pywavelet/README.md)
 
@@ -99,6 +98,8 @@ Important VS Code notes:
 * [TQDM: Make your progress visible](helper/TQDM/README.md)
 * [Argh: Organize your command line arguments](helper/argh/README.md)
 
+## OpenCV2 and Python
+* [How to read a webcam with CV2](cv2/webcam/README.md)
 
 ## PyTorch 
 * [Get CUDA ready!](pytorch/cuda/README.md)
