@@ -104,6 +104,7 @@ Important VS Code notes:
 ## PyTorch 
 * [Get CUDA ready!](pytorch/cuda/README.md)
 * [Layers](pytorch/layers/README.md)
+* [How to take advantage of an optimizer for your non-Pytorch project](pytorch/optimizer_special/README.md)
 
 ## Matlab: Basics
 * [Basic Structure of a Computer](matlab/1/README.md)
