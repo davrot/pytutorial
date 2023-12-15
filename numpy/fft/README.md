@@ -94,21 +94,6 @@ f = [0, 1, ..., (n-1)/2, -(n-1)/2, ..., -1] / (d*n)   if n is odd
 fft.rfftfreq(n, d=1.0)
 ```
 
-### Comparison (cont.)
-
-The frequency axes:
-
-```python
-dt = t[1] - t[0]
-fft_freq = np.fft.fftfreq(x.shape[0],dt)
-print(fft_freq.shape) # -> (10000,)
-
-rfft_freq = np.fft.rfftfreq(x.shape[0],dt)
-print(rfft_freq.shape) # -> (5001,)
-```
-
-
-
 > Return the Discrete Fourier Transform sample frequencies (for usage with rfft, irfft).
 >
 > The returned float array f contains the frequency bin centers in cycles per unit of the sample spacing (with zero at the start). For instance, if the sample spacing is in seconds, then the frequency unit is cycles/second.
@@ -122,7 +107,38 @@ f = [0, 1, ..., (n-1)/2-1, (n-1)/2] / (d*n)   if n is odd
 
 > Unlike fftfreq (but like scipy.fftpack.rfftfreq) the Nyquist frequency component is considered to be positive.
 
+### Comparison (cont.)
 
+The frequency axes:
+
+```python
+dt = t[1] - t[0]
+fft_freq = np.fft.fftfreq(x.shape[0],dt)
+print(fft_freq.shape) # -> (10000,)
+
+rfft_freq = np.fft.rfftfreq(x.shape[0],dt)
+print(rfft_freq.shape) # -> (5001,)
+```
+
+```python
+plt.plot(fft_freq, np.abs(fft_result) ** 2)
+plt.ylabel("abs(fft)^2")
+plt.xlabel("Frequency")
+plt.title("FFT")
+plt.show()
+```
+
+![image2](image2.png)
+
+```python
+plt.plot(rfft_freq, np.abs(rfft_result) ** 2)
+plt.ylabel("abs(rfft)^2")
+plt.xlabel("Frequency")
+plt.title("rFFT")
+plt.show()
+```
+
+![image1](image1.png)
 
 ## [Discrete Fourier Transform (numpy.fft)](https://numpy.org/doc/stable/reference/routines.fft.html#discrete-fourier-transform-numpy-fft)
 
