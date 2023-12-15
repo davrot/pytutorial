@@ -173,7 +173,9 @@ A = np.zeros((4, 1, 9, 1)) # -> (4, 1, 9, 1)
 print(A.shape)
 B = A.squeeze(axis=1) # -> (4, 9, 1)
 print(B.shape)
+print(np.may_share_memory(A, B)) # -> True
 ```
+
 ## [numpy.moveaxis](https://numpy.org/doc/stable/reference/generated/numpy.moveaxis.html)
 
 ```python
@@ -191,7 +193,88 @@ A = np.zeros((4, 1, 9, 1))
 print(A.shape) # -> (4, 1, 9, 1)
 B = np.moveaxis(A, 0, 1)
 print(B.shape) # -> (1, 4, 9, 1)
+print(np.may_share_memory(A, B)) # -> True
 ```
+
+## [numpy.ndarray.swapaxes](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.swapaxes.html)
+
+```python
+ndarray.swapaxes(axis1, axis2)
+```
+
+> Return a **view** of the array with axis1 and axis2 interchanged.
+
+```python
+import numpy as np
+
+A = np.zeros((4, 1, 9, 1))
+print(A.shape) # -> (4, 1, 9, 1)
+B = A.swapaxes(0, 1)
+print(B.shape) # -> (1, 4, 9, 1)
+print(np.may_share_memory(A, B)) # -> True
+```
+
+## [numpy.ndarray.T](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.T.html) (Transposing a 2d matrix)
+
+```python
+ndarray.T
+```
+
+> View of the transposed array.
+> 
+> Same as self.transpose().
+
+```python
+import numpy as np
+
+A = np.zeros((4, 9))
+B = A.T
+print(A.shape)  # -> (4, 9)
+print(B.shape)  # -> (9, 4)
+print(np.may_share_memory(A, B)) # -> True
+```
+
+
+## [numpy.ndarray.transpose](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.transpose.html)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+ndarray.transpose(*axes)
+```
+
+> Returns a view of the array with axes transposed.
+
+## [numpy.ndarray.flatten](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flatten.html)
+
+```python
+ndarray.flatten(order='C')
+```
+
+> Return a **copy** of the array collapsed into one dimension.
+
+```python
+import numpy as np
+
+A = np.arange(0, 6)
+A = A.reshape((2, 3))
+print(A)
+print()
+B = A.flatten()
+print(B)
+print(np.may_share_memory(A, B))  # -> False
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]]
+
+[0 1 2 3 4 5]
+```
+
 
 ## [Array methods](https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-methods)
 
