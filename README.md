@@ -84,11 +84,9 @@ Important VS Code notes:
 * [Dealing with Matlab files](numpy_mat_files/README.md)
 
 ## Python: Data analysis
-
 * [Remove a common signal from your data](SVD_data_cleaning/README.md)
 
 ## Python: Questions of spectral nature
-
 * [scipy.signal: Butterworth low, high and band-pass](scipy.signal_butterworth/README.md)
 * [PyWavelets: Wavelet Transforms in Python](pywavelet/README.md)
 
@@ -105,6 +103,7 @@ Important VS Code notes:
 * [Get CUDA ready!](pytorch/cuda/README.md)
 * [Layers](pytorch/layers/README.md)
 * [How to take advantage of an optimizer for your non-Pytorch project](pytorch/optimizer_special/README.md)
+* [How to take advantage of a learning rate scheduler for your non-Pytorch project](pytorch/scheduler_special/README.md)
 
 ## Matlab: Basics
 * [Basic Structure of a Computer](matlab/1/README.md)
