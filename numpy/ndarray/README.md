@@ -776,6 +776,57 @@ print(np.round(2.5))  # -> 2.0
 print(np.round(2.5 + 1e-15))  # -> 3.0
 ```
 
+## [numpy.ndarray.trace](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.trace.html) 
+
+```python
+ndarray.trace(offset=0, axis1=0, axis2=1, dtype=None, out=None)
+```
+
+> Return the sum along diagonals of the array.
+
+```python
+import numpy as np
+
+A = np.eye(3)
+
+print(A)
+print(A.trace())  # -> 3.0
+```
+
+```python
+[[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]
+```
+
+## [numpy.ndarray.diagonal](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.diagonal.html)
+
+```python
+ndarray.diagonal(offset=0, axis1=0, axis2=1)
+```
+
+> Return specified diagonals. In NumPy 1.9 the returned array is a read-only view instead of a copy as in previous NumPy versions. In a future version the read-only restriction will be removed.
+
+```python
+import numpy as np
+
+rng = np.random.default_rng()
+A = rng.random((3, 3))
+print(A)
+print(A.diagonal())  # -> [0.7434178  0.11672896]
+print(A.diagonal(offset=1))  # -> [0.7434178  0.11672896]
+print(A.diagonal(offset=2))  # -> [0.84915636]
+print(A.diagonal(offset=-1))  # -> [0.10826248 0.50223328]
+print(A.diagonal(offset=-2))  # -> [0.43068892]
+```
+
+Output
+
+```python
+[[0.82574583 0.7434178  0.84915636]
+ [0.10826248 0.39898052 0.11672896]
+ [0.43068892 0.50223328 0.63444263]]
+```
 
 ## [Array methods](https://numpy.org/doc/stable/reference/arrays.ndarray.html#array-methods)
 
