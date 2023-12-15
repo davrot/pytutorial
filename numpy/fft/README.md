@@ -21,10 +21,28 @@ pip install scipy
 Numpy says [itself](https://numpy.org/doc/stable/reference/routines.fft.html#discrete-fourier-transform-numpy-fft): 
 > The SciPy module scipy.fft is a more comprehensive superset of numpy.fft, which includes only a basic set of routines.
 
+## fft vs rfft
 
+### [numpy.fft.fft](https://numpy.org/doc/stable/reference/generated/numpy.fft.fft.html)
 
 ```python
+fft.fft(a, n=None, axis=-1, norm=None)[source]
 ```
+> Compute the one-dimensional discrete Fourier Transform.
+> 
+> This function computes the one-dimensional n-point discrete Fourier Transform (DFT) with the efficient Fast Fourier Transform (FFT) algorithm [CT].
+
+## [numpy.fft.rfft](https://numpy.org/doc/stable/reference/generated/numpy.fft.rfft.html)
+
+```python
+fft.rfft(a, n=None, axis=-1, norm=None)[source]
+```
+
+> Compute the one-dimensional discrete Fourier Transform for real input.
+> 
+> This function computes the one-dimensional n-point discrete Fourier Transform (DFT) of a real-valued array by means of an efficient algorithm called the Fast Fourier Transform (FFT).
+
+
 
 ## [Discrete Fourier Transform (numpy.fft)](https://numpy.org/doc/stable/reference/routines.fft.html#discrete-fourier-transform-numpy-fft)
 
