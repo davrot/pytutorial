@@ -164,7 +164,65 @@ pandas.concat(objs, *, axis=0, join='outer', ignore_index=False, keys=None, leve
 >
 > Can also add a layer of hierarchical indexing on the concatenation axis, which may be useful if the labels are the same (or overlapping) on the passed axis number.
 
+## Saving (pandas.DataFrame.to_pickle) / loading (pandas.read_pickle) data ‘natively’​ 
 
+Save: 
+
+```python
+import pandas as pd
+original_df = pd.DataFrame(
+    {"foo": range(5), "bar": range(5, 10)}
+   )  
+print(original_df)
+
+pd.to_pickle(original_df, "./dummy.pkl")
+```
+
+Output:
+
+```python
+   foo  bar
+0    0    5
+1    1    6
+2    2    7
+3    3    8
+4    4    9
+```
+
+Load: 
+
+```python
+import pandas as pd
+unpickled_df = pd.read_pickle("./dummy.pkl")  
+print(unpickled_df)
+```
+
+Output:
+
+```python
+   foo  bar
+0    0    5
+1    1    6
+2    2    7
+3    3    8
+4    4    9
+```
+
+#### [read](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_pickle.html#pandas.read_pickle)
+
+```python
+pandas.read_pickle(filepath_or_buffer, compression='infer', storage_options=None)
+```
+
+> Load pickled pandas object (or any object) from file.
+
+#### [write](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_pickle.html#pandas.DataFrame.to_pickle)
+
+```python
+DataFrame.to_pickle(path, compression='infer', protocol=5, storage_options=None)
+```
+
+> Pickle (serialize) object to file.
 
 ## [I/O operations​](https://pandas.pydata.org/pandas-docs/stable/reference/io.html#input-output)
 
@@ -249,5 +307,9 @@ DataFrame.to_json(path_or_buf=None, orient=None, date_format=None, double_precis
 > Convert the object to a JSON string.
 > 
 > Note NaN’s and None will be converted to null and datetime objects will be converted to UNIX timestamps.
+
+
+
+
 
 
