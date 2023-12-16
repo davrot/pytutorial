@@ -35,21 +35,24 @@ click is ignored. Why? I don't know.
 ![image5](2022-04-01_21-47_0.png)
 
 
-Debugger controls 
-Control toolbar
+## Debugger controls 
+### Control toolbar
 
-
-	Continue -- Debugger continues to run the code until the next breakpoint is reached or until the program ends. If end of the program is reached, the debugger closes. 
-	Step Over
-	Step Into
-	Step Out
-	Restart -- Starts the debugging process from the beginning. 
-	Stop -- Stops the debugging and the debugger closes.
+|||
+|---|---|
+|![image6](2022-04-01_21-30.png)|	Continue -- Debugger continues to run the code until the next breakpoint is reached or until the program ends. If end of the program is reached, the debugger closes. |
+|![image7](2022-04-01_21-30_2.png)|	Step Over|
+|![image8](2022-04-01_21-30_3.png)|	Step Into|
+|![image9](2022-04-01_21-31.png)|	Step Out|
+|![image10](2022-04-01_21-31_1.png)|	Restart -- Starts the debugging process from the beginning. |
+|![image11](2022-04-01_21-31_2.png)|	Stop -- Stops the debugging and the debugger closes.|
  
 
-Continue vs Step Over vs Step Into vs Step Out
+### Continue vs Step Over vs Step Into vs Step Out
+
 Example code:
 
+```python
 # %%
 def function(x: int) -> int:
     x += 1
@@ -63,7 +66,7 @@ x = 1
 x = function(x)
 x = function(x)
 x = function(x)
- 
+```
 
 Continue
 
