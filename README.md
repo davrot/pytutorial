@@ -20,6 +20,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [VS Code Microsoft Tutorials](workflow/microsoft_tutorials/README.md)
 * [VS Code Python Interactive window](workflow/vscode_interactive/README.md)
 * [VS Code Markdown](workflow/vscode_markdown/README.md)
+* [VS Code Debugging](workflow/vscode_debug/README.md)
 
 Important VS Code notes:
 * You can mark segments of source node with your mouse (or keyboard) and use the TAB key to increase the level of the indentation or use SHIFT + TAB do decrease the indentation level. ​
