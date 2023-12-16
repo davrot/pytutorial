@@ -109,6 +109,9 @@ Important VS Code notes:
 * [How to take advantage of an optimizer for your non-Pytorch project](pytorch/optimizer_special/README.md)
 * [How to take advantage of a learning rate scheduler for your non-Pytorch project](pytorch/scheduler_special/README.md)
 
+## Arduino
+* [Basics with Python / Matlab](arduino/basics/README.md)
+
 ## Matlab: Basics
 
 {: .topic-optional}
