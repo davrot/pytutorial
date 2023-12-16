@@ -32,12 +32,10 @@ see [here](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.b
 
 ## [sklearn.calibration: Probability Calibration](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.calibration)
 
-
-calibration.CalibratedClassifierCV([...])
-Probability calibration with isotonic regression or logistic regression.
-
-calibration.calibration_curve(y_true, y_prob, *)
-Compute true and predicted probabilities for a calibration curve.
+|||
+|---|---|
+|calibration.CalibratedClassifierCV([...])|Probability calibration with isotonic regression or logistic regression.|
+|calibration.calibration_curve(y_true, y_prob, *)|Compute true and predicted probabilities for a calibration curve.|
 
 ## [sklearn.cluster: Clustering](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.cluster)
 
@@ -45,86 +43,43 @@ Compute true and predicted probabilities for a calibration curve.
 
 ### Classes
 
-cluster.AffinityPropagation(*[, damping, ...])
-Perform Affinity Propagation Clustering of data.
-
-cluster.AgglomerativeClustering([...])
-Agglomerative Clustering.
-
-cluster.Birch(*[, threshold, ...])
-Implements the BIRCH clustering algorithm.
-
-cluster.DBSCAN([eps, min_samples, metric, ...])
-Perform DBSCAN clustering from vector array or distance matrix.
-
-cluster.HDBSCAN([min_cluster_size, ...])
-Cluster data using hierarchical density-based clustering.
-
-cluster.FeatureAgglomeration([n_clusters, ...])
-Agglomerate features.
-
-**cluster.KMeans([n_clusters, init, n_init, ...])**
-**K-Means clustering.**
-
-cluster.BisectingKMeans([n_clusters, init, ...])
-Bisecting K-Means clustering.
-
-**cluster.MiniBatchKMeans([n_clusters, init, ...])**
-**Mini-Batch K-Means clustering.**
-
-cluster.MeanShift(*[, bandwidth, seeds, ...])
-Mean shift clustering using a flat kernel.
-
-cluster.OPTICS(*[, min_samples, max_eps, ...])
-Estimate clustering structure from vector array.
-
-cluster.SpectralClustering([n_clusters, ...])
-Apply clustering to a projection of the normalized Laplacian.
-
-cluster.SpectralBiclustering([n_clusters, ...])
-Spectral biclustering (Kluger, 2003).
-
-cluster.SpectralCoclustering([n_clusters, ...])
-Spectral Co-Clustering algorithm (Dhillon, 2001).
+|||
+|---|---|
+|cluster.AffinityPropagation(*[, damping, ...])|Perform Affinity Propagation Clustering of data.|
+|cluster.AgglomerativeClustering([...])|Agglomerative Clustering.|
+|cluster.Birch(*[, threshold, ...])|Implements the BIRCH clustering algorithm.|
+|cluster.DBSCAN([eps, min_samples, metric, ...])|Perform DBSCAN clustering from vector array or distance matrix.|
+|cluster.HDBSCAN([min_cluster_size, ...])|Cluster data using hierarchical density-based clustering.|
+|cluster.FeatureAgglomeration([n_clusters, ...])|Agglomerate features.|
+|**cluster.KMeans([n_clusters, init, n_init, ...])**|**K-Means clustering.**|
+|cluster.BisectingKMeans([n_clusters, init, ...])|Bisecting K-Means clustering.|
+|**cluster.MiniBatchKMeans([n_clusters, init, ...])**|**Mini-Batch K-Means clustering.**|
+|cluster.MeanShift(*[, bandwidth, seeds, ...])|Mean shift clustering using a flat kernel.|
+|cluster.OPTICS(*[, min_samples, max_eps, ...])|Estimate clustering structure from vector array.|
+|cluster.SpectralClustering([n_clusters, ...])|Apply clustering to a projection of the normalized Laplacian.|
+|cluster.SpectralBiclustering([n_clusters, ...])|Spectral biclustering (Kluger, 2003).|
+|cluster.SpectralCoclustering([n_clusters, ...])|Spectral Co-Clustering algorithm (Dhillon, 2001).|
 
 ### Functions
 
-cluster.affinity_propagation(S, *[, ...])
-Perform Affinity Propagation Clustering of data.
-
-cluster.cluster_optics_dbscan(*, ...)
-Perform DBSCAN extraction for an arbitrary epsilon.
-
-cluster.cluster_optics_xi(*, reachability, ...)
-Automatically extract clusters according to the Xi-steep method.
-
-cluster.compute_optics_graph(X, *, ...)
-Compute the OPTICS reachability graph.
-
-cluster.dbscan(X[, eps, min_samples, ...])
-Perform DBSCAN clustering from vector array or distance matrix.
-
-cluster.estimate_bandwidth(X, *[, quantile, ...])
-Estimate the bandwidth to use with the mean-shift algorithm.
-
-cluster.k_means(X, n_clusters, *[, ...])
-Perform K-means clustering algorithm.
-
-cluster.kmeans_plusplus(X, n_clusters, *[, ...])
-Init n_clusters seeds according to k-means++.
-
-cluster.mean_shift(X, *[, bandwidth, seeds, ...])
-Perform mean shift clustering of data using a flat kernel.
-
-cluster.spectral_clustering(affinity, *[, ...])
-Apply clustering to a projection of the normalized Laplacian.
-
-cluster.ward_tree(X, *[, connectivity, ...])
-Ward clustering based on a Feature matrix.
-
+|||
+|---|---|
+|cluster.affinity_propagation(S, *[, ...])|Perform Affinity Propagation Clustering of data.|
+|cluster.cluster_optics_dbscan(*, ...)|Perform DBSCAN extraction for an arbitrary epsilon.|
+|cluster.cluster_optics_xi(*, reachability, ...)|Automatically extract clusters according to the Xi-steep method.|
+|cluster.compute_optics_graph(X, *, ...)|Compute the OPTICS reachability graph.|
+|cluster.dbscan(X[, eps, min_samples, ...])|Perform DBSCAN clustering from vector array or distance matrix.|
+|cluster.estimate_bandwidth(X, *[, quantile, ...])|Estimate the bandwidth to use with the mean-shift algorithm.|
+|cluster.k_means(X, n_clusters, *[, ...])|Perform K-means clustering algorithm.|
+|cluster.kmeans_plusplus(X, n_clusters, *[, ...])|Init n_clusters seeds according to k-means++.|
+|cluster.mean_shift(X, *[, bandwidth, seeds, ...])|Perform mean shift clustering of data using a flat kernel.|
+|cluster.spectral_clustering(affinity, *[, ...])|Apply clustering to a projection of the normalized Laplacian.|
+|cluster.ward_tree(X, *[, connectivity, ...])|Ward clustering based on a Feature matrix.|
 
 ## [sklearn.compose: Composite Estimators](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.compose)
 
+|||
+|---|---|
 compose.ColumnTransformer(transformers, *[, ...])
 Applies transformers to columns of an array or pandas DataFrame.
 
@@ -139,6 +94,8 @@ Create a callable to select columns to be used with ColumnTransformer.
 
 ## [sklearn.covariance: Covariance Estimators](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.covariance)
 
+|||
+|---|---|
 covariance.EmpiricalCovariance(*[, ...])
 Maximum likelihood covariance estimator.
 
@@ -184,6 +141,8 @@ Calculate a covariance matrix shrunk on the diagonal.
 
 ## [sklearn.cross_decomposition: Cross decomposition](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.cross_decomposition)
 
+|||
+|---|---|
 cross_decomposition.CCA([n_components, ...])
 Canonical Correlation Analysis, also known as "Mode B" PLS.
 
@@ -205,6 +164,8 @@ see [here](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.d
 ## [sklearn.decomposition: Matrix Decomposition](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.decomposition)
 
 
+|||
+|---|---|
 decomposition.DictionaryLearning([...])
 Dictionary learning.
 
@@ -264,6 +225,8 @@ Sparse coding.
 
 ## [sklearn.discriminant_analysis: Discriminant Analysis](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.discriminant_analysis)
 
+|||
+|---|---|
 discriminant_analysis.LinearDiscriminantAnalysis([...])
 Linear Discriminant Analysis.
 
@@ -273,6 +236,8 @@ Quadratic Discriminant Analysis.
 
 ## [sklearn.dummy: Dummy estimators](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.dummy)
 
+|||
+|---|---|
 dummy.DummyClassifier(*[, strategy, ...])
 DummyClassifier makes predictions that ignore the input features.
 
@@ -281,6 +246,8 @@ Regressor that makes predictions using simple rules.
 
 ## [sklearn.ensemble: Ensemble Methods](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.ensemble)
 
+|||
+|---|---|
 ensemble.AdaBoostClassifier([estimator, ...])
 An AdaBoost classifier.
 
@@ -345,6 +312,8 @@ see [here](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.e
 
 ## [sklearn.feature_extraction: Feature Extraction](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_extraction)
 
+|||
+|---|---|
 feature_extraction.DictVectorizer(*[, ...])
 Transforms lists of feature-value mappings to vectors.
 
@@ -353,6 +322,8 @@ Implements feature hashing, aka the hashing trick.
 
 ### From images
 
+|||
+|---|---|
 feature_extraction.image.extract_patches_2d(...)
 Reshape a 2D image into a collection of patches.
 
@@ -370,6 +341,8 @@ Extracts patches from a collection of images.
 
 ### From text
 
+|||
+|---|---|
 feature_extraction.text.CountVectorizer(*[, ...])
 Convert a collection of text documents to a matrix of token counts.
 
@@ -384,6 +357,8 @@ Convert a collection of raw documents to a matrix of TF-IDF features.
 
 ## [sklearn.feature_selection: Feature Selection](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_selection)
 
+|||
+|---|---|
 feature_selection.GenericUnivariateSelect([...])
 Univariate feature selector with configurable strategy.
 
@@ -437,6 +412,8 @@ Estimate mutual information for a continuous target variable.
 
 ## [sklearn.gaussian_process: Gaussian Processes]()
 
+|||
+|---|---|
 gaussian_process.GaussianProcessClassifier([...])
 Gaussian process classification (GPC) based on Laplace approximation.
 
@@ -446,6 +423,8 @@ Gaussian process regression (GPR).
 
 ### Kernels
 
+|||
+|---|---|
 gaussian_process.kernels.CompoundKernel(kernels)
 Kernel which is composed of a set of other kernels.
 
@@ -490,6 +469,8 @@ White kernel.
 
 ## [sklearn.impute: Impute](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.impute)
 
+|||
+|---|---|
 impute.SimpleImputer(*[, missing_values, ...])
 Univariate imputer for completing missing values with simple strategies.
 
@@ -504,6 +485,8 @@ Imputation for completing missing values using k-Nearest Neighbors.
 
 ## [sklearn.inspection: Inspection](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.inspection)
 
+|||
+|---|---|
 inspection.partial_dependence(estimator, X, ...)
 Partial dependence of features.
 
@@ -512,6 +495,8 @@ Permutation importance for feature evaluation [Rd9e56ef97513-BRE].
 
 ### Plotting
 
+|||
+|---|---|
 inspection.DecisionBoundaryDisplay(*, xx0, ...)
 Decisions boundary visualization.
 
@@ -522,6 +507,8 @@ Partial Dependence Plot (PDP).
 ## [sklearn.isotonic: Isotonic regression](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.isotonic)
 
 
+|||
+|---|---|
 isotonic.IsotonicRegression(*[, y_min, ...])
 Isotonic regression model.
 
@@ -533,6 +520,8 @@ Solve the isotonic regression model.
 
 ## [sklearn.kernel_approximation: Kernel Approximation](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.kernel_approximation)
 
+|||
+|---|---|
 kernel_approximation.AdditiveChi2Sampler(*)
 Approximate feature map for additive chi2 kernel.
 
@@ -550,6 +539,8 @@ Approximate feature map for "skewed chi-squared" kernel.
 
 ## [sklearn.kernel_ridge: Kernel Ridge Regression](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.kernel_ridge)
 
+|||
+|---|---|
 kernel_ridge.KernelRidge([alpha, kernel, ...])
 Kernel ridge regression.
 
@@ -557,6 +548,8 @@ Kernel ridge regression.
 
 ### Linear classifiers
 
+|||
+|---|---|
 linear_model.LogisticRegression([penalty, ...])
 Logistic Regression (aka logit, MaxEnt) classifier.
 
@@ -583,6 +576,8 @@ Solves linear One-Class SVM using Stochastic Gradient Descent.
 
 ### Classical linear regressors
 
+|||
+|---|---|
 linear_model.LinearRegression(*[, ...])
 Ordinary least squares Linear Regression.
 
@@ -597,7 +592,8 @@ Linear model fitted by minimizing a regularized empirical loss with SGD.
 
 ### Regressors with variable selection
 
-
+|||
+|---|---|
 linear_model.ElasticNet([alpha, l1_ratio, ...])
 Linear regression with combined L1 and L2 priors as regularizer.
 
@@ -633,6 +629,8 @@ Cross-validated Orthogonal Matching Pursuit model (OMP).
 
 ### Bayesian regressors
 
+|||
+|---|---|
 linear_model.ARDRegression(*[, max_iter, ...])
 Bayesian ARD regression.
 
@@ -641,6 +639,8 @@ Bayesian ridge regression.
 
 ### Multi-task linear regressors with variable selection
 
+|||
+|---|---|
 linear_model.MultiTaskElasticNet([alpha, ...])
 Multi-task ElasticNet model trained with L1/L2 mixed-norm as regularizer.
 
@@ -656,6 +656,8 @@ Multi-task Lasso model trained with L1/L2 mixed-norm as regularizer.
 ### Outlier-robust regressors
 
 
+|||
+|---|---|
 linear_model.HuberRegressor(*[, epsilon, ...])
 L2-regularized linear regression model that is robust to outliers.
 
@@ -670,6 +672,8 @@ Theil-Sen Estimator: robust multivariate regression model.
 
 ### Generalized linear models (GLM) for regression
 
+|||
+|---|---|
 linear_model.PoissonRegressor(*[, alpha, ...])
 Generalized Linear Model with a Poisson distribution.
 
@@ -681,6 +685,8 @@ Generalized Linear Model with a Gamma distribution.
 
 ### Miscellaneous
 
+|||
+|---|---|
 linear_model.PassiveAggressiveRegressor(*[, ...])
 Passive Aggressive Regressor.
 
@@ -707,7 +713,8 @@ Solve the ridge equation by the method of normal equations.
 
 ## [sklearn.manifold: Manifold Learning](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.manifold)
 
-
+|||
+|---|---|
 manifold.Isomap(*[, n_neighbors, radius, ...])
 Isomap Embedding.
 
@@ -741,6 +748,8 @@ Indicate to what extent the local structure is retained.
 
 ### Model Selection Interface
 
+|||
+|---|---|
 metrics.check_scoring(estimator[, scoring, ...])
 Determine scorer from user options.
 
@@ -755,6 +764,8 @@ Make a scorer from a performance metric or loss function.
 
 ### Classification metrics
 
+|||
+|---|---|
 metrics.accuracy_score(y_true, y_pred, *[, ...])
 Accuracy classification score.
 
@@ -841,6 +852,8 @@ Zero-one classification loss.
 
 ### Regression metrics
 
+|||
+|---|---|
 metrics.explained_variance_score(y_true, ...)
 Explained variance regression score function.
 
@@ -889,6 +902,8 @@ D^2 regression score function, fraction of absolute error explained.
 
 ### Multilabel ranking metrics
 
+|||
+|---|---|
 metrics.coverage_error(y_true, y_score, *[, ...])
 Coverage error measure.
 
@@ -901,6 +916,8 @@ Compute Ranking loss measure.
 
 ### Clustering metrics
 
+|||
+|---|---|
 metrics.adjusted_mutual_info_score(...[, ...])
 Adjusted Mutual Information between two clusterings.
 
@@ -951,16 +968,22 @@ V-measure cluster labeling given a ground truth.
 
 ### Biclustering metrics
 
+|||
+|---|---|
 metrics.consensus_score(a, b, *[, similarity])
 The similarity of two sets of biclusters.
 
 ### Distance metrics
 
+|||
+|---|---|
 metrics.DistanceMetric
 Uniform interface for fast distance metric functions.
 
 ### Pairwise metrics
 
+|||
+|---|---|
 metrics.pairwise.additive_chi2_kernel(X[, Y])
 Compute the additive chi-squared kernel between observations in X and Y.
 
@@ -1035,6 +1058,8 @@ Generate a distance matrix chunk by chunk with optional reduction.
 
 ### Plotting
 
+|||
+|---|---|
 metrics.ConfusionMatrixDisplay(...[, ...])
 Confusion Matrix visualization.
 
@@ -1057,6 +1082,8 @@ Calibration curve (also known as reliability diagram) visualization.
 
 ## [sklearn.mixture: Gaussian Mixture Models](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.mixture)
 
+|||
+|---|---|
 mixture.BayesianGaussianMixture(*[, ...])
 Variational Bayesian estimation of a Gaussian mixture.
 
@@ -1068,6 +1095,8 @@ Gaussian Mixture.
 
 ### Splitter Classes
 
+|||
+|---|---|
 model_selection.GroupKFold([n_splits])
 K-fold iterator variant with non-overlapping groups.
 
@@ -1115,14 +1144,18 @@ Time Series cross-validator
 
 ### Splitter Functions
 
+|||
+|---|---|
 model_selection.check_cv([cv, y, classifier])
 Input checker utility for building a cross-validator.
 
 model_selection.train_test_split(*arrays[, ...])
 Split arrays or matrices into random train and test subsets.
 
-##ä Hyper-parameter optimizers
+### Hyper-parameter optimizers
 
+|||
+|---|---|
 model_selection.GridSearchCV(estimator, ...)
 Exhaustive search over specified parameter values for an estimator.
 
@@ -1144,6 +1177,8 @@ Randomized search on hyper parameters.
 
 ### Model validation
 
+|||
+|---|---|
 model_selection.cross_validate(estimator, X)
 Evaluate metric(s) by cross-validation and also record fit/score times.
 
@@ -1165,6 +1200,8 @@ Validation curve.
 
 ### Visualization
 
+|||
+|---|---|
 model_selection.LearningCurveDisplay(*, ...)
 Learning Curve visualization.
 
@@ -1175,6 +1212,8 @@ Validation Curve visualization.
 
 ## [sklearn.multiclass: Multiclass classification](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.multiclass)
 
+|||
+|---|---|
 multiclass.OneVsRestClassifier(estimator, *)
 One-vs-the-rest (OvR) multiclass strategy.
 
@@ -1186,7 +1225,8 @@ multiclass.OutputCodeClassifier(estimator, *)
 
 ## [sklearn.multioutput: Multioutput regression and classification](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.multioutput)
 
-
+|||
+|---|---|
 multioutput.ClassifierChain(base_estimator, *)
 A multi-label model that arranges binary classifiers into a chain.
 
@@ -1202,6 +1242,8 @@ A multi-label model that arranges regressions into a chain.
 
 ## [sklearn.naive_bayes: Naive Bayes](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.naive_bayes)
 
+|||
+|---|---|
 naive_bayes.BernoulliNB(*[, alpha, ...])
 Naive Bayes classifier for multivariate Bernoulli models.
 
@@ -1221,6 +1263,8 @@ Naive Bayes classifier for multinomial models.
 
 ## [sklearn.neighbors: Nearest Neighbors](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.neighbors)
 
+|||
+|---|---|
 neighbors.BallTree(X[, leaf_size, metric])
 BallTree for fast generalized N-point problems
 
@@ -1272,6 +1316,8 @@ Sort a sparse graph such that each row is stored with increasing values.
 
 ## [sklearn.neural_network: Neural network models](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.neural_network)
 
+|||
+|---|---|
 pipeline.FeatureUnion(transformer_list, *[, ...])
 Concatenates results of multiple transformer objects.
 
@@ -1292,6 +1338,8 @@ see [here](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.p
 
 ## [sklearn.preprocessing: Preprocessing and Normalization](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.preprocessing)
 
+|||
+|---|---|
 preprocessing.Binarizer(*[, threshold, copy])
 Binarize data (set feature values to 0 or 1) according to a threshold.
 
@@ -1383,6 +1431,8 @@ Parametric, monotonic transformation to make data more Gaussian-like.
 
 ## [sklearn.random_projection: Random projection](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.random_projection)
 
+|||
+|---|---|
 random_projection.GaussianRandomProjection([...])
 Reduce dimensionality through Gaussian random projection.
 
@@ -1394,6 +1444,8 @@ Find a 'safe' number of components to randomly project to.
 
 ## [sklearn.semi_supervised: Semi-Supervised Learning](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.semi_supervised)
 
+|||
+|---|---|
 semi_supervised.LabelPropagation([kernel, ...])
 Label Propagation classifier.
 
@@ -1407,6 +1459,8 @@ Self-training classifier.
 
 ## [sklearn.svm: Support Vector Machines](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.svm)
 
+|||
+|---|---|
 svm.LinearSVC([penalty, loss, dual, tol, C, ...])
 Linear Support Vector Classification.
 
@@ -1435,6 +1489,8 @@ Return the lowest bound for C.
 
 ## [sklearn.tree: Decision Trees](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.tree)
 
+|||
+|---|---|
 tree.DecisionTreeClassifier(*[, criterion, ...])
 A decision tree classifier.
 
