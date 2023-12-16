@@ -2,7 +2,7 @@
 
 Initial Image: 
 
-![Initial Image](data_augmentation_test_image.png)
+![Initial Image](data_augmentation_test_image.jpg)
 
 ```python
 import cv2
@@ -159,17 +159,139 @@ plt.show()
 
 ![image10](image10.png)
 
+### Random Rotation
 ```python
-
+random_rotation_transform = tv.transforms.RandomRotation(degrees=(0, 180))
+for i in range(1, 10):
+    new_image = random_rotation_transform(torch_image)
+    plt.subplot(3, 3, i)
+    plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
 ```
 
-![image](image.png)
+![image11](image11.png)
+
+### Random Affine
 
 ```python
-
+random_affine_transform = tv.transforms.RandomAffine(degrees=(0, 180))
+for i in range(1, 10):
+    new_image = random_affine_transform(torch_image)
+    plt.subplot(3, 3, i)
+    plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
 ```
 
-![image](image.png)
+![image12](image12.png)
+
+### Random Crop
+
+```python
+random_crop_transform = tv.transforms.RandomCrop(size=(250, 200))
+for i in range(1, 10):
+    new_image = random_crop_transform(torch_image)
+    plt.subplot(3, 3, i)
+    plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
+```
+
+![image13](image13.png)
+
+### Random Invert
+```python
+random_invert_transform = tv.transforms.RandomInvert(p=0.5)
+for i in range(1, 3):
+    new_image = random_invert_transform(torch_image)
+    plt.subplot(2, 1, i)
+    plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
+```
+
+![image14](image14.png)
+
+### Random Posterize
+
+```python
+for i in range(1, 5):
+    random_posterize_transform = tv.transforms.RandomPosterize(bits=i, p=1.0)
+    new_image = random_posterize_transform((torch_image * 255).type(dtype=torch.uint8))
+    plt.subplot(2, 2, i)
+    plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
+```
+
+![image15](image15.png)
+
+
+### Random Solarize
+
+```python
+random_solarize_transform = tv.transforms.RandomSolarize(threshold=0.5)
+new_image = random_solarize_transform(torch_image)
+plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
+```
+
+![image16](image16.png)
+
+
+### Random Adjust Sharpness
+
+```python
+random_sharpness_transform = tv.transforms.RandomAdjustSharpness(
+    sharpness_factor=50, p=1.0
+)
+new_image = random_sharpness_transform(torch_image)
+plt.subplot(1, 2, 1)
+plt.imshow(np.moveaxis(torch_image.detach().numpy(), 0, 2))
+plt.subplot(1, 2, 2)
+plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
+```
+
+![image17](image17.png)
+
+### Random Autocontrast
+
+```python
+random_autocontrast_transform = tv.transforms.RandomAutocontrast(p=1.0)
+
+new_image = random_autocontrast_transform(torch_image)
+plt.subplot(1, 2, 1)
+plt.imshow(np.moveaxis(torch_image.detach().numpy(), 0, 2))
+plt.subplot(1, 2, 2)
+plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
+```
+
+![image18](image18.png)
+
+### Random Erasing
+
+```python
+random_erasing_transform = tv.transforms.RandomErasing(p=1.0)
+
+new_image = random_erasing_transform(torch_image)
+plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
+```
+
+![image19](image19.png)
+
+### Auto Augment
+
+```python
+random_auto1_transform = tv.transforms.AutoAugment(
+    tv.transforms.AutoAugmentPolicy.CIFAR10
+)
+for i in range(1, 10):
+    new_image = random_auto1_transform((torch_image * 255).type(dtype=torch.uint8))
+    plt.subplot(3, 3, i)
+    plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
+```
+
+![image20](image20.png)
 
 
 ```python
