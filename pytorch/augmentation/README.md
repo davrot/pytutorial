@@ -280,6 +280,8 @@ plt.show()
 
 ### Auto Augment
 
+#### CIFAR10
+
 ```python
 random_auto1_transform = tv.transforms.AutoAugment(
     tv.transforms.AutoAugmentPolicy.CIFAR10
@@ -293,38 +295,78 @@ plt.show()
 
 ![image20](image20.png)
 
-
+#### IMAGENET
 ```python
-
+random_auto2_transform = tv.transforms.AutoAugment(
+    tv.transforms.AutoAugmentPolicy.IMAGENET
+)
+for i in range(1, 10):
+    new_image = random_auto2_transform((torch_image * 255).type(dtype=torch.uint8))
+    plt.subplot(3, 3, i)
+    plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
 ```
 
-![image](image.png)
+![image21](image21.png)
 
-
-```python
-
-```
-
-![image](image.png)
-
+#### SVHN
 
 ```python
-
+random_auto3_transform = tv.transforms.AutoAugment(tv.transforms.AutoAugmentPolicy.SVHN)
+for i in range(1, 10):
+    new_image = random_auto3_transform((torch_image * 255).type(dtype=torch.uint8))
+    plt.subplot(3, 3, i)
+    plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
 ```
 
-![image](image.png)
+![image22](image22.png)
 
+## Sequential
 
 ```python
-
+sequential_transform = torch.nn.Sequential(
+    tv.transforms.RandomSolarize(threshold=0.5, p=1.0),
+    tv.transforms.RandomErasing(p=1.0),
+)
+new_image = sequential_transform((torch_image * 255).type(dtype=torch.uint8))
+plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
 ```
 
-![image](image.png)
+![image23](image23.png)
 
-# --------------
+## Compose
 
 ```python
-
+compose_transform = tv.transforms.Compose(
+    [
+        tv.transforms.RandomSolarize(threshold=0.5, p=1.0),
+        tv.transforms.RandomErasing(p=1.0),
+    ]
+)
+new_image = compose_transform((torch_image * 255).type(dtype=torch.uint8))
+plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
 ```
 
-![image](image.png)
+![image24](image24.png)
+
+# Random Apply
+
+```python
+randomapply_transform = tv.transforms.RandomApply(
+    [
+        tv.transforms.RandomSolarize(threshold=0.5, p=1.0),
+        tv.transforms.RandomErasing(p=1.0),
+    ],
+    p=0.5,
+)
+for i in range(1, 3):
+    plt.subplot(2, 1, i)
+    new_image = randomapply_transform((torch_image * 255).type(dtype=torch.uint8))
+    plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
+```
+
+![image25](image25.png)
