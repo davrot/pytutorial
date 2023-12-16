@@ -84,6 +84,9 @@ Important VS Code notes:
 * [Beyond normal np.save](numpy_save_special/README.md)
 * [Dealing with Matlab files](numpy_mat_files/README.md)
 
+## Sci-kit Learn 
+* [Overview](scikit-learn/overview/README.md)
+
 ## Python: Data analysis
 * [Remove a common signal from your data](SVD_data_cleaning/README.md)
 
