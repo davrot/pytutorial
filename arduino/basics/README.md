@@ -807,7 +807,82 @@ while True:
 |[return ](https://www.arduino.cc/reference/en/language/structure/control-structure/return/)|
 |[goto ](https://www.arduino.cc/reference/en/language/structure/control-structure/goto/)|
 
-Bit manipulation, the usual logic operation and less interesting other stuff I will not list here. Go to the language reference.
+
+
+### Further Syntax
+
+||
+|---|
+|#define (define)|
+|#include (include)|
+|/* */ (block comment)|
+|// (single line comment)|
+|; (semicolon)|
+|{} (curly braces)|
+
+### Arithmetic Operators
+
+||
+|---|
+|% (remainder)|
+|* (multiplication)|
+|+ (addition)|
+|- (subtraction)|
+|/ (division)|
+|= (assignment operator)|
+
+### Comparison Operators
+
+||
+|---|
+|!= (not equal to)|
+|< (less than)|
+|<= (less than or equal to)|
+|== (equal to)|
+|> (greater than)|
+|>= (greater than or equal to)|
+
+### Boolean Operators
+
+||
+|---|
+|! (logical not)|
+|&& (logical and)|
+|\|\| (logical or)|
+
+### Pointer Access Operators
+
+||
+|---|
+|& (reference operator)|
+|* (dereference operator)|
+
+### Bitwise Operators
+
+||
+|---|
+|& (bitwise and)|
+|<< (bitshift left)|
+|>> (bitshift right)|
+|^ (bitwise xor)|
+|\| (bitwise or)|
+|~ (bitwise not)|
+
+### Compound Operators
+
+||
+|---|
+|%= (compound remainder)|
+|&= (compound bitwise and)|
+|*= (compound multiplication)|
+|++ (increment)|
+|+= (compound addition)|
+|-- (decrement)|
+|-= (compound subtraction)|
+|/= (compound division)|
+|^= (compound bitwise xor)|
+|\|= (compound bitwise or)|
+
 
 ### Structure
 
