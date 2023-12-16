@@ -735,7 +735,7 @@ while True:
 
 ## [Language Reference](https://www.arduino.cc/reference/en/)
 
-The usual **variabel types** are available:
+### Variabel types
 
 ||
 |---|
@@ -759,7 +759,7 @@ The usual **variabel types** are available:
 |[void](https://www.arduino.cc/reference/en/language/variables/data-types/word/)|
 
 
-Also the usual **type casts** are available:
+### Type casts
 
 ||
 |---|
@@ -772,7 +772,7 @@ Also the usual **type casts** are available:
 |[long()](https://www.arduino.cc/reference/en/language/variables/conversion/longcast/)
 |[word()](https://www.arduino.cc/reference/en/language/variables/conversion/wordcast/)
 
-Expect only selected **"math" functions** to exist:
+### "math" functions**
 
 |||
 |---|---|
@@ -792,75 +792,94 @@ Expect only selected **"math" functions** to exist:
 |[highByte() ](https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/highbyte/)| Extracts the high-order (leftmost) byte of a word (or the second lowest byte of a larger data type). | 
 |[lowByte()](https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/lowbyte/)| Extracts the low-order (rightmost) byte of a variable (e.g. a word). | 
 
-And these control structures:
+### Control structures:
 
-break continue do...while else for goto if return switch...case while
+||
+|---|
+|[for ](https://www.arduino.cc/reference/en/language/structure/control-structure/for/)|
+|[do...while ](https://www.arduino.cc/reference/en/language/structure/control-structure/dowhile/)|
+|[while](https://www.arduino.cc/reference/en/language/structure/control-structure/while/)|
+|[break ](https://www.arduino.cc/reference/en/language/structure/control-structure/break/)|
+|[continue ](https://www.arduino.cc/reference/en/language/structure/control-structure/continue/)|
+|[if ](https://www.arduino.cc/reference/en/language/structure/control-structure/if/)|
+|[else ](https://www.arduino.cc/reference/en/language/structure/control-structure/else/)|
+|[switch...case ](https://www.arduino.cc/reference/en/language/structure/control-structure/switchcase/)|
+|[return ](https://www.arduino.cc/reference/en/language/structure/control-structure/return/)|
+|[goto ](https://www.arduino.cc/reference/en/language/structure/control-structure/goto/)|
 
 Bit manipulation, the usual logic operation and less interesting other stuff I will not list here. Go to the language reference.
 
-Structure
-setup() : "The setup() function is called when a sketch starts. Use it to initialize variables, pin modes, start using libraries, etc. The setup() function will only run once, after each powerup or reset of the Arduino board."
+### Structure
 
-loop() : "After creating a setup() function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond. "
+|||
+|---|---|
+|[setup() ](https://www.arduino.cc/reference/en/language/structure/sketch/setup/)| "The setup() function is called when a sketch starts. Use it to initialize variables, pin modes, start using libraries, etc. The setup() function will only run once, after each powerup or reset of the Arduino board."|
+|[loop() ](https://www.arduino.cc/reference/en/language/structure/sketch/loop/)| "After creating a [setup()](https://www.arduino.cc/reference/en/language/structure/sketch/setup/) function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond. "|
 
-Digital Pins
-pinMode() : "Configures the specified pin to behave either as an input or an output."
+### [Digital Pins](https://docs.arduino.cc/learn/microcontrollers/digital-pins)
 
-digitalRead(): "Reads the value from a specified digital pin, either HIGH or LOW."
+|||
+|---|---|
+|[pinMode() ](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/)| "Configures the specified pin to behave either as an input or an output."|
+|[digitalRead()](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/)| "Reads the value from a specified digital pin, either HIGH or LOW."|
+|[digitalWrite() ](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/)| "Write a HIGH or a LOW value to a digital pin."|
 
-digitalWrite() : "Write a HIGH or a LOW value to a digital pin."
+### Analog Pins
 
-Analog Pins
-analogRead() : "Reads the value from the specified analog pin. Arduino boards contain a multichannel, 10-bit analog to digital converter. This means that it will map input voltages between 0 and the operating voltage(5V or 3.3V) into integer values between 0 and 1023."
+|||
+|---|---|
+|[analogRead() ](https://www.arduino.cc/reference/en/language/functions/analog-io/analogread/)| "Reads the value from the specified analog pin. Arduino boards contain a multichannel, 10-bit analog to digital converter. This means that it will map input voltages between 0 and the operating voltage(5V or 3.3V) into integer values between 0 and 1023."|
+|[analogWrite() ](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/)| "Writes an analog value ([PWM wave](https://docs.arduino.cc/learn/microcontrollers/analog-output)) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady rectangular wave of the specified duty cycle until the next call to analogWrite() (or a call to digitalRead() or digitalWrite()) on the same pin."|
 
-analogWrite() : "Writes an analog value (PWM wave) to a pin. Can be used to light a LED at varying brightnesses or drive a motor at various speeds. After a call to analogWrite(), the pin will generate a steady rectangular wave of the specified duty cycle until the next call to analogWrite() (or a call to digitalRead() or digitalWrite()) on the same pin."
+### Time
 
-Time
-millis() : "Returns the number of milliseconds passed since the Arduino board began running the current program. This number will overflow (go back to zero), after approximately 50 days."
+|||
+|---|---|
+|[millis() ](https://www.arduino.cc/reference/en/language/functions/time/millis/)| "Returns the number of milliseconds passed since the Arduino board began running the current program. This number will overflow (go back to zero), after approximately 50 days."|
+|[micros() ](https://www.arduino.cc/reference/en/language/functions/time/micros/)| "Returns the number of microseconds since the Arduino board began running the current program. This number will overflow (go back to zero), after approximately 70 minutes."|
+|[delay() ](https://www.arduino.cc/reference/en/language/functions/time/delay/)| "Pauses the program for the amount of time (in milliseconds) specified as parameter."|
+|[delayMicroseconds() ](https://www.arduino.cc/reference/en/language/functions/time/delaymicroseconds/)| "Pauses the program for the amount of time (in microseconds) specified by the parameter.  [...] Currently, the largest value that will produce an accurate delay is 16383; larger values can produce an extremely short delay."|
 
-micros() : "Returns the number of microseconds since the Arduino board began running the current program. This number will overflow (go back to zero), after approximately 70 minutes."
+### Map
 
-delay() : "Pauses the program for the amount of time (in milliseconds) specified as parameter."
+|||
+|---|---|
+|[map() ](https://www.arduino.cc/reference/en/language/functions/math/map/)| "Re-maps a number from one range to another. That is, a value of fromLow would get mapped to toLow, a value of fromHigh to toHigh, values in-between to values in-between"|
 
-delayMicroseconds() : "Pauses the program for the amount of time (in microseconds) specified by the parameter.  [...] Currently, the largest value that will produce an accurate delay is 16383; larger values can produce an extremely short delay."
+### [Serial](https://www.arduino.cc/reference/en/language/functions/communication/serial/)
 
-Map
-map() : "Re-maps a number from one range to another. That is, a value of fromLow would get mapped to toLow, a value of fromHigh to toHigh, values in-between to values in-between"
+|||
+|---|---|
+|[Serial.begin() ](https://www.arduino.cc/reference/en/language/functions/communication/serial/begin/)| "Sets the data rate in bits per second (baud) for serial data transmission." **WARNING: What ever you use as a data rate, make sure that the data rate is set to the same value everywhere!**|
+|[if(Serial) ](https://www.arduino.cc/reference/en/language/functions/communication/serial/ifserial/)| "Indicates if the specified Serial port is ready. On the boards with native USB, if (Serial) (or if(SerialUSB) on the Due) indicates whether or not the USB CDC serial connection is open. For all other boards, and the non-USB CDC ports, this will always return true."|
 
-Serial
-Serial.begin() : "Sets the data rate in bits per second (baud) for serial data transmission." WARNING: What ever you use as a data rate, make sure that the data rate is set to the same value everywhere!
+#### Read
 
-if(Serial) : "Indicates if the specified Serial port is ready. On the boards with native USB, if (Serial) (or if(SerialUSB) on the Due) indicates whether or not the USB CDC serial connection is open. For all other boards, and the non-USB CDC ports, this will always return true."
+|||
+|---|---|
+|[Serial.available() ](https://www.arduino.cc/reference/en/language/functions/communication/serial/available/)| "Get the number of bytes (characters) available for reading from the serial port. This is data that’s already arrived and stored in the serial receive buffer (which holds 64 bytes)."|
+|[Serial.read() ](https://www.arduino.cc/reference/en/language/functions/communication/serial/read/)| "Reads incoming serial data." Note: Reads ONE byte into a int variable.|
+|[Serial.readBytes() ](https://www.arduino.cc/reference/en/language/functions/communication/serial/readbytes/)| "Serial.readBytes() reads characters from the serial port into a buffer. The function terminates if the determined length has been read, or it times out (see [Serial.setTimeout())](https://www.arduino.cc/reference/en/language/functions/communication/serial/settimeout/)."|
+|[Serial.setTimeout() ](https://www.arduino.cc/reference/en/language/functions/communication/serial/settimeout/)| "Serial.setTimeout() sets the maximum milliseconds to wait for serial data. It defaults to 1000 milliseconds."|
+|[Serial.peek() ](https://www.arduino.cc/reference/en/language/functions/communication/serial/peek/)| "Returns the next byte (character) of incoming serial data without removing it from the internal serial buffer. That is, successive calls to peek() will return the same character, as will the next call to read()."|
 
-Read
+#### Write
 
-Serial.available() : "Get the number of bytes (characters) available for reading from the serial port. This is data that’s already arrived and stored in the serial receive buffer (which holds 64 bytes)."
+|||
+|---|---|
+|[Serial.availableForWrite() ](https://www.arduino.cc/reference/en/language/functions/communication/serial/availableforwrite/)| "Get the number of bytes (characters) available for writing in the serial buffer without blocking the write operation."|
+|[Serial.write() ](https://www.arduino.cc/reference/en/language/functions/communication/serial/write/)| "Writes binary data to the serial port. This data is sent as a byte or series of bytes; to send the characters representing the digits of a number use the [print()](https://www.arduino.cc/reference/en/language/functions/communication/serial/print/) function instead."|
+|[Serial.print() ](https://www.arduino.cc/reference/en/language/functions/communication/serial/print/)| "Prints data to the serial port as human-readable ASCII text. "|
+|[Serial.println() ](https://www.arduino.cc/reference/en/language/functions/communication/serial/println/)| "Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n'). This command takes the same forms as [Serial.print()](https://www.arduino.cc/reference/en/language/functions/communication/serial/print/)."|
+|[Serial.flush() ](https://www.arduino.cc/reference/en/language/functions/communication/serial/flush/)| "Waits for the transmission of outgoing serial data to complete. (Prior to Arduino 1.0, this instead removed any buffered incoming serial data.)"|
 
-Serial.read() : "Reads incoming serial data." Note: Reads ONE byte into a int variable.
+### Interrupts 
 
-Serial.readBytes() : "Serial.readBytes() reads characters from the serial port into a buffer. The function terminates if the determined length has been read, or it times out (see Serial.setTimeout())."
-
-Serial.setTimeout() : "Serial.setTimeout() sets the maximum milliseconds to wait for serial data. It defaults to 1000 milliseconds."
-
-Serial.peek() : "Returns the next byte (character) of incoming serial data without removing it from the internal serial buffer. That is, successive calls to peek() will return the same character, as will the next call to read()."
-
-Write
-
-Serial.availableForWrite() : "Get the number of bytes (characters) available for writing in the serial buffer without blocking the write operation."
-
-Serial.write() : "Writes binary data to the serial port. This data is sent as a byte or series of bytes; to send the characters representing the digits of a number use the print() function instead."
-
-Serial.print() : "Prints data to the serial port as human-readable ASCII text. "
-
-Serial.println() : "Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n'). This command takes the same forms as Serial.print()."
-
-Serial.flush() : "Waits for the transmission of outgoing serial data to complete. (Prior to Arduino 1.0, this instead removed any buffered incoming serial data.)"
-
-Interrupts 
-
-attachInterrupt() : Connect a function to one of the interrupt pins
-detachInterrupt() : "Turns off the given interrupt."
-interrupts() :  "Re-enables interrupts (after they’ve been disabled by noInterrupts(). "
-noInterrupts() : "Disables interrupts (you can re-enable them with interrupts())."
+|||
+|---|---|
+|[attachInterrupt() ](https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/)| Connect a function to one of the interrupt pins|
+|[detachInterrupt() ](https://www.arduino.cc/reference/en/language/functions/external-interrupts/detachinterrupt/)| "Turns off the given interrupt."|
+|[interrupts() ](https://www.arduino.cc/reference/en/language/functions/interrupts/interrupts/)|  "Re-enables interrupts (after they’ve been disabled by [noInterrupts()](https://www.arduino.cc/reference/en/language/functions/interrupts/nointerrupts/). "|
+|[noInterrupts() ](https://www.arduino.cc/reference/en/language/functions/interrupts/nointerrupts/)| "Disables interrupts (you can re-enable them with [interrupts()](https://www.arduino.cc/reference/en/language/functions/interrupts/interrupts/))."|
 
  
