@@ -362,24 +362,31 @@ Here, $S_1 < 1$ is a "security factor", which assures that the approximated step
 
 Feasible values are $S_1 = 0.9$ and $S_2 = 1.25$. By the way: As the new initial condition for the next time step $\vec{x}_k$ should be used, since this value is more accurate than $\vec{x}_g$.
 
-Matlab Solver
+## Matlab Solver
+
 Matlab provides several solvers for DES. In the simplest case, these are invoked by
 
+```matlab
 [t,y] = solver(function, time_interval, initial_values);
+```
+
 The objects in this command are:
 
-t a column vector of length $n$ (adaptively found by the solver) holding the times of the output points.
-y a $n\times m$ matrix with the $m$ coordinates of the solution vector y(:,i), $i=1,\ldots,m$.
-solver, z.B.
-ode23 Runge-Kutta Method (2,3) order. The abbreviation "ode" stems from "ordinary differential equation}.
-ode45 Runge-Kutta method (4,5) order. First choose, if no information about the properties of the system is known.
-ode113 a solver of variable order. Ideal, if high accuracy is needed or if the calculation of the right side of the DES is very intricate.
-ode15s a solver of variable order for stiff DES. DES are called stiff when the individual components vary on highly different time scales. The terminology probably originates from the investigation of spring pendula with very stiff springs, i.e. high spring constants.
-function, In the simplest form, function has the form function dx = function_name(t,x). Both arguments dx and x are column vectors, the time t is a scalar. The function value dx has to give the derivative of the $m$ differential equations.
-time_interval, A row or column vector, e.g [t0,t1] or [t0:step_width:t1]
-initial_values A row or column vector of length $m$.
+* t a column vector of length $n$ (adaptively found by the solver) holding the times of the output points.
+* y a $n\times m$ matrix with the $m$ coordinates of the solution vector y(:,i), $i=1,\ldots,m$.
+* **solver**, z.B.
+	- ode23 Runge-Kutta Method (2,3) order. The abbreviation "ode" stems from "ordinary differential equation}.
+	- ode45 Runge-Kutta method (4,5) order. First choose, if no information about the properties of the system is known.
+	- ode113 a solver of variable order. Ideal, if high accuracy is needed or if the calculation of the right side of the DES is very intricate.
+	- ode15s a solver of variable order for stiff DES. DES are called stiff when the individual components vary on highly different time scales. The terminology probably originates from the investigation of spring pendula with very stiff springs, i.e. high spring constants.
+* **function**, In the simplest form, function has the form function dx = function_name(t,x). Both arguments dx and x are column vectors, the time t is a scalar. The function value dx has to give the derivative of the $m$ differential equations.
+* **time_interval**, A row or column vector, e.g [t0,t1] or [t0:step_width:t1]
+* **initial_values** A row or column vector of length $m$.
+
 Calling the solver and the graphical representation of the solution can than be accomplished for example by
 
+```matlab
 [t,y] = ode45('derivspendulum',[0,30],[10/180*pi,0]);
 
 plot(t,y(:,1)/pi*180);
+```
