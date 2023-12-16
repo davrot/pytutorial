@@ -957,4 +957,18 @@ while True:
 |[interrupts() ](https://www.arduino.cc/reference/en/language/functions/interrupts/interrupts/)|  "Re-enables interrupts (after they’ve been disabled by [noInterrupts()](https://www.arduino.cc/reference/en/language/functions/interrupts/nointerrupts/). "|
 |[noInterrupts() ](https://www.arduino.cc/reference/en/language/functions/interrupts/nointerrupts/)| "Disables interrupts (you can re-enable them with [interrupts()](https://www.arduino.cc/reference/en/language/functions/interrupts/interrupts/))."|
 
- 
+
+### Constants
+
+||
+|---|
+|[Floating Point Constants](https://www.arduino.cc/reference/en/language/variables/constants/floatingpointconstants/)|
+|HIGH | 
+|LOW|
+|INPUT | 
+|INPUT_PULLUP |
+| OUTPUT|
+|[Integer Constants](https://www.arduino.cc/reference/en/language/variables/constants/integerconstants/)|
+|LED_BUILTIN|
+|true | 
+|false|
