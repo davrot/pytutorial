@@ -51,9 +51,9 @@ see [here](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.b
 |cluster.DBSCAN([eps, min_samples, metric, ...])|Perform DBSCAN clustering from vector array or distance matrix.|
 |cluster.HDBSCAN([min_cluster_size, ...])|Cluster data using hierarchical density-based clustering.|
 |cluster.FeatureAgglomeration([n_clusters, ...])|Agglomerate features.|
-|**cluster.KMeans([n_clusters, init, n_init, ...])**|**K-Means clustering.**|
+|**[cluster.KMeans([n_clusters, init, n_init, ...])](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans)**|**K-Means clustering.**|
 |cluster.BisectingKMeans([n_clusters, init, ...])|Bisecting K-Means clustering.|
-|**cluster.MiniBatchKMeans([n_clusters, init, ...])**|**Mini-Batch K-Means clustering.**|
+|**[cluster.MiniBatchKMeans([n_clusters, init, ...])](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.MiniBatchKMeans.html#sklearn.cluster.MiniBatchKMeans)**|**Mini-Batch K-Means clustering.**|
 |cluster.MeanShift(*[, bandwidth, seeds, ...])|Mean shift clustering using a flat kernel.|
 |cluster.OPTICS(*[, min_samples, max_eps, ...])|Estimate clustering structure from vector array.|
 |cluster.SpectralClustering([n_clusters, ...])|Apply clustering to a projection of the normalized Laplacian.|
@@ -125,7 +125,7 @@ see [here](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.d
 |---|---|
 |decomposition.DictionaryLearning([...])|Dictionary learning.|
 |decomposition.FactorAnalysis([n_components, ...])|Factor Analysis (FA).|
-|**decomposition.FastICA([n_components, ...])**|**FastICA: a fast algorithm for Independent Component Analysis.**|
+|**[decomposition.FastICA([n_components, ...])](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FastICA.html#sklearn.decomposition.FastICA)**|**FastICA: a fast algorithm for Independent Component Analysis.**|
 |decomposition.IncrementalPCA([n_components, ...])|Incremental principal components analysis (IPCA).|
 |decomposition.KernelPCA([n_components, ...])|Kernel Principal component analysis (KPCA) [R396fc7d924b8-1].|
 |decomposition.LatentDirichletAllocation([...])|Latent Dirichlet Allocation with online variational Bayes algorithm.|
@@ -133,7 +133,7 @@ see [here](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.d
 |decomposition.MiniBatchSparsePCA([...])|Mini-batch Sparse Principal Components Analysis.|
 |decomposition.NMF([n_components, init, ...])|Non-Negative Matrix Factorization (NMF).|
 |decomposition.MiniBatchNMF([n_components, ...])|Mini-Batch Non-Negative Matrix Factorization (NMF).|
-|**decomposition.PCA([n_components, copy, ...])**|**Principal component analysis (PCA).**|
+|**[decomposition.PCA([n_components, copy, ...])](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA)**|**Principal component analysis (PCA).**|
 |decomposition.SparsePCA([n_components, ...])|Sparse Principal Components Analysis (SparsePCA).|
 |decomposition.SparseCoder(dictionary, *[, ...])|Sparse coding.|
 |decomposition.TruncatedSVD([n_components, ...])|Dimensionality reduction using truncated SVD (aka LSA).|
@@ -660,8 +660,8 @@ see [here](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.e
 |neighbors.BallTree(X[, leaf_size, metric])|BallTree for fast generalized N-point problems|
 |neighbors.KDTree(X[, leaf_size, metric])|KDTree for fast generalized N-point problems|
 |neighbors.KernelDensity(*[, bandwidth, ...])|Kernel Density Estimation.|
-|**neighbors.KNeighborsClassifier([...])**|**Classifier implementing the k-nearest neighbors vote.**|
-|neighbors.KNeighborsRegressor([n_neighbors, ...])|Regression based on k-nearest neighbors.|
+|**[neighbors.KNeighborsClassifier([...])](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier)**|**Classifier implementing the k-nearest neighbors vote.**|
+|**[neighbors.KNeighborsRegressor([n_neighbors, ...])](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html#sklearn.neighbors.KNeighborsRegressor)**|**Regression based on k-nearest neighbors.**|
 |neighbors.KNeighborsTransformer(*[, mode, ...])|Transform X into a (weighted) graph of k nearest neighbors.|
 |neighbors.LocalOutlierFactor([n_neighbors, ...])|Unsupervised Outlier Detection using the Local Outlier Factor (LOF).|
 |neighbors.RadiusNeighborsClassifier([...])|Classifier implementing a vote among neighbors within a given radius.|
@@ -743,13 +743,13 @@ see [here](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.p
 
 |||
 |---|---|
-|svm.LinearSVC([penalty, loss, dual, tol, C, ...])|Linear Support Vector Classification.|
-|svm.LinearSVR(*[, epsilon, tol, C, loss, ...])|Linear Support Vector Regression.|
+|**[svm.LinearSVC([penalty, loss, dual, tol, C, ...])](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html#sklearn.svm.LinearSVC)**|**Linear Support Vector Classification.**|
+|**[svm.LinearSVR(*[, epsilon, tol, C, loss, ...])](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVR.html#sklearn.svm.LinearSVR)**|**Linear Support Vector Regression.**|
 |svm.NuSVC(*[, nu, kernel, degree, gamma, ...])|Nu-Support Vector Classification.|
 |svm.NuSVR(*[, nu, C, kernel, degree, gamma, ...])|Nu Support Vector Regression.|
-|svm.OneClassSVM(*[, kernel, degree, gamma, ...])|Unsupervised Outlier Detection.|
-|svm.SVC(*[, C, kernel, degree, gamma, ...])|C-Support Vector Classification.|
-|svm.SVR(*[, kernel, degree, gamma, coef0, ...])|Epsilon-Support Vector Regression.|
+|**[svm.OneClassSVM(*[, kernel, degree, gamma, ...])](https://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html#sklearn.svm.OneClassSVM)**|**Unsupervised Outlier Detection.**|
+|**[svm.SVC(*[, C, kernel, degree, gamma, ...])](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC)**|**C-Support Vector Classification.**|
+|**[svm.SVR(*[, kernel, degree, gamma, coef0, ...])](https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html#sklearn.svm.SVR)**|**Epsilon-Support Vector Regression.**|
 |svm.l1_min_c(X, y, *[, loss, fit_intercept, ...])|Return the lowest bound for C.|
 
 
