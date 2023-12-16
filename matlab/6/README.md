@@ -80,7 +80,7 @@ Bigger matrices and arrays are defined by the commands zeros, ones and eye. The 
 
 ones with ones, and eye creates an identity matrix. More than two arguments result in multidimensional arrays (tensors). There are several shortened notations of these commands. Some examples:
 
-||
+|||
 |---|---|
 |`z = zeros([1 17]);`|	correct	creates 1x17-matrix.|
 |`z = zeros(1, 17);`|	correct	creates 1x17-matrix.|
@@ -93,7 +93,7 @@ and does not find enough memory!
 
 A similar problem can occur when invoking the commands with only one argument $n$. Matlab will try to create a $n$x$n$-Matrix instead of a $1$x$n$-vector (which might have been intended).
 
-||
+|||
 |---|---|
 |`z = zeros(1e6);`|	wrong	tries to create a 1000000x1000000-matrix!|
 |`z = zeros(1, 1e6);`|	correct	creates a 1x1000000-vector.|
@@ -148,20 +148,27 @@ c_div = a./b;
 
 This convention was introduced in Matlab to tell apart the element-wise multiplication from the matrix multiplication.
 
-C = [1,1;0,1];	defines the $2\times 2$ matrix	$C = \left(\begin{array}{ccc}1 & 1\\0 & 1\\\end{array}\right)$
-D = [1,2;3,1];	defines the $2\times 2$ matrix	$D = \left(\begin{array}{ccc}1 & 2\\3 & 1\\\end{array}\right)$
-G = C*D;	gives	$G = \left(\begin{array}{ccc}4 & 3\\3 & 1\\\end{array}\right)$
+||||
+|---|---|---|
+|`C = [1,1;0,1];`|	defines the $2\times 2$ matrix	|$C = \left(\begin{array}{ccc}1 & 1\\0 & 1\\\end{array}\right)$|
+|`D = [1,2;3,1];`|	defines the $2\times 2$ matrix	|$D = \left(\begin{array}{ccc}1 & 2\\3 & 1\\\end{array}\right)$|
+|`G = C*D;`|	gives	|$G = \left(\begin{array}{ccc}4 & 3\\3 & 1\\\end{array}\right)$|
+
 The mathematical equivalent is $G_{kl} = \sum_{j}C_{kj}D_{jl}$.
 
 Transposing a matrix $C^t_{kl} = C_{lk}$ is done by
 
-K = C';	gives	$K = \left(\begin{array}{ccc}1 & 0\\1 & 1\\\end{array}\right)$
-The function transpose(C) can be utilized alternatively.
+||||
+|---|---|---|
+|`K = C';`	|gives	|$K = \left(\begin{array}{ccc}1 & 0\\1 & 1\\\end{array}\right)$|
+The function `transpose(C)` can be utilized alternatively.
 
 Inverting a matrix is accomplished by
 
-M = D^-1;	gives	$M = \left(\begin{array}{ccc}-0.2 & 0.4\\0.6 & -0.2\\\end{array}\right)\\$
-resp. M = inv(D);. Assuming a system of equations
+||||
+|---|---|---|
+|`M = D^-1;`	|gives	|$M = \left(\begin{array}{ccc}-0.2 & 0.4\\0.6 & -0.2\\\end{array}\right)\\$|
+resp. `M = inv(D);`. Assuming a system of equations
 
 $D\,\vec{x} = \vec{b}$ and the vector $\vec{b}$ with
 
@@ -175,6 +182,7 @@ The solution of a system of equations can also be found by using the non-inverte
 
 Important in a physical or geometrical context is the cross product of two vectors, which is realized in Matlab by the command cross:
 
+```matlab
 a = [0; 0; 1];
 
 b = [1; 0; 0];
@@ -182,8 +190,11 @@ b = [1; 0; 0];
 c = cross(a, b);
 
 c
+```
+
 The output of these lines is:
 
+```matlab
 c = 
 
     0
@@ -191,7 +202,9 @@ c =
     1
 
     0
-Reshaping, Copying and Duplication of Matrices/Arrays
+```
+
+## Reshaping, Copying and Duplication of Matrices/Arrays
 A useful command to reorganize data is reshape. The content of the array is not altered by this command, only the organization in columns and rows, respectively the other dimensions. The syntax is result = reshape(array, [dim1 dim2 dim3 ... dimN]);.
 
 The result is an array of dimensions dim1 to dimN.
