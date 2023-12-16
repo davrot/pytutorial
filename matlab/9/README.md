@@ -237,38 +237,40 @@ Figure 9.3.: high pass ﬁltering
 
 When defining own filters in frequency space, one has to be cautious: most of these filter are acausal and change the phase of $f$ also in the not suppressed frequency bands.
 
-To conclude, two technical remarks shall be made. First, the FFT is also defined for higher dimensional functions. The Matlab-commands are (i)fft2, (i)fft3 and (i)fftn. This is useful for example to filter digital images. Second, the FFT can be applied to a specific dimension $n$ of an $N$-dimensional array. The syntax is `fft(a, [ ], n)`, where the empty brackets indicate that a 'zero-padding', as described earlier, shall not be made. This form of the FFT is worth considering, when several functions, that are stored in the columns or rows of a matrix, shall be transformed in one go.
+To conclude, two technical remarks shall be made. First, the FFT is also defined for higher dimensional functions. The Matlab-commands are `(i)fft2`, `(i)fft3` and `(i)fftn`. This is useful for example to filter digital images. Second, the FFT can be applied to a specific dimension $n$ of an $N$-dimensional array. The syntax is `fft(a, [ ], n)`, where the empty brackets indicate that a 'zero-padding', as described earlier, shall not be made. This form of the FFT is worth considering, when several functions, that are stored in the columns or rows of a matrix, shall be transformed in one go.
 
-Application: Examples for Convolution Operations
+### Application: Examples for Convolution Operations
 To end this section, some further examples for the application of the convolution theorem in physics and data analysis shall be mentioned:
 
-Wavelet Transformations. 
+#### Wavelet Transformations. 
 Fourier transformations are ill suited for signals, whose spectrum changes over time. This also includes signals which do contain periodic oscillations, but where the frequency is subject to fluctuations. In wavelet transformations, a signals is convoluted with a filter $g$, that only contains few oscillations of a specific period and decays to 0 outside of this range. An example is depicted in the following picture:
 
+![Figure 9.4.](2022-04-16_01-04.png)
 Figure 9.4.: Wavelet filter $g(t)$ for the frequency analysis of non-stationary signals
  
 
 A spectrum is obtained that not only depends on the frequency, but also from time. A much used wavelet is the Morlet-wavelet, which is a harmonic oscillation multiplied with a Gaussian curve.
 
-Correlation Functions.
+#### Correlation Functions.
+
 The cross correlation $C(\tau)$ between signals $f(t)$ and $g(t)$ is defined by the following equation:
 
-$C(\tau) = \int f(t) g(t+\tau) dt $ (9.5)
+$$C(\tau) = \int f(t) g(t+\tau) dt$$ (9.5)
 
 Here, $\tau$ denotes the delay between the 'leading' signal $f$ and the for $\tau > 0$ 'lagging' signal $g$. For $f(t)=g(t)$, $C$ is referred to as the auto-correlation.
 
 Equation (9.5) is not directly a convolution, this means one has to be careful when applying the convolution theorem. Utilizing that $F[f(-t)](k) = \hat{f}(-k)$ it holds:
 
-$C(\tau) = F^{-1}\left[\left.\left. 2\pi F[ f(t) ](k) F[ g(t) ](-k) \right]\right(-\tau\right)$
+$$C(\tau) = F^{-1}\left[\left.\left. 2\pi F[ f(t) ](k) F[ g(t) ](-k) \right]\right(-\tau\right)$$
 
  
 
 The following examples come from the theoretical neurophysics:
 
-Reverse Correlation.
+#### Reverse Correlation.
 A simple model for the response properties of neurons in the visual system assumes that the response $r(t)$ of a neuron is constructed by a linear superposition of a stimulus $s(x, y, t)$ at the location $(x, y)$ on the retina, multiplied with a weight function $w(x, y, \tau)$. $\tau$ is the delay between stimulus and neuronal response, and $g[\,\,\,]$ an additional point-non-linearity:
 
-$r(t) \propto g\left[ \int_x dx \int_y dy \int_\tau d\tau w(x, y, \tau) s(x, y, t-\tau) \right] $
+$$r(t) \propto g\left[ \int_x dx \int_y dy \int_\tau d\tau w(x, y, \tau) s(x, y, t-\tau) \right]$$
 
 Again, $w$ can be interpreted as a filter. With this insight, the inner integral over $\tau$ is best numerically solved via the convolution theorem.
 
@@ -278,12 +280,12 @@ $w(x, y, \tau) \propto \int r(t) s(x, y, t-\tau) dt$
 
 After application of the convolution theorem, we get:
 
-$w(x, y, \tau) = F^{-1}\left[\left.\left. 2\pi F[ r(t) ](k) F[ s(x, y, t) ](-k) \right]\right(\tau\right)$
+$$w(x, y, \tau) = F^{-1}\left[\left.\left. 2\pi F[ r(t) ](k) F[ s(x, y, t) ](-k) \right]\right(\tau\right)$$
 
-Recurrent Networks.
+#### Recurrent Networks.
 Neuronal networks usually have a one- or two-dimensional topology, where a neuron at position $x$ is coupled to a neuron at position $x'$ by a weight of magnitude $w(x, x')$. The dynamics of such a network are usually described as a differential equation for the neuronal activities $A(x, t)$ in the following form:
 
-$\tau\dot{A}(x, t) = -A(x, t)+g[ I(x, t) ]$
+$$\tau\dot{A}(x, t) = -A(x, t)+g[ I(x, t) ]$$
 
 $I(x, t)$ denotes the incoming current of the neuron at position $x$; this is a sum across the weighted activities of all other neurons:
 
@@ -291,27 +293,31 @@ $I(x, t) = \int w(x, x') A(x', t) dx'$
 
 If the weight are invariant to translation via $w(x, x') = w(x-x')$, the solution of this integral is again a case for the well known convolution theorem.
 
-Probabilities and Distribution Functions
-Distributions
+## Probabilities and Distribution Functions
+### Distributions
 Often the problem arises to estimate an underlying distribution $\rho(x)$ from a sample $\{x_i\}$ of cardinality $N$ ($i=1,\ldots,N$). The simplest possibility is to create a histogram of the values $x_i$. For this, a range of the $x$-axis between $[x_{min}, x_{max}]$ is divided into $M$ intervals $I_j$ of size $\Delta x = (x_{max}-x_{min})/M$. An approximation of $\rho$ is now given by finding the number of elements $x_i$ that fall within a specific interval $I_j=[x_{min}+(j-1)\Delta x, x_{min}+j\Delta x[$:
 
-$h_j = \int_{x_{min}+(j-1)\Delta x}^{x_{min}+j\Delta x} \sum_i^N \delta(x-x_i) dx$
+$$h_j = \int_{x_{min}+(j-1)\Delta x}^{x_{min}+j\Delta x} \sum_i^N \delta(x-x_i) dx$$
 
 It thus holds $\hat{\rho}(x) = h_j / (N \Delta x)$ for $x$ in $I_j$. For a good approximation, $N >> M$ should be given.
 
 Matlab provide the function histc, that calculates distributions from samples. The syntax is:
 
+```matlab
 h = histc(x_samples, x_min:Delta_x:x_max{, dim});
+```
+
 The vector h contains the number of samples that lie in the intervals determined by the second argument (the intervals do not have to be equidistant!).
 
 Histograms can also be calculated from multi-dimensional distributions of $\vec{x}$. However, one needs an extremely large number of samples, or the approximated distribution has to be smoothed to obtain a sufficiently good estimation. A different problem pose distributions that unevenly stretch out across big intervals of $x$ -- here one should think about dynamically adapting the binning width $\Delta x$.
 
-Random Numbers
+#### Random Numbers
 Creating random numbers is a often required function of a programming language. There are numerous algorithms to create numbers that are distributed 'as random as possible', these will however not be covered here. Instead we will concern ourselves with creating random numbers from arbitrary given distributions.
 
-Uniformly Distributed Random Numbers
+#### Uniformly Distributed Random Numbers
 For uniformly distributed random numbers, Matlab provides the command rand. It creates random numbers in the interval $[0, 1[$ and can be used in different ways:
 
+```matlab
 a = rand;
 
 b = rand([n 1]);
@@ -319,16 +325,22 @@ b = rand([n 1]);
 c = rand(n);
 
 d = rand(size(array));
+```
+
 The first command gives exactly one random number, the second one a vector of $n$ random numbers. Attention: the third command directly gives a $n$ x $n$ matrix or random numbers. The fourth variant gives an array of random numbers with the same size of the array array. An example of the usage see the following paragraph.
 
 It might be a good idea to generate the same sequence of random numbers when restarting a program. In this way, faulty code can be tested more effectively or different numerical procedures can be compared with the same realization of a random process. To accomplish this in Matlab, the 'seed', i.e. the starting value of an internal random number generator, can be set to a fixed value by
 
+```matlab
 rand('state', start_value);
-Normally Distributed Random Numbers
+```
+
+#### Normally Distributed Random Numbers
 Normally distributed random numbers are created by the command randn. The syntax is analogue to rand. The distribution has the mean $0$ and the variance $1$.
 
 To generate other uniform or normal distributions, it is best to scale and move the numbers generated by rand and randn. The following Matlab code for example draws samples from a uniform distribution in the interval $[2, 4[$ and a normal distribution with mean $3$ and standard deviation $0.5$, and plots the corresponding distributions via histc:
 
+```matlab
 %%% number of samples
 n_samples = 12345;
 
@@ -357,136 +369,146 @@ hold on;
 plot(x_axis, 1/sqrt(2*pi)/0.5*exp(-0.5*(x_axis-3).^2/0.5^2), 'r-');
 hold off;
 xlabel('x'); ylabel('\rho_{normal}(x)');
-Figure 9.5.: Uniform and normal distribution.
- 
+```
 
-Random Numbers from Arbitrary Distributions
+![Figure 9.5.](2022-04-16_01-09.png)
+Figure 9.5.: Uniform and normal distribution.
+
+
+#### Random Numbers from Arbitrary Distributions
 To generate random numbers from arbitrary distributions $\rho(x)$, we will schematically introduce 3 procedures:
 
-The Hit-and-Miss Method.
+##### The Hit-and-Miss Method.
 Let $\rho_{max}$ be the maximum of the distribution $\rho$. To generate random numbers from $\rho(x)$, we have to make sure that the value $x$ occurs with the relative frequency $\rho(x)/\rho_{max}$. This can be assured by a simple procedure that uses the random number generator for uniformly distributed random numbers: we first draw a candidate $x_1$ for a random number from the area of definition of $\rho(x)$. Then we draw a second number $x_2$ from $[0, 1[$. If this one is smaller than $\rho(x_1)/\rho_{max}$, the first number is accepted, otherwise the procedure is repeated. See also the following picture: only pairs of numbers $(x_1, x_2)$ are accepted, that fall into the area under the renormalized distribution $\rho$.
 
+![Figure 9.6.](2022-04-16_01-10.png)
 Figure 9.6.: Hit-and-miss method: draw two uniformly distributed random numbers $x_1$ and $x_2$, and accept $x_1$ if both numbers fall into the blue area. By this, the probability distribution marked by the red line.
+
+
 The hit-and-miss method can be very time consuming. It is easier if the inverse function of the primitive $F$ of $\rho$ can be calculated. The idea is to start out with a uniformly distributed random number $y$ and find a transformation $x = g(y)$ such that the probabilities $\rho_u(y)\,dy$ and $\rho(x)\,dx$ are equal. With $\rho_u(y)=1$ one can derive
 
-$y  = F(x) = \int_{-\infty}^x \rho(x') \, dx' \, ,$
+$$y  = F(x) = \int_{-\infty}^x \rho(x') \, dx' \,$$, 
 
 and thus $x = g(y) = F^{-1}(y)$. Is $F^{-1}$ known, one simply draws the uniformly distributed random numbers $y$ and calculates the sought random numbers $x$ from the inverse function. If $F^{-1}$ can not be found analytically, there are two possibilities:
 
-Interval Nesting.
+##### Interval Nesting.
 The primitive $F$ can be numerically approximated as the integral of $\rho$ with one of the numerical methods introduced in an earlier chapter for an arbitrary $x$. By nesting of intervals, the value of $x$, that corresponds to a specific random number $y$, can now be confined. This procedure is not particularly fast, but can yield a good precision.
 
-Tabulation.
+##### Tabulation.
 If many random number have to be drawn, the inverse function $F^{-1}(y)$ can first be tabulated. For this one is advised to use equidistant sampling points $y_j$. In order to then draw a random number $x$ from $\rho(x)$, again first a random number $y_1$ is taken from a uniform distribution, and then the neighboring values $y_j$ and $y_{j+1}$ are found, for which $y_j \leq y_1 < y_{j+1}$. With another random number $y_2$ from a uniform distribution in the interval $[0, 1[$ the random number $x$ is:
 
-$x  =  y_2 (F^{-1}(y_{j+1})-F^{-1}(y_j)) + F^{-1}(y_j) \, .$
+$$x  =  y_2 (F^{-1}(y_{j+1})-F^{-1}(y_j)) + F^{-1}(y_j) \,$$.
 
-Regression Analysis
+## Regression Analysis
 Analysis of measured data is an important part in evaluating physical theories and models. Usually, some parameters of the physical models have to be fitted to the data and then the adapted model shall be scrutinized whether it describes the data well. The mandatory techniques of parameter fitting as well as the evaluation of the goodness of a fit will be discussed in the following.
 
-General Theory
+### General Theory
 Let us assume that data is provided as pairs of values $(x_i,y_i)$, $i=1,\ldots,N$. The model that is to be fitted predicts a functional correlation of the form $Y(x;a_1,\ldots,a_M)$ between the quantities $x$ and $y$; $a_1,\ldots,a_M$ are here the parameters that have to be found. Of course there should be much more data points than parameters, mathematically speaking: $N \gg M$. One example, that is commonly encountered in the practical courses, is the fitting of a straight line
 
-$Y(x;a_1,a_2) = a_1+a_2 x$
+$$Y(x;a_1,a_2) = a_1+a_2 x$$
 
 to a data set.
 
+![Figure 9.7.](2022-04-16_01-13.png)
 Figure 9.7.: Fitting a curve to data points.
+
 It is the aim to adjust the values of these parameters such that the function $Y(x;a_1,\ldots,a_M)$ represents the date as well as possible. Intuitively we would assume that in case a fit is good, the graph of the function $Y(x;a_1,\ldots,a_M)$ will lie close to the points $(x_i,y_i)$ (see figure 9.7). We can quantify this statement by measuring the deviations between the data points and the function
 
-$\Delta_i = Y(x_i;a_1,\ldots,a_M)-y_i \, .$
+$$\Delta_i = Y(x_i;a_1,\ldots,a_M)-y_i \,$$.
 
 We choose our fitting criterion such that the sum of the squares of the deviations becomes minimal. This means that we have to tune our parameter values $a_1,\ldots,a_M$ such that the "cost function"
 
-$\chi^2(a_1,\ldots,a_M) = \sum_{i=1}^N\Delta_i^2 = \sum_{i=1}^N[Y(x_i;a_1,\ldots,a_M)-y_i]^2$
+$$\chi^2(a_1,\ldots,a_M) = \sum_{i=1}^N\Delta_i^2 = \sum_{i=1}^N[Y(x_i;a_1,\ldots,a_M)-y_i]^2$$
 
 is minimized. This method is dubbed least squares method. It is not the only possible method, but the one that is most commonly used.
 
 Usually the data points have an estimated error bar (the confidence interval), that we denote as $y_i\pm \sigma_i$. In this case we should change our fitting criterion such that points with bigger error bars have a smaller weight. Following this logic we define
 
-$ \chi^2(a_1,\ldots,a_M) = \sum_{i=1}^N\left(\frac{\Delta_i}{\sigma_i}\right)^2 = \sum_{i=1}^N\frac{[Y(x_i;a_1,\ldots,a_M)-y_i]^2}{\sigma_i^2} \, .$
+$$ \chi^2(a_1,\ldots,a_M) = \sum_{i=1}^N\left(\frac{\Delta_i}{\sigma_i}\right)^2 = \sum_{i=1}^N\frac{[Y(x_i;a_1,\ldots,a_M)-y_i]^2}{\sigma_i^2} \,$$.
 
-Linear Regression
+### Linear Regression
 We now want to fit a straight line to the data points,
 
-$Y(x;a_1,a_2) = a_1+a_2 x \, .$
+$$Y(x;a_1,a_2) = a_1+a_2 x \,$$.
 
 This type of fitting is called linear regression. The two parameters $a_1$ and $a_2$ have to be chosen such that
 
-$\chi^2(a_1,a_2) = \sum_{i=1}^N\frac{[a_1+a_2 x_i-y_i]^2}{\sigma_i^2}$
+$$\chi^2(a_1,a_2) = \sum_{i=1}^N\frac{[a_1+a_2 x_i-y_i]^2}{\sigma_i^2}$$
 
 becomes minimal. The minimum can be found by taking the derivation of the equation and setting it to zero
 
-$\frac{\partial \chi^2}{\partial a_1}  =  2\sum_{i=1}^N\frac{a_1+a_2 x_i-y_i}{\sigma_i^2} = 0$
+$$\frac{\partial \chi^2}{\partial a_1}  =  2\sum_{i=1}^N\frac{a_1+a_2 x_i-y_i}{\sigma_i^2} = 0$$
 
-$\frac{\partial \chi^2}{\partial a_2} = 2\sum_{i=1}^Nx_i \frac{a_1+a_2 x_i-y_i}{\sigma_i^2} = 0 \, .$
+$$\frac{\partial \chi^2}{\partial a_2} = 2\sum_{i=1}^Nx_i \frac{a_1+a_2 x_i-y_i}{\sigma_i^2} = 0 \,$$
 
 We now introduce the following quantities
 
-$\Sigma = \sum_{i=1}^N \frac{1}{\sigma_i^2}, \quad \Sigma_x = \sum_{i=1}^N\frac{x_i}{\sigma_i^2}, \quad \Sigma_y = \sum_{i=1}^N\frac{y_i}{\sigma_i^2},$
+$$\Sigma = \sum_{i=1}^N \frac{1}{\sigma_i^2}, \quad \Sigma_x = \sum_{i=1}^N\frac{x_i}{\sigma_i^2}, \quad \Sigma_y = \sum_{i=1}^N\frac{y_i}{\sigma_i^2},$$
 
-$\Sigma_{x^2} = \sum_{i=1}^N\frac{x_i^2}{\sigma_i^2}, \quad \Sigma_{xy} = \sum_{i=1}^N\frac{x_iy_i}{\sigma_i^2} \ .$
+$$\Sigma_{x^2} = \sum_{i=1}^N\frac{x_i^2}{\sigma_i^2}, \quad \Sigma_{xy} = \sum_{i=1}^N\frac{x_iy_i}{\sigma_i^2} \,$$
 
 These sums are calculated directly from the data points, are thus known constants. Hence we can rewrite the previous system of equations as
 
-$a_1\Sigma + a_2\Sigma_x-\Sigma_y =  0$
+$$a_1\Sigma + a_2\Sigma_x-\Sigma_y =  0$$
 
-$a_1\Sigma_x+a_2\Sigma_{x^2}-\Sigma_{xy}  =  0$
+$$a_1\Sigma_x+a_2\Sigma_{x^2}-\Sigma_{xy}  =  0$$
 
 This is a system of linear equations with two unknowns $a_1$ and $a_2$. The solutions are
 
-$a_1 = \frac{\Sigma_y\Sigma_{x^2}- \Sigma_x\Sigma_{xy}}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2}, \quad a_2 = \frac{\Sigma\Sigma_{xy}-\Sigma_y\Sigma_{x}}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2} \, .$ (9.6)
+$$a_1 = \frac{\Sigma_y\Sigma_{x^2}- \Sigma_x\Sigma_{xy}}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2}, \quad a_2 = \frac{\Sigma\Sigma_{xy}-\Sigma_y\Sigma_{x}}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2} \,$$ (9.6)
 
 In a second step we want to estimate the error bars for the parameters $a_1$ and $a_2$. We use the law of error propagation
 
-$\sigma_{a_j}^2 = \sum_{i=1}^N\left(\frac{\partial a_j}{\partial y_i}\right)^2\sigma_i^2 \ .$
+$$\sigma_{a_j}^2 = \sum_{i=1}^N\left(\frac{\partial a_j}{\partial y_i}\right)^2\sigma_i^2 \,$$
 
 Insertion of the equations (9.6) yields
 
-$\sigma_{a_1} = \sqrt{\frac{\Sigma_{x^2}}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2}} , \quad \sigma_{a_2} = \sqrt{\frac{\Sigma}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2}} \, .$
+$$\sigma_{a_1} = \sqrt{\frac{\Sigma_{x^2}}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2}} , \quad \sigma_{a_2} = \sqrt{\frac{\Sigma}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2}} \,$$.
 
 As an example we consider:
 
-$\hat{x}_k = {1 \over 2\pi} \int_{0}^{2\pi} x(t') \exp\left( -ikt' \right) \, dt' \approx {1 \over 2\pi} \sum_{n=0}^{N-1} a_n \exp\left( -ik 2\pi t_n/T \right) \Delta t' \, .$
+$$\hat{x}_k = {1 \over 2\pi} \int_{0}^{2\pi} x(t') \exp\left( -ikt' \right) \, dt' \approx {1 \over 2\pi} \sum_{n=0}^{N-1} a_n \exp\left( -ik 2\pi t_n/T \right) \Delta t' \,$$
 
 Here the fit parameters are $a_1 = 0.1529 \pm 0.2633$ and $a_2 = 1.0939\pm 0.0670$. Note that the error bars $\sigma_{a_j}$ do not depend on the $y_i$. These error bars are thus no quantifier of the goodness of the fit.
 
-Figure 9.8.: An example of linear regression. A straight line $Y(x)$ is fitted to the data points $(x_i,y_i)$ .
-Goodness of the Fit
+![Figure 9.8.](2022-04-16_01-20.png)
+Figure 9.8.: An example of linear regression. A straight line $Y(x)$ is fitted to the data points $(x_i,y_i)$.
+
+### Goodness of the Fit
 It is clear that the fit is locally good, if the deviation of the function is smaller or approximately equal to the error bar. We consider the upper boundary
 
-$|y_i-Y(x_i)| \approx \sigma_i \, .$
+$$|y_i-Y(x_i)| \approx \sigma_i \, .$$
 
 Insertion into the definition of $\chi^2$ in
 
-$ \chi^2(a_1,\ldots,a_M) = \sum_{i=1}^N\left(\frac{\Delta_i}{\sigma_i}\right)^2 = \sum_{i=1}^N\frac{[Y(x_i;a_1,\ldots,a_M)-y_i]^2}{\sigma_i^2} \, .$
+$$\chi^2(a_1,\ldots,a_M) = \sum_{i=1}^N\left(\frac{\Delta_i}{\sigma_i}\right)^2 = \sum_{i=1}^N\frac{[Y(x_i;a_1,\ldots,a_M)-y_i]^2}{\sigma_i^2} \,$$.
 
 yields $\chi^2 \approx N$. The more parameters are used, the better the fit will be. For the case of $N=M$, the fit will be exact. For the case of the straight line, this simply means that to $N=2$ points, we can always exactly fit a straight line ($M=2$). Thus, a good criterion for the goodness of the fit is
 
-$\chi^2 \approx N-M \, .$
+$$\chi^2 \approx N-M \,$$.
 
 As an example we again refer to fig. 9.8. Here, $\chi^2 \approx 4.5$ and $N-M = 8$. The goodness of the fit is thus quite high.
 
-Non-linear Regression
+### Non-linear Regression
 In many cases, the fitting of a non-linear function can be broken down through a clever variable transformation to the fitting of a linear function. As the first example, the commonly occurring case
 
-$Z(x;\alpha,\beta) = \alpha e^{\beta x} \,$
+$$Z(x;\alpha,\beta) = \alpha e^{\beta x} \,$$
 
 shall be observed. One thinks for example of exponential decays. With the variable transformation
 
-$Y = \ln{Z}, \quad a_1 = \ln{\alpha}, \quad a_2 = \beta$
+$$Y = \ln{Z}, \quad a_1 = \ln{\alpha}, \quad a_2 = \beta$$
 
 we get the linear function
 
-$Y(x;a_1,a_2) = a_1+a_2 x \, .$
+$$Y(x;a_1,a_2) = a_1+a_2 x \,$$.
 
 A second example are power laws of the type
 
-$Z(t;\alpha,\beta) = \alpha t^\beta \, .$
+$$Z(t;\alpha,\beta) = \alpha t^\beta \,$$.
 
 the variable transformation
 
-$Y = \ln{Z}, \quad x = \ln{t}, \quad a_1 = \ln{\alpha}, \quad a_2 = \beta$
+$$Y = \ln{Z}, \quad x = \ln{t}, \quad a_1 = \ln{\alpha}, \quad a_2 = \beta$$
 
 also gives a linear function.
 
