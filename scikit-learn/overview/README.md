@@ -561,330 +561,143 @@ Make a scorer from a performance metric or loss function.
 
 |||
 |---|---|
-metrics.accuracy_score(y_true, y_pred, *[, ...])
-Accuracy classification score.
-
-metrics.auc(x, y)
-Compute Area Under the Curve (AUC) using the trapezoidal rule.
-
-metrics.average_precision_score(y_true, ...)
-Compute average precision (AP) from prediction scores.
-
-metrics.balanced_accuracy_score(y_true, ...)
-Compute the balanced accuracy.
-
-metrics.brier_score_loss(y_true, y_prob, *)
-Compute the Brier score loss.
-
-metrics.class_likelihood_ratios(y_true, ...)
-Compute binary classification positive and negative likelihood ratios.
-
-metrics.classification_report(y_true, y_pred, *)
-Build a text report showing the main classification metrics.
-
-metrics.cohen_kappa_score(y1, y2, *[, ...])
-Compute Cohen's kappa: a statistic that measures inter-annotator agreement.
-
-metrics.confusion_matrix(y_true, y_pred, *)
-Compute confusion matrix to evaluate the accuracy of a classification.
-
-metrics.dcg_score(y_true, y_score, *[, k, ...])
-Compute Discounted Cumulative Gain.
-
-metrics.det_curve(y_true, y_score[, ...])
-Compute error rates for different probability thresholds.
-
-metrics.f1_score(y_true, y_pred, *[, ...])
-Compute the F1 score, also known as balanced F-score or F-measure.
-
-metrics.fbeta_score(y_true, y_pred, *, beta)
-Compute the F-beta score.
-
-metrics.hamming_loss(y_true, y_pred, *[, ...])
-Compute the average Hamming loss.
-
-metrics.hinge_loss(y_true, pred_decision, *)
-Average hinge loss (non-regularized).
-
-metrics.jaccard_score(y_true, y_pred, *[, ...])
-Jaccard similarity coefficient score.
-
-metrics.log_loss(y_true, y_pred, *[, eps, ...])
-Log loss, aka logistic loss or cross-entropy loss.
-
-metrics.matthews_corrcoef(y_true, y_pred, *)
-Compute the Matthews correlation coefficient (MCC).
-
-metrics.multilabel_confusion_matrix(y_true, ...)
-Compute a confusion matrix for each class or sample.
-
-metrics.ndcg_score(y_true, y_score, *[, k, ...])
-Compute Normalized Discounted Cumulative Gain.
-
-metrics.precision_recall_curve(y_true, ...)
-Compute precision-recall pairs for different probability thresholds.
-
-metrics.precision_recall_fscore_support(...)
-Compute precision, recall, F-measure and support for each class.
-
-metrics.precision_score(y_true, y_pred, *[, ...])
-Compute the precision.
-
-metrics.recall_score(y_true, y_pred, *[, ...])
-Compute the recall.
-
-metrics.roc_auc_score(y_true, y_score, *[, ...])
-Compute Area Under the Receiver Operating Characteristic Curve (ROC AUC)     from prediction scores.
-
-metrics.roc_curve(y_true, y_score, *[, ...])
-Compute Receiver operating characteristic (ROC).
-
-metrics.top_k_accuracy_score(y_true, y_score, *)
-Top-k Accuracy classification score.
-
-metrics.zero_one_loss(y_true, y_pred, *[, ...])
-Zero-one classification loss.
+|metrics.accuracy_score(y_true, y_pred, *[, ...])|Accuracy classification score.|
+|metrics.auc(x, y)|Compute Area Under the Curve (AUC) using the trapezoidal rule.|
+|metrics.average_precision_score(y_true, ...)|Compute average precision (AP) from prediction scores.|
+|metrics.balanced_accuracy_score(y_true, ...)|Compute the balanced accuracy.|
+|metrics.brier_score_loss(y_true, y_prob, *)|Compute the Brier score loss.|
+|metrics.class_likelihood_ratios(y_true, ...)|Compute binary classification positive and negative likelihood ratios.|
+|metrics.classification_report(y_true, y_pred, *)|Build a text report showing the main classification metrics.|
+|metrics.cohen_kappa_score(y1, y2, *[, ...])|Compute Cohen's kappa: a statistic that measures inter-annotator agreement.|
+|metrics.confusion_matrix(y_true, y_pred, *)|Compute confusion matrix to evaluate the accuracy of a classification.|
+|metrics.dcg_score(y_true, y_score, *[, k, ...])|Compute Discounted Cumulative Gain.|
+|metrics.det_curve(y_true, y_score[, ...])|Compute error rates for different probability thresholds.|
+|metrics.f1_score(y_true, y_pred, *[, ...])|Compute the F1 score, also known as balanced F-score or F-measure.|
+|metrics.fbeta_score(y_true, y_pred, *, beta)|Compute the F-beta score.|
+|metrics.hamming_loss(y_true, y_pred, *[, ...])|Compute the average Hamming loss.|
+|metrics.hinge_loss(y_true, pred_decision, *)|Average hinge loss (non-regularized).|
+|metrics.jaccard_score(y_true, y_pred, *[, ...])|Jaccard similarity coefficient score.|
+|metrics.log_loss(y_true, y_pred, *[, eps, ...])|Log loss, aka logistic loss or cross-entropy loss.|
+|metrics.matthews_corrcoef(y_true, y_pred, *)|Compute the Matthews correlation coefficient (MCC).|
+|metrics.multilabel_confusion_matrix(y_true, ...)|Compute a confusion matrix for each class or sample.|
+|metrics.ndcg_score(y_true, y_score, *[, k, ...])|Compute Normalized Discounted Cumulative Gain.|
+|metrics.precision_recall_curve(y_true, ...)|Compute precision-recall pairs for different probability thresholds.|
+|metrics.precision_recall_fscore_support(...)|Compute precision, recall, F-measure and support for each class.|
+|metrics.precision_score(y_true, y_pred, *[, ...])|Compute the precision.|
+|metrics.recall_score(y_true, y_pred, *[, ...])|Compute the recall.|
+|metrics.roc_auc_score(y_true, y_score, *[, ...])|Compute Area Under the Receiver Operating Characteristic Curve (ROC AUC)     from prediction scores.|
+|metrics.roc_curve(y_true, y_score, *[, ...])|Compute Receiver operating characteristic (ROC).|
+|metrics.top_k_accuracy_score(y_true, y_score, *)|Top-k Accuracy classification score.|
+|metrics.zero_one_loss(y_true, y_pred, *[, ...])|Zero-one classification loss.|
 
 ### Regression metrics
 
 |||
 |---|---|
-metrics.explained_variance_score(y_true, ...)
-Explained variance regression score function.
-
-metrics.max_error(y_true, y_pred)
-The max_error metric calculates the maximum residual error.
-
-metrics.mean_absolute_error(y_true, y_pred, *)
-Mean absolute error regression loss.
-
-metrics.mean_squared_error(y_true, y_pred, *)
-Mean squared error regression loss.
-
-metrics.mean_squared_log_error(y_true, y_pred, *)
-Mean squared logarithmic error regression loss.
-
-metrics.median_absolute_error(y_true, y_pred, *)
-Median absolute error regression loss.
-
-metrics.mean_absolute_percentage_error(...)
-Mean absolute percentage error (MAPE) regression loss.
-
-metrics.r2_score(y_true, y_pred, *[, ...])
-R^2 (coefficient of determination) regression score function.
-
-metrics.mean_poisson_deviance(y_true, y_pred, *)
-Mean Poisson deviance regression loss.
-
-metrics.mean_gamma_deviance(y_true, y_pred, *)
-Mean Gamma deviance regression loss.
-
-metrics.mean_tweedie_deviance(y_true, y_pred, *)
-Mean Tweedie deviance regression loss.
-
-metrics.d2_tweedie_score(y_true, y_pred, *)
-D^2 regression score function, fraction of Tweedie deviance explained.
-
-metrics.mean_pinball_loss(y_true, y_pred, *)
-Pinball loss for quantile regression.
-
-metrics.d2_pinball_score(y_true, y_pred, *)
-D^2 regression score function, fraction of pinball loss explained.
-
-metrics.d2_absolute_error_score(y_true, ...)
-D^2 regression score function, fraction of absolute error explained.
-
+|metrics.explained_variance_score(y_true, ...)|Explained variance regression score function.|
+|metrics.max_error(y_true, y_pred)|The max_error metric calculates the maximum residual error.|
+|metrics.mean_absolute_error(y_true, y_pred, *)|Mean absolute error regression loss.|
+|metrics.mean_squared_error(y_true, y_pred, *)|Mean squared error regression loss.|
+|metrics.mean_squared_log_error(y_true, y_pred, *)|Mean squared logarithmic error regression loss.|
+|metrics.median_absolute_error(y_true, y_pred, *)|Median absolute error regression loss.|
+|metrics.mean_absolute_percentage_error(...)|Mean absolute percentage error (MAPE) regression loss.|
+|metrics.r2_score(y_true, y_pred, *[, ...])|R^2 (coefficient of determination) regression score function.|
+|metrics.mean_poisson_deviance(y_true, y_pred, *)|Mean Poisson deviance regression loss.|
+|metrics.mean_gamma_deviance(y_true, y_pred, *)|Mean Gamma deviance regression loss.|
+|metrics.mean_tweedie_deviance(y_true, y_pred, *)|Mean Tweedie deviance regression loss.|
+|metrics.d2_tweedie_score(y_true, y_pred, *)|D^2 regression score function, fraction of Tweedie deviance explained.|
+|metrics.mean_pinball_loss(y_true, y_pred, *)|Pinball loss for quantile regression.|
+|metrics.d2_pinball_score(y_true, y_pred, *)|D^2 regression score function, fraction of pinball loss explained.|
+|metrics.d2_absolute_error_score(y_true, ...)|D^2 regression score function, fraction of absolute error explained.|
 
 ### Multilabel ranking metrics
 
 |||
 |---|---|
-metrics.coverage_error(y_true, y_score, *[, ...])
-Coverage error measure.
-
-metrics.label_ranking_average_precision_score(...)
-Compute ranking-based average precision.
-
-metrics.label_ranking_loss(y_true, y_score, *)
-Compute Ranking loss measure.
-
+|metrics.coverage_error(y_true, y_score, *[, ...])|Coverage error measure.|
+|metrics.label_ranking_average_precision_score(...)|Compute ranking-based average precision.|
+|metrics.label_ranking_loss(y_true, y_score, *)|Compute Ranking loss measure.|
 
 ### Clustering metrics
 
 |||
 |---|---|
-metrics.adjusted_mutual_info_score(...[, ...])
-Adjusted Mutual Information between two clusterings.
-
-metrics.adjusted_rand_score(labels_true, ...)
-Rand index adjusted for chance.
-
-metrics.calinski_harabasz_score(X, labels)
-Compute the Calinski and Harabasz score.
-
-metrics.davies_bouldin_score(X, labels)
-Compute the Davies-Bouldin score.
-
-metrics.completeness_score(labels_true, ...)
-Compute completeness metric of a cluster labeling given a ground truth.
-
-metrics.cluster.contingency_matrix(...[, ...])
-Build a contingency matrix describing the relationship between labels.
-
-metrics.cluster.pair_confusion_matrix(...)
-Pair confusion matrix arising from two clusterings [R9ca8fd06d29a-1].
-
-metrics.fowlkes_mallows_score(labels_true, ...)
-Measure the similarity of two clusterings of a set of points.
-
-metrics.homogeneity_completeness_v_measure(...)
-Compute the homogeneity and completeness and V-Measure scores at once.
-
-metrics.homogeneity_score(labels_true, ...)
-Homogeneity metric of a cluster labeling given a ground truth.
-
-metrics.mutual_info_score(labels_true, ...)
-Mutual Information between two clusterings.
-
-metrics.normalized_mutual_info_score(...[, ...])
-Normalized Mutual Information between two clusterings.
-
-metrics.rand_score(labels_true, labels_pred)
-Rand index.
-
-metrics.silhouette_score(X, labels, *[, ...])
-Compute the mean Silhouette Coefficient of all samples.
-
-metrics.silhouette_samples(X, labels, *[, ...])
-Compute the Silhouette Coefficient for each sample.
-
-metrics.v_measure_score(labels_true, ...[, beta])
-V-measure cluster labeling given a ground truth.
+|metrics.adjusted_mutual_info_score(...[, ...])|Adjusted Mutual Information between two clusterings.|
+|metrics.adjusted_rand_score(labels_true, ...)|Rand index adjusted for chance.|
+|metrics.calinski_harabasz_score(X, labels)|Compute the Calinski and Harabasz score.|
+|metrics.davies_bouldin_score(X, labels)|Compute the Davies-Bouldin score.|
+|metrics.completeness_score(labels_true, ...)|Compute completeness metric of a cluster labeling given a ground truth.|
+|metrics.cluster.contingency_matrix(...[, ...])|Build a contingency matrix describing the relationship between labels.|
+|metrics.cluster.pair_confusion_matrix(...)|Pair confusion matrix arising from two clusterings [R9ca8fd06d29a-1].|
+|metrics.fowlkes_mallows_score(labels_true, ...)|Measure the similarity of two clusterings of a set of points.|
+|metrics.homogeneity_completeness_v_measure(...)|Compute the homogeneity and completeness and V-Measure scores at once.|
+|metrics.homogeneity_score(labels_true, ...)|Homogeneity metric of a cluster labeling given a ground truth.|
+|metrics.mutual_info_score(labels_true, ...)|Mutual Information between two clusterings.|
+|metrics.normalized_mutual_info_score(...[, ...])|Normalized Mutual Information between two clusterings.|
+|metrics.rand_score(labels_true, labels_pred)|Rand index.|
+|metrics.silhouette_score(X, labels, *[, ...])|Compute the mean Silhouette Coefficient of all samples.|
+|metrics.silhouette_samples(X, labels, *[, ...])|Compute the Silhouette Coefficient for each sample.|
+|metrics.v_measure_score(labels_true, ...[, beta])|V-measure cluster labeling given a ground truth.|
 
 ### Biclustering metrics
 
 |||
 |---|---|
-metrics.consensus_score(a, b, *[, similarity])
-The similarity of two sets of biclusters.
+|metrics.consensus_score(a, b, *[, similarity])|The similarity of two sets of biclusters.|
 
 ### Distance metrics
 
 |||
 |---|---|
-metrics.DistanceMetric
-Uniform interface for fast distance metric functions.
+|metrics.DistanceMetric|Uniform interface for fast distance metric functions.|
 
 ### Pairwise metrics
 
 |||
 |---|---|
-metrics.pairwise.additive_chi2_kernel(X[, Y])
-Compute the additive chi-squared kernel between observations in X and Y.
-
-metrics.pairwise.chi2_kernel(X[, Y, gamma])
-Compute the exponential chi-squared kernel between X and Y.
-
-metrics.pairwise.cosine_similarity(X[, Y, ...])
-Compute cosine similarity between samples in X and Y.
-
-metrics.pairwise.cosine_distances(X[, Y])
-Compute cosine distance between samples in X and Y.
-
-metrics.pairwise.distance_metrics()
-Valid metrics for pairwise_distances.
-
-metrics.pairwise.euclidean_distances(X[, Y, ...])
-Compute the distance matrix between each pair from a vector array X and Y.
-
-metrics.pairwise.haversine_distances(X[, Y])
-Compute the Haversine distance between samples in X and Y.
-
-metrics.pairwise.kernel_metrics()
-Valid metrics for pairwise_kernels.
-
-metrics.pairwise.laplacian_kernel(X[, Y, gamma])
-Compute the laplacian kernel between X and Y.
-
-metrics.pairwise.linear_kernel(X[, Y, ...])
-Compute the linear kernel between X and Y.
-
-metrics.pairwise.manhattan_distances(X[, Y, ...])
-Compute the L1 distances between the vectors in X and Y.
-
-metrics.pairwise.nan_euclidean_distances(X)
-Calculate the euclidean distances in the presence of missing values.
-
-metrics.pairwise.pairwise_kernels(X[, Y, ...])
-Compute the kernel between arrays X and optional array Y.
-
-metrics.pairwise.polynomial_kernel(X[, Y, ...])
-Compute the polynomial kernel between X and Y.
-
-metrics.pairwise.rbf_kernel(X[, Y, gamma])
-Compute the rbf (gaussian) kernel between X and Y.
-
-metrics.pairwise.sigmoid_kernel(X[, Y, ...])
-Compute the sigmoid kernel between X and Y.
-
-metrics.pairwise.paired_euclidean_distances(X, Y)
-Compute the paired euclidean distances between X and Y.
-
-metrics.pairwise.paired_manhattan_distances(X, Y)
-Compute the paired L1 distances between X and Y.
-
-metrics.pairwise.paired_cosine_distances(X, Y)
-Compute the paired cosine distances between X and Y.
-
-metrics.pairwise.paired_distances(X, Y, *[, ...])
-Compute the paired distances between X and Y.
-
-metrics.pairwise_distances(X[, Y, metric, ...])
-Compute the distance matrix from a vector array X and optional Y.
-
-metrics.pairwise_distances_argmin(X, Y, *[, ...])
-Compute minimum distances between one point and a set of points.
-
-metrics.pairwise_distances_argmin_min(X, Y, *)
-Compute minimum distances between one point and a set of points.
-
-metrics.pairwise_distances_chunked(X[, Y, ...])
-Generate a distance matrix chunk by chunk with optional reduction.
+|metrics.pairwise.additive_chi2_kernel(X[, Y])|Compute the additive chi-squared kernel between observations in X and Y.|
+|metrics.pairwise.chi2_kernel(X[, Y, gamma])|Compute the exponential chi-squared kernel between X and Y.|
+|metrics.pairwise.cosine_similarity(X[, Y, ...])|Compute cosine similarity between samples in X and Y.|
+|metrics.pairwise.cosine_distances(X[, Y])|Compute cosine distance between samples in X and Y.|
+|metrics.pairwise.distance_metrics()|Valid metrics for pairwise_distances.|
+|metrics.pairwise.euclidean_distances(X[, Y, ...])|Compute the distance matrix between each pair from a vector array X and Y.|
+|metrics.pairwise.haversine_distances(X[, Y])|Compute the Haversine distance between samples in X and Y.|
+|metrics.pairwise.kernel_metrics()|Valid metrics for pairwise_kernels.|
+|metrics.pairwise.laplacian_kernel(X[, Y, gamma])Compute the laplacian kernel between X and Y.|
+|metrics.pairwise.linear_kernel(X[, Y, ...])|Compute the linear kernel between X and Y.|
+|metrics.pairwise.manhattan_distances(X[, Y, ...])|Compute the L1 distances between the vectors in X and Y.|
+|metrics.pairwise.nan_euclidean_distances(X)|Calculate the euclidean distances in the presence of missing values.|
+|metrics.pairwise.pairwise_kernels(X[, Y, ...])|Compute the kernel between arrays X and optional array Y.|
+|metrics.pairwise.polynomial_kernel(X[, Y, ...])|Compute the polynomial kernel between X and Y.|
+|metrics.pairwise.rbf_kernel(X[, Y, gamma])|Compute the rbf (gaussian) kernel between X and Y.|
+|metrics.pairwise.sigmoid_kernel(X[, Y, ...])|Compute the sigmoid kernel between X and Y.|
+|metrics.pairwise.paired_euclidean_distances(X, Y)|Compute the paired euclidean distances between X and Y.|
+|metrics.pairwise.paired_manhattan_distances(X, Y)|Compute the paired L1 distances between X and Y.|
+|metrics.pairwise.paired_cosine_distances(X, Y)|Compute the paired cosine distances between X and Y.|
+|metrics.pairwise.paired_distances(X, Y, *[, ...])|Compute the paired distances between X and Y.|
+|metrics.pairwise_distances(X[, Y, metric, ...])|Compute the distance matrix from a vector array X and optional Y.|
+|metrics.pairwise_distances_argmin(X, Y, *[, ...])|Compute minimum distances between one point and a set of points.|
+|metrics.pairwise_distances_argmin_min(X, Y, *)|Compute minimum distances between one point and a set of points.|
+|metrics.pairwise_distances_chunked(X[, Y, ...])|Generate a distance matrix chunk by chunk with optional reduction.|
 
 ### Plotting
 
 |||
 |---|---|
-metrics.ConfusionMatrixDisplay(...[, ...])
-Confusion Matrix visualization.
-
-metrics.DetCurveDisplay(*, fpr, fnr[, ...])
-DET curve visualization.
-
-metrics.PrecisionRecallDisplay(precision, ...)
-Precision Recall visualization.
-
-metrics.PredictionErrorDisplay(*, y_true, y_pred)
-Visualization of the prediction error of a regression model.
-
-metrics.RocCurveDisplay(*, fpr, tpr[, ...])
-ROC Curve visualization.
-
-calibration.CalibrationDisplay(prob_true, ...)
-Calibration curve (also known as reliability diagram) visualization.
-
+|metrics.ConfusionMatrixDisplay(...[, ...])|Confusion Matrix visualization.|
+|metrics.DetCurveDisplay(*, fpr, fnr[, ...])|DET curve visualization.|
+|metrics.PrecisionRecallDisplay(precision, ...)|Precision Recall visualization.|
+|metrics.PredictionErrorDisplay(*, y_true, y_pred)|Visualization of the prediction error of a regression model.|
+|metrics.RocCurveDisplay(*, fpr, tpr[, ...])|ROC Curve visualization.|
+|calibration.CalibrationDisplay(prob_true, ...)|Calibration curve (also known as reliability diagram) visualization.|
 
 
 ## [sklearn.mixture: Gaussian Mixture Models](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.mixture)
 
 |||
 |---|---|
-mixture.BayesianGaussianMixture(*[, ...])
-Variational Bayesian estimation of a Gaussian mixture.
-
-mixture.GaussianMixture([n_components, ...])
-Gaussian Mixture.
-
+|mixture.BayesianGaussianMixture(*[, ...])|Variational Bayesian estimation of a Gaussian mixture.|
+|mixture.GaussianMixture([n_components, ...])|Gaussian Mixture.|
 
 ## [sklearn.model_selection: Model Selection](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.model_selection)
 
@@ -892,50 +705,21 @@ Gaussian Mixture.
 
 |||
 |---|---|
-model_selection.GroupKFold([n_splits])
-K-fold iterator variant with non-overlapping groups.
-
-model_selection.GroupShuffleSplit([...])
-Shuffle-Group(s)-Out cross-validation iterator
-
-model_selection.KFold([n_splits, shuffle, ...])
-K-Folds cross-validator
-
-model_selection.LeaveOneGroupOut()
-Leave One Group Out cross-validator
-
-model_selection.LeavePGroupsOut(n_groups)
-Leave P Group(s) Out cross-validator
-
-model_selection.LeaveOneOut()
-Leave-One-Out cross-validator
-
-model_selection.LeavePOut(p)
-Leave-P-Out cross-validator
-
-model_selection.PredefinedSplit(test_fold)
-Predefined split cross-validator
-
-model_selection.RepeatedKFold(*[, n_splits, ...])
-Repeated K-Fold cross validator.
-
-model_selection.RepeatedStratifiedKFold(*[, ...])
-Repeated Stratified K-Fold cross validator.
-
-model_selection.ShuffleSplit([n_splits, ...])
-Random permutation cross-validator
-
-model_selection.StratifiedKFold([n_splits, ...])
-Stratified K-Folds cross-validator.
-
-model_selection.StratifiedShuffleSplit([...])
-Stratified ShuffleSplit cross-validator
-
-model_selection.StratifiedGroupKFold([...])
-Stratified K-Folds iterator variant with non-overlapping groups.
-
-model_selection.TimeSeriesSplit([n_splits, ...])
-Time Series cross-validator
+|model_selection.GroupKFold([n_splits])|K-fold iterator variant with non-overlapping groups.|
+|model_selection.GroupShuffleSplit([...])|Shuffle-Group(s)-Out cross-validation iterator|
+|model_selection.KFold([n_splits, shuffle, ...])|K-Folds cross-validator|
+|model_selection.LeaveOneGroupOut()|Leave One Group Out cross-validator|
+|model_selection.LeavePGroupsOut(n_groups)|Leave P Group(s) Out cross-validator|
+|model_selection.LeaveOneOut()|Leave-One-Out cross-validator|
+|model_selection.LeavePOut(p)|Leave-P-Out cross-validator|
+|model_selection.PredefinedSplit(test_fold)|Predefined split cross-validator|
+|model_selection.RepeatedKFold(*[, n_splits, ...])|Repeated K-Fold cross validator.|
+|model_selection.RepeatedStratifiedKFold(*[, ...])|Repeated Stratified K-Fold cross validator.|
+|model_selection.ShuffleSplit([n_splits, ...])|Random permutation cross-validator|
+|model_selection.StratifiedKFold([n_splits, ...])|Stratified K-Folds cross-validator.|
+|model_selection.StratifiedShuffleSplit([...])|Stratified ShuffleSplit cross-validator|
+|model_selection.StratifiedGroupKFold([...])|Stratified K-Folds iterator variant with non-overlapping groups.|
+|model_selection.TimeSeriesSplit([n_splits, ...])|Time Series cross-validator|
 
 ### Splitter Functions
 
