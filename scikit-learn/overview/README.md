@@ -548,7 +548,194 @@ Approximate a RBF kernel feature map using random Fourier features.
 kernel_approximation.SkewedChi2Sampler(*[, ...])
 Approximate feature map for "skewed chi-squared" kernel.
 
-# ---------------
+## [sklearn.kernel_ridge: Kernel Ridge Regression](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.kernel_ridge)
+
+kernel_ridge.KernelRidge([alpha, kernel, ...])
+Kernel ridge regression.
+
+## [sklearn.linear_model: Linear Models](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.linear_model)
+
+### Linear classifiers
+
+linear_model.LogisticRegression([penalty, ...])
+Logistic Regression (aka logit, MaxEnt) classifier.
+
+linear_model.LogisticRegressionCV(*[, Cs, ...])
+Logistic Regression CV (aka logit, MaxEnt) classifier.
+
+linear_model.PassiveAggressiveClassifier(*)
+Passive Aggressive Classifier.
+
+linear_model.Perceptron(*[, penalty, alpha, ...])
+Linear perceptron classifier.
+
+linear_model.RidgeClassifier([alpha, ...])
+Classifier using Ridge regression.
+
+linear_model.RidgeClassifierCV([alphas, ...])
+Ridge classifier with built-in cross-validation.
+
+linear_model.SGDClassifier([loss, penalty, ...])
+Linear classifiers (SVM, logistic regression, etc.) with SGD training.
+
+linear_model.SGDOneClassSVM([nu, ...])
+Solves linear One-Class SVM using Stochastic Gradient Descent.
+
+### Classical linear regressors
+
+linear_model.LinearRegression(*[, ...])
+Ordinary least squares Linear Regression.
+
+linear_model.Ridge([alpha, fit_intercept, ...])
+Linear least squares with l2 regularization.
+
+linear_model.RidgeCV([alphas, ...])
+Ridge regression with built-in cross-validation.
+
+linear_model.SGDRegressor([loss, penalty, ...])
+Linear model fitted by minimizing a regularized empirical loss with SGD.
+
+### Regressors with variable selection
+
+
+linear_model.ElasticNet([alpha, l1_ratio, ...])
+Linear regression with combined L1 and L2 priors as regularizer.
+
+linear_model.ElasticNetCV(*[, l1_ratio, ...])
+Elastic Net model with iterative fitting along a regularization path.
+
+linear_model.Lars(*[, fit_intercept, ...])
+Least Angle Regression model a.k.a.
+
+linear_model.LarsCV(*[, fit_intercept, ...])
+Cross-validated Least Angle Regression model.
+
+linear_model.Lasso([alpha, fit_intercept, ...])
+Linear Model trained with L1 prior as regularizer (aka the Lasso).
+
+linear_model.LassoCV(*[, eps, n_alphas, ...])
+Lasso linear model with iterative fitting along a regularization path.
+
+linear_model.LassoLars([alpha, ...])
+Lasso model fit with Least Angle Regression a.k.a.
+
+linear_model.LassoLarsCV(*[, fit_intercept, ...])
+Cross-validated Lasso, using the LARS algorithm.
+
+linear_model.LassoLarsIC([criterion, ...])
+Lasso model fit with Lars using BIC or AIC for model selection.
+
+linear_model.OrthogonalMatchingPursuit(*[, ...])
+Orthogonal Matching Pursuit model (OMP).
+
+linear_model.OrthogonalMatchingPursuitCV(*)
+Cross-validated Orthogonal Matching Pursuit model (OMP).
+
+### Bayesian regressors
+
+linear_model.ARDRegression(*[, max_iter, ...])
+Bayesian ARD regression.
+
+linear_model.BayesianRidge(*[, max_iter, ...])
+Bayesian ridge regression.
+
+### Multi-task linear regressors with variable selection
+
+linear_model.MultiTaskElasticNet([alpha, ...])
+Multi-task ElasticNet model trained with L1/L2 mixed-norm as regularizer.
+
+linear_model.MultiTaskElasticNetCV(*[, ...])
+Multi-task L1/L2 ElasticNet with built-in cross-validation.
+
+linear_model.MultiTaskLasso([alpha, ...])
+Multi-task Lasso model trained with L1/L2 mixed-norm as regularizer.
+
+linear_model.MultiTaskLassoCV(*[, eps, ...])
+Multi-task Lasso model trained with L1/L2 mixed-norm as regularizer.
+
+### Outlier-robust regressors
+
+
+linear_model.HuberRegressor(*[, epsilon, ...])
+L2-regularized linear regression model that is robust to outliers.
+
+linear_model.QuantileRegressor(*[, ...])
+Linear regression model that predicts conditional quantiles.
+
+linear_model.RANSACRegressor([estimator, ...])
+RANSAC (RANdom SAmple Consensus) algorithm.
+
+linear_model.TheilSenRegressor(*[, ...])
+Theil-Sen Estimator: robust multivariate regression model.
+
+### Generalized linear models (GLM) for regression
+
+linear_model.PoissonRegressor(*[, alpha, ...])
+Generalized Linear Model with a Poisson distribution.
+
+linear_model.TweedieRegressor(*[, power, ...])
+Generalized Linear Model with a Tweedie distribution.
+
+linear_model.GammaRegressor(*[, alpha, ...])
+Generalized Linear Model with a Gamma distribution.
+
+### Miscellaneous
+
+linear_model.PassiveAggressiveRegressor(*[, ...])
+Passive Aggressive Regressor.
+
+linear_model.enet_path(X, y, *[, l1_ratio, ...])
+Compute elastic net path with coordinate descent.
+
+linear_model.lars_path(X, y[, Xy, Gram, ...])
+Compute Least Angle Regression or Lasso path using the LARS algorithm [1].
+
+linear_model.lars_path_gram(Xy, Gram, *, ...)
+The lars_path in the sufficient stats mode [1].
+
+linear_model.lasso_path(X, y, *[, eps, ...])
+Compute Lasso path with coordinate descent.
+
+linear_model.orthogonal_mp(X, y, *[, ...])
+Orthogonal Matching Pursuit (OMP).
+
+linear_model.orthogonal_mp_gram(Gram, Xy, *)
+Gram Orthogonal Matching Pursuit (OMP).
+
+linear_model.ridge_regression(X, y, alpha, *)
+Solve the ridge equation by the method of normal equations.
+
+## [sklearn.manifold: Manifold Learning](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.manifold)
+
+
+manifold.Isomap(*[, n_neighbors, radius, ...])
+Isomap Embedding.
+
+manifold.LocallyLinearEmbedding(*[, ...])
+Locally Linear Embedding.
+
+manifold.MDS([n_components, metric, n_init, ...])
+Multidimensional scaling.
+
+manifold.SpectralEmbedding([n_components, ...])
+Spectral embedding for non-linear dimensionality reduction.
+
+manifold.TSNE([n_components, perplexity, ...])
+T-distributed Stochastic Neighbor Embedding.
+
+manifold.locally_linear_embedding(X, *, ...)
+Perform a Locally Linear Embedding analysis on the data.
+
+manifold.smacof(dissimilarities, *[, ...])
+Compute multidimensional scaling using the SMACOF algorithm.
+
+manifold.spectral_embedding(adjacency, *[, ...])
+Project the sample on the first eigenvectors of the graph Laplacian.
+
+manifold.trustworthiness(X, X_embedded, *[, ...])
+Indicate to what extent the local structure is retained.
+
+
 
 ## [sklearn.metrics: Metrics](https://scikit-learn.org/stable/modules/classes.html#sklearn-metrics-metrics)
 
