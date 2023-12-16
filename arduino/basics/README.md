@@ -12,10 +12,10 @@ We want to communicate with an Arduino from Python / Matlab.
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
-Get the environment ready
+## Get the environment ready
 Before we can really interact with the Arduino board, we need to make the environment ready first:
 
-Download and install the Arduino IDE.
+[Download](https://www.arduino.cc/en/software) and install the Arduino IDE.
 Connect the Arduino via USB cable to the computer.
 Open the Arduino IDE.
 Open the Blink example. Files -> Examples -> 01. Basics -> Blink
@@ -23,26 +23,32 @@ Check the setting: Tools-> Board and  Tools->Port
 Get the board information as a test: Tools -> Get Board Info
 Upload the sketch (means source code)
 
+![image0](Screenshot%202022-03-06%20163220_0.png)
 
 The Arduino led should blink now.
 
 If you use Python for controlling the Arduino, make sure that the serial package is installed:
 
+```shell
 pip install pyserial
-WARNING: If you open a communication channel with Python / Matlab then a reset signal is created that resets the Arduino. Thus only open the communication once and keep it open as long as you require a connection to the Arduino.
+```
+
+***WARNING:*** If you open a communication channel with Python / Matlab then a reset signal is created that resets the Arduino. Thus only open the communication once and keep it open as long as you require a connection to the Arduino.
 
 In the case that you are a VS code user, you want to add the Microsoft Arduino extension to VS code for editing the Arduino ino files in style and not like a caveperson with the Arduino IDE:
 
+![image1](arduino_0.png)
 
 
- 
-
-Controlling the LED 
+## Controlling the LED 
 We want to control the LED on the Arduino board via an external software.
 
 Note: I see it as a good style to make sure that we communicate in a fashion that reduces misunderstandings. Thus I will start any control sequence with the integer value 60 (the < symbol in ASCII) and end it with the integer value 62 (the > symbol in ASCII). The source code is prepared to handle up to 32x 8 bit integer values as payload. However we will only evaluate the value at index 0 in the switch case construct.
 
+
 The Arduino sketch
+
+```c
 int rc;
 boolean recvInProgress = false;
 
@@ -107,7 +113,11 @@ void loop() {
   }
   
 }
+```
+
 Python
+
+```python
 import numpy as np
 import time
 import serial
@@ -137,7 +147,11 @@ for t in range(0, 100):
     time.sleep(time_in_sec_until_change)
 
 print("Done")
+```
+
 Matlab
+
+```matlab
 time_in_sec_until_change = 0.5;
 
 ser = serialport('COM3', 115200); 
@@ -165,10 +179,13 @@ end
 fprintf("Done\n")
 
 clear ser 
- 
+```
 
-Pulsing the LED for a defined time
+## Pulsing the LED for a defined time
+
 The Arduino sketch
+
+```c
 int rc;
 boolean recvInProgress = false;
 
@@ -246,8 +263,11 @@ void loop() {
   }
   
 }
+```
 
 Python
+
+```python
 import numpy as np
 import time
 import serial
@@ -264,7 +284,11 @@ led_value_on: np.ndarray = np.array((start_marker, 1, stop_marker), dtype=np.uin
 
 print("On")
 ser.write(led_value_on)
+```
+
 Matlab
+
+```matlab
 ser = serialport('COM3', 115200); 
 % need to wait until the arduino is ready...
 % I tested with 1sec and it was not enough
@@ -279,24 +303,27 @@ fprintf("On\n")
 write(ser,led_value_on,"uint8")
 
 clear ser 
- 
+```
 
-PWM control of a pin
+## PWM control of a pin
+
 Warning: On an Arduino Uno LED_BUILTIN is 13. But pins that support PWM on an Uno are 3, 5, 6, 9, 10, 11 and NOT 13. 
 
 With a output value of 64:
 
-
+![image2](NewFile1_0.png)
 
 With a output value of 128:
 
-
+![image3](NewFile0_0.png)
 
 With a output value of 192:
 
-
+![image4](NewFile2_0.png)
 
 The Arduino sketch
+
+```c
 int rc;
 boolean recvInProgress = false;
 
@@ -363,7 +390,11 @@ void loop() {
   }
   
 }
+```
+
 Python
+
+```python
 import numpy as np
 import time
 import serial
@@ -384,7 +415,11 @@ led_control: np.ndarray = np.array(
 )
 print("Send...")
 ser.write(led_control)
+```
+
 Matlab
+
+```matlab
 ser = serialport('COM3', 115200); 
 % need to wait until the arduino is ready...
 % I tested with 1sec and it was not enough
@@ -401,8 +436,13 @@ fprintf('Send...')
 write(ser,led_control,"uint8")
 
 clear ser 
-Sending the internal clock 
+```
+
+## Sending the internal clock 
+
 The Arduino sketch
+
+```c
 int start_marker = 60; // <
 int end_marker = 62; // >
 
@@ -429,7 +469,11 @@ void loop() {
   delay(1000);
   
 }
+```
+
 Python
+
+```python
 import time
 import serial
 
@@ -461,7 +505,10 @@ for i in range(0, read_number_of_values):
                 returned_value = returned_value << 8
                 returned_value += s[1]
                 print(f"Arduino-clock in ms: {returned_value}")
+```
+
 Matlab
+```matlab
 ser = serialport('COM3', 115200); 
 % need to wait until the arduino is ready...
 % I tested with 1sec and it was not enough
@@ -494,12 +541,16 @@ for i = [1:1:read_number_of_values],
     end
 end
 clear ser 
-Sending the time on a rising interrupt 
-Via attachInterrupt() we attach a function to an interrupt which is triggered when a low -> high transition on a defined pin ocures. Not every pin is capable of doing so. I will use pin 2 on the Uno. Please check attachInterrupt() for list of pins.
+```
+
+## Sending the time on a rising interrupt 
+
+Via [attachInterrupt()](https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/) we attach a function to an interrupt which is triggered when a low -> high transition on a defined pin ocures. Not every pin is capable of doing so. I will use pin 2 on the Uno. Please check [attachInterrupt()](https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/) for list of pins.
 
 The software side is the same as in the previous example. 
 
 The Arduino sketch
+```c
 int start_marker = 60; // <
 int end_marker = 62; // >
 
@@ -529,10 +580,13 @@ void loop() {
 
   
 }
- 
+```
 
-Reading digital values on a rising interrupt
+## Reading digital values on a rising interrupt
+
 The Arduino sketch
+
+```c
 int start_marker = 60; // <
 int end_marker = 62; // >
 
@@ -567,7 +621,10 @@ void loop() {
 
   
 }
-Python
+```
+
+Python:
+```python
 import numpy as np
 import time
 import serial
@@ -629,8 +686,12 @@ while True:
                 )
     if counter_samples == read_number_of_values:
         break
-Reading analog values on a rising interrupt
+```
+
+## Reading analog values on a rising interrupt
+
 The Arduino sketch
+```c
 int start_marker = 60; // <
 int end_marker = 62; // >
 
@@ -664,10 +725,12 @@ void send_time(){
   Serial.write(end_marker);
   }
 void loop() {
-
   
 }
-Python
+ ```
+
+Python:
+```python
 import numpy as np
 import time
 import serial
@@ -731,7 +794,7 @@ while True:
                 )
     if counter_samples == read_number_of_values:
         break
- 
+ ```
 
 ## [Language Reference](https://www.arduino.cc/reference/en/)
 
@@ -984,6 +1047,9 @@ while True:
 |false|
 
 ### Communication
+
+||
+|---|
 |[Print](https://www.arduino.cc/reference/en/language/functions/communication/print/ ) | 
 |[Serial]( https://www.arduino.cc/reference/en/language/functions/communication/serial/) |
 |[SPI]( https://www.arduino.cc/reference/en/language/functions/communication/spi/) |
@@ -992,6 +1058,8 @@ while True:
 
 ### USB
 
+||
+|---|
 |[Keyboard]( https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) |
 |[Mouse]( https://www.arduino.cc/reference/en/language/functions/usb/mouse/) |
 
