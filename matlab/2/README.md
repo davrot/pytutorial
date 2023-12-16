@@ -6,7 +6,9 @@
 {:toc}
 </nav>
 
-By Jan Wiersig, modified by Udo Ernst and translated into English by Daniel Harnack.
+Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
+
+*By Jan Wiersig, modified by Udo Ernst and translated into English by Daniel Harnack.*
 
 ## Bits and Bytes
 
