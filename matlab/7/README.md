@@ -22,6 +22,7 @@ $f(x)$. Such an integral can be interpreted as the area (with sign) under the cu
 
 
 ![Figure 7.1.](2022-04-15_20-36.png)
+
 Figure 7.1.: Deﬁnite integral with boundaries a and b as the area under a curve f(x).
 
 An example for which numerical integration is useful are one-dimensional ordinary differential equations, that can be written as definite integrals:
@@ -32,6 +33,7 @@ $\frac{dy}{dx} = f(x)$ and $y(a) = 0$ $\Rightarrow$ $y(b) = \int_a^bf(x)dx = I \
 The simplest way of numerical integration is via the midpoint rule, or also rectangle method. Here, the interval of integration is split into sub-intervals as shows in fig. 7.2. The sub-intervals have a width of $\Delta x = (b-a)/N$, the midpoints of these sub-intervals are $x_i = a+(i-1/2)\Delta x$ with $i=1,\ldots,N$. The points $x_i$ are also called supporting points.
 
 ![Figure 7.2.](2022-04-15_20-40.png)
+
 Figure 7.2.: Scheme of the midpoint rule.
 
 The integral is then replaced by the Riemann sum:
@@ -88,6 +90,7 @@ Hence, the error is proportional to $\Delta x^2$ and depends on the derivations 
 Instead of approximating the area by little rectangles, here, trapezoids are used (see fig.7.3).
 
 ![Figure 7.3.](2022-04-15_21-01.png)
+
 Figure 7.3.: Scheme of the trapezoid rule. The dashed line illustrates the division of a trapezoid into a triangle and a rectangle.
 
 The width of the sub-intervals is $\Delta x = (b-a)/(N-1)$. The supporting points lie at the borders of the sub-intervals: $x_i = a+(i-1)\Delta x$ with $i=1,\ldots,N$.
@@ -123,6 +126,7 @@ $I-I_S = {\cal O}(\Delta x^4) \ .$
 The error term is of higher order as compared to the trapezoid rule. Thus we expect the error to be much smaller with the Simpson's rule. Figure.7.4 confirms this expectation. With the same number of supporting points, Simpson's rule gives far more accurate values for the integral than the trapezoid rule.
 
 ![Figure 7.4.](2022-04-15_21-05.png)
+
 Figure 7.4.: Comparison of the absolute errors between the trapezoid rule and Simpson's rule when evaluating the integral $I = \int_0^1\frac{2}{\sqrt{\pi}}e^{-x^2}dx$ as a function of the number of supporting points $N$. Note the double logarithmic plotting. For large $N$, rounding errors dominate.
 
 ## Integration with Matlab
@@ -165,6 +169,7 @@ $f'(x) = \lim_{h\to 0}\frac{f(x+h)-f(x)}{h} \ .$
 Since $h=0$ is numerically impossible, one has to choose $h$ \quoting{suitably small}. Geometrically this means that the sought tangent on $f$ at the position $x$ is approximated by the secant through $x$ and $x+h$, see fig.7.5(a).
 
 ![Figure 7.5.](2022-04-15_21-11.png)
+
 Figure 7.5.: Approximation of the slope of the tangent on the curve $f$ at the position $x$ by the slope of the secant (a) in $x$ and $x+h$ resp. (b) in $x-h$ and $x+h$. The latter is a decidedly better approximation.
 
 To estimate the resulting approximation error, we consider the Taylor series up to the second order
@@ -176,7 +181,9 @@ Figure 7.6 illustrates the Taylor series of the sine function at $x=0$, $\sin{(h
 
 
 ![Figure 7.6.](2022-04-15_21-12.png)
+
 Figure 7.6.: Sine function (continuous line) and the corresponding Taylor series including the 1. order(+), 3. order (o) and 5. order (x).
+
 Rewriting the above Taylor series results in the relation
 
 $f'(x)  =  \frac{f(x+h)-f(x)}{h}+{\cal O}(h) \ .$
@@ -187,7 +194,8 @@ $\Delta(h) = \left|f'(x)-\frac{f(x+h)-f(x)}{h}\right| \ ,$
 
 as a function of $h=10^{-i}$, $i = 1,2,\ldots, 25$. For $f'(x)$ the known analytical solution $2x$ is inserted. The linear decrease of the truncation error for $h>10^{-8}$ is apparent. For $h\leq \varepsilon \approx 2\times 10^{-16}$, the rounding error dominates, where $\varepsilon$ is the machine accuracy. The optimal value $h \approx 10^{-8}$ is explained by the fact that the truncation error ${\cal O}(h)$ and the rounding error ${\cal O}(\varepsilon/h)$ (denominator/numerator) are in balance if $h \approx \sqrt{\varepsilon} \approx 10^{-8}$.
 
-![Figure 7.7.](2022-04-15_21-12.png)
+![Figure 7.7.](2022-04-15_21-14.png)
+
 Figure 7.7.: Total error of the right-sided derivation of $f(x) = x^2$ at $x=1$. Note the double logarithmic plotting.
 
 
