@@ -45,3 +45,78 @@ class pandas.Series(data=None, index=None, dtype=None, name=None, copy=None, fas
 > 
 > Operations between Series (+, -, /, *, **) align values based on their associated index values– they need not be the same length. The result index will be the sorted union of the two indexes.
 
+Examples:
+
+```python
+import pandas as pd
+
+example = pd.Series(["Bambu", "Tree", "Sleep"])
+print(example)
+```
+
+Output:
+
+```python
+0    Bambu
+1     Tree
+2    Sleep
+dtype: object
+```
+
+
+```python
+import numpy as np
+import pandas as pd
+
+example = pd.Series([99, 88, 32])
+print(example)
+```
+
+Output:
+
+```python
+0    99
+1    88
+2    32
+dtype: int64
+```
+
+
+```python
+import numpy as np
+import pandas as pd
+
+rng = np.random.default_rng()
+a = rng.random((5))
+
+example = pd.Series(a)
+print(example)
+```
+
+Output:
+
+```python
+0    0.305920
+1    0.633360
+2    0.219094
+3    0.005722
+4    0.006673
+dtype: float64
+```
+
+```python
+import pandas as pd
+
+example = pd.Series(["Bambu", 3, "Sleep"])
+print(example)
+```
+
+Output:
+
+```python
+0    Bambu
+1        3
+2    Sleep
+dtype: object
+```
+
