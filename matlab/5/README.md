@@ -17,7 +17,7 @@ Simply put, programming is similar to building a model with Lego bricks. From sm
 
 In the following, the systematic path form a problem to the final program is outlined. Two examples, finding prime numbers and simulating a diffusion process, complete this chapter.
 
-Planning the Program
+## Planning the Program
 
 The following steps are reasonable to plan and finally write a program.
 
