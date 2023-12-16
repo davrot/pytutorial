@@ -105,6 +105,7 @@ Important VS Code notes:
 
 ## PyTorch 
 * [Get CUDA ready!](pytorch/cuda/README.md)
+* [Data augmentation](pytorch/augmentation/README.md)
 * [Layers](pytorch/layers/README.md)
 * [How to take advantage of an optimizer for your non-Pytorch project](pytorch/optimizer_special/README.md)
 * [How to take advantage of a learning rate scheduler for your non-Pytorch project](pytorch/scheduler_special/README.md)
