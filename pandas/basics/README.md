@@ -45,7 +45,7 @@ class pandas.Series(data=None, index=None, dtype=None, name=None, copy=None, fas
 > 
 > Operations between Series (+, -, /, *, **) align values based on their associated index values– they need not be the same length. The result index will be the sorted union of the two indexes.
 
-Examples:
+Example 1:
 
 ```python
 import pandas as pd
@@ -62,7 +62,7 @@ Output:
 2    Sleep
 dtype: object
 ```
-
+Example 2:
 
 ```python
 import numpy as np
@@ -80,7 +80,7 @@ Output:
 2    32
 dtype: int64
 ```
-
+Example 3:
 
 ```python
 import numpy as np
@@ -104,6 +104,8 @@ Output:
 dtype: float64
 ```
 
+Example 4:
+
 ```python
 import pandas as pd
 
@@ -118,5 +120,24 @@ Output:
 1        3
 2    Sleep
 dtype: object
+```
+
+### index and values
+
+```python
+import pandas as pd
+
+example = pd.Series(["Bambu", "Tree", "Sleep"])
+print(example.index)
+print()
+print(example.values)
+```
+
+Output: 
+
+```python
+RangeIndex(start=0, stop=3, step=1)
+
+['Bambu' 'Tree' 'Sleep']
 ```
 
