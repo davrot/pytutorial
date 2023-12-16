@@ -116,34 +116,50 @@ xlabel('power of two'); ylabel('factor');
 
 This paragraph deals with the question of how the FFT is applied to a signal $a(t)$ , and the interpretation of the result. For this we consider a sine wave with frequency $f$ and a step function as possible signals.
 
+```matlab
 n = 100; dt = 0.01; f = 5;
 
 a_sine = 42*sin((0:(n-1))*dt*2*pi*f);
 
 a_step = (0:(n-1)) >= n/2;
+```
+
 The signals are sampled with a frequency of $1/dt$ for $T=1 s$, i.e. the discretization of the functions has the step width $dt$. The FFT is calculated by the following:
 
+```matlab
 fft_a_sine = 1/n*fft(a_sine);
 
 fft_a_step = 1/n*fft(a_step);
+```
+
 Now we want to investigate how much energy is contained in the different frequency bands. For this we calculate the so called power spectrum $\Phi(f)$, i.e the square of the sum of oscillation amplitudes for a specific frequency $f$. Here one has to be aware of two possible stumbling blocks:
 
-In the first place we have to make sure, how Matlab stores the calculated coefficients $A_k$ in the result vector: The first entry, e.g. a_sine(1) contains $A_0$, i.e. the mean of the function $a(t)$. The $k$-th entry then holds the coefficient $A_{k-1}$, for example a_sine(17) would be $A_{16}$.
-Which frequency does the coefficient $A_k$ correspond to? $A_k$ corresponds to the harmonic oscillation, for which exactly $k$ periods fit into the time interval of length $T$. The frequency is thus $f_k = k/T$.
-Let us now look at the coefficients $A_k$ and $A_{N-k}$. From equation (9.2) we can see that $\exp(-i2\pi (N-k)n/N)) = \exp(i2\pi kn/N)\exp(-i2\pi n) = \exp(i2\pi kn/N)$. Hence, $A_{N-k}$ is equivalent to the coefficient $A_{-k}$ with negative wave number $-k$ and thus corresponds to the same frequency than $A_k$.
+* In the first place we have to make sure, how Matlab stores the calculated coefficients $A_k$ in the result vector: The first entry, e.g. a_sine(1) contains $A_0$, i.e. the mean of the function $a(t)$. The $k$-th entry then holds the coefficient $A_{k-1}$, for example a_sine(17) would be $A_{16}$.
+* Which frequency does the coefficient $A_k$ correspond to? $A_k$ corresponds to the harmonic oscillation, for which exactly $k$ periods fit into the time interval of length $T$. The frequency is thus $f_k = k/T$.
+* Let us now look at the coefficients $A_k$ and $A_{N-k}$. From equation (9.2) we can see that $\exp(-i2\pi (N-k)n/N)) = \exp(i2\pi kn/N)\exp(-i2\pi n) = \exp(i2\pi kn/N)$. Hence, $A_{N-k}$ is equivalent to the coefficient $A_{-k}$ with negative wave number $-k$ and thus corresponds to the same frequency than $A_k$.
+
 If we want to know the amplitude of the oscillation with frequency $f=5 Hz$, we have to look at the coefficient with the wave number $k = T f_k = 5$ and $k = -5$. The correspondent value $\Phi(f)$ is found in Matlab-notation as:
 
+```matlab
 phi_5Hz = (abs(fft_a_sine(1+5))+abs(fft_a_sine(n-5)))
+```
+
 The output 1.7640e+03 is indeed the square of the amplitude 42.
 
 A signal with $n$ samples can maximally represent oscillations with $n/2$ periods. Oscillations of higher frequencies are reduced by sampling to oscillations of lower frequencies with negative wave number. This insight is known as the Nyquist-Theorem. When calculating the power spectrum, one can thus ignore all coefficients from $k=n/2$ upwards and double all amplitudes of the low frequency components (except for $A_0$, $|A_k|=|A_{-k}|$ holds). A corresponding Matlab command plots the power spectrum for a step function, which has, as expected, a broad band spectrum:
 
+```matlab
 plot(0:(n/2), [fft_a_step(1) 2*abs(fft_a_step(2:(n/2)+1))]);
 
 xlabel('wave number k'); 
 ylabel('power');
+```
+
+![Figure 9.1.](2022-04-16_00-43.png)
 Figure 9.1.: Power spectrum of a step function.
-The Convolution Theorem
+
+## The Convolution Theorem
+
 The fast Fourier transform is not only useful to determine the frequency content of temporal signals, but also to perform so called 'convolutions'. A convolution of two functions $f(t)$ and $g(t)$ is defined by the following equation:
 
 $h(t) = \int_{-\infty}^{+\infty} f(t') g(t-t') \, dt'$ (9.3)
@@ -166,14 +182,16 @@ $h  =  F^{-1}\left[ 2\pi F[f] \cdot F[g] \right] \, .$ (9.4)
 
 The advantage of equation (9.4) over (9.3) lies in the computation speed of FFT: despite a three-fold transformation, calculating equation (9.4) is faster than computing the integral in (9.3), since the convolution integral corresponds to an element-wise multiplication of the Fourier coefficients in the Fourier space $k$ -- try to verify!
 
-Non-periodic Functions
+### Non-periodic Functions
+
 The discrete Fourier transformation can be applied to any arbitrary function $f$, periodicity is not required. The convolution theorem, on the other hand, does strictly speaking only apply for the Fourier integral. It thus demands either a definition of the function in $[-\infty, +\infty]$, or a periodic function on a finite interval. Only in the latter case, fft / ifft can be directly used, i.e. without 'post-treatment', to evaluate a convolution integral.
 
 Still, the FFT can be used with non-periodic functions, provided the convolution kernel $g$ is sufficiently narrow, i.e. its absolute value almost vanishes within $m << n$ sampling points around $t=0$. This is for example given for exponentially decaying functions or Gaussian distributions. Unwanted boundary effects can be suppressed by simply discarding the first and last $m$ elements of the result vector. Another possibility is the continuation of a function above its borders by concatenating a vector of $k$ zeros. The command is fft(f, n+k), where $n$ is the length of the vector $f$. The extension of $f$ by zeros is only sensible in specific situations (see also remarks further down), for example if signal was 0 before and after a period of data acquisition, or when a filter is successively 'inserted' into a beginning signal.
 
-Application: Filtering of a Time Series
+### Application: Filtering of a Time Series
 Let us consider the filtering of a temporal signal as an example for the application of the convolution theorem. The signal is chosen to be a rectangle function, that is 1 in the first third of the data acquisition period, then jumps to 0 and increases to 2 in the last third. The filter shall be an exponentially decaying function $\exp(-t/\tau)$, which realizes a low pass with time constant $\tau$. The following program generates the signal and the filter, applies the filter operation and displays the result. Border effects caused by the assumed periodicity of the signals are clearly discernible.
 
+```matlab
 % parameter
 n = 1000;
 t = (0:(n-1))/n;
@@ -192,9 +210,15 @@ subplot(3, 1, 2);
 plot(t, g_filter); xlabel('t'); title('Filter g(t)');
 subplot(3, 1, 3);
 plot(t, f_filtered); xlabel('t'); title('Filtered Signal h(t)');
+```
+
+![Figure 9.2.](2022-04-16_01-01.png)
 Figure 9.2.: Low pass ﬁltering
+
+
 Equation 9.4 reveals a further, interesting possibility to apply filter operations: The term $F[g]$, the transform of the filter kernel, acts through the multiplication with $F[f]$ similar to a 'switch', that only allows passage of 'permitted' frequencies and suppresses 'unwanted' frequencies. This properties can be used to directly design filters with the sought properties in the frequency space. As an example, we could set all frequency components of a signal to 0 below a threshold frequency. This transformation realizes a high pass on $f$:
 
+```matlab
 % construct high pass filter
 k_min = 5;
 g_filter_highpass = zeros([1 n]);
@@ -205,10 +229,15 @@ f_filtered_highpass = real(ifft(1/n*fft(f_signal).*g_filter_highpass));
 figure(2);
 plot(t, f_filtered_highpass); xlabel('t');
 title('Highpass-Filtered Signal h(t)');
+```
+
+![Figure 9.3.](2022-04-16_01-01.png)
 Figure 9.3.: high pass ﬁltering
+
+
 When defining own filters in frequency space, one has to be cautious: most of these filter are acausal and change the phase of $f$ also in the not suppressed frequency bands.
 
-To conclude, two technical remarks shall be made. First, the FFT is also defined for higher dimensional functions. The Matlab-commands are (i)fft2, (i)fft3 and (i)fftn. This is useful for example to filter digital images. Second, the FFT can be applied to a specific dimension $n$ of an $N$-dimensional array. The syntax is fft(a, [ ], n), where the empty brackets indicate that a 'zero-padding', as described earlier, shall not be made. This form of the FFT is worth considering, when several functions, that are stored in the columns or rows of a matrix, shall be transformed in one go.
+To conclude, two technical remarks shall be made. First, the FFT is also defined for higher dimensional functions. The Matlab-commands are (i)fft2, (i)fft3 and (i)fftn. This is useful for example to filter digital images. Second, the FFT can be applied to a specific dimension $n$ of an $N$-dimensional array. The syntax is `fft(a, [ ], n)`, where the empty brackets indicate that a 'zero-padding', as described earlier, shall not be made. This form of the FFT is worth considering, when several functions, that are stored in the columns or rows of a matrix, shall be transformed in one go.
 
 Application: Examples for Convolution Operations
 To end this section, some further examples for the application of the convolution theorem in physics and data analysis shall be mentioned:
