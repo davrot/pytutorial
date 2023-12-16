@@ -231,7 +231,7 @@ plot(t, f_filtered_highpass); xlabel('t');
 title('Highpass-Filtered Signal h(t)');
 ```
 
-![Figure 9.3.](2022-04-16_01-01.png)
+![Figure 9.3.](2022-04-16_01-02.png)
 Figure 9.3.: high pass ﬁltering
 
 
