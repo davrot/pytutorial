@@ -113,6 +113,7 @@ Important VS Code notes:
 * [Graphics](matlab/4/README.md)
 * [Systematic Programming](matlab/5/README.md)
 * [Vectorization and Vector Calculus in Matlab](matlab/6/README.md)
+* [Integration and Differentiation](matlab/7/README.md)
 * [Data Analysis](matlab/9/README.md)
 
 Note: I will transfer the old pages to this new place (and update it). It will take some time but it will happen... 
