@@ -106,7 +106,10 @@ Important VS Code notes:
 * [How to take advantage of a learning rate scheduler for your non-Pytorch project](pytorch/scheduler_special/README.md)
 
 ## Matlab: Basics
-(This pages are in a rough state. e.g. equations are broken. Don't know why...)
+
+{: .topic-optional}
+This pages are in a rough state. e.g. equations are broken. Don't know why...
+
 * [Basic Structure of a Computer](matlab/1/README.md)
 * [Representation of Numbers in the Computer](matlab/2/README.md)
 * [Basic Commands and Variables](matlab/3/README.md)
@@ -114,6 +117,9 @@ Important VS Code notes:
 * [Systematic Programming](matlab/5/README.md)
 * [Vectorization and Vector Calculus in Matlab](matlab/6/README.md)
 * [Integration and Differentiation](matlab/7/README.md)
+* [Differential Equations](matlab/8/README.md)
 * [Data Analysis](matlab/9/README.md)
 
-Note: I will transfer the old pages to this new place (and update it). It will take some time but it will happen... 
+{: .topic-optional}
+Note: I will transfer the old pages to this new place (and update them). It will take some time but it will happen... 
+
