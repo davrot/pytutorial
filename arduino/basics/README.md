@@ -789,8 +789,18 @@ while True:
 |[tan() ](https://www.arduino.cc/reference/en/language/functions/trigonometry/tan/)| Calculates the tangent of an angle (in radians). The result will be between negative infinity and infinity. | 
 |[random() ](https://www.arduino.cc/reference/en/language/functions/random-numbers/random/)| The random function generates pseudo-random numbers. | 
 |[randomSeed() ](https://www.arduino.cc/reference/en/language/functions/random-numbers/randomseed/)| randomSeed() initializes the pseudo-random number generator, causing it to start at an arbitrary point in its random sequence. This sequence, while very long, and random, is always the same. | 
+
+
+|||
+|---|---|
+|[bit()]( https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/bit/)| Computes the value of the specified bit (bit 0 is 1, bit 1 is 2, bit 2 is 4, etc.). |
+|[bitClear()]( https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/bitclear/)| Clears (writes a 0 to) a bit of a numeric variable. |
+|[bitRead()]( https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/bitread/)|Reads a bit of a variable, e.g. bool, int. Note that float & double are not supported. You can read the bit of variables up to an unsigned long long (64 bits / 8 bytes).  |
+|[bitSet()]( https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/bitset/)| Sets (writes a 1 to) a bit of a numeric variable. |
+|[bitWrite()]( https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/bitwrite/)| Writes to a bit of a variable, e.g. bool, int, long. Note that float & double are not supported. You can write to a bit of variables up to an unsigned long (32 bits / 8 bytes). |
 |[highByte() ](https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/highbyte/)| Extracts the high-order (leftmost) byte of a word (or the second lowest byte of a larger data type). | 
 |[lowByte()](https://www.arduino.cc/reference/en/language/functions/bits-and-bytes/lowbyte/)| Extracts the low-order (rightmost) byte of a variable (e.g. a word). | 
+
 
 ### Control structures:
 
@@ -972,3 +982,16 @@ while True:
 |LED_BUILTIN|
 |true | 
 |false|
+
+### Communication
+|[Print](https://www.arduino.cc/reference/en/language/functions/communication/print/ ) | 
+|[Serial]( https://www.arduino.cc/reference/en/language/functions/communication/serial/) |
+|[SPI]( https://www.arduino.cc/reference/en/language/functions/communication/spi/) |
+|[Stream]( https://www.arduino.cc/reference/en/language/functions/communication/stream/) |
+|[Wire](https://www.arduino.cc/reference/en/language/functions/communication/wire/ ) |
+
+### USB
+
+|[Keyboard]( https://www.arduino.cc/reference/en/language/functions/usb/keyboard/) |
+|[Mouse]( https://www.arduino.cc/reference/en/language/functions/usb/mouse/) |
+
