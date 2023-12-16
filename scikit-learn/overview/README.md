@@ -80,81 +80,38 @@ see [here](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.b
 
 |||
 |---|---|
-compose.ColumnTransformer(transformers, *[, ...])
-Applies transformers to columns of an array or pandas DataFrame.
-
-compose.TransformedTargetRegressor([...])
-Meta-estimator to regress on a transformed target.
-
-compose.make_column_transformer(*transformers)
-Construct a ColumnTransformer from the given transformers.
-
-compose.make_column_selector([pattern, ...])
-Create a callable to select columns to be used with ColumnTransformer.
+|compose.ColumnTransformer(transformers, *[, ...])|Applies transformers to columns of an array or pandas DataFrame.|
+|compose.TransformedTargetRegressor([...])|Meta-estimator to regress on a transformed target.|
+|compose.make_column_transformer(*transformers)|Construct a ColumnTransformer from the given transformers.|
+|compose.make_column_selector([pattern, ...])|Create a callable to select columns to be used with ColumnTransformer.|
 
 ## [sklearn.covariance: Covariance Estimators](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.covariance)
 
 |||
 |---|---|
-covariance.EmpiricalCovariance(*[, ...])
-Maximum likelihood covariance estimator.
-
-covariance.EllipticEnvelope(*[, ...])
-An object for detecting outliers in a Gaussian distributed dataset.
-
-covariance.GraphicalLasso([alpha, mode, ...])
-Sparse inverse covariance estimation with an l1-penalized estimator.
-
-covariance.GraphicalLassoCV(*[, alphas, ...])
-Sparse inverse covariance w/ cross-validated choice of the l1 penalty.
-
-covariance.LedoitWolf(*[, store_precision, ...])
-LedoitWolf Estimator.
-
-covariance.MinCovDet(*[, store_precision, ...])
-Minimum Covariance Determinant (MCD): robust estimator of covariance.
-
-covariance.OAS(*[, store_precision, ...])
-Oracle Approximating Shrinkage Estimator as proposed in [R69773891e6a6-1].
-
-covariance.ShrunkCovariance(*[, ...])
-Covariance estimator with shrinkage.
-
-covariance.empirical_covariance(X, *[, ...])
-Compute the Maximum likelihood covariance estimator.
-
-covariance.graphical_lasso(emp_cov, alpha, *)
-L1-penalized covariance estimator.
-
-covariance.ledoit_wolf(X, *[, ...])
-Estimate the shrunk Ledoit-Wolf covariance matrix.
-
-covariance.ledoit_wolf_shrinkage(X[, ...])
-Estimate the shrunk Ledoit-Wolf covariance matrix.
-
-covariance.oas(X, *[, assume_centered])
-Estimate covariance with the Oracle Approximating Shrinkage as proposed in [Rca3a42e5ec35-1].
-
-covariance.shrunk_covariance(emp_cov[, ...])
-Calculate a covariance matrix shrunk on the diagonal.
-
+|covariance.EmpiricalCovariance(*[, ...])|Maximum likelihood covariance estimator.|
+|covariance.EllipticEnvelope(*[, ...])|An object for detecting outliers in a Gaussian distributed dataset.|
+|covariance.GraphicalLasso([alpha, mode, ...])|Sparse inverse covariance estimation with an l1-penalized estimator.|
+|covariance.GraphicalLassoCV(*[, alphas, ...])|Sparse inverse covariance w/ cross-validated choice of the l1 penalty.|
+|covariance.LedoitWolf(*[, store_precision, ...])|LedoitWolf Estimator.|
+|covariance.MinCovDet(*[, store_precision, ...])|Minimum Covariance Determinant (MCD): robust estimator of covariance.|
+|covariance.OAS(*[, store_precision, ...])|Oracle Approximating Shrinkage Estimator as proposed in [R69773891e6a6-1].|
+|covariance.ShrunkCovariance(*[, ...])|Covariance estimator with shrinkage.|
+|covariance.empirical_covariance(X, *[, ...])|Compute the Maximum likelihood covariance estimator.|
+|covariance.graphical_lasso(emp_cov, alpha, *)|L1-penalized covariance estimator.|
+|covariance.ledoit_wolf(X, *[, ...])|Estimate the shrunk Ledoit-Wolf covariance matrix.|
+|covariance.ledoit_wolf_shrinkage(X[, ...])|Estimate the shrunk Ledoit-Wolf covariance matrix.|
+|covariance.oas(X, *[, assume_centered])|Estimate covariance with the Oracle Approximating Shrinkage as proposed in [Rca3a42e5ec35-1].|
+|covariance.shrunk_covariance(emp_cov[, ...])|Calculate a covariance matrix shrunk on the diagonal.|
 
 ## [sklearn.cross_decomposition: Cross decomposition](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.cross_decomposition)
 
 |||
 |---|---|
-cross_decomposition.CCA([n_components, ...])
-Canonical Correlation Analysis, also known as "Mode B" PLS.
-
-cross_decomposition.PLSCanonical([...])
-Partial Least Squares transformer and regressor.
-
-cross_decomposition.PLSRegression([...])
-PLS regression.
-
-cross_decomposition.PLSSVD([n_components, ...])
-Partial Least Square SVD.
-
+|cross_decomposition.CCA([n_components, ...])|Canonical Correlation Analysis, also known as "Mode B" PLS.|
+|cross_decomposition.PLSCanonical([...])|Partial Least Squares transformer and regressor.|
+|cross_decomposition.PLSRegression([...])|PLS regression.|
+|cross_decomposition.PLSSVD([n_components, ...])|Partial Least Square SVD.|
 
 ## [sklearn.datasets: Datasets](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.datasets)
 
@@ -166,62 +123,25 @@ see [here](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.d
 
 |||
 |---|---|
-decomposition.DictionaryLearning([...])
-Dictionary learning.
-
-decomposition.FactorAnalysis([n_components, ...])
-Factor Analysis (FA).
-
-**decomposition.FastICA([n_components, ...])**
-**FastICA: a fast algorithm for Independent Component Analysis.**
-
-decomposition.IncrementalPCA([n_components, ...])
-Incremental principal components analysis (IPCA).
-
-decomposition.KernelPCA([n_components, ...])
-Kernel Principal component analysis (KPCA) [R396fc7d924b8-1].
-
-decomposition.LatentDirichletAllocation([...])
-Latent Dirichlet Allocation with online variational Bayes algorithm.
-
-decomposition.MiniBatchDictionaryLearning([...])
-Mini-batch dictionary learning.
-
-decomposition.MiniBatchSparsePCA([...])
-Mini-batch Sparse Principal Components Analysis.
-
-decomposition.NMF([n_components, init, ...])
-Non-Negative Matrix Factorization (NMF).
-
-decomposition.MiniBatchNMF([n_components, ...])
-Mini-Batch Non-Negative Matrix Factorization (NMF).
-
-**decomposition.PCA([n_components, copy, ...])**
-**Principal component analysis (PCA).**
-
-decomposition.SparsePCA([n_components, ...])
-Sparse Principal Components Analysis (SparsePCA).
-
-decomposition.SparseCoder(dictionary, *[, ...])
-Sparse coding.
-
-decomposition.TruncatedSVD([n_components, ...])
-Dimensionality reduction using truncated SVD (aka LSA).
-
-decomposition.dict_learning(X, n_components, ...)
-Solve a dictionary learning matrix factorization problem.
-
-decomposition.dict_learning_online(X[, ...])
-Solve a dictionary learning matrix factorization problem online.
-
-decomposition.fastica(X[, n_components, ...])
-Perform Fast Independent Component Analysis.
-
-decomposition.non_negative_factorization(X)
-Compute Non-negative Matrix Factorization (NMF).
-
-decomposition.sparse_encode(X, dictionary, *)
-Sparse coding.
+|decomposition.DictionaryLearning([...])|Dictionary learning.|
+|decomposition.FactorAnalysis([n_components, ...])|Factor Analysis (FA).|
+|**decomposition.FastICA([n_components, ...])**|**FastICA: a fast algorithm for Independent Component Analysis.**|
+|decomposition.IncrementalPCA([n_components, ...])|Incremental principal components analysis (IPCA).|
+|decomposition.KernelPCA([n_components, ...])|Kernel Principal component analysis (KPCA) [R396fc7d924b8-1].|
+|decomposition.LatentDirichletAllocation([...])|Latent Dirichlet Allocation with online variational Bayes algorithm.|
+|decomposition.MiniBatchDictionaryLearning([...])|Mini-batch dictionary learning.|
+|decomposition.MiniBatchSparsePCA([...])|Mini-batch Sparse Principal Components Analysis.|
+|decomposition.NMF([n_components, init, ...])|Non-Negative Matrix Factorization (NMF).|
+|decomposition.MiniBatchNMF([n_components, ...])|Mini-Batch Non-Negative Matrix Factorization (NMF).|
+|**decomposition.PCA([n_components, copy, ...])**|**Principal component analysis (PCA).**|
+|decomposition.SparsePCA([n_components, ...])|Sparse Principal Components Analysis (SparsePCA).|
+|decomposition.SparseCoder(dictionary, *[, ...])|Sparse coding.|
+|decomposition.TruncatedSVD([n_components, ...])|Dimensionality reduction using truncated SVD (aka LSA).|
+|decomposition.dict_learning(X, n_components, ...)|Solve a dictionary learning matrix factorization problem.|
+|decomposition.dict_learning_online(X[, ...])|Solve a dictionary learning matrix factorization problem online.|
+|decomposition.fastica(X[, n_components, ...])|Perform Fast Independent Component Analysis.|
+|decomposition.non_negative_factorization(X)|Compute Non-negative Matrix Factorization (NMF).|
+|decomposition.sparse_encode(X, dictionary, *)|Sparse coding.|
 
 ## [sklearn.discriminant_analysis: Discriminant Analysis](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.discriminant_analysis)
 
