@@ -941,190 +941,97 @@ Time Series cross-validator
 
 |||
 |---|---|
-model_selection.check_cv([cv, y, classifier])
-Input checker utility for building a cross-validator.
-
-model_selection.train_test_split(*arrays[, ...])
-Split arrays or matrices into random train and test subsets.
+|model_selection.check_cv([cv, y, classifier])|Input checker utility for building a cross-validator.|
+|model_selection.train_test_split(*arrays[, ...])|Split arrays or matrices into random train and test subsets.|
 
 ### Hyper-parameter optimizers
 
 |||
 |---|---|
-model_selection.GridSearchCV(estimator, ...)
-Exhaustive search over specified parameter values for an estimator.
-
-model_selection.HalvingGridSearchCV(...[, ...])
-Search over specified parameter values with successive halving.
-
-model_selection.ParameterGrid(param_grid)
-Grid of parameters with a discrete number of values for each.
-
-model_selection.ParameterSampler(...[, ...])
-Generator on parameters sampled from given distributions.
-
-model_selection.RandomizedSearchCV(...[, ...])
-Randomized search on hyper parameters.
-
-model_selection.HalvingRandomSearchCV(...[, ...])
-Randomized search on hyper parameters.
-
+|model_selection.GridSearchCV(estimator, ...)|Exhaustive search over specified parameter values for an estimator.|
+|model_selection.HalvingGridSearchCV(...[, ...])|Search over specified parameter values with successive halving.|
+|model_selection.ParameterGrid(param_grid)|Grid of parameters with a discrete number of values for each.|
+|model_selection.ParameterSampler(...[, ...])|Generator on parameters sampled from given distributions.|
+|model_selection.RandomizedSearchCV(...[, ...])|Randomized search on hyper parameters.|
+|model_selection.HalvingRandomSearchCV(...[, ...])|Randomized search on hyper parameters.|
 
 ### Model validation
 
 |||
 |---|---|
-model_selection.cross_validate(estimator, X)
-Evaluate metric(s) by cross-validation and also record fit/score times.
-
-model_selection.cross_val_predict(estimator, X)
-Generate cross-validated estimates for each input data point.
-
-model_selection.cross_val_score(estimator, X)
-Evaluate a score by cross-validation.
-
-model_selection.learning_curve(estimator, X, ...)
-Learning curve.
-
-model_selection.permutation_test_score(...)
-Evaluate the significance of a cross-validated score with permutations.
-
-model_selection.validation_curve(estimator, ...)
-Validation curve.
-
+|model_selection.cross_validate(estimator, X)|Evaluate metric(s) by cross-validation and also record fit/score times.|
+|model_selection.cross_val_predict(estimator, X)|Generate cross-validated estimates for each input data point.|
+|model_selection.cross_val_score(estimator, X)|Evaluate a score by cross-validation.|
+|model_selection.learning_curve(estimator, X, ...)|Learning curve.|
+|model_selection.permutation_test_score(...)|Evaluate the significance of a cross-validated score with permutations.|
+|model_selection.validation_curve(estimator, ...)|Validation curve.|
 
 ### Visualization
 
 |||
 |---|---|
-model_selection.LearningCurveDisplay(*, ...)
-Learning Curve visualization.
-
-model_selection.ValidationCurveDisplay(*, ...)
-Validation Curve visualization.
-
+|model_selection.LearningCurveDisplay(*, ...)|Learning Curve visualization.|
+|model_selection.ValidationCurveDisplay(*, ...)|Validation Curve visualization.|
 
 
 ## [sklearn.multiclass: Multiclass classification](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.multiclass)
 
 |||
 |---|---|
-multiclass.OneVsRestClassifier(estimator, *)
-One-vs-the-rest (OvR) multiclass strategy.
-
-multiclass.OneVsOneClassifier(estimator, *)
-One-vs-one multiclass strategy.
-
-multiclass.OutputCodeClassifier(estimator, *)
-(Error-Correcting) Output-Code multiclass strategy.
+|multiclass.OneVsRestClassifier(estimator, *)|One-vs-the-rest (OvR) multiclass strategy.|
+|multiclass.OneVsOneClassifier(estimator, *)|One-vs-one multiclass strategy.|
+|multiclass.OutputCodeClassifier(estimator, *)|(Error-Correcting) Output-Code multiclass strategy.|
 
 ## [sklearn.multioutput: Multioutput regression and classification](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.multioutput)
 
 |||
 |---|---|
-multioutput.ClassifierChain(base_estimator, *)
-A multi-label model that arranges binary classifiers into a chain.
-
-multioutput.MultiOutputRegressor(estimator, *)
-Multi target regression.
-
-multioutput.MultiOutputClassifier(estimator, *)
-Multi target classification.
-
-multioutput.RegressorChain(base_estimator, *)
-A multi-label model that arranges regressions into a chain.
+|multioutput.ClassifierChain(base_estimator, *)|A multi-label model that arranges binary classifiers into a chain.|
+|multioutput.MultiOutputRegressor(estimator, *)|Multi target regression.|
+|multioutput.MultiOutputClassifier(estimator, *)|Multi target classification.|
+|multioutput.RegressorChain(base_estimator, *)|A multi-label model that arranges regressions into a chain.|
 
 
 ## [sklearn.naive_bayes: Naive Bayes](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.naive_bayes)
 
 |||
 |---|---|
-naive_bayes.BernoulliNB(*[, alpha, ...])
-Naive Bayes classifier for multivariate Bernoulli models.
-
-naive_bayes.CategoricalNB(*[, alpha, ...])
-Naive Bayes classifier for categorical features.
-
-naive_bayes.ComplementNB(*[, alpha, ...])
-The Complement Naive Bayes classifier described in Rennie et al. (2003).
-
-naive_bayes.GaussianNB(*[, priors, ...])
-Gaussian Naive Bayes (GaussianNB).
-
-naive_bayes.MultinomialNB(*[, alpha, ...])
-Naive Bayes classifier for multinomial models.
-
+|naive_bayes.BernoulliNB(*[, alpha, ...])|Naive Bayes classifier for multivariate Bernoulli models.|
+|naive_bayes.CategoricalNB(*[, alpha, ...])|Naive Bayes classifier for categorical features.|
+|naive_bayes.ComplementNB(*[, alpha, ...])|The Complement Naive Bayes classifier described in Rennie et al. (2003).|
+|naive_bayes.GaussianNB(*[, priors, ...])|Gaussian Naive Bayes (GaussianNB).|
+|naive_bayes.MultinomialNB(*[, alpha, ...])|Naive Bayes classifier for multinomial models.|
 
 
 ## [sklearn.neighbors: Nearest Neighbors](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.neighbors)
 
 |||
 |---|---|
-neighbors.BallTree(X[, leaf_size, metric])
-BallTree for fast generalized N-point problems
-
-neighbors.KDTree(X[, leaf_size, metric])
-KDTree for fast generalized N-point problems
-
-neighbors.KernelDensity(*[, bandwidth, ...])
-Kernel Density Estimation.
-
-**neighbors.KNeighborsClassifier([...])**
-**Classifier implementing the k-nearest neighbors vote.**
-
-neighbors.KNeighborsRegressor([n_neighbors, ...])
-Regression based on k-nearest neighbors.
-
-neighbors.KNeighborsTransformer(*[, mode, ...])
-Transform X into a (weighted) graph of k nearest neighbors.
-
-neighbors.LocalOutlierFactor([n_neighbors, ...])
-Unsupervised Outlier Detection using the Local Outlier Factor (LOF).
-
-neighbors.RadiusNeighborsClassifier([...])
-Classifier implementing a vote among neighbors within a given radius.
-
-neighbors.RadiusNeighborsRegressor([radius, ...])
-Regression based on neighbors within a fixed radius.
-
-neighbors.RadiusNeighborsTransformer(*[, ...])
-Transform X into a (weighted) graph of neighbors nearer than a radius.
-
-neighbors.NearestCentroid([metric, ...])
-Nearest centroid classifier.
-
-neighbors.NearestNeighbors(*[, n_neighbors, ...])
-Unsupervised learner for implementing neighbor searches.
-
-neighbors.NeighborhoodComponentsAnalysis([...])
-Neighborhood Components Analysis.
-
-neighbors.kneighbors_graph(X, n_neighbors, *)
-Compute the (weighted) graph of k-Neighbors for points in X.
-
-neighbors.radius_neighbors_graph(X, radius, *)
-Compute the (weighted) graph of Neighbors for points in X.
-
-neighbors.sort_graph_by_row_values(graph[, ...])
-Sort a sparse graph such that each row is stored with increasing values.
-
+|neighbors.BallTree(X[, leaf_size, metric])|BallTree for fast generalized N-point problems|
+|neighbors.KDTree(X[, leaf_size, metric])|KDTree for fast generalized N-point problems|
+|neighbors.KernelDensity(*[, bandwidth, ...])|Kernel Density Estimation.|
+|**neighbors.KNeighborsClassifier([...])**|**Classifier implementing the k-nearest neighbors vote.**|
+|neighbors.KNeighborsRegressor([n_neighbors, ...])|Regression based on k-nearest neighbors.|
+|neighbors.KNeighborsTransformer(*[, mode, ...])|Transform X into a (weighted) graph of k nearest neighbors.|
+|neighbors.LocalOutlierFactor([n_neighbors, ...])|Unsupervised Outlier Detection using the Local Outlier Factor (LOF).|
+|neighbors.RadiusNeighborsClassifier([...])|Classifier implementing a vote among neighbors within a given radius.|
+|neighbors.RadiusNeighborsRegressor([radius, ...])|Regression based on neighbors within a fixed radius.|
+|neighbors.RadiusNeighborsTransformer(*[, ...])|Transform X into a (weighted) graph of neighbors nearer than a radius.|
+|neighbors.NearestCentroid([metric, ...])|Nearest centroid classifier.|
+|neighbors.NearestNeighbors(*[, n_neighbors, ...])|Unsupervised learner for implementing neighbor searches.|
+|neighbors.NeighborhoodComponentsAnalysis([...])|Neighborhood Components Analysis.|
+|neighbors.kneighbors_graph(X, n_neighbors, *)|Compute the (weighted) graph of k-Neighbors for points in X.|
+|neighbors.radius_neighbors_graph(X, radius, *)|Compute the (weighted) graph of Neighbors for points in X.|
+|neighbors.sort_graph_by_row_values(graph[, ...])|Sort a sparse graph such that each row is stored with increasing values.|
 
 ## [sklearn.neural_network: Neural network models](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.neural_network)
 
 |||
 |---|---|
-pipeline.FeatureUnion(transformer_list, *[, ...])
-Concatenates results of multiple transformer objects.
-
-pipeline.Pipeline(steps, *[, memory, verbose])
-Pipeline of transforms with a final estimator.
-
-pipeline.make_pipeline(*steps[, memory, verbose])
-Construct a Pipeline from the given estimators.
-
-pipeline.make_union(*transformers[, n_jobs, ...])
-Construct a FeatureUnion from the given transformers.
-
+|pipeline.FeatureUnion(transformer_list, *[, ...])|Concatenates results of multiple transformer objects.|
+|pipeline.Pipeline(steps, *[, memory, verbose])|Pipeline of transforms with a final estimator.|
+|pipeline.make_pipeline(*steps[, memory, verbose])|Construct a Pipeline from the given estimators.|
+|pipeline.make_union(*transformers[, n_jobs, ...])|Construct a FeatureUnion from the given transformers.|
 
 
 ## [sklearn.pipeline: Pipeline](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.pipeline)
@@ -1135,177 +1042,78 @@ see [here](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.p
 
 |||
 |---|---|
-preprocessing.Binarizer(*[, threshold, copy])
-Binarize data (set feature values to 0 or 1) according to a threshold.
-
-preprocessing.FunctionTransformer([func, ...])
-Constructs a transformer from an arbitrary callable.
-
-preprocessing.KBinsDiscretizer([n_bins, ...])
-Bin continuous data into intervals.
-
-preprocessing.KernelCenterer()
-Center an arbitrary kernel matrix 
-
-preprocessing.LabelBinarizer(*[, neg_label, ...])
-Binarize labels in a one-vs-all fashion.
-
-preprocessing.LabelEncoder()
-Encode target labels with value between 0 and n_classes-1.
-
-preprocessing.MultiLabelBinarizer(*[, ...])
-Transform between iterable of iterables and a multilabel format.
-
-preprocessing.MaxAbsScaler(*[, copy])
-Scale each feature by its maximum absolute value.
-
-preprocessing.MinMaxScaler([feature_range, ...])
-Transform features by scaling each feature to a given range.
-
-preprocessing.Normalizer([norm, copy])
-Normalize samples individually to unit norm.
-
-preprocessing.OneHotEncoder(*[, categories, ...])
-Encode categorical features as a one-hot numeric array.
-
-preprocessing.OrdinalEncoder(*[, ...])
-Encode categorical features as an integer array.
-
-preprocessing.PolynomialFeatures([degree, ...])
-Generate polynomial and interaction features.
-
-preprocessing.PowerTransformer([method, ...])
-Apply a power transform featurewise to make data more Gaussian-like.
-
-preprocessing.QuantileTransformer(*[, ...])
-Transform features using quantiles information.
-
-preprocessing.RobustScaler(*[, ...])
-Scale features using statistics that are robust to outliers.
-
-preprocessing.SplineTransformer([n_knots, ...])
-Generate univariate B-spline bases for features.
-
-preprocessing.StandardScaler(*[, copy, ...])
-Standardize features by removing the mean and scaling to unit variance.
-
-preprocessing.TargetEncoder([categories, ...])
-Target Encoder for regression and classification targets.
-
-preprocessing.add_dummy_feature(X[, value])
-Augment dataset with an additional dummy feature.
-
-preprocessing.binarize(X, *[, threshold, copy])
-Boolean thresholding of array-like or scipy.sparse matrix.
-
-preprocessing.label_binarize(y, *, classes)
-Binarize labels in a one-vs-all fashion.
-
-preprocessing.maxabs_scale(X, *[, axis, copy])
-Scale each feature to the [-1, 1] range without breaking the sparsity.
-
-preprocessing.minmax_scale(X[, ...])
-Transform features by scaling each feature to a given range.
-
-preprocessing.normalize(X[, norm, axis, ...])
-Scale input vectors individually to unit norm (vector length).
-
-preprocessing.quantile_transform(X, *[, ...])
-Transform features using quantiles information.
-
-preprocessing.robust_scale(X, *[, axis, ...])
-Standardize a dataset along any axis.
-
-preprocessing.scale(X, *[, axis, with_mean, ...])
-Standardize a dataset along any axis.
-
-preprocessing.power_transform(X[, method, ...])
-Parametric, monotonic transformation to make data more Gaussian-like.
-
-
+|preprocessing.Binarizer(*[, threshold, copy])|Binarize data (set feature values to 0 or 1) according to a threshold.|
+|preprocessing.FunctionTransformer([func, ...])|Constructs a transformer from an arbitrary callable.|
+|preprocessing.KBinsDiscretizer([n_bins, ...])|Bin continuous data into intervals.|
+|preprocessing.KernelCenterer()|Center an arbitrary kernel matrix |
+|preprocessing.LabelBinarizer(*[, neg_label, ...])|Binarize labels in a one-vs-all fashion.|
+|preprocessing.LabelEncoder()|Encode target labels with value between 0 and n_classes-1.v
+|preprocessing.MultiLabelBinarizer(*[, ...])|Transform between iterable of iterables and a multilabel format.|
+|preprocessing.MaxAbsScaler(*[, copy])|Scale each feature by its maximum absolute value.|
+|preprocessing.MinMaxScaler([feature_range, ...])|Transform features by scaling each feature to a given range.|
+|preprocessing.Normalizer([norm, copy])|Normalize samples individually to unit norm.|
+|preprocessing.OneHotEncoder(*[, categories, ...])|Encode categorical features as a one-hot numeric array.|
+|preprocessing.OrdinalEncoder(*[, ...])|Encode categorical features as an integer array.|
+|preprocessing.PolynomialFeatures([degree, ...])|Generate polynomial and interaction features.|
+|preprocessing.PowerTransformer([method, ...])|Apply a power transform featurewise to make data more Gaussian-like.|
+|preprocessing.QuantileTransformer(*[, ...])|Transform features using quantiles information.|
+|preprocessing.RobustScaler(*[, ...])|Scale features using statistics that are robust to outliers.|
+|preprocessing.SplineTransformer([n_knots, ...])|Generate univariate B-spline bases for features.|
+|preprocessing.StandardScaler(*[, copy, ...])|Standardize features by removing the mean and scaling to unit variance.|
+|preprocessing.TargetEncoder([categories, ...])|Target Encoder for regression and classification targets.|
+|preprocessing.add_dummy_feature(X[, value])|Augment dataset with an additional dummy feature.|
+|preprocessing.binarize(X, *[, threshold, copy])|Boolean thresholding of array-like or scipy.sparse matrix.|
+|preprocessing.label_binarize(y, *, classes)|Binarize labels in a one-vs-all fashion.|
+|preprocessing.maxabs_scale(X, *[, axis, copy])|Scale each feature to the [-1, 1] range without breaking the sparsity.|
+|preprocessing.minmax_scale(X[, ...])|Transform features by scaling each feature to a given range.|
+|preprocessing.normalize(X[, norm, axis, ...])|Scale input vectors individually to unit norm (vector length).|
+|preprocessing.quantile_transform(X, *[, ...])|Transform features using quantiles information.|
+|preprocessing.robust_scale(X, *[, axis, ...])|Standardize a dataset along any axis.|
+|preprocessing.scale(X, *[, axis, with_mean, ...])|Standardize a dataset along any axis.|
+|preprocessing.power_transform(X[, method, ...])|Parametric, monotonic transformation to make data more Gaussian-like.|
 
 ## [sklearn.random_projection: Random projection](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.random_projection)
 
 |||
 |---|---|
-random_projection.GaussianRandomProjection([...])
-Reduce dimensionality through Gaussian random projection.
-
-random_projection.SparseRandomProjection([...])
-Reduce dimensionality through sparse random projection.
-
-random_projection.johnson_lindenstrauss_min_dim(...)
-Find a 'safe' number of components to randomly project to.
+|random_projection.GaussianRandomProjection([...])|Reduce dimensionality through Gaussian random projection.|
+|random_projection.SparseRandomProjection([...])|Reduce dimensionality through sparse random projection.|
+|random_projection.johnson_lindenstrauss_min_dim(...)|Find a 'safe' number of components to randomly project to.|
 
 ## [sklearn.semi_supervised: Semi-Supervised Learning](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.semi_supervised)
 
 |||
 |---|---|
-semi_supervised.LabelPropagation([kernel, ...])
-Label Propagation classifier.
-
-semi_supervised.LabelSpreading([kernel, ...])
-LabelSpreading model for semi-supervised learning.
-
-semi_supervised.SelfTrainingClassifier(...)
-Self-training classifier.
-
+|semi_supervised.LabelPropagation([kernel, ...])|Label Propagation classifier.|
+|semi_supervised.LabelSpreading([kernel, ...])|LabelSpreading model for semi-supervised learning.|
+|semi_supervised.SelfTrainingClassifier(...)|Self-training classifier.|
 
 
 ## [sklearn.svm: Support Vector Machines](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.svm)
 
 |||
 |---|---|
-svm.LinearSVC([penalty, loss, dual, tol, C, ...])
-Linear Support Vector Classification.
-
-svm.LinearSVR(*[, epsilon, tol, C, loss, ...])
-Linear Support Vector Regression.
-
-svm.NuSVC(*[, nu, kernel, degree, gamma, ...])
-Nu-Support Vector Classification.
-
-svm.NuSVR(*[, nu, C, kernel, degree, gamma, ...])
-Nu Support Vector Regression.
-
-svm.OneClassSVM(*[, kernel, degree, gamma, ...])
-Unsupervised Outlier Detection.
-
-svm.SVC(*[, C, kernel, degree, gamma, ...])
-C-Support Vector Classification.
-
-svm.SVR(*[, kernel, degree, gamma, coef0, ...])
-Epsilon-Support Vector Regression.
-
-svm.l1_min_c(X, y, *[, loss, fit_intercept, ...])
-Return the lowest bound for C.
-
+|svm.LinearSVC([penalty, loss, dual, tol, C, ...])|Linear Support Vector Classification.|
+|svm.LinearSVR(*[, epsilon, tol, C, loss, ...])|Linear Support Vector Regression.|
+|svm.NuSVC(*[, nu, kernel, degree, gamma, ...])|Nu-Support Vector Classification.|
+|svm.NuSVR(*[, nu, C, kernel, degree, gamma, ...])|Nu Support Vector Regression.|
+|svm.OneClassSVM(*[, kernel, degree, gamma, ...])|Unsupervised Outlier Detection.|
+|svm.SVC(*[, C, kernel, degree, gamma, ...])|C-Support Vector Classification.|
+|svm.SVR(*[, kernel, degree, gamma, coef0, ...])|Epsilon-Support Vector Regression.|
+|svm.l1_min_c(X, y, *[, loss, fit_intercept, ...])|Return the lowest bound for C.|
 
 
 ## [sklearn.tree: Decision Trees](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.tree)
 
 |||
 |---|---|
-tree.DecisionTreeClassifier(*[, criterion, ...])
-A decision tree classifier.
-
-tree.DecisionTreeRegressor(*[, criterion, ...])
-A decision tree regressor.
-
-tree.ExtraTreeClassifier(*[, criterion, ...])
-An extremely randomized tree classifier.
-
-tree.ExtraTreeRegressor(*[, criterion, ...])
-An extremely randomized tree regressor.
-
-tree.export_graphviz(decision_tree[, ...])
-Export a decision tree in DOT format.
-
-tree.export_text(decision_tree, *[, ...])
-Build a text report showing the rules of a decision tree.
-
-tree.plot_tree(decision_tree, *[, ...])
-Plot a decision tree.
+|tree.DecisionTreeClassifier(*[, criterion, ...])|A decision tree classifier.|
+|tree.DecisionTreeRegressor(*[, criterion, ...])|A decision tree regressor.|
+|tree.ExtraTreeClassifier(*[, criterion, ...])|An extremely randomized tree classifier.|
+|tree.ExtraTreeRegressor(*[, criterion, ...])|An extremely randomized tree regressor.|
+|tree.export_graphviz(decision_tree[, ...])|Export a decision tree in DOT format.|
+|tree.export_text(decision_tree, *[, ...])|Build a text report showing the rules of a decision tree.|
+|tree.plot_tree(decision_tree, *[, ...])|Plot a decision tree.|
 
 ## [sklearn.utils: Utilities](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.utils)
 
