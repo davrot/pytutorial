@@ -205,21 +205,27 @@ c =
 ```
 
 ## Reshaping, Copying and Duplication of Matrices/Arrays
-A useful command to reorganize data is reshape. The content of the array is not altered by this command, only the organization in columns and rows, respectively the other dimensions. The syntax is result = reshape(array, [dim1 dim2 dim3 ... dimN]);.
+A useful command to reorganize data is reshape. The content of the array is not altered by this command, only the organization in columns and rows, respectively the other dimensions. The syntax is `result = reshape(array, [dim1 dim2 dim3 ... dimN]);`.
 
-The result is an array of dimensions dim1 to dimN.
+The result is an array of dimensions `dim1` to `dimN`.
 
-The product of these dimension has to equal the product of the old dimension of the array.
+The product of these dimension has to equal the product of the **old** dimension of the array.
 
 In the following situations, the command is sensibly applied:
 
-Reshaping of arrays to a form that is suitable for vector operations. Let us assume that we have $8$ vectors of $10$ constellations each in a $3$x$8$x$10$-array wit the name $r$. Now we want to rotate the vectors with a rotation matrix $D$ ,to simulate the movement of the night sky:
+* Reshaping of arrays to a form that is suitable for vector operations. Let us assume that we have $8$ vectors of $10$ constellations each in a $3$x$8$x$10$-array wit the name $r$. Now we want to rotate the vectors with a rotation matrix $D$ ,to simulate the movement of the night sky:
+
+```matlab
 dummy = D*reshape(r, [3 80]);
 
 r = reshape(dummy, [3 8 10]);
+```
+
 We first reshaped the $8$x$10$-matrix of vectors to form a $800$-element vector, then we applied the rotation and finally brought the result matrix back to its original form.
 
-Interpretation of data, that was initially written from a file into a one-dimensional array. Example:
+* Interpretation of data, that was initially written from a file into a one-dimensional array. Example:
+
+```matlab
 f = fopen('digitalfphoto.bin', 'r');
 
 a = fread(f, 'uint8=>uint8');
@@ -229,31 +235,43 @@ fclose(f);
 imagesc(reshape(a, [500 375 3]));
 
 set(gca, 'DataAspectRatio', [1 1 1]);
+```
+
 The second to last command reshaped the array to enable the usage of imagesc to display the image correctly.
 
-In the last example, the Matlab user might be annoyed that the imagesc-command projects the first dimension of the array (with length 500, thus e.g. the $x$-axis of a photo in landscape format!) onto the $y$-axis. The versatile command permute remedies this situation -- this command swaps single dimensions of an array. It is important to understand that not only the organization of an array in rows and columns is changed, but also the sequence of the entries in the memory! The syntax of the command is permuted = permute(array, [dimidx_dim1, dimidx_dim2, ..., dimidx_dimN]);. Here, the second argument holds the numbers from $1$ to $N$ (where $N$ is the number of dimensions of an array, i.e. $N=2 $ for a matrix), that specify the permutation of the dimensions. In the array permuted, the first dimension will be the dimidx_dim1-th dimension of the old array array, the second dimension the dimidx_dim2-th dimension of the old array, etc.
+In the last example, the Matlab user might be annoyed that the imagesc-command projects the first dimension of the array (with length 500, thus e.g. the $x$-axis of a photo in landscape format!) onto the $y$-axis. The versatile command permute remedies this situation -- this command **swaps** single dimensions of an array. It is important to understand that not only the organization of an array in rows and columns is changed, but also the sequence of the entries in the memory! The syntax of the command is `permuted = permute(array, [dimidx_dim1, dimidx_dim2, ..., dimidx_dimN]);`. Here, the second argument holds the numbers from $1$ to $N$ (where $N$ is the number of dimensions of an array, i.e. $N=2 $ for a matrix), that specify the permutation of the dimensions. In the array permuted, the first dimension will be the dimidx_dim1-th dimension of the old array array, the second dimension the dimidx_dim2-th dimension of the old array, etc.
 
 In order to display the digital photo from our example correctly, we thus have to type:
 
+```matlab
 a_permuted = permute(reshape(a, [500 375 3]), [2 1 3]);
 
 imagesc(a_permuted);
+```
+
 This interchanges the $x$- and the $y$-direction, while the color information is preserved in the third dimension.
 
-repmat, another important command, duplicates an array or matrix along one or several dimensions. The syntax is similar to reshape,
+`repmat`, another important command, duplicates an array or matrix along one or several dimensions. The syntax is similar to reshape,
 
+```matlab
 result = repmat(array, [rep_dim1 rep_dim2 rep_dim3 ... rep_dimN]);
+```
+
 The matrix array is cloned
 
-rep_dim1-times along the first dimension, rep_dim2-times along the second dimension, etc.
+`rep_dim1`-times along the first dimension, rep_dim2-times along the second dimension, etc.
 
 For example, the following commands,
 
+```matlab
 a = [1 2; 3 4];
 
 repmat(a, [3 4])
+```
+
 give the output:
 
+```matlab
 ans =
 
     1      2      1      2      1      2      1      2
@@ -267,51 +285,64 @@ ans =
     1      2      1      2      1      2      1      2
 
     3      4      3      4      3      4      3      4
+```
+
+
 Using this command makes sense, if matrix operations are repeated with different operands on the same initial vector. An example may be found in the section 'vectorization'.
 
-What Size does an Array have?
+## What Size does an Array have?
 Especially when manipulating a lot of different arrays, when a function is supposed to operate on an array of previously unknown size or when one wants to find out whether two arrays are compatible to serve as an input to a matrix operation, the following commands will be helpful: size, length and numel.
 
 It follows a short explanation for their function:
 
-size
+* `size`
 returns the size of an array in a vector that has as many elements as the array has dimensions. Example:
 
+```matlab
 size(zeros([17 42]))
 
 ans =
 
     17     42
-length
+```
+
+* `length`
+  
 returns the longest dimension of an array, irrespective of which dimension this is. Example:
 
+```matlab
 length(zeros([17 42]))
 
 ans =
 
     42
+```
 
-
-
+```matlab
 length(zeros([42 17]))
 
 ans =
 
     42
-numel
-returns the total number of all elements of an array and is identical with the construct prod(size(array));. Example:
+```
 
+* `numel`
+returns the total number of all elements of an array and is identical with the construct `prod(size(array));`. Example:
+
+```matlab
 numel(zeros([17 42]))
 
 ans =
 
     714
+```
 
-Example: Vectorization of a Program
+## Example: Vectorization of a Program
 To close this chapter, we will discuss two examples of what to do when vectorizing a program. First, consider the problem of generating a $N$x$N$-Matrix with entries $a_{ij} = i \cdot j$.
 
 The tedious way via loops looks like this:
 
+```matlab
 N = 17;
 
 a1 = zeros([N N]);
@@ -321,8 +352,11 @@ for i=1:N,
         a1(i, j) = i*j; 
     end; 
 end
+```
+
 It is much simpler to first create a row vector of the numbers $1$ bis $N$, and subsequently duplicate this this vector via repmat to obtain a $N$x$N$-matrix. Finally, this matrix is multiplied element-wise with its transpose:
 
+```matlab
 N = 17;
 
 onefold = 1:N;
@@ -330,15 +364,21 @@ onefold = 1:N;
 manifold = repmat(onefold, [N 1]);
 
 a2 = manifold.*manifold';
+```
+
 However, this is still not yet the pinnacle of elegance that can be reached. Thinking a little about this problem, one might come to the conclusion that the mathematical operation that is intended can be described as a matrix multiplication of a $N$x$1$-matrix with a $1$x$N$-matrix (the so-called outer product of two vectors):
 
+```matlab
 N = 17;
 
 onefold = 1:N;
 
 a3 = onefold'*onefold;
+```
+
 As a second example we consider the following program: It defines two vectors with $x$- and $y$-coordinates, performs a translation of these coordinates and finally a rotation.
 
+```matlab
 %%% Example: before vectorizing
 
 x = [ 0 -1  0 -2  0 -3  0 -4  0 -5  0  0  ...
@@ -372,33 +412,57 @@ for i=1:n
 	y(i) = y_temp;
 
 end
+```
+
 As a first step, we can subsume the $23$ coordinate-tuple to a$2x23$-matrix, that we call r:
 
+```matlab
 r = [x; y];
+```
+
 Here we used the semicolon to stack the row vectors on top of each other. Every column of the matrix r now holds a coordinate tuple. In the next step, we rewrite the translation vector as well as a column vector:
 
+```matlab
 trans = [trans_x; trans_y];
+```
+
 Now we might be tempted to replace the first for-loop by an element-wise addition of trans and r. But beware! The dimensions of both variables are not compatible, trans has only one column. Thus we use the command repmat, to duplicate trans $23$ times. After this we can perform the addition:
 
+```matlab
 r = r+repmat(trans, [1 size(trans, 2)]);
+```
+
 Here, we used the command size to avoid having to use the constant 23 -- the code will thus also work with other, longer or shorter variables x or y.
 
-Next up is the rotation. The rotation matrix D is quickly defined,
+Next up is the rotation. The rotation matrix `D` is quickly defined,
 
+```matlab
 D = [cos(phi) sin(phi); -sin(phi) cos(phi)];
-and equally quickly applied to r:
+```
 
+and equally quickly applied to `r`:
+
+```matlab
 r = D*r;
+```
+
 In the end, we assign the result again to the variables x and y . For this we use the colon-operator that selects whole rows of the matrix r:
 
+```matlab
 x = r(1, :);
 
 y = r(2, :);
+```
+
 We can even integrate rotation and translation:
 
+```matlab
 r = D*(r+repmat(trans, [1 size(r, 2)]));
+```
+
 This gives the vectorized program code:
 
+```matlab
 %%% Example: AFTER vectorization
 
 x = [ 0 -1  0 -2  0 -3  0 -4  0 -5  0  0  ...
@@ -424,3 +488,4 @@ r = D*(r+repmat(trans, [1 size(r, 2)]));
 %%% assign the result
 x = r(1, :);
 y = r(2, :);
+```
