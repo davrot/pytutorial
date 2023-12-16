@@ -68,53 +68,53 @@ x = function(x)
 x = function(x)
 ```
 
-Continue
+### Continue
+
+![image12](2022-04-02_00-20.png)
+
+Then ![image13](2022-04-01_21-30.png) Continue:
+
+![image14](2022-04-02_00-22.png)
 
 
-Then  Continue:
+### Step Over
+* ["If the current line contains a function call, Step Over runs the code and then suspends execution at the first line of code after the called function returns."](https://docs.microsoft.com/en-us/visualstudio/debugger/navigating-through-code-with-the-debugger?view=vs-2022#BKMK_Step_over_Step_out)
+
+![image15](2022-04-02_00-25_1.png)
+
+Then ![image16](2022-04-01_21-30_2.png) Step Over:
+
+![image17](2022-04-02_00-26.png)
+
+### Step Into
+* ["The debugger steps through code statements, not physical lines."](https://docs.microsoft.com/en-us/visualstudio/debugger/navigating-through-code-with-the-debugger?view=vs-2022#BKMK_Step_into__over__or_out_of_the_code)
+* ["But when you step into this line, the debugger treats the condition as one step and the consequence as another."](https://docs.microsoft.com/en-us/visualstudio/debugger/navigating-through-code-with-the-debugger?view=vs-2022#BKMK_Step_into__over__or_out_of_the_code)
+* ["On a nested function call, Step Into steps into the most deeply nested function. For example, if you use Step Into on a call like Func1(Func2()), the debugger steps into the function Func2."](https://docs.microsoft.com/en-us/visualstudio/debugger/navigating-through-code-with-the-debugger?view=vs-2022#BKMK_Step_into__over__or_out_of_the_code)
 
 
+![image18](2022-04-02_00-27.png)
 
- 
+Then ![image19](2022-04-01_21-30_3.png) Step Into:
 
-Step Over
-"If the current line contains a function call, Step Over runs the code and then suspends execution at the first line of code after the called function returns."
-
-
-Then  Step Over:
+![image20](2022-04-02_00-31_1.png)
 
 
+### Step Out
 
- 
+* ["Step Out continues running code and suspends execution when the current function returns. The debugger skips through the current function."](https://docs.microsoft.com/en-us/visualstudio/debugger/navigating-through-code-with-the-debugger?view=vs-2022#BKMK_Step_over_Step_out)
 
-Step Into
-"The debugger steps through code statements, not physical lines."
-"But when you step into this line, the debugger treats the condition as one step and the consequence as another."
-"On a nested function call, Step Into steps into the most deeply nested function. For example, if you use Step Into on a call like Func1(Func2()), the debugger steps into the function Func2."
- 
+![image21](2022-04-02_00-27.png)
 
+Then ![image22](2022-04-01_21-30_3.png) Step Into:
 
+![image23](2022-04-02_00-31_1_0.png)
 
-Then  Step Into:
+Then ![image24](2022-04-01_21-31.png) Step Out :
 
+![image25](2022-04-02_00-32.png)
 
+## Breakpoints
 
- 
-
-Step Out
-"Step Out continues running code and suspends execution when the current function returns. The debugger skips through the current function."
-
- 
-
-Then  Step Into:
-
-
-
-Then  Step Out :
-
-
-
-Breakpoints
 Normal Breakpoints
 No breakpoint => No debugging. You need to set breakpoints. Thus the debugger know where you want it to stop and allow you to investigate the state of your program. 
 
