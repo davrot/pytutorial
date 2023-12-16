@@ -147,80 +147,38 @@ see [here](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.d
 
 |||
 |---|---|
-discriminant_analysis.LinearDiscriminantAnalysis([...])
-Linear Discriminant Analysis.
-
-discriminant_analysis.QuadraticDiscriminantAnalysis(*)
-Quadratic Discriminant Analysis.
-
+|discriminant_analysis.LinearDiscriminantAnalysis([...])|Linear Discriminant Analysis.|
+|discriminant_analysis.QuadraticDiscriminantAnalysis(*)|Quadratic Discriminant Analysis.|
 
 ## [sklearn.dummy: Dummy estimators](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.dummy)
 
 |||
 |---|---|
-dummy.DummyClassifier(*[, strategy, ...])
-DummyClassifier makes predictions that ignore the input features.
-
-dummy.DummyRegressor(*[, strategy, ...])
-Regressor that makes predictions using simple rules.
+|dummy.DummyClassifier(*[, strategy, ...])|DummyClassifier makes predictions that ignore the input features.|
+|dummy.DummyRegressor(*[, strategy, ...])|Regressor that makes predictions using simple rules.|
 
 ## [sklearn.ensemble: Ensemble Methods](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.ensemble)
 
 |||
 |---|---|
-ensemble.AdaBoostClassifier([estimator, ...])
-An AdaBoost classifier.
-
-ensemble.AdaBoostRegressor([estimator, ...])
-An AdaBoost regressor.
-
-ensemble.BaggingClassifier([estimator, ...])
-A Bagging classifier.
-
-ensemble.BaggingRegressor([estimator, ...])
-A Bagging regressor.
-
-ensemble.ExtraTreesClassifier([...])
-An extra-trees classifier.
-
-ensemble.ExtraTreesRegressor([n_estimators, ...])
-An extra-trees regressor.
-
-ensemble.GradientBoostingClassifier(*[, ...])
-Gradient Boosting for classification.
-
-ensemble.GradientBoostingRegressor(*[, ...])
-Gradient Boosting for regression.
-
-ensemble.IsolationForest(*[, n_estimators, ...])
-Isolation Forest Algorithm.
-
-ensemble.RandomForestClassifier([...])
-A random forest classifier.
-
-ensemble.RandomForestRegressor([...])
-A random forest regressor.
-
-ensemble.RandomTreesEmbedding([...])
-An ensemble of totally random trees.
-
-ensemble.StackingClassifier(estimators[, ...])
-Stack of estimators with a final classifier.
-
-ensemble.StackingRegressor(estimators[, ...])
-Stack of estimators with a final regressor.
-
-ensemble.VotingClassifier(estimators, *[, ...])
-Soft Voting/Majority Rule classifier for unfitted estimators.
-
-ensemble.VotingRegressor(estimators, *[, ...])
-Prediction voting regressor for unfitted estimators.
-
-ensemble.HistGradientBoostingRegressor([...])
-Histogram-based Gradient Boosting Regression Tree.
-
-ensemble.HistGradientBoostingClassifier([...])
-Histogram-based Gradient Boosting Classification Tree.
+|ensemble.AdaBoostClassifier([estimator, ...])|An AdaBoost classifier.|
+|ensemble.AdaBoostRegressor([estimator, ...])|An AdaBoost regressor.|
+|ensemble.BaggingClassifier([estimator, ...])|A Bagging classifier.|
+|ensemble.BaggingRegressor([estimator, ...])|A Bagging regressor.|
+|ensemble.ExtraTreesClassifier([...])|An extra-trees classifier.|
+|ensemble.ExtraTreesRegressor([n_estimators, ...])|An extra-trees regressor.|
+|ensemble.GradientBoostingClassifier(*[, ...])|Gradient Boosting for classification.|
+|ensemble.GradientBoostingRegressor(*[, ...])|Gradient Boosting for regression.|
+|ensemble.IsolationForest(*[, n_estimators, ...])|Isolation Forest Algorithm.|
+|ensemble.RandomForestClassifier([...])|A random forest classifier.|
+|ensemble.RandomForestRegressor([...])|A random forest regressor.|
+|ensemble.RandomTreesEmbedding([...])|An ensemble of totally random trees.|
+|ensemble.StackingClassifier(estimators[, ...])|Stack of estimators with a final classifier.|
+|ensemble.StackingRegressor(estimators[, ...])|Stack of estimators with a final regressor.|
+|ensemble.VotingClassifier(estimators, *[, ...])|Soft Voting/Majority Rule classifier for unfitted estimators.|
+|ensemble.VotingRegressor(estimators, *[, ...])|Prediction voting regressor for unfitted estimators.|
+|ensemble.HistGradientBoostingRegressor([...])|Histogram-based Gradient Boosting Regression Tree.|
+|ensemble.HistGradientBoostingClassifier([...])|Histogram-based Gradient Boosting Classification Tree.|
 
 ## [sklearn.exceptions: Exceptions and warnings](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.exceptions)
 
@@ -234,158 +192,75 @@ see [here](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.e
 
 |||
 |---|---|
-feature_extraction.DictVectorizer(*[, ...])
-Transforms lists of feature-value mappings to vectors.
-
-feature_extraction.FeatureHasher([...])
-Implements feature hashing, aka the hashing trick.
+|feature_extraction.DictVectorizer(*[, ...])|Transforms lists of feature-value mappings to vectors.|
+|feature_extraction.FeatureHasher([...])|Implements feature hashing, aka the hashing trick.|
 
 ### From images
 
 |||
 |---|---|
-feature_extraction.image.extract_patches_2d(...)
-Reshape a 2D image into a collection of patches.
-
-feature_extraction.image.grid_to_graph(n_x, n_y)
-Graph of the pixel-to-pixel connections.
-
-feature_extraction.image.img_to_graph(img, *)
-Graph of the pixel-to-pixel gradient connections.
-
-feature_extraction.image.reconstruct_from_patches_2d(...)
-Reconstruct the image from all of its patches.
-
-feature_extraction.image.PatchExtractor(*[, ...])
-Extracts patches from a collection of images.
+|feature_extraction.image.extract_patches_2d(...)|Reshape a 2D image into a collection of patches.|
+|feature_extraction.image.grid_to_graph(n_x, n_y)|Graph of the pixel-to-pixel connections.|
+|feature_extraction.image.img_to_graph(img, *)|Graph of the pixel-to-pixel gradient connections.|
+|feature_extraction.image.reconstruct_from_patches_2d(...)|Reconstruct the image from all of its patches.|
+|feature_extraction.image.PatchExtractor(*[, ...])|Extracts patches from a collection of images.|
 
 ### From text
 
 |||
 |---|---|
-feature_extraction.text.CountVectorizer(*[, ...])
-Convert a collection of text documents to a matrix of token counts.
-
-feature_extraction.text.HashingVectorizer(*)
-Convert a collection of text documents to a matrix of token occurrences.
-
-feature_extraction.text.TfidfTransformer(*)
-Transform a count matrix to a normalized tf or tf-idf representation.
-
-feature_extraction.text.TfidfVectorizer(*[, ...])
-Convert a collection of raw documents to a matrix of TF-IDF features.
+|feature_extraction.text.CountVectorizer(*[, ...])|Convert a collection of text documents to a matrix of token counts.|
+|feature_extraction.text.HashingVectorizer(*)|Convert a collection of text documents to a matrix of token occurrences.|
+|feature_extraction.text.TfidfTransformer(*)|Transform a count matrix to a normalized tf or tf-idf representation.|
+|feature_extraction.text.TfidfVectorizer(*[, ...])|Convert a collection of raw documents to a matrix of TF-IDF features.|
 
 ## [sklearn.feature_selection: Feature Selection](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_selection)
 
 |||
 |---|---|
-feature_selection.GenericUnivariateSelect([...])
-Univariate feature selector with configurable strategy.
-
-feature_selection.SelectPercentile([...])
-Select features according to a percentile of the highest scores.
-
-feature_selection.SelectKBest([score_func, k])
-Select features according to the k highest scores.
-
-feature_selection.SelectFpr([score_func, alpha])
-Filter: Select the pvalues below alpha based on a FPR test.
-
-feature_selection.SelectFdr([score_func, alpha])
-Filter: Select the p-values for an estimated false discovery rate.
-
-feature_selection.SelectFromModel(estimator, *)
-Meta-transformer for selecting features based on importance weights.
-
-feature_selection.SelectFwe([score_func, alpha])
-Filter: Select the p-values corresponding to Family-wise error rate.
-
-feature_selection.SequentialFeatureSelector(...)
-Transformer that performs Sequential Feature Selection.
-
-feature_selection.RFE(estimator, *[, ...])
-Feature ranking with recursive feature elimination.
-
-feature_selection.RFECV(estimator, *[, ...])
-Recursive feature elimination with cross-validation to select features.
-
-feature_selection.VarianceThreshold([threshold])
-Feature selector that removes all low-variance features.
-
-feature_selection.chi2(X, y)
-Compute chi-squared stats between each non-negative feature and class.
-
-feature_selection.f_classif(X, y)
-Compute the ANOVA F-value for the provided sample.
-
-feature_selection.f_regression(X, y, *[, ...])
-Univariate linear regression tests returning F-statistic and p-values.
-
-feature_selection.r_regression(X, y, *[, ...])
-Compute Pearson's r for each features and the target.
-
-feature_selection.mutual_info_classif(X, y, *)
-Estimate mutual information for a discrete target variable.
-
-feature_selection.mutual_info_regression(X, y, *)
-Estimate mutual information for a continuous target variable.
+|feature_selection.GenericUnivariateSelect([...])|Univariate feature selector with configurable strategy.|
+|feature_selection.SelectPercentile([...])|Select features according to a percentile of the highest scores.|
+|feature_selection.SelectKBest([score_func, k])|Select features according to the k highest scores.|
+|feature_selection.SelectFpr([score_func, alpha])|Filter: Select the pvalues below alpha based on a FPR test.|
+|feature_selection.SelectFdr([score_func, alpha])|Filter: Select the p-values for an estimated false discovery rate.|
+|feature_selection.SelectFromModel(estimator, *)|Meta-transformer for selecting features based on importance weights.|
+|feature_selection.SelectFwe([score_func, alpha])|Filter: Select the p-values corresponding to Family-wise error rate.|
+|feature_selection.SequentialFeatureSelector(...)|Transformer that performs Sequential Feature Selection.|
+|feature_selection.RFE(estimator, *[, ...])|Feature ranking with recursive feature elimination.|
+|feature_selection.RFECV(estimator, *[, ...])|Recursive feature elimination with cross-validation to select features.|
+|feature_selection.VarianceThreshold([threshold])|Feature selector that removes all low-variance features.|
+|feature_selection.chi2(X, y)|Compute chi-squared stats between each non-negative feature and class.|
+|feature_selection.f_classif(X, y)|Compute the ANOVA F-value for the provided sample.|
+|feature_selection.f_regression(X, y, *[, ...])|Univariate linear regression tests returning F-statistic and p-values.|
+|feature_selection.r_regression(X, y, *[, ...])|Compute Pearson's r for each features and the target.|
+|feature_selection.mutual_info_classif(X, y, *)|Estimate mutual information for a discrete target variable.|
+|feature_selection.mutual_info_regression(X, y, *)|Estimate mutual information for a continuous target variable.|
 
 ## [sklearn.gaussian_process: Gaussian Processes]()
 
 |||
 |---|---|
-gaussian_process.GaussianProcessClassifier([...])
-Gaussian process classification (GPC) based on Laplace approximation.
-
-gaussian_process.GaussianProcessRegressor([...])
-Gaussian process regression (GPR).
-
+|gaussian_process.GaussianProcessClassifier([...])|Gaussian process classification (GPC) based on Laplace approximation.|
+|gaussian_process.GaussianProcessRegressor([...])|Gaussian process regression (GPR).|
 
 ### Kernels
 
 |||
 |---|---|
-gaussian_process.kernels.CompoundKernel(kernels)
-Kernel which is composed of a set of other kernels.
-
-gaussian_process.kernels.ConstantKernel([...])
-Constant kernel.
-
-gaussian_process.kernels.DotProduct([...])
-Dot-Product kernel.
-
-gaussian_process.kernels.ExpSineSquared([...])
-Exp-Sine-Squared kernel (aka periodic kernel).
-
-gaussian_process.kernels.Exponentiation(...)
-The Exponentiation kernel takes one base kernel and a scalar parameter  and combines them via
-
-gaussian_process.kernels.Hyperparameter(...)
-A kernel hyperparameter's specification in form of a namedtuple.
-
-gaussian_process.kernels.Kernel()
-Base class for all kernels.
-
-gaussian_process.kernels.Matern([...])
-Matern kernel.
-
-gaussian_process.kernels.PairwiseKernel([...])
-Wrapper for kernels in sklearn.metrics.pairwise.
-
-gaussian_process.kernels.Product(k1, k2)
-The Product kernel takes two kernels k1 and k2 and combines them via
-
-gaussian_process.kernels.RBF([length_scale, ...])
-Radial basis function kernel (aka squared-exponential kernel).
-
-gaussian_process.kernels.RationalQuadratic([...])
-Rational Quadratic kernel.
-
-gaussian_process.kernels.Sum(k1, k2)
-The Sum kernel takes two kernels k1 and k2 and combines them via
-
-gaussian_process.kernels.WhiteKernel([...])
-White kernel.
+|gaussian_process.kernels.CompoundKernel(kernels)|Kernel which is composed of a set of other kernels.|
+|gaussian_process.kernels.ConstantKernel([...])|Constant kernel.|
+|gaussian_process.kernels.DotProduct([...])|Dot-Product kernel.|
+|gaussian_process.kernels.ExpSineSquared([...])|Exp-Sine-Squared kernel (aka periodic kernel).|
+|gaussian_process.kernels.Exponentiation(...)|The Exponentiation kernel takes one base kernel and a scalar parameter  and combines them via|
+|gaussian_process.kernels.Hyperparameter(...)|A kernel hyperparameter's specification in form of a namedtuple.|
+|gaussian_process.kernels.Kernel()|Base class for all kernels.|
+|gaussian_process.kernels.Matern([...])|Matern kernel.|
+|gaussian_process.kernels.PairwiseKernel([...])|Wrapper for kernels in sklearn.metrics.pairwise.|
+|gaussian_process.kernels.Product(k1, k2)|The Product kernel takes two kernels k1 and k2 and combines them via|
+|gaussian_process.kernels.RBF([length_scale, ...])|Radial basis function kernel (aka squared-exponential kernel).|
+|gaussian_process.kernels.RationalQuadratic([...])|Rational Quadratic kernel.|
+|gaussian_process.kernels.Sum(k1, k2)|The Sum kernel takes two kernels k1 and k2 and combines them via|
+|gaussian_process.kernels.WhiteKernel([...])|White kernel.|
 
 ## [sklearn.impute: Impute](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.impute)
 
