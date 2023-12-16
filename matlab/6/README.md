@@ -161,6 +161,7 @@ Transposing a matrix $C^t_{kl} = C_{lk}$ is done by
 ||||
 |---|---|---|
 |`K = C';`	|gives	|$K = \left(\begin{array}{ccc}1 & 0\\1 & 1\\\end{array}\right)$|
+
 The function `transpose(C)` can be utilized alternatively.
 
 Inverting a matrix is accomplished by
@@ -168,6 +169,7 @@ Inverting a matrix is accomplished by
 ||||
 |---|---|---|
 |`M = D^-1;`	|gives	|$M = \left(\begin{array}{ccc}-0.2 & 0.4\\0.6 & -0.2\\\end{array}\right)\\$|
+
 resp. `M = inv(D);`. Assuming a system of equations
 
 $D\,\vec{x} = \vec{b}$ and the vector $\vec{b}$ with
