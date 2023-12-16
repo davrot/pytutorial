@@ -1,8 +1,25 @@
+# Data augmentation
+{:.no_toc}
 
+<nav markdown="1" class="toc-class">
+* TOC
+{:toc}
+</nav>
+
+## The goal
+
+What is available as data augmentation methods in torchvision?
+
+Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 Initial Image: 
 
 ![Initial Image](data_augmentation_test_image.jpg)
+Photo by Udo Ernst
+
+## Loading an example image (with opencv2)
+
+Load it via [cv2.imread( filename[, flags]) -> retval](https://docs.opencv.org/4.5.3/d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56)
 
 ```python
 import cv2
@@ -18,6 +35,7 @@ plt.show()
 
 ![image0](image0.png)
 
+As you can see (not very well I might add) is that the color channels are wrong. But may be we want no color anyway ( options can be found [here](https://docs.opencv.org/4.5.3/d8/d6a/group__imgcodecs__flags.html#ga61d9b0126a3e57d9277ac48327799c80) ):
 
 ```python
 original_image = cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
@@ -41,7 +59,11 @@ plt.imshow(original_image)
 plt.show()
 ```
 
+## Torchvision: A selection of transformations
+
 ### Into PyTorch
+
+First we need to convert the np.ndarray into a suitable torch tensor
 
 ![image2](image2.png)
 
@@ -54,7 +76,12 @@ torch_image = torch.tensor(
 print(torch_image.shape) # -> torch.Size([3, 1200, 1600])
 ```
 
-### Pad 
+Note: For the following random opertions, we can control the random seed of torch via [torch.manual_seed(seed)](https://pytorch.org/docs/stable/generated/torch.manual_seed.html).
+
+
+Some example transformations from [torchvision](https://pytorch.org/vision/stable/transforms.html):
+
+### [torchvision.transforms.Pad(padding, fill=0, padding_mode='constant') ](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.Pad)
 
 ```python
 import torchvision as tv
@@ -68,7 +95,17 @@ plt.show()
 ![image3](image3.png)
 
 
-### Resize
+### [torchvision.transforms.RandomHorizontalFlip(p=0.5)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomHorizontalFlip)
+
+Horizontally flip the given image randomly with a given probability. 
+
+### [torchvision.transforms.RandomVerticalFlip(p=0.5)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomVerticalFlip)
+
+Vertically flip the given image randomly with a given probability.
+
+### [torchvision.transforms.Resize(size, interpolation=<InterpolationMode.BILINEAR: 'bilinear'>, max_size=None, antialias=None)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.Pad)
+
+The Resize transform resizes an image.
 
 ```python
 resize_transform = tv.transforms.Resize(size=(50, 100))
@@ -79,7 +116,9 @@ plt.show()
 
 ![image4](image4.png)
 
-### CenterCrop
+### [torchvision.transforms.CenterCrop(size)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.CenterCrop)
+
+The CenterCrop transform crops the given image at the center.
 
 ```python
 center_crop_transform = tv.transforms.CenterCrop(size=(250, 200))
@@ -90,7 +129,9 @@ plt.show()
 
 ![image5](image5.png)
 
-### FiveCrop
+### [torchvision.transforms.FiveCrop(size)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.FiveCrop)
+
+The FiveCrop transform crops the given image into four corners and the central crop.
 
 ```python
 position = (1, 3, 7, 9, 5)
@@ -106,8 +147,12 @@ plt.show()
 
 ![image6](image6.png)
 
+### [torchvision.transforms.TenCrop(size, vertical_flip=False)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.Scale)
 
-### Grayscale
+Crop the given image into four corners and the central crop plus the flipped version of these (horizontal flipping is used by default). 
+
+### [torchvision.transforms.Grayscale(num_output_channels=1)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.Grayscale)
+The Grayscale transform converts an image to grayscale.
 
 ```python
 gray_transform = tv.transforms.Grayscale()
@@ -119,7 +164,36 @@ plt.show()
 ![image7](image7.png)
 
 
-### ColorJitter
+### [torchvision.transforms.RandomGrayscale(p=0.1)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomGrayscale)
+
+Randomly convert image to grayscale with a probability of p (default 0.1).
+
+### [torchvision.transforms.RandomInvert(p=0.5)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomInvert)
+
+Inverts the colors of the given image randomly with a given probability. 
+
+```python
+random_invert_transform = tv.transforms.RandomInvert(p=0.5)
+for i in range(1, 3):
+    new_image = random_invert_transform(torch_image)
+    plt.subplot(2, 1, i)
+    plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
+plt.show()
+```
+
+![image14](image14.png)
+
+### [torchvision.transforms.Normalize(mean, std, inplace=False)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.Normalize)
+
+Normalize a tensor image with mean and standard deviation. 
+
+### [torchvision.transforms.RandomEqualize(p=0.5)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomEqualize)
+
+Equalize the histogram of the given image randomly with a given probability. 
+
+### [torchvision.transforms.ColorJitter(brightness=0, contrast=0, saturation=0, hue=0)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.ColorJitter)
+
+The ColorJitter transform randomly changes the brightness, saturation, and other properties of an image.
 
 ```python
 color_jitter_transform = tv.transforms.ColorJitter(brightness=0.75, hue=0.5)
@@ -133,7 +207,11 @@ plt.show()
 ![image8](image8.png)
 
 
-### Gaussian Blur
+### [torchvision.transforms.GaussianBlur(kernel_size, sigma=(0.1, 2.0))](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.GaussianBlur)
+
+The GaussianBlur transform performs gaussian blur transform on an image.
+
+Note: Big kernel sizes are slow.  (51,51) is rather big. Kernel size needs to be odd and positive. 
 
 ```python
 gauss_transform = tv.transforms.GaussianBlur(kernel_size=(101, 101), sigma=(0.1, 10))
@@ -144,7 +222,9 @@ plt.show()
 
 ![image9](image9.png)
 
-### Random Perspective
+### [torchvision.transforms.RandomPerspective(distortion_scale=0.5, p=0.5, interpolation=<InterpolationMode.BILINEAR: 'bilinear'>, fill=0)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomPerspective)
+
+The RandomPerspective transform performs random perspective transform on an image.
 
 ```python
 random_perspective_transform = tv.transforms.RandomPerspective(
@@ -159,7 +239,10 @@ plt.show()
 
 ![image10](image10.png)
 
-### Random Rotation
+### [torchvision.transforms.RandomRotation(degrees, interpolation=<InterpolationMode.NEAREST: 'nearest'>, expand=False, center=None, fill=0, resample=None)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomRotation)
+
+The RandomRotation transform rotates an image with random angle.
+
 ```python
 random_rotation_transform = tv.transforms.RandomRotation(degrees=(0, 180))
 for i in range(1, 10):
@@ -171,7 +254,9 @@ plt.show()
 
 ![image11](image11.png)
 
-### Random Affine
+### [torchvision.transforms.RandomAffine(degrees, translate=None, scale=None, shear=None, interpolation=<InterpolationMode.NEAREST: 'nearest'>, fill=0, fillcolor=None, resample=None)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomAffine)
+
+The RandomAffine transform performs random affine transform on an image.
 
 ```python
 random_affine_transform = tv.transforms.RandomAffine(degrees=(0, 180))
@@ -184,7 +269,9 @@ plt.show()
 
 ![image12](image12.png)
 
-### Random Crop
+### [torchvision.transforms.RandomCrop(size, padding=None, pad_if_needed=False, fill=0, padding_mode='constant')](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomCrop)
+
+The RandomCrop transform crops an image at a random location.
 
 ```python
 random_crop_transform = tv.transforms.RandomCrop(size=(250, 200))
@@ -197,19 +284,13 @@ plt.show()
 
 ![image13](image13.png)
 
-### Random Invert
-```python
-random_invert_transform = tv.transforms.RandomInvert(p=0.5)
-for i in range(1, 3):
-    new_image = random_invert_transform(torch_image)
-    plt.subplot(2, 1, i)
-    plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
-plt.show()
-```
+### [torchvision.transforms.RandomResizedCrop(size, scale=(0.08, 1.0), ratio=(0.75, 1.3333333333333333), interpolation=<InterpolationMode.BILINEAR: 'bilinear'>)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomResizedCrop)
 
-![image14](image14.png)
+The RandomResizedCrop transform crops an image at a random location, and then resizes the crop to a given size.
 
-### Random Posterize
+### [torchvision.transforms.RandomPosterize(bits, p=0.5)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomPosterize)
+
+Posterize the image randomly with a given probability by reducing the number of bits for each color channel. 
 
 ```python
 for i in range(1, 5):
@@ -223,7 +304,9 @@ plt.show()
 ![image15](image15.png)
 
 
-### Random Solarize
+### [torchvision.transforms.RandomSolarize(threshold, p=0.5)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomSolarize)
+
+Solarize the image randomly with a given probability by inverting all pixel values above a threshold.
 
 ```python
 random_solarize_transform = tv.transforms.RandomSolarize(threshold=0.5)
@@ -235,7 +318,9 @@ plt.show()
 ![image16](image16.png)
 
 
-### Random Adjust Sharpness
+### [torchvision.transforms.RandomAdjustSharpness(sharpness_factor, p=0.5)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomAdjustSharpness)
+
+Adjust the sharpness of the image randomly with a given probability.
 
 ```python
 random_sharpness_transform = tv.transforms.RandomAdjustSharpness(
@@ -251,7 +336,11 @@ plt.show()
 
 ![image17](image17.png)
 
-### Random Autocontrast
+### [torchvision.transforms.RandomAutocontrast(p=0.5)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomAutocontrast)
+
+Autocontrast the pixels of the given image randomly with a given probability. 
+
+I don't see any effect. 
 
 ```python
 random_autocontrast_transform = tv.transforms.RandomAutocontrast(p=1.0)
@@ -266,7 +355,8 @@ plt.show()
 
 ![image18](image18.png)
 
-### Random Erasing
+### [torchvision.transforms.RandomErasing(p=0.5, scale=(0.02, 0.33), ratio=(0.3, 3.3), value=0, inplace=False)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomErasing)
+Randomly selects a rectangle region in an torch Tensor image and erases its pixels.
 
 ```python
 random_erasing_transform = tv.transforms.RandomErasing(p=1.0)
@@ -278,7 +368,15 @@ plt.show()
 
 ![image19](image19.png)
 
-### Auto Augment
+## Predefined processing chains
+
+[torchvision.transforms.AutoAugment(policy: torchvision.transforms.autoaugment.AutoAugmentPolicy = <AutoAugmentPolicy.IMAGENET: 'imagenet'>, interpolation: torchvision.transforms.functional.InterpolationMode = <InterpolationMode.NEAREST: 'nearest'>, fill: Optional[List[float]] = None)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.AutoAugment)
+
+AutoAugment data augmentation method based on [“AutoAugment: Learning Augmentation Strategies from Data”](https://arxiv.org/pdf/1805.09501.pdf).
+
+[torchvision.transforms.AutoAugmentPolicy(value)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.AutoAugmentPolicy)
+
+AutoAugment policies learned on different datasets. Available policies are IMAGENET, CIFAR10 and SVHN.
 
 #### CIFAR10
 
@@ -322,7 +420,10 @@ plt.show()
 
 ![image22](image22.png)
 
-## Sequential
+## Building custom processing chains
+
+### [torch.nn.Sequential(*args)](https://pytorch.org/docs/stable/generated/torch.nn.Sequential.html#torch.nn.Sequential)
+A sequential container. Modules will be added to it in the order they are passed in the constructor. 
 
 ```python
 sequential_transform = torch.nn.Sequential(
@@ -334,9 +435,17 @@ plt.imshow(np.moveaxis(new_image.detach().numpy(), 0, 2))
 plt.show()
 ```
 
+Depending on the transformation used, I can be possible to just-in-time (jit) compile it. 
+
+```python
+sequential_transform_jit = torch.jit.script(sequential_transform)
+```
+
 ![image23](image23.png)
 
-## Compose
+### [torchvision.transforms.Compose(transforms)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.Compose)
+
+Composes several transforms together. **This transform does not support torchscript.** 
 
 ```python
 compose_transform = tv.transforms.Compose(
@@ -352,7 +461,13 @@ plt.show()
 
 ![image24](image24.png)
 
-# Random Apply
+
+
+### [torchvision.transforms.RandomApply(transforms, p=0.5)](https://pytorch.org/vision/stable/transforms.html#torchvision.transforms.RandomApply)
+
+Apply randomly a list of transformations with a given probability.
+
+**Note: It randomly applies the whole list of transformation or none. **
 
 ```python
 randomapply_transform = tv.transforms.RandomApply(
