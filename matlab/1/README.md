@@ -6,7 +6,10 @@
 {:toc}
 </nav>
 
-By Jan Wiersig, modified by Udo Ernst and translated into English by Daniel Harnack.
+
+Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
+
+*By Jan Wiersig, modified by Udo Ernst and translated into English by Daniel Harnack.*
 
 ## Hardware Architecture
 The nowadays generally applied principle, termed **Von-Neumann-architecture** following its first description by John von Neumann in 1946, defines the main components of a computer, which are illustrated in figure 1.1.
