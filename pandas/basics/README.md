@@ -141,6 +141,63 @@ RangeIndex(start=0, stop=3, step=1)
 ['Bambu' 'Tree' 'Sleep']
 ```
 
+More complex indexing and re-indexing is possible:​
+
+```python
+import pandas as pd
+
+index_1 = pd.Series(["Food", "HappyPlace", "Favorite"])
+data_1 = pd.Series(["Bambu", "Tree", "Sleep"], index=index_1)
+print(data_1)
+print()
+
+index_2 = pd.Series(["Food", "ShoeSize", "Favorite"])
+data_2 = pd.Series(data_1, index=index_2)
+
+print(data_2)
+```
+
+Output:
+```python
+Food          Bambu
+HappyPlace     Tree
+Favorite      Sleep
+dtype: object
+
+Food        Bambu
+ShoeSize      NaN
+Favorite    Sleep
+dtype: object
+```
+
+## [pandas.Series.iloc](https://pandas.pydata.org/docs/reference/api/pandas.Series.iloc.html)
+
+```python
+property Series.iloc
+```
+
+> Purely integer-location based indexing for selection by position.
+> 
+> .iloc[] is primarily integer position based (from 0 to length-1 of the axis), but may also be used with a boolean array.
+> .iloc will raise IndexError if a requested indexer is out-of-bounds, except slice indexers which allow out-of-bounds indexing (this conforms with python/numpy slice semantics).
+> * An integer, e.g. 5.
+> * A list or array of integers, e.g. [4, 3, 0].
+> * A slice object with ints, e.g. 1:7.
+> * A boolean array.
+> * A callable function with one argument (the calling Series or DataFrame) and that returns valid output for indexing (one of the above). This is useful in method chains, when you don’t have a reference to the calling object, but would like to base your selection on some value.
+> * A tuple of row and column indexes. The tuple elements consist of one of the above inputs, e.g. (0, 1).
+
+```python
+import pandas as pd
+
+index_1 = pd.Series(["Food", "HappyPlace", "Favorite"])
+data_1 = pd.Series(["Bambu", "Tree", "Sleep"], index=index_1)
+print(data_1.iloc[0])
+print(data_1["Food"])
+```
+
+
+
 ## [DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame)
 
 ```python
