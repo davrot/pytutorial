@@ -24,7 +24,7 @@ from dataclasses import dataclass
 
 @dataclass
 class TestClass:
-    a
+    a # -> NameError: name 'a' is not defined
     b
 ```
 
@@ -45,9 +45,7 @@ class TestClass:
     b: str
 ```
 
-No error:
-
-![image1](2022-04-02_20-36.png)
+No error!!!
 
 
 ## What is a dataclass?
