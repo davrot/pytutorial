@@ -820,6 +820,97 @@ New_Data = Data.set_index("ColumnName1")
 Data.set_index("ColumnName1", inplace=True)​
 ```
 
+### [property DataFrame.loc](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html), [property DataFrame.iloc](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html), [pandas.DataFrame.sum](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sum.html), and [pandas.DataFrame.cumsum](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.cumsum.html)
+
+
+```python
+property DataFrame.loc
+```
+
+> Access a group of rows and columns by label(s) or a boolean array.
+> .loc[] is primarily label based, but may also be used with a boolean array.
+> 
+> Allowed inputs are:
+> 
+> * A single label, e.g. 5 or 'a', (note that 5 is interpreted as a label of the index, and never as an integer position along the index).
+> * A list or array of labels, e.g. ['a', 'b', 'c'].
+> * A slice object with labels, e.g. 'a':'f'.
+> * A boolean array of the same length as the axis being sliced, e.g. [True, False, True].
+> * An alignable boolean Series. The index of the key will be aligned before masking.
+> * An alignable Index. The Index of the returned selection will be the input.
+> * A callable function with one argument (the calling Series or DataFrame) and that returns valid output for indexing (one of the above)
+
+```python
+property DataFrame.iloc
+```
+
+> Purely integer-location based indexing for selection by position.
+> 
+> .iloc[] is primarily integer position based (from 0 to length-1 of the axis), but may also be used with a boolean array.
+> 
+> Allowed inputs are:
+> * An integer, e.g. 5.
+> * A list or array of integers, e.g. [4, 3, 0].
+> * A slice object with ints, e.g. 1:7.
+> * A boolean array.
+> * A callable function with one argument (the calling Series or DataFrame) and that returns valid output for indexing (one of the above). This is useful in method chains, when you don’t have a reference to the calling object, but would like to base your selection on some value.
+> * A tuple of row and column indexes. The tuple elements consist of one of the above inputs, e.g. (0, 1).
+>
+> .iloc will raise IndexError if a requested indexer is out-of-bounds, except slice indexers which allow out-of-bounds indexing (this conforms with python/numpy slice semantics).
+
+```python
+DataFrame.sum(axis=0, skipna=True, numeric_only=False, min_count=0, **kwargs)
+```
+
+> Return the sum of the values over the requested axis.
+> 
+> This is equivalent to the method numpy.sum.
+
+```python
+DataFrame.cumsum(axis=None, skipna=True, *args, **kwargs)
+```
+
+> Return cumulative sum over a DataFrame or Series axis.
+> 
+> Returns a DataFrame or Series of the same size containing the cumulative sum.
+
+**[Here](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) you will find many more methods and math functions.**
+
+### Other functions
+
+Sort:​
+
+```python
+New_Data = Data.sort_values(by="ColumnName", ascending=False)​
+```
+
+Give me the first or last 5 rows:​
+
+```python
+Data.head()​
+Data.tail()​
+```
+
+Insert column:​
+
+```python
+Data.insert(loc = 1, column = 'NewColumnName', value = NewColumnData)​
+```
+NewColumnData is e.g. a pandas.Series.
+
+
+Transpose matrix:​
+
+```python
+Data_Tranposed = Data.T​
+```
+
+Nesty structures:​
+
+You can create nested structures...​ But do you really want to? 
+
+
+
 ## Saving (pandas.DataFrame.to_pickle) / loading (pandas.read_pickle) data ‘natively’​ 
 
 Save: 
