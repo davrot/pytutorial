@@ -730,6 +730,59 @@ E    0.546581
 Name: Beta, dtype: float64
 ```
 
+### Naming the series beforehand
+
+```python
+import pandas as pd
+import numpy as np
+
+index = pd.Series(["A", "B", "C", "D", "E"])
+
+rng = np.random.default_rng()
+
+np_data_1 = rng.random((5))
+data_1 = pd.Series(np_data_1, index=index)
+
+np_data_2 = rng.random((5))
+data_2 = pd.Series(np_data_2, index=index)
+
+data_1.name = "Alpha"
+data_2.name = "Beta"
+
+data_3 = pd.concat([data_1, data_2], axis=1)
+
+print(data_3)
+print()
+print(data_3.Alpha)
+print()
+print(data_3["Alpha"])
+```
+
+Output
+
+```python
+      Alpha      Beta
+A  0.364595  0.975976
+B  0.087011  0.019219
+C  0.673742  0.668080
+D  0.416863  0.665931
+E  0.243193  0.221337
+
+A    0.364595
+B    0.087011
+C    0.673742
+D    0.416863
+E    0.243193
+Name: Alpha, dtype: float64
+
+A    0.364595
+B    0.087011
+C    0.673742
+D    0.416863
+E    0.243193
+Name: Alpha, dtype: float64
+```
+
 ## Saving (pandas.DataFrame.to_pickle) / loading (pandas.read_pickle) data ‘natively’​ 
 
 Save: 
