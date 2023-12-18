@@ -80,9 +80,16 @@ Important VS Code notes:
 * [Simple plot and imshow examples](matplotlib/basics/README.md)
 * [Overview of the available functions](matplotlib/overview/README.md)
 
+## Pandas 
+* [Basics](pandas/basics/README.md)
+
+
 ## Numpy
 * [Beyond normal np.save](numpy_save_special/README.md)
 * [Dealing with Matlab files](numpy_mat_files/README.md)
+
+
+
 
 ## Sci-kit Learn 
 * [Overview](scikit-learn/overview/README.md)
