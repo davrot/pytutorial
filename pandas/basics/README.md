@@ -324,7 +324,7 @@ H          NaN
 dtype: float64
 ```
 
-#### Example: Applying numpy functions ([pandas.Series.apply](https://pandas.pydata.org/docs/reference/api/pandas.Series.apply.html))
+#### Example: Applying functions ([pandas.Series.apply](https://pandas.pydata.org/docs/reference/api/pandas.Series.apply.html))
 
 ```python
 Series.apply(func, convert_dtype=_NoDefault.no_default, args=(), *, by_row='compat', **kwargs)
@@ -382,6 +382,89 @@ B    0.000000
 C    0.511411
 D    0.858326
 E    0.000000
+dtype: float64
+```
+
+## [pandas.Series.isnull](https://pandas.pydata.org/docs/reference/api/pandas.Series.isnull.html)
+
+**Note: A value set to NONE will lead to a NaN.​**
+
+```python
+Series.isnull()
+```
+
+> Series.isnull is an alias for Series.isna.
+>
+> Detect missing values.
+>
+> Return a boolean same-sized object indicating if the values are NA. NA values, such as None or numpy.NaN, gets mapped to True values. Everything else gets mapped to False values. Characters such as empty strings '' or numpy.inf are not considered NA values (unless you set pandas.options.mode.use_inf_as_na = True).
+
+```python
+Series.notna()
+```
+> Detect existing (non-missing) values.
+> 
+> Return a boolean same-sized object indicating if the values are not NA. Non-missing values get mapped to True. Characters such as empty strings '' or numpy.inf are not considered NA values (unless you set pandas.options.mode.use_inf_as_na = True). NA values, such as None or numpy.NaN, get mapped to False values.
+
+
+```python
+import pandas as pd
+import numpy as np
+
+index_1 = pd.Series(["A", "B", "C", "D", "E"])
+rng = np.random.default_rng()
+np_data_1 = rng.random((5))
+data_1 = pd.Series(np_data_1, index=index_1)
+
+index_2 = pd.Series(["D", "E", "F", "G", "H"])
+rng = np.random.default_rng()
+np_data_2 = rng.random((5))
+data_2 = pd.Series(np_data_2, index=index_2)
+
+data_3 = data_1 + data_2
+
+print(data_3)
+print()
+print(data_3.isnull())
+print()
+print(data_3[data_3.isnull()])
+print()
+print(data_3[data_3.notna()])
+```
+
+Output 
+
+```python
+A         NaN
+B         NaN
+C         NaN
+D    1.142000
+E    1.620137
+F         NaN
+G         NaN
+H         NaN
+dtype: float64
+
+A     True
+B     True
+C     True
+D    False
+E    False
+F     True
+G     True
+H     True
+dtype: bool
+
+A   NaN
+B   NaN
+C   NaN
+F   NaN
+G   NaN
+H   NaN
+dtype: float64
+
+D    1.142000
+E    1.620137
 dtype: float64
 ```
 
