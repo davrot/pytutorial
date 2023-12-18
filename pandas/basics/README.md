@@ -8,7 +8,7 @@
 
 ## The goal
 
-
+Pandas can be e.g. used for handling meta data from experiments. It is a kind of SQL / Excel extension for Python. 
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
