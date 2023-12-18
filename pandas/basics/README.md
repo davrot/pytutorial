@@ -385,7 +385,7 @@ E    0.000000
 dtype: float64
 ```
 
-## [pandas.Series.isnull](https://pandas.pydata.org/docs/reference/api/pandas.Series.isnull.html)
+## [pandas.Series.isnull](https://pandas.pydata.org/docs/reference/api/pandas.Series.isnull.html) and [pandas.Series.notnull](https://pandas.pydata.org/docs/reference/api/pandas.Series.notnull.html)
 
 **Note: A value set to NONE will lead to a NaN.​**
 
@@ -400,8 +400,10 @@ Series.isnull()
 > Return a boolean same-sized object indicating if the values are NA. NA values, such as None or numpy.NaN, gets mapped to True values. Everything else gets mapped to False values. Characters such as empty strings '' or numpy.inf are not considered NA values (unless you set pandas.options.mode.use_inf_as_na = True).
 
 ```python
-Series.notna()
+Series.notnull()
 ```
+> Series.notnull is an alias for Series.notna.
+> 
 > Detect existing (non-missing) values.
 > 
 > Return a boolean same-sized object indicating if the values are not NA. Non-missing values get mapped to True. Characters such as empty strings '' or numpy.inf are not considered NA values (unless you set pandas.options.mode.use_inf_as_na = True). NA values, such as None or numpy.NaN, get mapped to False values.
@@ -429,7 +431,9 @@ print(data_3.isnull())
 print()
 print(data_3[data_3.isnull()])
 print()
-print(data_3[data_3.notna()])
+print(data_3.notnull())
+print()
+print(data_3[data_3.notnull()])
 ```
 
 Output 
@@ -438,8 +442,8 @@ Output
 A         NaN
 B         NaN
 C         NaN
-D    1.142000
-E    1.620137
+D    0.970744
+E    0.425544
 F         NaN
 G         NaN
 H         NaN
@@ -463,8 +467,18 @@ G   NaN
 H   NaN
 dtype: float64
 
-D    1.142000
-E    1.620137
+A    False
+B    False
+C    False
+D     True
+E     True
+F    False
+G    False
+H    False
+dtype: bool
+
+D    0.970744
+E    0.425544
 dtype: float64
 ```
 
