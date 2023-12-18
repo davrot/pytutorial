@@ -783,6 +783,43 @@ E    0.243193
 Name: Alpha, dtype: float64
 ```
 
+### Order
+
+Replace the index:​
+
+```python
+New_Data = pandas.DataFrame(Data, index=New_Index)​
+```
+
+Reorder the columns:​
+
+```python
+New_Data = pandas.DataFrame(Data, ​columns = ["ColumnName2", “ColumnName3", "ColumnName1"])​
+```
+
+Reorder index and columns:
+
+```python
+New_Data = Data.reindex(index=[0, 2, 4, 6,  8, 10, 12, 1, 3, 5, 7, 9, 11], ​columns=['ColumnName2', 'ColumnName3', 'ColumnName1'])​
+```
+
+Reorder index and columns but inplace (i.e. no new variable):​
+
+```python
+Data.reindex(index=[0, 2, 4, 6,  8, 10, 12, 1, 3, 5, 7, 9, 11], columns=['ColumnName2', 'ColumnName3', 'ColumnName1'],​ inplace=True)​
+```
+
+More index shenanigans:
+
+```python
+New_Data = pandas.DataFrame(Data, ​columns = ["ColumnName2", “ColumnName3"], ​index=Data["ColumnName1"])
+New_Data = Data.set_index("ColumnName1")
+```
+
+```python
+Data.set_index("ColumnName1", inplace=True)​
+```
+
 ## Saving (pandas.DataFrame.to_pickle) / loading (pandas.read_pickle) data ‘natively’​ 
 
 Save: 
