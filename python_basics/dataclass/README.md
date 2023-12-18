@@ -16,7 +16,7 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 This is the first construct in Python that requires type annotation. 
 
-If we do this:
+If we do this, we get this nice error! 
 
 ```python
 from dataclasses import dataclass
@@ -27,10 +27,6 @@ class TestClass:
     a # -> NameError: name 'a' is not defined
     b
 ```
-
-We get this nice error: 
-
-![image0](2022-04-02_20-34_0.png)
 
 
 With type annotations:
