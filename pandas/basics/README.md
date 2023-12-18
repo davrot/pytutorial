@@ -561,6 +561,96 @@ H    3.300000
 dtype: float64
 ```
 
+### [pandas.concat](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.concat.html) and [pandas.Series.sort_index](https://pandas.pydata.org/docs/reference/api/pandas.Series.sort_index.html) and [pandas.Series.sort_values](https://pandas.pydata.org/docs/reference/api/pandas.Series.sort_values.html)
+
+```python
+pandas.concat(objs, *, axis=0, join='outer', ignore_index=False, keys=None, levels=None, names=None, verify_integrity=False, sort=False, copy=None)
+```
+
+> Concatenate pandas objects along a particular axis.
+> 
+> Allows optional set logic along the other axes.
+>
+> Can also add a layer of hierarchical indexing on the concatenation axis, which may be useful if the labels are the same (or overlapping) on the passed axis number.
+
+```python
+Series.sort_index(*, axis=0, level=None, ascending=True, inplace=False, kind='quicksort', na_position='last', sort_remaining=True, ignore_index=False, key=None)
+```
+
+> Sort Series by index labels.
+> 
+> Returns a new Series sorted by label if inplace argument is False, otherwise updates the original series and returns None.
+
+```python
+Series.sort_values(*, axis=0, ascending=True, inplace=False, kind='quicksort', na_position='last', ignore_index=False, key=None)
+```
+> Sort by the values.
+> 
+> Sort a Series in ascending or descending order by some criterion.
+
+
+```python
+import pandas as pd
+import numpy as np
+
+index_1 = pd.Series(["A", "B", "C", "D", "E"])
+rng = np.random.default_rng()
+np_data_1 = rng.random((5))
+data_1 = pd.Series(np_data_1, index=index_1)
+
+index_2 = pd.Series(["D", "E", "F", "G", "H"])
+rng = np.random.default_rng()
+np_data_2 = rng.random((5))
+data_2 = pd.Series(np_data_2, index=index_2)
+
+data_3 = pd.concat([data_1, data_2])
+print(data_3)
+print()
+print(data_3.sort_index())
+print()
+print(data_3.sort_values())
+print()
+```
+
+Output:
+
+```python
+A    0.480872
+B    0.830495
+C    0.420633
+D    0.824773
+E    0.580569
+D    0.224508
+E    0.250787
+F    0.056334
+G    0.880224
+H    0.552785
+dtype: float64
+
+A    0.480872
+B    0.830495
+C    0.420633
+D    0.824773
+D    0.224508
+E    0.580569
+E    0.250787
+F    0.056334
+G    0.880224
+H    0.552785
+dtype: float64
+
+F    0.056334
+D    0.224508
+E    0.250787
+C    0.420633
+A    0.480872
+H    0.552785
+E    0.580569
+D    0.824773
+B    0.830495
+G    0.880224
+dtype: float64
+```
 
 ## [DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame)
 
@@ -572,18 +662,6 @@ class pandas.DataFrame(data=None, index=None, columns=None, dtype=None, copy=Non
 > 
 > Data structure also contains labeled axes (rows and columns). Arithmetic operations align on both row and column labels. Can be thought of as a dict-like container for Series objects. The primary pandas data structure.
 
-
-## [pandas.concat](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.concat.html)
-
-```python
-pandas.concat(objs, *, axis=0, join='outer', ignore_index=False, keys=None, levels=None, names=None, verify_integrity=False, sort=False, copy=None)
-```
-
-> Concatenate pandas objects along a particular axis.
-> 
-> Allows optional set logic along the other axes.
->
-> Can also add a layer of hierarchical indexing on the concatenation axis, which may be useful if the labels are the same (or overlapping) on the passed axis number.
 
 ## Saving (pandas.DataFrame.to_pickle) / loading (pandas.read_pickle) data ‘natively’​ 
 
