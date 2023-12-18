@@ -196,7 +196,29 @@ print(data_1.iloc[0])
 print(data_1["Food"])
 ```
 
+### Converting a dictionary
+
+```python
+import pandas as pd
+
+data_1 = pd.Series({"A": 34, "B": 54, "C": "Blub"})
+print(data_1)
+```
+
+Output:
+
+```python
+A      34
+B      54
+C    Blub
+dtype: object
+```
+
+
+
 ### Operations on Series
+
+#### Example: Math on one series
 
 ```python
 import pandas as pd
@@ -237,6 +259,130 @@ C    0.524829
 dtype: float64
 
 1.9543834923707668
+```
+
+#### Example: Math with two series
+
+```python
+import pandas as pd
+import numpy as np
+
+index_1 = pd.Series(["A", "B", "C", "D", "E"])
+rng = np.random.default_rng()
+np_data_1 = rng.random((5))
+data_1 = pd.Series(np_data_1, index=index_1)
+
+index_2 = pd.Series(["D", "E", "F", "G", "H"])
+rng = np.random.default_rng()
+np_data_2 = rng.random((5))
+data_2 = pd.Series(np_data_2, index=index_2)
+
+
+print(data_1)
+print()
+print(data_2)
+print()
+print((data_1 + data_2))
+print()
+print((data_1 + data_2) * 3 + 10)
+```
+
+Output:
+```python
+A    0.702998
+B    0.032210
+C    0.534611
+D    0.839864
+E    0.118698
+dtype: float64
+
+D    0.321691
+E    0.024475
+F    0.168798
+G    0.232925
+H    0.782430
+dtype: float64
+
+A         NaN
+B         NaN
+C         NaN
+D    1.161555
+E    0.143173
+F         NaN
+G         NaN
+H         NaN
+dtype: float64
+
+A          NaN
+B          NaN
+C          NaN
+D    13.484666
+E    10.429519
+F          NaN
+G          NaN
+H          NaN
+dtype: float64
+```
+
+#### Example: Applying numpy functions ([pandas.Series.apply](https://pandas.pydata.org/docs/reference/api/pandas.Series.apply.html))
+
+```python
+Series.apply(func, convert_dtype=_NoDefault.no_default, args=(), *, by_row='compat', **kwargs)
+```
+
+> Invoke function on values of Series.
+> 
+> Can be ufunc (a NumPy function that applies to the entire Series) or a Python function that only works on single values.
+
+```python
+import pandas as pd
+import numpy as np
+
+index_1 = pd.Series(["A", "B", "C", "D", "E"])
+rng = np.random.default_rng()
+np_data_1 = rng.random((5))
+data_1 = pd.Series(np_data_1, index=index_1)
+
+print(data_1)
+print()
+print(data_1[["A", "D"]])
+print()
+
+data_2 = data_1.apply(np.log)
+print(data_2)
+print()
+
+data_3 = data_1.apply(lambda x: x if x > 0.5 else 0)
+print(data_3)
+print()
+```
+
+Output:
+```python
+A    0.803968
+B    0.234188
+C    0.511411
+D    0.858326
+E    0.374570
+dtype: float64
+
+A    0.803968
+D    0.858326
+dtype: float64
+
+A   -0.218195
+B   -1.451633
+C   -0.670581
+D   -0.152771
+E   -0.981978
+dtype: float64
+
+A    0.803968
+B    0.000000
+C    0.511411
+D    0.858326
+E    0.000000
+dtype: float64
 ```
 
 ## [DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame)
