@@ -663,6 +663,73 @@ class pandas.DataFrame(data=None, index=None, columns=None, dtype=None, copy=Non
 > Data structure also contains labeled axes (rows and columns). Arithmetic operations align on both row and column labels. Can be thought of as a dict-like container for Series objects. The primary pandas data structure.
 
 
+### Combining two series into one dataframe
+
+```python
+import pandas as pd
+import numpy as np
+
+index = pd.Series(["A", "B", "C", "D", "E"])
+
+rng = np.random.default_rng()
+
+np_data_1 = rng.random((5))
+data_1 = pd.Series(np_data_1, index=index)
+
+np_data_2 = rng.random((5))
+data_2 = pd.Series(np_data_2, index=index)
+
+data_3 = pd.concat([data_1, data_2], axis=1)
+
+print(type(data_1))  # -> <class 'pandas.core.series.Series'>
+print(type(data_2))  # -> <class 'pandas.core.series.Series'>
+print(type(data_3))  # -> <class 'pandas.core.frame.DataFrame'>
+
+print(data_3)
+print()
+print(data_3.columns)  # -> RangeIndex(start=0, stop=2, step=1)
+print(data_3.columns.values)  # -> [0 1]
+```
+
+```python
+          0         1
+A  0.942032  0.213441
+B  0.379446  0.937325
+C  0.645035  0.799521
+D  0.546175  0.656740
+E  0.564155  0.546581
+```
+
+### Renaming the columns
+
+```python
+data_3.columns = ["Alpha", "Beta"]
+
+print(data_3)
+print()
+print(data_3.columns) # -> Index(['Alpha', 'Beta'], dtype='object')
+print()
+print(data_3[ "Beta"])
+```
+
+Output:
+
+```python
+      Alpha      Beta
+A  0.942032  0.213441
+B  0.379446  0.937325
+C  0.645035  0.799521
+D  0.546175  0.656740
+E  0.564155  0.546581
+
+A    0.213441
+B    0.937325
+C    0.799521
+D    0.656740
+E    0.546581
+Name: Beta, dtype: float64
+```
+
 ## Saving (pandas.DataFrame.to_pickle) / loading (pandas.read_pickle) data ‘natively’​ 
 
 Save: 
