@@ -56,6 +56,7 @@ Important VS Code notes:
 * [Importing Modules](python_basics/modules/README.md)
 * [Built-in Functions](python_basics/built_in/README.md)
 * [The Python Standard Library​](python_basics/standard_libraries/README.md)
+* [Dataclass](python_basics/dataclass/README.md)
 
 ## Numpy: The Basics of the basics
 * [The N-dimensional array (ndarray)​](numpy/ndarray/README.md) 
