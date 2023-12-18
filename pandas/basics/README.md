@@ -876,6 +876,77 @@ DataFrame.cumsum(axis=None, skipna=True, *args, **kwargs)
 
 **[Here](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html) you will find many more methods and math functions.**
 
+```python
+import pandas as pd
+import numpy as np
+
+index = pd.Series(["A", "B", "C", "D", "E"])
+
+rng = np.random.default_rng()
+
+np_data_1 = rng.random((5))
+data_1 = pd.Series(np_data_1, index=index)
+
+np_data_2 = rng.random((5))
+data_2 = pd.Series(np_data_2, index=index)
+
+data_1.name = "Alpha"
+data_2.name = "Beta"
+
+data_3 = pd.concat([data_1, data_2], axis=1)
+
+print(data_3)
+print()
+print(data_3.loc[["A", "D"]])
+print()
+print(data_3.loc[data_3["Alpha"] > 0.5])
+print()
+print(data_3["Alpha"].sum())
+print()
+print(data_3["Alpha"].cumsum())
+print()
+print(data_3.iloc[[0, 3]])
+print()
+print(data_3.iloc[[0, 3]].Alpha)
+```
+
+Output
+
+```python
+A  0.161057  0.448543
+B  0.503980  0.384337
+C  0.747554  0.434789
+D  0.963156  0.451778
+E  0.666598  0.416983
+
+      Alpha      Beta
+A  0.161057  0.448543
+D  0.963156  0.451778
+
+      Alpha      Beta
+B  0.503980  0.384337
+C  0.747554  0.434789
+D  0.963156  0.451778
+E  0.666598  0.416983
+
+3.042345395250818
+
+A    0.161057
+B    0.665037
+C    1.412591
+D    2.375747
+E    3.042345
+Name: Alpha, dtype: float64
+
+      Alpha      Beta
+A  0.161057  0.448543
+D  0.963156  0.451778
+
+A    0.161057
+D    0.963156
+Name: Alpha, dtype: float64
+```
+
 ### Other functions
 
 Sort:​
