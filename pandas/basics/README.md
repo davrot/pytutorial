@@ -170,7 +170,7 @@ Favorite    Sleep
 dtype: object
 ```
 
-## [pandas.Series.iloc](https://pandas.pydata.org/docs/reference/api/pandas.Series.iloc.html)
+### [pandas.Series.iloc](https://pandas.pydata.org/docs/reference/api/pandas.Series.iloc.html)
 
 ```python
 property Series.iloc
@@ -196,7 +196,48 @@ print(data_1.iloc[0])
 print(data_1["Food"])
 ```
 
+### Operations on Series
 
+```python
+import pandas as pd
+import numpy as np
+
+index_1 = pd.Series(["A", "B", "C", "D", "E"])
+rng = np.random.default_rng()
+np_data = rng.random((5))
+data_1 = pd.Series(np_data, index=index_1)
+
+print(data_1)
+print()
+print(data_1 > 0.5)
+print()
+print(data_1[data_1 > 0.5])
+print()
+print(sum(data_1))
+```
+
+Output:
+```python
+A    0.772007
+B    0.143811
+C    0.524829
+D    0.413733
+E    0.100003
+dtype: float64
+
+A     True
+B    False
+C     True
+D    False
+E    False
+dtype: bool
+
+A    0.772007
+C    0.524829
+dtype: float64
+
+1.9543834923707668
+```
 
 ## [DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame)
 
