@@ -947,6 +947,67 @@ D    0.963156
 Name: Alpha, dtype: float64
 ```
 
+### more loc and [pandas.Series.str.contains](https://pandas.pydata.org/docs/reference/api/pandas.Series.str.contains.html)
+
+```python
+Series.str.contains(pat, case=True, flags=0, na=None, regex=True)
+```
+
+> Test if pattern or regex is contained within a string of a Series or Index.
+> 
+> Return boolean Series or Index based on whether a given pattern or regex is contained within a string of a Series or Index.
+
+```python
+import pandas as pd
+import numpy as np
+
+index = pd.Series(["A", "B", "C", "D", "E"])
+
+rng = np.random.default_rng()
+
+np_data_1 = rng.random((5))
+data_1 = pd.Series(np_data_1, index=index)
+
+np_data_2 = rng.random((5))
+data_2 = pd.Series(np_data_2, index=index)
+
+data_1.name = "Alpha"
+data_2.name = "Beta"
+
+data_3 = pd.concat([data_1, data_2], axis=1)
+
+print(data_3)
+print()
+
+selection_criteria = (data_3.Alpha / data_3.Beta) ** 2
+
+print(data_3.loc[(selection_criteria > 0.2) & (selection_criteria < 0.6)])
+print()
+
+data_4 = data_3.loc[data_3.index.str.contains("C")]
+print(data_4)
+print(len(data_4))  # -> 1
+print(data_4.shape)  # -> (1,2)
+```
+
+Output:
+
+```python
+      Alpha      Beta
+A  0.044988  0.474368
+B  0.740702  0.148857
+C  0.986308  0.710327
+D  0.284805  0.735718
+E  0.910790  0.410208
+
+Empty DataFrame
+Columns: [Alpha, Beta]
+Index: []
+
+      Alpha      Beta
+C  0.986308  0.710327
+```
+
 ### Other functions
 
 Sort:​
