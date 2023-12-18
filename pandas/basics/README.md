@@ -482,6 +482,86 @@ E    0.425544
 dtype: float64
 ```
 
+### [pandas.Series.dropna](https://pandas.pydata.org/docs/reference/api/pandas.Series.dropna.html) or [pandas.Series.fillna](https://pandas.pydata.org/docs/reference/api/pandas.Series.fillna.html)
+
+```python
+Series.dropna(*, axis=0, inplace=False, how=None, ignore_index=False)
+```
+
+> Return a new Series with missing values removed.
+
+```python
+Series.fillna(value=None, *, method=None, axis=None, inplace=False, limit=None, downcast=_NoDefault.no_default)
+```
+
+> Fill NA/NaN values using the specified method.
+
+```python
+import pandas as pd
+import numpy as np
+
+index_1 = pd.Series(["A", "B", "C", "D", "E"])
+rng = np.random.default_rng()
+np_data_1 = rng.random((5))
+data_1 = pd.Series(np_data_1, index=index_1)
+
+index_2 = pd.Series(["D", "E", "F", "G", "H"])
+rng = np.random.default_rng()
+np_data_2 = rng.random((5))
+data_2 = pd.Series(np_data_2, index=index_2)
+
+data_3 = data_1 + data_2
+
+print(data_3)
+print()
+print(data_3.dropna())
+print()
+print(data_3.fillna(0.0))  # 0.0 => Value for filling
+print()
+print()
+print(data_3.fillna(3.3))  # 3.3 => Value for filling
+print()
+```
+
+Output:
+```python
+A         NaN
+B         NaN
+C         NaN
+D    0.660655
+E    0.256244
+F         NaN
+G         NaN
+H         NaN
+dtype: float64
+
+D    0.660655
+E    0.256244
+dtype: float64
+
+A    0.000000
+B    0.000000
+C    0.000000
+D    0.660655
+E    0.256244
+F    0.000000
+G    0.000000
+H    0.000000
+dtype: float64
+
+
+A    3.300000
+B    3.300000
+C    3.300000
+D    0.660655
+E    0.256244
+F    3.300000
+G    3.300000
+H    3.300000
+dtype: float64
+```
+
+
 ## [DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame)
 
 ```python
