@@ -164,6 +164,63 @@ plt.show()
 
 ![image2](image2.png)
 
+## Inspect the extracted coordinate system​
+
+> **components_** : ndarray of shape (n_components, n_features)
+> 
+> The linear operator to apply to the data to get the independent sources. This is equal to the unmixing matrix when whiten is False, and equal to np.dot(unmixing_matrix, self.whitening_) when whiten is True.
+
+**Be aware that the sign of any axis can switch !!!​** Like it happend in this example: 
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.decomposition import FastICA
+
+rng = np.random.default_rng(1)
+
+a_x = rng.normal(0.0, 1.0, size=(5000))[:, np.newaxis]
+a_y = rng.normal(0.0, 1.0, size=(5000))[:, np.newaxis] ** 3
+data_a = np.concatenate((a_x, a_y), axis=1)
+
+b_x = rng.normal(0.0, 1.0, size=(5000))[:, np.newaxis] ** 3
+b_y = rng.normal(0.0, 1.0, size=(5000))[:, np.newaxis]
+data_b = np.concatenate((b_x, b_y), axis=1)
+
+data = np.concatenate((data_a, data_b), axis=0)
+
+angle_x = -0.3
+angle_y = 0.3
+
+roation_matrix = np.array(
+    [[np.cos(angle_x), -np.sin(angle_x)], [np.sin(angle_y), np.cos(angle_y)]]
+)
+data_r = data @ roation_matrix
+
+# Train
+ica = FastICA(n_components=2)
+ica.fit(data_r)
+
+plt.plot([-ica.components_.max(), ica.components_.max()], [0, 0], "k")
+plt.plot([0, 0], [-ica.components_.max(), ica.components_.max()], "k")
+
+plt.plot(
+    [-ica.components_[0, 0], ica.components_[0, 0]],
+    [-ica.components_[0, 1], ica.components_[0, 1]],
+    "m",
+)
+
+plt.plot(
+    [-ica.components_[1, 0], ica.components_[1, 0]],
+    [-ica.components_[1, 1], ica.components_[1, 1]],
+    "c",
+)
+
+plt.show()
+```
+
+![image3](image3.png)
+
 ## Fast ICA Methods
 
 |||
