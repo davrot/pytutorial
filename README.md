@@ -91,8 +91,8 @@ In the case you know Matlab check here:
 
 
 ## Numpy
-* [Beyond normal np.save](numpy_save_special/README.md)
-* [Dealing with Matlab files](numpy_mat_files/README.md)
+* [Beyond normal np.save](numpy/save_special/README.md)
+* [Dealing with Matlab files](numpy/mat_files/README.md)
 
 
 
