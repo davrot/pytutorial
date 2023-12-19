@@ -104,9 +104,10 @@ In the case you know Matlab check here:
 
 ## SciPy
 * [Remove a common signal from your data](scipy/SVD_data_cleaning/README.md)
+* [scipy.signal: Butterworth low, high and band-pass](scipy/scipy.signal_butterworth/README.md)
+
 
 ## Python: Questions of spectral nature
-* [scipy.signal: Butterworth low, high and band-pass](scipy.signal_butterworth/README.md)
 * [PyWavelets: Wavelet Transforms in Python](pywavelet/README.md)
 
 
