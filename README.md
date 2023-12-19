@@ -63,6 +63,7 @@ Important VS Code notes:
 * [Dimensions and shape](numpy/dimensions/README.md)
 * [Making a matrix from numerical ranges](numpy/numerical_ranges​/README.md) 
 * [New matrix](numpy/new_matrix/README.md)
+* [Save and load](numpy/load_save/README.md)
 * [Reshape and flatten](numpy/reshape/README.md)
 * [Slices and Views](numpy/slices_views/README.md)
 * [Where](numpy/where/README.md)
