@@ -258,3 +258,38 @@ plt.show()
 **Note the matrix multiplication @**
 
 ![image5](image5.png)
+
+## [numpy.indices](https://numpy.org/doc/stable/reference/generated/numpy.indices.html)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+numpy.indices(dimensions, dtype=<class 'int'>, sparse=False)
+```
+
+> Return an array representing the indices of a grid.
+> 
+> Compute an array where the subarrays contain index values 0, 1, … varying only along the corresponding axis.
+
+```python
+import numpy as np
+
+a, b = np.indices((3,4))
+
+print(a)
+print()
+print(b)
+```
+
+Output:
+
+```python
+[[0 0 0 0]
+ [1 1 1 1]
+ [2 2 2 2]]
+
+[[0 1 2 3]
+ [0 1 2 3]
+ [0 1 2 3]]
+```
