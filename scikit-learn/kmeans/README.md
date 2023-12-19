@@ -8,6 +8,7 @@
 
 ## The goal
 
+KMeans allows to find clusters in a data set. 
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
