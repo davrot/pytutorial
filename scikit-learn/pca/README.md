@@ -8,6 +8,7 @@
 
 ## The goal
 
+PCA allows to extract an orthogonal basis system for a set of data. 
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
