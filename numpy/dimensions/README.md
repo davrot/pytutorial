@@ -96,3 +96,30 @@ print(type(np.array(z)))  # -> <class 'numpy.ndarray'>
 print(type(z))  # -> <class 'int'>
 print(z.shape)  # -> AttributeError: 'int' object has no attribute 'shape'
 ```
+
+## Stop vanishing dimensions
+
+One way to do stop vanishing dimensions is to use slices of thickness 1. If you want the nth element, then use **n:n+1**: 
+
+```python
+import numpy as np
+
+data = np.zeros((5, 3, 2))
+
+# All the same dimensionwise
+print(data.shape)  # -> (5, 3, 2)
+
+print(data[0:1, :, :].shape)  # ->  (1, 3, 2)
+print(data[:, 0:1, :].shape)  # ->  (5, 1, 2)
+print(data[:, :, 0:1].shape)  # ->  (5, 3, 1)
+
+print(data[:, 0:1, 0:1].shape)  # ->  (5, 1, 1)
+print(data[0:1, :, 0:1].shape)  # ->  (1, 3, 1)
+print(data[0:1, 0:1, :].shape)  # ->  (1, 1, 2)
+
+print(data[0:1, 0:1, 0:1].shape)  # ->  (1, 1, 1)
+print(type(data[0:1, 0:1, 0:1]))  # ->  <class 'numpy.ndarray'>
+```
+
+**Please understand this creates a view which is connected to original data.** If necessary make a **copy()**. 
+
