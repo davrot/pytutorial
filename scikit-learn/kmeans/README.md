@@ -199,3 +199,49 @@ plt.show()
 ```
 
 ![image3](image3.png)
+
+## KMeans methods
+
+|||
+|---|---|
+|[fit](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans.fit)(X[, y, sample_weight])|Compute k-means clustering.|
+|[fit_predict](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans.fit_predict)(X[, y, sample_weight])|Compute cluster centers and predict cluster index for each sample.|
+|[fit_transform](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans.fit_transform)(X[, y, sample_weight])|Compute clustering and transform X to cluster-distance space.|
+|[get_feature_names_out](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans.get_feature_names_out)([input_features])|Get output feature names for transformation.|
+|[get_metadata_routing](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans.get_metadata_routing)()|Get metadata routing of this object.|
+|[get_params](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans.get_params)([deep])|Get parameters for this estimator.|
+|[predict](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans.predict)(X[, sample_weight])|Predict the closest cluster each sample in X belongs to.|
+|[score](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans.score)(X[, y, sample_weight])|Opposite of the value of X on the K-means objective.|
+|[set_fit_request](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans.set_fit_request)(*[, sample_weight])|Request metadata passed to the fit method.|
+|[set_output](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans.set_output)(*[, transform])|Set output container.|
+|[set_params](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans.set_params)(**params)|Set the parameters of this estimator.|
+|[set_predict_request](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans.set_predict_request)(*[, sample_weight])|Request metadata passed to the predict method.|
+|[set_score_request](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans.set_score_request)(*[, sample_weight])|Request metadata passed to the score method.|
+|[transform](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans.transform)(X)|Transform X to a cluster-distance space.|
+
+## KMeans Attributes
+
+> **cluster_centers_** : ndarray of shape (n_clusters, n_features)
+> 
+> Coordinates of cluster centers. If the algorithm stops before fully converging (see tol and max_iter), these will not be consistent with labels_.
+
+> **labels_** ndarray of shape (n_samples,)
+> 
+> Labels of each point
+
+> **inertia_** : float
+> 
+> Sum of squared distances of samples to their closest cluster center, weighted by the sample weights if provided.
+
+> **n_iter_** : int
+> 
+> Number of iterations run.
+
+> **n_features_in_** : int
+>
+> Number of features seen during fit.
+
+> **feature_names_in_** : ndarray of shape (n_features_in_,)
+> 
+> Names of features seen during fit. Defined only when X has feature names that are all strings.
+
