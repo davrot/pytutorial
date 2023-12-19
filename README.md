@@ -102,8 +102,8 @@ In the case you know Matlab check here:
 * [FastICA](scikit-learn/fast_ica/README.md)
 
 
-## Python: Data analysis
-* [Remove a common signal from your data](SVD_data_cleaning/README.md)
+## SciPy
+* [Remove a common signal from your data](scipy/SVD_data_cleaning/README.md)
 
 ## Python: Questions of spectral nature
 * [scipy.signal: Butterworth low, high and band-pass](scipy.signal_butterworth/README.md)
