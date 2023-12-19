@@ -184,3 +184,77 @@ Output:
  [0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5]
  [0.  0.5 1.  1.5 2.  2.5 3.  3.5 4.  4.5]]
 ```
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+xv, yv = np.mgrid[0:1:0.01, 0:1:0.01]
+
+a = np.sin(xv * 2 * np.pi) * np.sin(yv * 8 * np.pi)
+
+plt.imshow(a, cmap="hot")
+plt.xlabel("x axis")
+plt.ylabel("y axis")
+plt.show()
+```
+
+![image4](image4.png)
+
+
+## [numpy.ogrid](https://numpy.org/doc/stable/reference/generated/numpy.ogrid.html) (open meshgrid)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+numpy.ogrid = <numpy.lib.index_tricks.OGridClass object>
+```
+
+> An instance which returns an open multi-dimensional “meshgrid”.
+
+> An instance which returns an open (i.e. not fleshed out) mesh-grid when indexed, so that only one dimension of each returned array is greater than 1. The dimension and number of the output arrays are equal to the number of indexing dimensions. If the step length is not a complex number, then the stop is not inclusive.
+
+> However, if the step length is a complex number (e.g. 5j), then the integer part of its magnitude is interpreted as specifying the number of points to create between the start and stop values, where the stop value is inclusive.
+
+```python
+import numpy as np
+
+xv, yv = np.ogrid[0:5, 0:5]
+
+print(xv)
+print()
+print(yv)
+```
+
+Output:
+
+```python
+[[0]
+ [1]
+ [2]
+ [3]
+ [4]]
+
+[[0 1 2 3 4]]
+```
+
+An example: 
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+xv, yv = np.ogrid[0:1:0.01, 0:1:0.01]
+
+a = np.sin(xv * 2 * np.pi) @ np.sin(yv * 8 * np.pi)
+
+plt.imshow(a, cmap="hot")
+plt.xlabel("x axis")
+plt.ylabel("y axis")
+plt.show()
+```
+
+**Note the matrix multiplication @**
+
+![image5](image5.png)
