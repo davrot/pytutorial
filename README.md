@@ -78,6 +78,8 @@ Important VS Code notes:
 * [FFT](numpy/fft/README.md)
   - [rfft and spectral power](numpy/numpy_fft_1/README.md)
 
+In the case you know Matlab check here: 
+[NumPy for MATLAB users](numpy/matlab_guide/README.md)
 
 ## Matplotlib.pyplot
 * [Simple plot and imshow examples](matplotlib/basics/README.md)
