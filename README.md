@@ -98,6 +98,7 @@ In the case you know Matlab check here:
 ## Sci-kit Learn 
 * [Overview](scikit-learn/overview/README.md)
 * [KMeans](scikit-learn/kmeans/README.md)
+* [PCA](scikit-learn/pca/README.md)
 
 ## Python: Data analysis
 * [Remove a common signal from your data](SVD_data_cleaning/README.md)
