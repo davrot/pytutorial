@@ -123,7 +123,7 @@ print(type(data[0:1, 0:1, 0:1]))  # ->  <class 'numpy.ndarray'>
 
 **Please understand this creates a view which is connected to original data.** If necessary make a **copy()**. 
 
-## Adding dimensions with np.newaxis
+## Adding dimensions with [np.newaxis](https://numpy.org/doc/stable/reference/constants.html#numpy.newaxis)
 
 ```python
 import numpy as np
