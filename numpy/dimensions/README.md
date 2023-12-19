@@ -54,6 +54,19 @@ print(data[0, 0, :].shape)  # ->  (2,)
 print(data[0, 0, 0].shape)  # ->  ()
 print(type(data[0, 0, 0]))  # ->  <class 'numpy.float64'>
 ```
+### keepdims
+
+There are functions like 
+```python
+ndarray.sum(axis=None, dtype=None, out=None, keepdims=False, initial=0, where=True)
+ndarray.mean(axis=None, dtype=None, out=None, keepdims=False, *, where=True)
+ndarray.prod(axis=None, dtype=None, out=None, keepdims=False, initial=1, where=True)
+ndarray.max(axis=None, out=None, keepdims=False, initial=<no value>, where=True)
+ndarray.min(axis=None, out=None, keepdims=False, initial=<no value>, where=True)
+ndarray.argmax(axis=None, out=None, *, keepdims=False)
+ndarray.argmin(axis=None, out=None, *, keepdims=False)
+```
+that normally make one dimension vanish. However, often this type of functions have an argument **keepdims** that keeps this dimension alive. 
 
 ```python
 import numpy as np
@@ -74,4 +87,12 @@ print(data.sum(axis=1, keepdims=True).shape)  # -> (5, 1, 2)
 print(data.sum(axis=2, keepdims=True).shape)  # -> (5, 3, 1)
 ```
 
+As as reminder, shape is only availabe for np.ndarray and torch.Tensor matrices: 
 
+```python
+z = int(7)
+print(np.array(z).shape)  # -> ()
+print(type(np.array(z)))  # -> <class 'numpy.ndarray'>
+print(type(z))  # -> <class 'int'>
+print(z.shape)  # -> AttributeError: 'int' object has no attribute 'shape'
+```
