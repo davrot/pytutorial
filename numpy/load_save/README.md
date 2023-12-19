@@ -131,4 +131,55 @@ print(np.abs(b_original - np_file["b_original"]).sum())  # -> 0.0
 print(np.abs(c_original - np_file["c_original"]).sum())  # -> 0.0
 ```
 
+## Text files [numpy.savetxt](https://numpy.org/doc/stable/reference/generated/numpy.savetxt.html) and [numpy.loadtxt](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html)
 
+```python
+numpy.savetxt(fname, X, fmt='%.18e', delimiter=' ', newline='\n', header='', footer='', comments='# ', encoding=None)
+```
+
+> Save an array to a text file.
+
+```python
+import numpy as np
+
+rng = np.random.default_rng()
+
+a_original = rng.random((100, 10))
+
+np.savetxt("data.txt", a_original)
+```
+
+```python
+numpy.loadtxt(fname, dtype=<class 'float'>, comments='#', delimiter=None, converters=None, skiprows=0, usecols=None, unpack=False, ndmin=0, encoding='bytes', max_rows=None, *, quotechar=None, like=None)
+```
+
+> Load data from a text file.
+
+```python
+import numpy as np
+
+rng = np.random.default_rng()
+
+a_original = rng.random((100, 10))
+
+np.savetxt("data.txt", a_original)
+
+a_load = np.loadtxt("data.txt")
+
+print(a_original.shape)  # -> (100, 10)
+print(a_load.shape)  # -> (100, 10)
+print(np.abs(a_original - a_load).sum())  # -> 0.0
+```
+
+### [numpy.genfromtxt](https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+numpy.genfromtxt(fname, dtype=<class 'float'>, comments='#', delimiter=None, skip_header=0, skip_footer=0, converters=None, missing_values=None, filling_values=None, usecols=None, names=None, excludelist=None, deletechars=" !#$%&'()*+, -./:;<=>?@[\\]^{|}~", replace_space='_', autostrip=False, case_sensitive=True, defaultfmt='f%i', unpack=None, usemask=False, loose=True, invalid_raise=True, max_rows=None, encoding='bytes', *, ndmin=0, like=None)
+```
+
+> Load data from a text file, with missing values handled as specified.
+> 
+> Each line past the first skip_header lines is split at the delimiter character, and characters following the comments character are discarded.
