@@ -140,3 +140,65 @@ plt.show()
 ```
 
 ![image1](image1.png)
+
+## Use PCA to transform the un-rotated data​ ([inverse_transform(X)](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html#sklearn.decomposition.PCA.inverse_transform))
+
+```python
+inverse_transform(X)
+```
+
+> Transform data back to its original space.
+> 
+> In other words, return an input X_original whose transform would be X.
+
+> **X** : array-like of shape (n_samples, n_components)
+> 
+> New data, where n_samples is the number of samples and n_components is the number of components.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+
+rng = np.random.default_rng(1)
+
+a_x = rng.normal(0.0, 1.0, size=(5000))[:, np.newaxis]
+a_y = rng.normal(0.0, 1.0, size=(5000))[:, np.newaxis] ** 3
+data_a = np.concatenate((a_x, a_y), axis=1)
+
+b_x = rng.normal(0.0, 1.0, size=(5000))[:, np.newaxis] ** 3
+b_y = rng.normal(0.0, 1.0, size=(5000))[:, np.newaxis]
+data_b = np.concatenate((b_x, b_y), axis=1)
+
+data = np.concatenate((data_a, data_b), axis=0)
+
+angle = -0.3
+
+roation_matrix = np.array(
+    [[np.cos(angle), -np.sin(angle)], [np.sin(angle), np.cos(angle)]]
+)
+data_r = data @ roation_matrix
+
+
+pca = PCA(n_components=2)
+
+# Train
+pca.fit(data_r)
+
+print(pca.explained_variance_ratio_)  # -> [0.52996112 0.47003888]
+print(pca.singular_values_)  # -> [287.55360494 270.80938189]
+
+# Use
+transformed_data = pca.inverse_transform(data)
+
+
+plt.plot(data[:, 0], data[:, 1], "b.")
+plt.plot(data_r[:, 0], data_r[:, 1], "r.")
+plt.plot(transformed_data[:, 0], transformed_data[:, 1], "k.")
+plt.show()
+```
+
+![image2](image2.png)
+
+
+
