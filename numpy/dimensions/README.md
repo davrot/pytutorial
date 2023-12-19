@@ -8,7 +8,7 @@
 
 ## The goal
 
-
+Matrices have dimensions. But how to add and remove extra dimensions (i.e. dimensions with length 1)?
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
@@ -126,6 +126,12 @@ print(type(data[0:1, 0:1, 0:1]))  # ->  <class 'numpy.ndarray'>
 ## Adding dimensions with [np.newaxis](https://numpy.org/doc/stable/reference/constants.html#numpy.newaxis)
 
 ```python
+numpy.newaxis
+```
+
+> A convenient alias for None, useful for indexing arrays.
+
+```python
 import numpy as np
 
 data = np.zeros((2))
@@ -139,3 +145,48 @@ print(data[np.newaxis, :, np.newaxis].shape)  # -> (1, 2, 1)
 print(data[:, np.newaxis, np.newaxis].shape)  # -> (2, 1, 1)
 ```
 
+## Adding dimensions with [numpy.expand_dims](https://numpy.org/doc/stable/reference/generated/numpy.expand_dims.html)
+
+In the case you don’t like newaxis for adding a new dimension...​
+
+```python
+numpy.expand_dims(a, axis)
+```
+
+> Expand the shape of an array.
+> 
+> Insert a new axis that will appear at the axis position in the expanded array shape.
+
+```python
+import numpy as np
+
+data = np.zeros((2))
+print(data.shape)  # -> (2,)
+print(np.expand_dims(data, axis=0).shape)  # -> (1, 2)
+print(np.expand_dims(data, axis=1).shape)  # -> (2, 1)
+print(np.expand_dims(data, axis=(1, 2, 3)).shape)  # -> (2, 1, 1, 1)
+```
+## Removing dimensions with [numpy.squeeze](https://numpy.org/doc/stable/reference/generated/numpy.squeeze.html)
+
+```python
+numpy.squeeze(a, axis=None)
+```
+
+> Remove axes of length one from a.
+
+```python
+import numpy as np
+
+data = np.zeros((1, 2, 1, 1))
+print(data.shape)  # -> (1, 2, 1, 1)
+print(np.squeeze(data).shape)  # -> (2,)
+print(np.squeeze(data, axis=0).shape)  # -> (2, 1, 1)
+print(np.squeeze(data, axis=2).shape)  # -> (1, 2, 1)
+print(np.squeeze(data, axis=3).shape)  # -> (1, 2, 1)
+
+print(np.squeeze(data, axis=(0, -1)).shape)  # -> (2, 1)
+
+print(
+    np.squeeze(data, axis=1).shape
+)  # -> ValueError: cannot select an axis to squeeze out which has size not equal to one
+```
