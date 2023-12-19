@@ -59,7 +59,8 @@ Important VS Code notes:
 * [Dataclass](python_basics/dataclass/README.md)
 
 ## Numpy: The Basics of the basics
-* [The N-dimensional array (ndarray)​](numpy/ndarray/README.md) 
+* [The N-dimensional array (ndarray)​](numpy/ndarray/README.md)
+* [Dimensions and shape](numpy/dimensions/README.md)
 * [Making a matrix from numerical ranges](numpy/numerical_ranges​/README.md) 
 * [New matrix](numpy/new_matrix/README.md)
 * [Reshape and flatten](numpy/reshape/README.md)
