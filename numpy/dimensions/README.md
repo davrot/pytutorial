@@ -123,3 +123,19 @@ print(type(data[0:1, 0:1, 0:1]))  # ->  <class 'numpy.ndarray'>
 
 **Please understand this creates a view which is connected to original data.** If necessary make a **copy()**. 
 
+## Adding dimensions with np.newaxis
+
+```python
+import numpy as np
+
+data = np.zeros((2))
+print(data.shape)  # -> (2,)
+print(data[:, np.newaxis].shape)  # -> (2, 1)
+print(data[np.newaxis, :].shape)  # -> (1, 2)
+
+
+print(data[:, np.newaxis, np.newaxis].shape)  # -> (2, 1, 1)
+print(data[np.newaxis, :, np.newaxis].shape)  # -> (1, 2, 1)
+print(data[:, np.newaxis, np.newaxis].shape)  # -> (2, 1, 1)
+```
+
