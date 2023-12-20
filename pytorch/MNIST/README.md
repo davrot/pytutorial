@@ -18,10 +18,11 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 We need to download the MNIST database files 
 
-t10k-images-idx3-ubyte.gz
-t10k-labels-idx1-ubyte.gz
-train-images-idx3-ubyte.gz
-train-labels-idx1-ubyte.gz
+* t10k-images-idx3-ubyte.gz
+* t10k-labels-idx1-ubyte.gz
+* train-images-idx3-ubyte.gz
+* train-labels-idx1-ubyte.gz
+
 A source for that is for example [https://deepai.org/dataset/mnist](https://deepai.org/dataset/mnist)
 
 ## Unpack the gz files
