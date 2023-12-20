@@ -34,14 +34,45 @@ gzip -d *.gz
 
 ## Convert the data into numpy files
 
+### [numpy.dtype.newbyteorder](https://numpy.org/doc/stable/reference/generated/numpy.dtype.newbyteorder.html)
+
+```python
+type.newbyteorder(new_order='S', /)
+```
+
+> Return a new dtype with a different byte order.
+> 
+> Changes are also made in all fields and sub-arrays of the data type.
+> 
+> **new_order** : string, optional
+> 
+> Byte order to force; a value from the byte order specifications below. The default value (‘S’) results in swapping the current byte order. new_order codes can be any of:
+> 
+>  ‘S’ - swap dtype from current to opposite endian
+> 
+> {‘<’, ‘little’} - little endian
+> 
+> {‘>’, ‘big’} - big endian
+> 
+> {‘=’, ‘native’} - native order
+> 
+> {‘\|’, ‘I’} - ignore (no change to byte order)
+> 
+
 ### Label file structure
 
 > [offset] [type]          [value]          [description]
+> 
 > 0000     32 bit integer  0x00000801(2049) magic number (MSB first)
+> 
 > 0004     32 bit integer  60000            number of items
+> 
 > 0008     unsigned byte   ??               label
+> 
 > 0009     unsigned byte   ??               label
+> 
 > ........
+> 
 > xxxx     unsigned byte   ??               label
 
 The labels values are 0 to 9.
@@ -49,13 +80,21 @@ The labels values are 0 to 9.
 ### Pattern file structure
 
 > [offset] [type]          [value]          [description]
+> 
 > 0000     32 bit integer  0x00000803(2051) magic number
+> 
 > 0004     32 bit integer  60000            number of images
+> 
 > 0008     32 bit integer  28               number of rows
+> 
 > 0012     32 bit integer  28               number of columns
+> 
 > 0016     unsigned byte   ??               pixel
+> 
 > 0017     unsigned byte   ??               pixel
+> 
 > ........
+> 
 > xxxx     unsigned byte   ??               pixel
 
 Pixels are organized row-wise.
