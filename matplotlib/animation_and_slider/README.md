@@ -187,4 +187,89 @@ Another one is this:
 
 Please check yourself which suits your setup best. 
 
+## [matplotlib.widgets.Slider](https://matplotlib.org/stable/api/widgets_api.html#matplotlib.widgets.Slider)
 
+```python
+class matplotlib.widgets.Slider(ax, label, valmin, valmax, *, valinit=0.5, valfmt=None, closedmin=True, closedmax=True, slidermin=None, slidermax=None, dragging=True, valstep=None, orientation='horizontal', initcolor='r', track_color='lightgrey', handle_style=None, **kwargs)
+```
+
+> A slider representing a floating point range.
+> 
+> Create a slider from valmin to valmax in Axes ax. For the slider to remain responsive you must maintain a reference to it. Call on_changed() to connect to the slider event.
+> 
+> **ax** : Axes
+> 
+> The Axes to put the slider in.
+>
+> **label** : str
+> 
+> Slider label.
+> 
+> **valmin** : float
+> 
+> The minimum value of the slider.
+> 
+> **valmax** : float
+> 
+> The maximum value of the slider.
+> 
+> **valinit** : float, default: 0.5
+> The slider initial position.
+> 
+> **valstep** : float or array-like, default: None
+> 
+> If a float, the slider will snap to multiples of valstep. If an array the slider will snap to the values in the array.
+> 
+> **orientation** : {'horizontal', 'vertical'}, default: 'horizontal'
+> 
+> The orientation of the slider.
+
+### Example
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+from matplotlib.widgets import Slider
+from functools import partial
+
+
+def next_frame(
+    i: int, images: np.ndarray, image_handle: matplotlib.image.AxesImage
+) -> None:
+    image_handle.set_data(images[i, :, :])
+    plt.title(f"Position: {i}")
+    return
+
+
+axis = np.arange(-100, 101) / 100.0
+
+x = axis[:, np.newaxis, np.newaxis].copy()
+y = axis[np.newaxis, :, np.newaxis].copy()
+z = axis[np.newaxis, np.newaxis, :].copy()
+
+r = np.sqrt(x**2 + y**2 + z**2)
+
+mask_0 = r > 0.75
+r = 1.0 / (r + 1.0)
+r[mask_0] = 0
+
+number_of_frames: int = r.shape[0]
+repeat_movie: bool = False
+interval_between_frames_in_ms: int = 100
+
+fig: matplotlib.figure.Figure = plt.figure()
+# Generate the initial image
+# and set the value range for the whole images array
+image_handle = plt.imshow(r[0, :, :], vmin=r.min(), vmax=r.max(), cmap="hot")
+plt.colorbar()
+
+axfreq = fig.add_axes([0.4, 0.9, 0.3, 0.03])
+slice_slider = Slider(
+    ax=axfreq, label="Slice", valmin=0, valmax=r.shape[0] - 1, valinit=0, valstep=1
+)
+
+slice_slider.on_changed(partial(next_frame, images=r, image_handle=image_handle))
+
+plt.show()
+```
