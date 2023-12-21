@@ -85,6 +85,7 @@ In the case you know Matlab check here:
 ## Matplotlib.pyplot
 * [Simple plot and imshow examples](matplotlib/basics/README.md)
 * [Overview of the available functions](matplotlib/overview/README.md)
+* [Animation and Slider](matplotlib/animation_and_slider/README.md)
 
 ## Pandas 
 * [Basics](pandas/basics/README.md)
@@ -112,7 +113,6 @@ In the case you know Matlab check here:
 
 
 ## Python: Daily little helper
-
 * [TQDM: Make your progress visible](helper/TQDM/README.md)
 * [Argh: Organize your command line arguments](helper/argh/README.md)
 
