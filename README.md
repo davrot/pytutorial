@@ -94,6 +94,7 @@ In the case you know Matlab check here:
 ## Numpy
 * [Beyond normal np.save](numpy/save_special/README.md)
 * [Dealing with Matlab files](numpy/mat_files/README.md)
+* [Matlab is also just a Python package](matlab/matlab_as_a_python_pakage/README.md)
 
 
 ## Sci-kit Learn 
