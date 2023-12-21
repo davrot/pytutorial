@@ -116,3 +116,12 @@ cd "C:\Program Files\MATLAB\R2023b\extern\engines\python"
 python.exe .\setup.py install
 ```
 
+## Start the engine
+
+Under Python we now can connect to Matlab:
+
+```python
+import matlab.engine
+
+eng = matlab.engine.start_matlab()
+```
