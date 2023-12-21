@@ -149,3 +149,14 @@ animation = matplotlib.animation.FuncAnimation(
 
 plt.show()
 ```
+
+## Interactive Python session
+
+There are several options if you don't run it from VS Code interactively. One options is this: 
+
+```python
+# %%
+%matplotlib widget
+```
+
+
