@@ -169,6 +169,8 @@ if movie_filename is not None:
 
 Please note that you may need the [ffmpeg binaries](https://www.ffmpeg.org/download.html) for MP4. The ffmpeg files need to be accessable by Python. i.e. Python needs to know where they are. Under Windows it is helpful to place the three exe files in the binary directory of Python. Under Linux, the distribution package manager should take care of it.  
 
+There are other options than MP4!
+
 ## Interactive Python session
 
 There are several options if you don't run it from VS Code interactively. One options is this: 
