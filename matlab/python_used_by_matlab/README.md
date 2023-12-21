@@ -178,6 +178,7 @@ np.save("test_2.npy", a)
 
 And under Matlab we load it:
 
+```matlab
 >> a_np = py.numpy.load("test_2.npy");
 >> a = double(a_np);
 >> whos
@@ -185,6 +186,7 @@ And under Matlab we load it:
 
   a         100x10             8000  double                        
   a_np        1x1                 8  py.numpy.ndarray     
+```
 
 ## References 
 * [Access Python Modules from MATLAB - Getting Started](https://de.mathworks.com/help/matlab/matlab_external/create-object-from-python-class.html)
