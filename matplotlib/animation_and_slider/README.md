@@ -187,7 +187,9 @@ Another one is this:
 
 Please check yourself which suits your setup best. 
 
-## [matplotlib.widgets.Slider](https://matplotlib.org/stable/api/widgets_api.html#matplotlib.widgets.Slider)
+## Slider
+
+### [matplotlib.widgets.Slider](https://matplotlib.org/stable/api/widgets_api.html#matplotlib.widgets.Slider)
 
 ```python
 class matplotlib.widgets.Slider(ax, label, valmin, valmax, *, valinit=0.5, valfmt=None, closedmin=True, closedmax=True, slidermin=None, slidermax=None, dragging=True, valstep=None, orientation='horizontal', initcolor='r', track_color='lightgrey', handle_style=None, **kwargs)
@@ -223,6 +225,50 @@ class matplotlib.widgets.Slider(ax, label, valmin, valmax, *, valinit=0.5, valfm
 > **orientation** : {'horizontal', 'vertical'}, default: 'horizontal'
 > 
 > The orientation of the slider.
+
+### [matplotlib.figure.add_axes](https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure.add_axes)
+
+```python
+add_axes(*args, **kwargs)
+```
+
+> Add an Axes to the figure.
+> 
+> **rect**: tuple (left, bottom, width, height)
+> 
+> The dimensions (left, bottom, width, height) of the new Axes. All quantities are in fractions of figure width and height.
+> 
+> **projection** : {None, 'aitoff', 'hammer', 'lambert', 'mollweide', 'polar', 'rectilinear', str}, optional
+> 
+> The projection type of the Axes. str is the name of a custom projection, see projections. The default None results in a 'rectilinear' projection.
+> 
+> **polar** : bool, default: False
+> 
+> If True, equivalent to projection='polar'.
+> 
+> **axes_class** : subclass type of Axes, optional
+> 
+> The axes.Axes subclass that is instantiated. This parameter is incompatible with projection and polar. See axisartist for examples.
+> 
+> **sharex**, **sharey** : Axes, optional
+> 
+> Share the x or y axis with sharex and/or sharey. The axis will have the same limits, ticks, and scale as the axis of the shared axes.
+> 
+> **label** : str
+> 
+> A label for the returned Axes.
+
+### [on_changed](https://matplotlib.org/stable/api/widgets_api.html#matplotlib.widgets.Slider.on_changed)
+
+```python
+on_changed(func)
+```
+
+> Connect func as callback function to changes of the slider value.
+>
+> **func** : callable
+> 
+> Function to call when slider is changed. The function must accept a single float as its arguments.
 
 ### Example
 
