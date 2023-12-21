@@ -171,6 +171,10 @@ Please note that you may need the [ffmpeg binaries](https://www.ffmpeg.org/downl
 
 There are other options than MP4!
 
+This is how it looks like a gif:
+
+![image1](image1.gif)
+
 ## Interactive Python session
 
 There are several options if you don't run it from VS Code interactively. One options is this: 
