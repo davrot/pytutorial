@@ -130,6 +130,9 @@ eng = matlab.engine.start_matlab()
 
 ```python
 import numpy as np
+import matlab.engine
+
+eng = matlab.engine.start_matlab()
 
 a = eng.rand(100, 10)
 print(type(a))  # --> <class 'mlarray.double'>
