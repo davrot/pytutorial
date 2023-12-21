@@ -126,6 +126,9 @@ import matlab.engine
 eng = matlab.engine.start_matlab()
 ```
 
+If now error message pops up then you should be ready to go!
+
+
 ## First test
 
 ```python
@@ -174,8 +177,16 @@ PS C:\Users\admin\Documents\MATLAB> python.exe .\matlab1.py
 
 Press enter to continue
 
-If you use VS Code in cell mode, you will get a cold stare instead of the text output.
+![image1](2023-12-21_16-56.png)
 
+If you use VS Code in cell mode, you will get a cold stare instead of the text output. You need to add 
+
+```python
+# %%
+%matplotlib widget
+```
+
+to your python code. 
  
 
 ## Getting data from the Matlab workspace 
@@ -189,7 +200,7 @@ eng = matlab.engine.start_matlab()
 eng.eval("clear all", nargout=0)
 eng.eval("a = rand(100,10);", nargout=0)
 data_mat = eng.workspace["a"]
-print(type(data_mat)) # --> import numpy as np
+print(type(data_mat))  # --> <class 'matlab.double'>
 a = np.array(data_mat)
 print(type(a)) # --> <class 'numpy.ndarray'>
 print(a.shape) # --> (100, 10)
@@ -203,17 +214,18 @@ import matlab.engine
 
 eng = matlab.engine.start_matlab()
 
-Output = eng.eval("A = 1", nargout=1)  # Error!!!
-
 eng.eval("A = 1;", nargout=0)
 Output = eng.eval("A", nargout=1)
-print(Output) # --> 1.0
+print(Output)  # --> 1.0
+
+Output = eng.eval(
+    "A = 1", nargout=1
+)  # SyntaxError: Incorrect use of '=' operator. Assign a value to a variable using '=' and compare values for equality using '=='.
 ```
 
 ## Exchanging data with Matlab bi-directionally 
 
 ```python
-# %%
 import matlab.engine
 import matlab
 import numpy as np
