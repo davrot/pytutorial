@@ -8,6 +8,7 @@
 
 ## The goal
 
+Sometimes a static picture is not enough. Here we will produce an animation from data as well as make data interactively inspectable.
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
