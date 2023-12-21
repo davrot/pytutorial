@@ -125,3 +125,117 @@ import matlab.engine
 
 eng = matlab.engine.start_matlab()
 ```
+
+## First test
+
+```python
+import numpy as np
+
+a = eng.rand(100, 10)
+print(type(a))  # --> <class 'mlarray.double'>
+a_np = np.array(a)
+print(type(a_np)) # --> <class 'numpy.ndarray'>
+print(a_np.shape) # --> (100, 10)
+print(a_np.dtype) # --> float64
+```
+
+You may want to read additional information about the whole ordeal: 
+
+* [MATLAB Arrays as Python Variables](https://de.mathworks.com/help/matlab/matlab_external/matlab-arrays-as-python-variables.html)
+* [Use MATLAB Arrays in Python](https://de.mathworks.com/help/matlab/matlab_external/use-matlab-arrays-in-python.html)
+* [Pass Data to MATLAB from Python](https://de.mathworks.com/help/matlab/matlab_external/pass-data-to-matlab-from-python.html)
+* [Handle Data Returned from MATLAB to Python](https://de.mathworks.com/help/matlab/matlab_external/handle-data-returned-from-matlab-to-python.html)
+
+## Eval
+
+```python
+import matlab.engine
+
+eng = matlab.engine.start_matlab()
+
+eng.eval("clear all", nargout=0)
+eng.eval("a = rand(100,10);", nargout=0)
+eng.eval("whos", nargout=0)
+eng.eval("figure(1);", nargout=0)
+eng.eval("plot(a)", nargout=0)
+
+input("Press enter to continue")
+```
+
+And you get this result if you use the Power Shell:
+
+PS C:\Users\admin\Documents\MATLAB> python.exe .\matlab1.py
+  Name        Size            Bytes  Class     Attributes
+
+  a         100x10             8000  double
+
+Press enter to continue
+
+If you use VS Code in cell mode, you will get a cold stare instead of the text output.
+
+ 
+
+## Getting data from the Matlab workspace 
+
+```python
+import matlab.engine
+import numpy as np
+
+eng = matlab.engine.start_matlab()
+
+eng.eval("clear all", nargout=0)
+eng.eval("a = rand(100,10);", nargout=0)
+data_mat = eng.workspace["a"]
+print(type(data_mat)) # --> import numpy as np
+a = np.array(data_mat)
+print(type(a)) # --> <class 'numpy.ndarray'>
+print(a.shape) # --> (100, 10)
+print(a.dtype) # --> float64
+```
+
+An alternative is:
+
+```python
+import matlab.engine
+
+eng = matlab.engine.start_matlab()
+
+Output = eng.eval("A = 1", nargout=1)  # Error!!!
+
+eng.eval("A = 1;", nargout=0)
+Output = eng.eval("A", nargout=1)
+print(Output) # --> 1.0
+```
+
+## Exchanging data with Matlab bi-directionally 
+
+```python
+# %%
+import matlab.engine
+import matlab
+import numpy as np
+
+eng = matlab.engine.start_matlab()
+
+myrng = np.random.default_rng()
+
+a = myrng.random((100, 10))
+b = myrng.random((100, 10))
+c_py = a * b
+
+a_mat = matlab.double(a.tolist())
+b_mat = matlab.double(b.tolist())
+
+eng.eval("clear all", nargout=0)
+eng.workspace["a"] = a_mat
+eng.workspace["b"] = b_mat
+
+eng.eval("c = a .* b;", nargout=0)
+
+c_mat = np.array(eng.workspace["c"])
+
+print(np.sum(np.abs(c_py - c_mat))) # --> 0.0
+```
+
+
+
