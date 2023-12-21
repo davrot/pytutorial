@@ -150,6 +150,25 @@ animation = matplotlib.animation.FuncAnimation(
 plt.show()
 ```
 
+## Save the animation
+
+```python
+save(filename[, writer, fps, dpi, codec, ...])
+```
+
+> Save the animation as a movie file by drawing every frame.
+
+You need to add the save-method between **animation = matplotlib.animation.FuncAnimation(...)** and **plt.show()**.
+
+```python
+movie_filename: str | None = "movie.mp4"
+
+if movie_filename is not None:
+    animation.save(movie_filename)
+```
+
+Please note that you may need the [ffmpeg binaries](https://www.ffmpeg.org/download.html) for MP4. The ffmpeg files need to be accessable by Python. i.e. Python needs to know where they are. Under Windows it is helpful to place the three exe files in the binary directory of Python. Under Linux, the distribution package manager should take care of it.  
+
 ## Interactive Python session
 
 There are several options if you don't run it from VS Code interactively. One options is this: 
@@ -158,5 +177,14 @@ There are several options if you don't run it from VS Code interactively. One op
 # %%
 %matplotlib widget
 ```
+
+Another one is this: 
+
+```python
+# %%
+%matplotlib tk
+```
+
+Please check yourself which suits your setup best. 
 
 
