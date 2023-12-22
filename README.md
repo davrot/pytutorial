@@ -79,6 +79,7 @@ Important VS Code notes:
 * [FFT](numpy/fft/README.md)
   - [rfft and spectral power](numpy/numpy_fft_1/README.md)
 * [Meshgrid](numpy/mesh_grid/README.md)
+* [Flip, rot90, and roll a matrix](numpy/reverse_an_axis/README.md)
 
 In the case you know Matlab check here: 
 [NumPy for MATLAB users](numpy/matlab_guide/README.md)
