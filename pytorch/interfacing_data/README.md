@@ -16,9 +16,18 @@ There are options to interface your data.
 
 
 
-## torch.utils.data.Dataset
+## [torch.utils.data.Dataset](https://pytorch.org/docs/stable/data.html#torch.utils.data.Dataset)
 
-In the case we might not be able to load the fully dataset into memory, the torch.utils.data.Dataset is very helpful. 
+In the case we might not be able to load the fully dataset into memory, the **torch.utils.data.Dataset** is very helpful. 
+
+```python
+CLASS torch.utils.data.Dataset(*args, **kwds)
+```
+
+> An abstract class representing a Dataset.
+> 
+> All datasets that represent a map from keys to data samples should subclass it. All subclasses should overwrite **\_\_getitem\_\_()**, supporting fetching a data sample for a given key. Subclasses could also optionally overwrite **\_\_len\_\_()**, which is expected to return the size of the dataset by many Sampler implementations and the default options of DataLoader. Subclasses could also optionally implement **\_\_getitems\_\_()**, for speedup batched samples loading. This method accepts list of indices of samples of batch and returns list of samples.
+
 
 We need to create a new class which is derived from **torch.utils.data.Dataset**. We can do what every we want in this class as long as we service the functions
 * **\_\_len\_\_()** :  gives us the number of pattern in the dataset
