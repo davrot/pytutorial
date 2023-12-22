@@ -1,4 +1,4 @@
-# Reverse an axis
+# Flip, rot90, and roll a matrix
 {:.no_toc}
 
 <nav markdown="1" class="toc-class">
