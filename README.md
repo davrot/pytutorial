@@ -55,6 +55,7 @@ Important VS Code notes:
 * [Exceptions (try / except)](python_basics/exceptions/README.md)
 * [Importing Modules](python_basics/modules/README.md)
 * [Built-in Functions](python_basics/built_in/README.md)
+* [Built-in Keywords](python_basics/keywords/README.md)
 * [The Python Standard Library​](python_basics/standard_libraries/README.md)
 * [Dataclass](python_basics/dataclass/README.md)
 
