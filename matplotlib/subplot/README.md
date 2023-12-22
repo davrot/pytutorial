@@ -89,5 +89,43 @@ matplotlib.pyplot.subplots_adjust(left=None, bottom=None, right=None, top=None, 
 > 
 > The height of the padding between subplots, as a fraction of the average Axes height.
 
+The parameter meanings (and suggested defaults) are:​
 
+```python
+left = 0.125  # the left side of the subplots of the figure​
+right = 0.9   # the right side of the subplots of the figure​
+bottom = 0.1  # the bottom of the subplots of the figure​
+top = 0.9     # the top of the subplots of the figure​
+wspace = 0.2  # the amount of width reserved for space between subplots,​
+              # expressed as a fraction of the average axis width​
+hspace = 0.2  # the amount of height reserved for space between subplots,​
+              # expressed as a fraction of the average axis height
+```
 
+```python
+import numpy as np
+
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng()
+
+plt.figure(1)
+plt.subplot(2, 2, 1)
+plt.imshow(rng.random((10, 10)))
+plt.title("A")
+plt.subplot(2, 2, 2)
+plt.imshow(rng.random((10, 10)))
+plt.title("B")
+plt.subplot(2, 2, 3)
+plt.imshow(rng.random((10, 10)))
+plt.title("C")
+plt.subplot(2, 2, 4)
+plt.imshow(rng.random((10, 10)))
+plt.title("D")
+
+plt.subplots_adjust(left=0.01, right=1.0, bottom=0.1, top=1.0, wspace=-0.5, hspace=0.4)
+
+plt.show()
+```
+
+![image1](image1.png)
