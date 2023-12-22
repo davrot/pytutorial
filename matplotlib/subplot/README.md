@@ -54,4 +54,40 @@ plt.show()
 
 ![image0](image0.png)
 
+## [matplotlib.pyplot.subplots_adjust](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots_adjust.html)
+
+```python
+matplotlib.pyplot.subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=None)
+```
+
+> Adjust the subplot layout parameters.
+> 
+> Unset parameters are left unmodified; initial values are given by **rcParams["figure.subplot.[name]"]**.
+>
+
+> **left** : float, optional
+> 
+> The position of the left edge of the subplots, as a fraction of the figure width.
+> 
+> **right** : float, optional
+> 
+> The position of the right edge of the subplots, as a fraction of the figure width.
+> 
+> **bottom** : float, optional
+> 
+> The position of the bottom edge of the subplots, as a fraction of the figure height.
+> 
+> **top** : float, optional
+> 
+> The position of the top edge of the subplots, as a fraction of the figure height.
+> 
+> **wspace** : float, optional
+> 
+> The width of the padding between subplots, as a fraction of the average Axes width.
+>
+> **hspace** : float, optional
+> 
+> The height of the padding between subplots, as a fraction of the average Axes height.
+
+
 
