@@ -125,3 +125,100 @@ Output
 [[0 1 2]
  [3 4 5]]
 ```
+
+## [numpy.roll](https://numpy.org/doc/stable/reference/generated/numpy.roll.html)
+
+```python
+numpy.roll(a, shift, axis=None)
+```
+
+> Roll array elements along a given axis.
+> 
+> Elements that roll beyond the last position are re-introduced at the first.
+
+```python
+import numpy as np
+
+a = np.arange(0, 6).reshape((2, 3))
+print(a)
+print()
+print(np.roll(a, shift=1))
+print()
+print(np.roll(a, shift=2))
+print()
+print(np.roll(a, shift=3))
+print()
+print(np.roll(a, shift=4))
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]]
+
+[[5 0 1]
+ [2 3 4]]
+
+[[4 5 0]
+ [1 2 3]]
+
+[[3 4 5]
+ [0 1 2]]
+
+[[2 3 4]
+ [5 0 1]]
+```
+
+```python
+import numpy as np
+
+a = np.arange(0, 6).reshape((2, 3))
+print(a)
+print()
+print(np.roll(a, shift=1, axis=0))
+print()
+print(np.roll(a, shift=2, axis=0))
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]]
+
+[[3 4 5]
+ [0 1 2]]
+
+[[0 1 2]
+ [3 4 5]]
+```
+
+```python
+import numpy as np
+
+a = np.arange(0, 6).reshape((2, 3))
+print(a)
+print()
+print(np.roll(a, shift=1, axis=1))
+print()
+print(np.roll(a, shift=2, axis=1))
+print()
+print(np.roll(a, shift=3, axis=1))
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]]
+
+[[2 0 1]
+ [5 3 4]]
+
+[[1 2 0]
+ [4 5 3]]
+
+[[0 1 2]
+ [3 4 5]]
+```
