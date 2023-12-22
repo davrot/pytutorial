@@ -123,6 +123,7 @@ In the case you know Matlab check here:
 
 ## PyTorch 
 * [Get CUDA ready!](pytorch/cuda/README.md)
+* [Interfacing Data](pytorch/interfacing_data/README.md)
 * [Data augmentation](pytorch/augmentation/README.md)
 * [Layers](pytorch/layers/README.md)
 * [Converting the original MNIST files into numpy](pytorch/MNIST/README.md)
