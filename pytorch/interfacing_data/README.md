@@ -14,6 +14,17 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 There are options to interface your data. 
 
+## [torch.utils.data.TensorDataset](https://pytorch.org/docs/stable/data.html#torch.utils.data.TensorDataset)
+
+```python
+CLASS torch.utils.data.TensorDataset(*tensors)
+```
+
+> Dataset wrapping tensors.
+> 
+> Each sample will be retrieved by indexing tensors along the first dimension.
+> 
+> **\*tensors** : (Tensor) – tensors that have the same size of the first dimension.
 
 
 ## [torch.utils.data.Dataset](https://pytorch.org/docs/stable/data.html#torch.utils.data.Dataset)
