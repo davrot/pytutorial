@@ -222,3 +222,32 @@ Output:
  [0 1 2 3 4]
  [0 1 2 3 4]]
 ```
+
+## Manual broadcast : [numpy.broadcast_shapes](https://numpy.org/doc/stable/reference/generated/numpy.broadcast_shapes.html#numpy-broadcast-shapes)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+numpy.broadcast_shapes(*args)
+```
+
+> Broadcast the input shapes into a single shape.
+
+```python
+import numpy as np
+
+a = np.arange(0, 3).reshape(3, 1)
+b = np.arange(0, 5).reshape(1, 5)
+
+print(a.shape)  # -> (3, 1)
+print(b.shape)  # -> (1, 5)
+
+new_shape = np.broadcast_shapes(a.shape, b.shape)
+print(new_shape)  # -> (3, 5)
+
+new_shape = np.broadcast_shapes((3, 1), (1, 5))
+print(new_shape)  # -> (3, 5)
+```
+
+
