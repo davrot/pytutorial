@@ -315,3 +315,64 @@ Index: (2, 2) value a:18
  [260 270 280]]
 ```
 
+## [Alternative looping​](https://numpy.org/doc/stable/reference/arrays.nditer.html#alternative-looping-and-element-access)
+
+```python
+nditer.iternext()
+```
+> Check whether iterations are left, and perform a single internal iteration without returning the result. Used in the C-style pattern do-while pattern. For an example, see nditer.
+> 
+> Returns:
+> 
+> **iternext** : bool
+> Whether or not there are iterations left.
+
+
+My personal suggestion/ taste is to adopt one style and stick to it. Use the with & for or the with & while construct, even if you only use ‘readonly’.​
+
+```python
+import numpy as np
+
+a = np.arange(10, 19).reshape(3, 3)
+
+
+print(a)
+print()
+
+with np.nditer(a, flags=["multi_index"], op_flags=["readwrite"]) as iterator:
+    while not iterator.finished:
+        iterator[0] = iterator[0] * 10
+        status = (
+            iterator.iternext()
+        )  # If you forget this then you bought a ticket straight to hell.​
+        print(status)
+
+print()
+print(a)
+```
+
+Output:
+
+```python
+[[10 11 12]
+ [13 14 15]
+ [16 17 18]]
+
+True
+True
+True
+True
+True
+True
+True
+True
+False
+
+[[100 110 120]
+ [130 140 150]
+ [160 170 180]]
+```
+
+**Note: If you forget iterator.iternext() then you bought a ticket straight to hell.​**
+
+
