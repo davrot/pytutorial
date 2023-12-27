@@ -84,3 +84,141 @@ A      (2d array):      2 x 1
 B      (3d array):  8 x 4 x 3 # second from last dimensions mismatched
 ```
 
+## at least
+
+{: .topic-optional}
+This is an optional topic!
+
+### [numpy.atleast_1d](https://numpy.org/doc/stable/reference/generated/numpy.atleast_1d.html)
+
+```python
+numpy.atleast_1d(*arys)
+```
+
+> Convert inputs to arrays with at least one dimension.
+> 
+> Scalar inputs are converted to 1-dimensional arrays, whilst higher-dimensional inputs are preserved.
+
+### [numpy.atleast_2d](https://numpy.org/doc/stable/reference/generated/numpy.atleast_2d.html)
+
+```python
+numpy.atleast_2d(*arys)
+```
+
+> View inputs as arrays with at least two dimensions.
+
+### [numpy.atleast_3d](https://numpy.org/doc/stable/reference/generated/numpy.atleast_3d.html)
+
+```python
+numpy.atleast_3d(*arys)
+```
+
+> View inputs as arrays with at least three dimensions.
+
+
+### Example
+
+```python
+import numpy as np
+
+a = np.atleast_1d(5)
+print(a.shape)  # -> (1,)
+a = np.atleast_1d(a)
+print(a.shape)  # -> (1,)
+a = np.atleast_2d(a)
+print(a.shape)  # -> (1, 1)
+a = np.atleast_2d(a)
+print(a.shape)  # -> (1, 1)
+a = np.atleast_3d(a)
+print(a.shape)  # -> (1, 1, 1)
+a = np.atleast_3d(a)
+print(a.shape)  # -> (1, 1, 1)
+
+a = np.atleast_1d(np.zeros((2)))
+print(a.shape)  # -> (2,)
+a = np.atleast_2d(a)
+print(a.shape)  # -> (1, 2)
+a = np.atleast_3d(a)
+print(a.shape)  # -> (1, 2, 1)
+
+
+a = np.atleast_1d(np.zeros((2, 3)))
+print(a.shape)  # -> (2, 3)
+a = np.atleast_2d(a)
+print(a.shape)  # -> (2, 3)
+a = np.atleast_3d(a)
+print(a.shape)  # -> (2, 3, 1)
+```
+
+## Manual broadcast : [numpy.broadcast_to](https://numpy.org/doc/stable/reference/generated/numpy.broadcast_to.html)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+numpy.broadcast_to(array, shape, subok=False)
+```
+
+> Broadcast an array to a new shape.
+
+```python
+import numpy as np
+
+a = np.arange(0, 3)
+
+print(a) # -> [0 1 2]
+print(a.shape) # -> (3,)
+
+b = np.broadcast_to(a, (3,3))
+print(b) 
+print(b.shape) # -> (3,3)
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [0 1 2]
+ [0 1 2]]
+```
+
+## Manual broadcast : [numpy.broadcast_arrays](https://numpy.org/doc/stable/reference/generated/numpy.broadcast_arrays.html)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+numpy.broadcast_arrays(*args, subok=False)
+```
+
+> Broadcast any number of arrays against each other.
+
+```python
+import numpy as np
+
+a = np.arange(0, 3).reshape(3, 1)
+b = np.arange(0, 5).reshape(1, 5)
+
+print(a.shape)  # -> (3, 1)
+print(b.shape)  # -> (1, 5)
+
+c, d = np.broadcast_arrays(a, b)
+print(c.shape)  # -> (3, 5)
+print(d.shape)  # -> (3, 5)
+
+print(c)
+print()
+print(d)
+```
+
+Output:
+
+```python
+[[0 0 0 0 0]
+ [1 1 1 1 1]
+ [2 2 2 2 2]]
+
+[[0 1 2 3 4]
+ [0 1 2 3 4]
+ [0 1 2 3 4]]
+```
