@@ -87,6 +87,7 @@ Important VS Code notes:
 ## Numpy: Special topics
 * [Beyond normal np.save](numpy/save_special/README.md)
 * [nditer provides many ways to visit all the elements of one or more arrays](numpy/nditer/README.md)
+* [Manipulation of integers and their bits](numpy/bits_and_integers​/README.md)
 
 ## Numpy: Matlab topics
 * [Dealing with Matlab files](numpy/mat_files/README.md)
