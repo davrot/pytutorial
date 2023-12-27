@@ -12,6 +12,16 @@ Broadcasting: Automatic adaption of dimensions​
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
+## [General broadcasting rules](https://numpy.org/devdocs/user/basics.broadcasting.html)
+
+> When operating on two arrays, NumPy compares their shapes element-wise. It starts with the trailing (i.e. rightmost) dimension and works its way left. **Two dimensions are compatible when**
+> 
+> * **they are equal**, or
+> * **one of them is 1**.
+> 
+> If these conditions are not met, a ValueError: operands could not be broadcast together exception is thrown, indicating that the arrays have incompatible shapes.
+> 
+> **Input arrays do not need to have the same number of dimensions**. **The resulting array will have the same number of dimensions as the input array with the greatest number of dimensions**, where the size of each dimension is the largest size of the corresponding dimension among the input arrays. Note that missing dimensions are assumed to have size one.
 
 ![broadcasting_1.png](broadcasting_1.png)
 
