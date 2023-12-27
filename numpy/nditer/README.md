@@ -739,3 +739,106 @@ a:6 b:2
 a:7 b:2
 a:8 b:2
 ```
+
+Or only one matrix: 
+
+```python
+import numpy as np
+
+a = np.arange(0, 9).reshape(3, 3)
+
+print(a)
+print()
+
+
+with np.nditer([a]) as iterator:
+    for x in iterator:
+        print(f"a:{x}")
+print()
+
+with np.nditer([a], op_axes=[[0]]) as iterator:
+    for x in iterator:
+        print(f"a:{x}")
+print()
+
+with np.nditer([a], op_axes=[[1]]) as iterator:
+    for x in iterator:
+        print(f"a:{x}")
+print()
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+
+a:0
+a:1
+a:2
+a:3
+a:4
+a:5
+a:6
+a:7
+a:8
+
+a:0
+a:3
+a:6
+
+a:0
+a:1
+a:2
+```
+
+## parameters galore
+
+> **flags** : sequence of str, optional
+>
+> **delay_bufalloc** delays allocation of the buffers until a **reset()** call is made. Allows allocate operands to be initialized before their values are copied into the buffers.
+
+> **op_flags** : list of list of str, optional
+>
+> **allocate** causes the array to be allocated if it is None in the op parameter.
+
+```python
+nditer.reset()
+```
+
+> Reset the iterator to its initial state.
+
+```python
+import numpy as np
+
+a = np.arange(0, 9).reshape(3, 3)
+
+print(a)
+print()
+
+with np.nditer(
+    [a, None],
+    flags=["reduce_ok", "buffered", "delay_bufalloc"],
+    op_flags=[["readonly"], ["readwrite", "allocate"]],
+    op_axes=[None, [0, -1]],
+) as iterator:
+    iterator.operands[1][...] = 0
+    iterator.reset()
+
+    for x, y in iterator:
+        y[...] += x
+    out = iterator.operands[1]
+print(out)
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+
+[ 3 12 21]
+```
+
