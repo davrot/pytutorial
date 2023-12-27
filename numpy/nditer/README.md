@@ -375,4 +375,256 @@ False
 
 **Note: If you forget iterator.iternext() then you bought a ticket straight to hell.​**
 
+## [dtype casting​](https://numpy.org/doc/stable/reference/arrays.nditer.html#iterating-as-a-specific-data-type)
+
+
+For dtype casting via **op_dtypes** parameter you need to activate **buffered** or **copy**.
+
+> **op_dtypes**: dtype or tuple of dtype(s), optional
+> 
+> The required data type(s) of the operands. If **copying or buffering is enabled**, the data will be converted to/from their original types.
+
+> **flags** : sequence of str, optional
+> 
+> **buffered** enables buffering when required.
+
+> **op_flags** : list of list of str, optional
+>
+> **copy** allows a temporary read-only copy if required.
+
+You can use this parameter to enable or disable safety functions:
+
+> **casting** : {‘no’, ‘equiv’, ‘safe’, ‘same_kind’, ‘unsafe’}, optional
+> 
+> Controls what kind of data casting may occur when making a copy or buffering. Setting this to ‘unsafe’ is not recommended, as it can adversely affect accumulations.
+> 
+> * ‘no’ means the data types should not be cast at all.
+> * ‘equiv’ means only byte-order changes are allowed.
+> * ‘safe’ means only casts which can preserve values are allowed.
+> * ‘same_kind’ means only safe casts or casts within a kind, like float64 to float32, are allowed.
+> * ‘unsafe’ means any data conversions may be done.
+
+## multi variable iteration (same shape)
+
+```python
+import numpy as np
+
+a = np.arange(10, 19).reshape(3, 3)
+b = np.arange(20, 29).reshape(3, 3)
+
+print(a)
+print()
+print(b)
+print()
+
+
+with np.nditer([a, b], op_flags=["readwrite"]) as iterator:
+    for x, y in iterator:
+        print(f"value a:{x} value b:{y}")
+        x[...] += y 
+
+print()
+print(a)
+```
+
+Output:
+
+```python
+[[10 11 12]
+ [13 14 15]
+ [16 17 18]]
+
+[[20 21 22]
+ [23 24 25]
+ [26 27 28]]
+
+value a:10 value b:20
+value a:11 value b:21
+value a:12 value b:22
+value a:13 value b:23
+value a:14 value b:24
+value a:15 value b:25
+value a:16 value b:26
+value a:17 value b:27
+value a:18 value b:28
+
+[[30 32 34]
+ [36 38 40]
+ [42 44 46]]
+```
+
+## multi variable iteration (readonly, broadcast)​
+
+In the case you do **NOT** want this this:
+
+> **op_flags** : list of list of str, optional
+> 
+> **no_broadcast** prevents the operand from being broadcasted.
+
+```python
+import numpy as np
+
+a = np.arange(10, 19).reshape(3, 3)
+b = np.arange(20, 23)
+
+print(a)
+print()
+print(b)
+print()
+
+
+with np.nditer([a, b]) as iterator:
+    for x, y in iterator:
+        print(f"value a:{x} value b:{y}")
+```
+
+Output:
+
+```python
+[[10 11 12]
+ [13 14 15]
+ [16 17 18]]
+
+[20 21 22]
+
+value a:10 value b:20
+value a:11 value b:21
+value a:12 value b:22
+value a:13 value b:20
+value a:14 value b:21
+value a:15 value b:22
+value a:16 value b:20
+value a:17 value b:21
+value a:18 value b:22
+```
+
+**readwrite** fails with this exception: 
+
+```python
+with np.nditer([a, b], op_flags=["readwrite"]) as iterator: ​# ValueError: output operand requires a reduction, but reduction is not enabled
+    for x, y in iterator:
+        print(f"value a:{x} value b:{y}")
+```
+
+## multi variable iteration (broadcast, selective rights)​
+
+We can mark only the bigger one as writeable:​
+
+```python
+import numpy as np
+
+a = np.arange(10, 19).reshape(3, 3)
+b = np.arange(20, 23)
+
+print(a)
+print()
+print(b)
+print()
+
+
+with np.nditer([a, b], op_flags=[["readwrite"], ["readonly"]]) as iterator:
+    for x, y in iterator:
+        print(f"value a:{x} value b:{y}")
+```
+
+Output:
+
+```python
+[[10 11 12]
+ [13 14 15]
+ [16 17 18]]
+
+[20 21 22]
+
+value a:10 value b:20
+value a:11 value b:21
+value a:12 value b:22
+value a:13 value b:20
+value a:14 value b:21
+value a:15 value b:22
+value a:16 value b:20
+value a:17 value b:21
+value a:18 value b:22
+```
+
+Or we can activate the **reduce_ok** flag for the smaller one:​
+
+> **flags** : sequence of str, optional
+> 
+> **reduce_ok** enables iteration of readwrite operands which are broadcasted, also known as reduction operands.
+
+```python
+import numpy as np
+
+a = np.arange(10, 19).reshape(3, 3)
+b = np.zeros((3))
+
+print(a)
+print()
+print(b)
+print()
+
+
+with np.nditer([a, b], flags=["reduce_ok"], op_flags=["readwrite"]) as iterator:
+    for x, y in iterator:
+        y[...] += x
+
+print(b)
+```
+
+Output:
+
+```python
+[[10 11 12]
+ [13 14 15]
+ [16 17 18]]
+
+[0. 0. 0.]
+
+[39. 42. 45.]
+```
+
+## [making something from nothing (i.e. None)](https://numpy.org/doc/stable/reference/arrays.nditer.html#iterator-allocated-output-arrays)
+
+> By default, the nditer uses the flags ‘allocate’ and ‘writeonly’ for operands that are passed in as None. This means we were able to provide just the two operands to the iterator, and it handled the rest.
+
+**However, “None” is full of junk in the beginning!**
+
+```python
+import numpy as np
+
+a = np.arange(10, 19).reshape(3, 3)
+
+print(a)
+print()
+
+
+with np.nditer([a, None]) as iterator:
+    for x, y in iterator:
+        y[...] += x**2
+    out_1 = iterator.operands[0]
+    out_2 = iterator.operands[1]
+print(out_1)
+print()
+print(out_2)
+```
+
+* **iterator.operands[0] formerly known as A**
+* **iterator.operands[1] formerly known as None**
+
+Output:
+
+```python
+[[10 11 12]
+ [13 14 15]
+ [16 17 18]]
+
+[[10 11 12]
+ [13 14 15]
+ [16 17 18]]
+
+[[130 153 178]
+ [205 234 265]
+ [298 333 370]]
+```
 
