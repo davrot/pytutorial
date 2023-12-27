@@ -56,8 +56,11 @@ Important VS Code notes:
 * [Importing Modules](python_basics/modules/README.md)
 * [Built-in Functions](python_basics/built_in/README.md)
 * [Built-in Keywords](python_basics/keywords/README.md)
+
+## Python: Special topics
 * [The Python Standard Library​](python_basics/standard_libraries/README.md)
 * [Dataclass](python_basics/dataclass/README.md)
+
 
 ## Numpy: The Basics of the basics
 * [The N-dimensional array (ndarray)​](numpy/ndarray/README.md)
@@ -83,6 +86,9 @@ Important VS Code notes:
 
 In the case you know Matlab check here: 
 [NumPy for MATLAB users](numpy/matlab_guide/README.md)
+
+## Numpy: Special topics
+* [nditer provides many ways to visit all the elements of one or more arrays](numpy/nditer/README.md)
 
 ## Matplotlib.pyplot
 * [Simple plot and imshow examples](matplotlib/basics/README.md)
