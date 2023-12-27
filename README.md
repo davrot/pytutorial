@@ -84,11 +84,17 @@ Important VS Code notes:
 * [Meshgrid](numpy/mesh_grid/README.md)
 * [Flip, rot90, and roll a matrix](numpy/reverse_an_axis/README.md)
 
+## Numpy: Special topics
+* [Beyond normal np.save](numpy/save_special/README.md)
+* [nditer provides many ways to visit all the elements of one or more arrays](numpy/nditer/README.md)
+
+## Numpy: Matlab topics
+* [Dealing with Matlab files](numpy/mat_files/README.md)
+* [Matlab is also just a Python package](matlab/matlab_as_a_python_pakage/README.md)
+* [Running Python remotely from Matlab](matlab/python_used_by_matlab/README.md)
+
 In the case you know Matlab check here: 
 [NumPy for MATLAB users](numpy/matlab_guide/README.md)
-
-## Numpy: Special topics
-* [nditer provides many ways to visit all the elements of one or more arrays](numpy/nditer/README.md)
 
 ## Matplotlib.pyplot
 * [Simple plot and imshow examples](matplotlib/basics/README.md)
@@ -100,11 +106,6 @@ In the case you know Matlab check here:
 * [Basics](pandas/basics/README.md)
 
 
-## Numpy
-* [Beyond normal np.save](numpy/save_special/README.md)
-* [Dealing with Matlab files](numpy/mat_files/README.md)
-* [Matlab is also just a Python package](matlab/matlab_as_a_python_pakage/README.md)
-* [Running Python remotely from Matlab](matlab/python_used_by_matlab/README.md)
 
 
 ## Sci-kit Learn 
