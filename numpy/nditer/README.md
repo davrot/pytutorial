@@ -180,7 +180,7 @@ Output:
 [2 5 8]
 ```
 
-## external_loop and buffered​
+## external_loop and [buffered​](https://numpy.org/doc/stable/reference/arrays.nditer.html#buffering-the-array-elements)
 
 > **flags** : sequence of str, optional
 >
@@ -211,4 +211,107 @@ Output:
 [0 3 6 1 4 7 2 5 8]
 ```
 
-## {c,f}_index
+## Tracking an index [{c,f}_index](https://numpy.org/doc/stable/reference/arrays.nditer.html#alternative-looping-and-element-access)
+
+> **flags** : sequence of str, optional
+>
+> * **c_index causes** a C-order index to be tracked.
+>
+> * **f_index** causes a Fortran-order index to be tracked.
+
+```python
+import numpy as np
+
+a = np.arange(10, 19).reshape(3, 3)
+b = np.arange(20, 29).reshape(3, 3)
+
+print(a)
+print()
+print(b)
+print()
+
+
+with np.nditer(a, flags=["c_index"]) as iterator:
+    for i in iterator:
+        print(f"Index: {iterator.index} value a:{i} value b:{b.flat[iterator.index]}")
+
+```
+
+Output:
+
+```python
+[[10 11 12]
+ [13 14 15]
+ [16 17 18]]
+
+[[20 21 22]
+ [23 24 25]
+ [26 27 28]]
+
+Index: 0 value a:10 value b:20
+Index: 1 value a:11 value b:21
+Index: 2 value a:12 value b:22
+Index: 3 value a:13 value b:23
+Index: 4 value a:14 value b:24
+Index: 5 value a:15 value b:25
+Index: 6 value a:16 value b:26
+Index: 7 value a:17 value b:27
+Index: 8 value a:18 value b:28
+```
+
+## Tracking a [multi-index](https://numpy.org/doc/stable/reference/arrays.nditer.html#tracking-an-index-or-multi-index)
+
+> **flags** : sequence of str, optional
+> **multi_index** causes a multi-index, or a tuple of indices with one per iteration dimension, to be tracked.
+
+```python
+import numpy as np
+
+a = np.arange(10, 19).reshape(3, 3)
+b = np.arange(20, 29).reshape(3, 3)
+
+print(a)
+print()
+print(b)
+print()
+
+
+with np.nditer(a, flags=["multi_index"]) as iterator:
+    for i in iterator:
+        print(f"Index: {iterator.multi_index} value a:{i}")
+
+
+with np.nditer(a, flags=["multi_index"], op_flags=["readwrite"]) as iterator:
+    for i in iterator:
+        i[...] = b[iterator.multi_index] * 10
+
+print()
+print(a)
+```
+
+Output:
+
+```python
+[[10 11 12]
+ [13 14 15]
+ [16 17 18]]
+
+[[20 21 22]
+ [23 24 25]
+ [26 27 28]]
+
+Index: (0, 0) value a:10
+Index: (0, 1) value a:11
+Index: (0, 2) value a:12
+Index: (1, 0) value a:13
+Index: (1, 1) value a:14
+Index: (1, 2) value a:15
+Index: (2, 0) value a:16
+Index: (2, 1) value a:17
+Index: (2, 2) value a:18
+
+[[200 210 220]
+ [230 240 250]
+ [260 270 280]]
+```
+
