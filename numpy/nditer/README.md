@@ -180,3 +180,35 @@ Output:
 [2 5 8]
 ```
 
+## external_loop and buffered​
+
+> **flags** : sequence of str, optional
+>
+> **buffered** enables buffering when required.
+
+Depending on the memory order you might get a set of chunks instead of one array. You can modify this via the **buffered** flag.​
+
+```python
+import numpy as np
+
+a = np.arange(0, 9).reshape(3, 3)
+
+print(a)
+print()
+
+
+for i in np.nditer(a, flags=["external_loop", "buffered"], order="F"):
+    print(i)
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+
+[0 3 6 1 4 7 2 5 8]
+```
+
+## {c,f}_index
