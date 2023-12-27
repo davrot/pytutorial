@@ -108,8 +108,6 @@ In the case you know Matlab check here:
 * [Basics](pandas/basics/README.md)
 
 
-
-
 ## Sci-kit Learn 
 * [Overview](scikit-learn/overview/README.md)
 * [KMeans](scikit-learn/kmeans/README.md)
@@ -131,6 +129,7 @@ In the case you know Matlab check here:
 * [Argh: Organize your command line arguments](helper/argh/README.md)
 
 ## OpenCV2 and Python
+* [OpenCV2: Play, write, read a video](cv2/write_read_play/README.md)
 * [How to read a webcam with CV2](cv2/webcam/README.md)
 
 ## PyTorch 
