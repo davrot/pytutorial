@@ -628,3 +628,114 @@ Output:
  [298 333 370]]
 ```
 
+You can fix the junk in None by: 
+
+```python
+import numpy as np
+
+a = np.arange(10, 19).reshape(3, 3)
+
+print(a)
+print()
+
+
+with np.nditer([a, None]) as iterator:
+    iterator.operands[1][...] = 0
+    for x, y in iterator:
+        y[...] += x**2
+    out_1 = iterator.operands[0]
+    out_2 = iterator.operands[1]
+print(out_1)
+print()
+print(out_2)
+```
+
+Output:
+
+```python
+[[10 11 12]
+ [13 14 15]
+ [16 17 18]]
+
+[[10 11 12]
+ [13 14 15]
+ [16 17 18]]
+
+[[100 121 144]
+ [169 196 225]
+ [256 289 324]]
+```
+
+## op_axes​
+
+> **op_axes** : list of list of ints, optional
+> 
+> If provided, is a list of ints or None for each operands. The list of axes for an operand is a mapping from the dimensions of the iterator to the dimensions of the operand. A value of -1 can be placed for entries, causing that dimension to be treated as newaxis.
+
+```python
+import numpy as np
+
+a = np.arange(0, 9).reshape(3, 3)
+b = np.arange(0, 3)
+
+print(a)
+print()
+print(b)
+print()
+
+
+with np.nditer([a, b]) as iterator:
+    for x, y in iterator:
+        print(f"a:{x} b:{y}")
+print()
+
+with np.nditer([a, b], op_axes=[[0, 1], [-1, 0]]) as iterator:
+    for x, y in iterator:
+        print(f"a:{x} b:{y}")
+print()
+
+with np.nditer([a, b], op_axes=[[0, 1], [0, -1]]) as iterator:
+    for x, y in iterator:
+        print(f"a:{x} b:{y}")
+print()
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+
+[0 1 2]
+
+a:0 b:0
+a:1 b:1
+a:2 b:2
+a:3 b:0
+a:4 b:1
+a:5 b:2
+a:6 b:0
+a:7 b:1
+a:8 b:2
+
+a:0 b:0
+a:1 b:1
+a:2 b:2
+a:3 b:0
+a:4 b:1
+a:5 b:2
+a:6 b:0
+a:7 b:1
+a:8 b:2
+
+a:0 b:0
+a:1 b:0
+a:2 b:0
+a:3 b:1
+a:4 b:1
+a:5 b:1
+a:6 b:2
+a:7 b:2
+a:8 b:2
+```
