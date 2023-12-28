@@ -163,6 +163,8 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 
 ## Other topics 
 * [Open Source Tools](other/open_source_tools/README.md)
+* [Machine Learning Resources](other/ml_resources/README.md)
+* [Datasets](other/datasets/README.md)
 
 {: .topic-optional}
 Note: I will transfer the old pages to this new place (and update them). It will take some time but it will happen... 
