@@ -60,6 +60,7 @@ Important VS Code notes:
 ## Python: Special topics
 * [The Python Standard Library​](python_basics/standard_libraries/README.md)
 * [Dataclass](python_basics/dataclass/README.md)
+* [Organizing parameters: dataclasses and dataconf](python_basics/dataconf/README.md)
 
 
 ## Numpy: The Basics of the basics
