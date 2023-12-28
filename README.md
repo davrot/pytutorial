@@ -74,6 +74,7 @@ Important VS Code notes:
 * [Reshape and flatten](numpy/reshape/README.md)
 * [Slices and Views](numpy/slices_views/README.md)
 * [Where](numpy/where/README.md)
+* [Extending an existing matrix: tile, repeat, pad](numpy/extending/README.md)
 * [Boolean matricies and logic functions](numpy/bool_matrix/README.md)
 * [Advanced Indexing](numpy/advanced_indexing/README.md)
 * [Available dtypes](numpy/dtype/README.md)
