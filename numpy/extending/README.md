@@ -141,7 +141,9 @@ Output:
   [1 2 3 4]]]
 ```
 
-### Don’t confuse tile() with repeat()!​
+## [numpy.repeat](https://numpy.org/doc/stable/reference/generated/numpy.repeat.html#numpy-repeat)
+
+**Don’t confuse tile() with repeat()!​**
 
 ```python
 numpy.repeat(a, repeats, axis=None)[source]
