@@ -796,4 +796,98 @@ if __name__ == "__main__":
 
 ## Failure is an option: Debugging 
 
+If something is too good to be true then maybe it is not true! Not only in the case of an email from a rich Nigerian prince you might want to debug the situation, also you shouldn't totally trust numba as well. As always: Check if the results are in the right region. 
+
+If Numba njit has a problem it ***usually*** gives you an error message and stops. This is the reason why we use njit instead of jit. If jit sees a problem it fixes it with slow Python code. And it does this silently. You will only notice the absence of an improvement. njit stops with an error message. 
+
+Only once we found a problem (with an earlier version of numba) where the use of parallel loops failed so beautiful that we got wrong results but a speed improvement 10000x. Looking on the speed improvement this was clearly a case of too good to be true.
+
+But you are not helpless!
+
+In the case of our example with prange we can [activate debugging information](https://numba.pydata.org/numba-doc/latest/user/parallel.html#diagnostics) 
+
+```python
+main.parallel_diagnostics(level=4)
+```
+and see that it did:
+
+```python
+================================================================================
+ Parallel Accelerator Optimizing:  Function main, <ipython-input-1-dc4cb05d144d>
+ (30)  
+================================================================================
+
+
+Parallel loop listing for  Function main, <ipython-input-1-dc4cb05d144d> (30) 
+---------------------------------------------------------------------------------|loop #ID
+@njit(                                                                           | 
+    numba.types.uint64[::1](                                                     | 
+        numba.types.uint64,                                                      | 
+        numba.types.uint64,                                                      | 
+        numba.types.float32[::1],                                                | 
+        numba.types.float32[:, ::1],                                             | 
+    ),                                                                           | 
+    cache=True,                                                                  | 
+    fastmath=True,                                                               | 
+    parallel=True,                                                               | 
+)                                                                                | 
+def main(                                                                        | 
+    number_of_iterations: np.uint64,                                             | 
+    number_of_neurons: np.uint64,                                                | 
+    random_number_spikes: np.ndarray,                                            | 
+    random_number_h: np.ndarray,                                                 | 
+) -> np.ndarray:                                                                 | 
+    results = np.zeros((number_of_iterations), dtype=np.uint64)------------------| #0
+                                                                                 | 
+    for i in prange(0, number_of_iterations):------------------------------------| #2
+        h = random_number_h[i, :]                                                | 
+        h /= h.sum()-------------------------------------------------------------| #1
+        results[i] = get_spike(h, number_of_neurons, random_number_spikes[i])    | 
+                                                                                 | 
+    return results                                                               | 
+--------------------------------- Fusing loops ---------------------------------
+Attempting fusion of parallel loops (combines loops with similar properties)...
+  Trying to fuse loops #0 and #2:
+    - fusion failed: cross iteration dependency found between loops #0 and #2
+----------------------------- Before Optimisation ------------------------------
+Parallel region 0:
++--2 (parallel)
+   +--1 (parallel)
+
+
+--------------------------------------------------------------------------------
+------------------------------ After Optimisation ------------------------------
+Parallel region 0:
++--2 (parallel)
+   +--1 (serial)
+
+
+ 
+Parallel region 0 (loop #2) had 0 loop(s) fused and 1 loop(s) serialized as part
+ of the larger parallel loop (#2).
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+ 
+---------------------------Loop invariant code motion---------------------------
+Allocation hoisting:
+No allocation hoisting found
+
+Instruction hoisting:
+loop #0:
+  Has the following hoisted:
+    $expr_out_var.15 = const(uint64, 0)
+loop #2:
+  Has the following hoisted:
+    $const120.4 = const(NoneType, None)
+    $const122.5 = const(NoneType, None)
+    $124build_slice.6 = global(slice: <class 'slice'>)
+    $124build_slice.7 = call $124build_slice.6($const120.4, $const122.5, func=$124build_slice.6, args=(Var($const120.4, <ipython-input-1-dc4cb05d144d>:50), Var($const122.5, <ipython-input-1-dc4cb05d144d>:50)), kws=(), vararg=None, varkwarg=None, target=None)
+    $186load_global.16 = global(get_spike: CPUDispatcher(<function get_spike at 0x7fedb9fc27a0>))
+  Failed to hoist the following:
+    dependency: $126build_tuple.8 = build_tuple(items=[Var($parfor__index_18.95, <string>:2), Var($124build_slice.7, <ipython-input-1-dc4cb05d144d>:50)])
+    dependency: h = getitem(value=random__number__h, index=$126build_tuple.8, fn=<built-in function getitem>)
+    dependency: $206binary_subscr.22 = getitem(value=random__number__spikes, index=$parfor__index_18.95, fn=<built-in function getitem>)
+    dependency: $220call.23 = call $push_global_to_block.94($h.1.22, number__of__neurons, $206binary_subscr.22, func=$push_global_to_block.94, args=[Var($h.1.22, <ipython-input-1-dc4cb05d144d>:51), Var(number__of__neurons, <ipython-input-1-dc4cb05d144d>:30), Var($206binary_subscr.22, <ipython-input-1-dc4cb05d144d>:52)], kws=(), vararg=None, varkwarg=None, target=None)
+--------------------------------------------------------------------------------
+```
 
