@@ -117,5 +117,73 @@ Sequential(
 
 Congratulations you now have the network you wanted.
 
+## Inspecting the network object
 
+```python
+print(network.__dict__)
+```
 
+The output is:
+
+```python
+{'training': True, 
+'_parameters': OrderedDict(), 
+'_buffers': OrderedDict(), 
+'_non_persistent_buffers_set': set(), 
+'_backward_pre_hooks': OrderedDict()
+'_backward_hooks': OrderedDict(),
+'_is_full_backward_hook': None, 
+'_forward_hooks': OrderedDict(), 
+'_forward_hooks_with_kwargs': OrderedDict(), 
+'_forward_pre_hooks': OrderedDict(), 
+'_forward_pre_hooks_with_kwargs': OrderedDict(),
+'_state_dict_hooks': OrderedDict(), 
+'_state_dict_pre_hooks': OrderedDict(), 
+'_load_state_dict_pre_hooks': OrderedDict(), 
+'_load_state_dict_post_hooks': OrderedDict(), 
+'_modules': OrderedDict([('0', Conv2d(1, 32, kernel_size=(5, 5), stride=(1, 1))), ('1', ReLU()), ('2', MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)), ('3', Conv2d(32, 64, kernel_size=(5, 5), stride=(1, 1))), ('4', ReLU()), ('5', MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)), ('6', Flatten(start_dim=1, end_dim=-1)), ('7', Linear(in_features=576, out_features=1024, bias=True)), ('8', ReLU()), ('9', Linear(in_features=1024, out_features=10, bias=True))])}
+```
+
+The obvious question is: What does this tell us? We see that the network is set to training mode but more importantly we can see our network architecture:
+
+```python
+print(network.__dict__["_modules"])
+```python
+
+```python
+OrderedDict([
+    ('0', Conv2d(1, 32, kernel_size=(5, 5), stride=(1, 1))), 
+    ('1', ReLU()), 
+    ('2', MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)), 
+    ('3', Conv2d(32, 64, kernel_size=(5, 5), stride=(1, 1))), 
+    ('4', ReLU()), 
+    ('5', MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)), 
+    ('6', Flatten(start_dim=1, end_dim=-1)), 
+    ('7', Linear(in_features=576, out_features=1024, bias=True)), 
+    ('8', ReLU()), 
+    ('9', Linear(in_features=1024, out_features=10, bias=True))])
+```
+
+## Using the network
+
+First we need some input data
+
+```python
+input_number_of_channel: int = 1
+input_dim_x: int = 24
+input_dim_y: int = 24
+
+number_of_pattern: int = 111
+fake_input = torch.rand(
+    (number_of_pattern, input_number_of_channel, input_dim_x, input_dim_y),
+    dtype=torch.float32,
+)
+```
+
+Output:
+
+```python
+output = network(fake_input)
+print(fake_input.shape)  # -> torch.Size([111, 1, 24, 24])
+print(output.shape)  # -> torch.Size([111, 10])
+```
