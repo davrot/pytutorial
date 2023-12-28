@@ -1,4 +1,4 @@
-# Memory layout of the Numpy matrices
+# Memory layout of Numpy matrices
 {:.no_toc}
 
 <nav markdown="1" class="toc-class">
