@@ -55,6 +55,46 @@ class Config:
 
 If you are not sure that all parameters are included in the config file then you can set the default values or default_factory with the field element in the dataclass. see [dataclass](https://davrot.github.io/pytutorial/python_basics/dataclass/) for details.
 
+Here is an extra example how this could look like:
+
+```python
+@dataclass
+class LearningParameters:
+    """Parameter required for training"""
+
+    learning_active: bool = field(default=True)
+
+    loss_mode: int = field(default=0)
+    loss_coeffs_mse: float = field(default=0.5)
+    loss_coeffs_kldiv: float = field(default=1.0)
+
+    optimizer_name: str = field(default="Adam")
+
+    learning_rate_gamma_w: float = field(default=-1.0)
+    learning_rate_threshold_w: float = field(default=0.00001)
+
+    lr_schedule_name: str = field(default="ReduceLROnPlateau")
+    lr_scheduler_use_performance: bool = field(default=False)
+    lr_scheduler_factor_w: float = field(default=0.75)
+    lr_scheduler_patience_w: int = field(default=-1)
+    lr_scheduler_tau_w: int = field(default=10)
+
+    number_of_batches_for_one_update: int = field(default=1)
+    overload_path: str = field(default="Previous")
+
+    weight_noise_range: list[float] = field(default_factory=list)
+    eps_xy_intitial: float = field(default=1.0)
+
+    disable_scale_grade: bool = field(default=False)
+    kepp_last_grad_scale: bool = field(default=True)
+
+    sbs_skip_gradient_calculation: list[bool] = field(default_factory=list)
+
+    adapt_learning_rate_after_minibatch: bool = field(default=True)
+
+    w_trainable: list[bool] = field(default_factory=list)
+```
+
 ## The JSON config file
 
 Here an example JSON file tailored for our dataclass Config:
