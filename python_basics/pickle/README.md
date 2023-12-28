@@ -1,4 +1,4 @@
-# Pickle
+# [pickle](https://docs.python.org/3/library/pickle.html#module-pickle):  Python object serialization
 {:.no_toc}
 
 <nav markdown="1" class="toc-class">
@@ -8,9 +8,15 @@
 
 ## The goal
 
-
+How to store Python objects in files and how to restore them.
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
+
+**Warning The pickle module is not secure. Only unpickle data you trust.**
+
+## [pickle](https://docs.python.org/3/library/pickle.html#module-pickle)
+
+> The [pickle](https://docs.python.org/3/library/pickle.html#module-pickle) module implements binary protocols for serializing and de-serializing a Python object structure. “Pickling” is the process whereby a Python object hierarchy is converted into a byte stream, and “unpickling” is the inverse operation, whereby a byte stream (from a binary file or bytes-like object) is converted back into an object hierarchy. 
 
 ## [pickle.dump](https://docs.python.org/3/library/pickle.html#pickle.dump) and [pickle.dumps](https://docs.python.org/3/library/pickle.html#pickle.dumps)
 
