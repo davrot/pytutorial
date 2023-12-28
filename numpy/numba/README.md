@@ -69,7 +69,7 @@ Some example for array signatures are:
 |numba.types.float32[::1,:]|	2d array of float32 with Fortran memory layout|
 |numba.types.float32[::1,:,:]| 3d array of float32 with Fortran memory layout|
 
-## An example (up to 437x faster)
+## An example (up to 350x faster)
 
 For measuring the time used by the program I ran everything twice and took the second time. I did this is because the just-in-time compilation takes a moment for the first call of a function.  
 
@@ -501,3 +501,299 @@ if __name__ == "__main__":
     print(f"{end_time-start_time:.5f} sec")
     print(results[0:10])
 ```
+
+### Optimization 5 (0.235sec)
+
+We don't really need float64. Let's us switch to float32:
+
+```python
+import time
+import numpy as np
+from numba import njit
+import numba
+
+
+@njit(
+    numba.types.uint64(numba.types.float32[:], numba.types.uint64, numba.types.float32),
+    cache=True,
+)
+def get_spike(
+    h: np.ndarray, number_of_neurons: np.uint64, random_number: np.float32
+) -> np.uint64:
+
+    summation: np.float32 = np.float32(0.0)
+
+    output: np.uint64 = np.uint64(number_of_neurons - 1)
+
+    for i in range(0, np.uint64(number_of_neurons - 1)):
+        summation += h[i]
+
+        if random_number <= summation:
+            output = np.uint64(i)
+            return output
+
+    return output
+
+
+@njit(
+    numba.types.uint64[::1](
+        numba.types.uint64,
+        numba.types.uint64,
+        numba.types.float32[::1],
+        numba.types.float32[:, ::1],
+    ),
+    cache=True,
+)
+def main(
+    number_of_iterations: np.uint64,
+    number_of_neurons: np.uint64,
+    random_number_spikes: np.ndarray,
+    random_number_h: np.ndarray,
+) -> np.ndarray:
+
+    results = np.zeros((number_of_iterations), dtype=np.uint64)
+
+    for i in range(0, number_of_iterations):
+        h = random_number_h[i, :]
+        h /= h.sum()
+        results[i] = get_spike(h, number_of_neurons, random_number_spikes[i])
+
+    return results
+
+
+if __name__ == "__main__":
+    number_of_iterations: np.uint64 = np.uint64(10000)
+    number_of_neurons: np.uint64 = np.uint64(10000)
+    myrng = np.random.default_rng()
+
+    random_number_spikes = myrng.random((number_of_iterations), dtype=np.float32)
+    random_number_h = myrng.random(
+        (number_of_iterations, number_of_neurons), dtype=np.float32
+    )
+
+    start_time = time.perf_counter()
+    results = main(
+        number_of_iterations=number_of_iterations,
+        number_of_neurons=number_of_neurons,
+        random_number_spikes=random_number_spikes,
+        random_number_h=random_number_h,
+    )
+    end_time = time.perf_counter()
+
+    check_for_errors = np.sum([results >= number_of_neurons])
+    if check_for_errors > 0:
+        print("Something went really wrong! Panic!")
+    print(f"{end_time-start_time:.5f} sec")
+    print(results[0:10])
+```
+
+### Optimization 6 (0.144sec)
+
+Let us activate [fastmath](https://numba.pydata.org/numba-doc/latest/reference/jit-compilation.html#jit-decorator-fastmath)
+
+```python
+@njit(
+    numba.types.uint64(numba.types.float32[:], numba.types.uint64, numba.types.float32),
+    cache=True,
+    fastmath=True,
+)
+[...]
+
+@njit(
+    numba.types.uint64[::1](
+        numba.types.uint64,
+        numba.types.uint64,
+        numba.types.float32[::1],
+        numba.types.float32[:, ::1],
+    ),
+    cache=True,
+    fastmath=True,
+)
+```
+
+```python
+import time
+import numpy as np
+from numba import njit
+import numba
+
+
+@njit(
+    numba.types.uint64(numba.types.float32[:], numba.types.uint64, numba.types.float32),
+    cache=True,
+    fastmath=True,
+)
+def get_spike(
+    h: np.ndarray, number_of_neurons: np.uint64, random_number: np.float32
+) -> np.uint64:
+    summation: np.float32 = np.float32(0.0)
+
+    output: np.uint64 = np.uint64(number_of_neurons - 1)
+
+    for i in range(0, np.uint64(number_of_neurons - 1)):
+        summation += h[i]
+
+        if random_number <= summation:
+            output = np.uint64(i)
+            return output
+
+    return output
+
+
+@njit(
+    numba.types.uint64[::1](
+        numba.types.uint64,
+        numba.types.uint64,
+        numba.types.float32[::1],
+        numba.types.float32[:, ::1],
+    ),
+    cache=True,
+    fastmath=True,
+)
+def main(
+    number_of_iterations: np.uint64,
+    number_of_neurons: np.uint64,
+    random_number_spikes: np.ndarray,
+    random_number_h: np.ndarray,
+) -> np.ndarray:
+    results = np.zeros((number_of_iterations), dtype=np.uint64)
+
+    for i in range(0, number_of_iterations):
+        h = random_number_h[i, :]
+        h /= h.sum()
+        results[i] = get_spike(h, number_of_neurons, random_number_spikes[i])
+
+    return results
+
+
+if __name__ == "__main__":
+    number_of_iterations: np.uint64 = np.uint64(10000)
+    number_of_neurons: np.uint64 = np.uint64(10000)
+    myrng = np.random.default_rng()
+
+    random_number_spikes = myrng.random((number_of_iterations), dtype=np.float32)
+    random_number_h = myrng.random(
+        (number_of_iterations, number_of_neurons), dtype=np.float32
+    )
+
+    start_time = time.perf_counter()
+    results = main(
+        number_of_iterations=number_of_iterations,
+        number_of_neurons=number_of_neurons,
+        random_number_spikes=random_number_spikes,
+        random_number_h=random_number_h,
+    )
+    end_time = time.perf_counter()
+
+    check_for_errors = np.sum([results >= number_of_neurons])
+    if check_for_errors > 0:
+        print("Something went really wrong! Panic!")
+    print(f"{end_time-start_time:.5f} sec")
+    print(results[0:10])
+```
+
+### Optimization 7 (0.022sec)
+
+We can run the function main in [parallel](https://numba.pydata.org/numba-doc/latest/reference/jit-compilation.html#jit-decorator-parallel). This can be activated by:
+
+```python
+@njit(
+    numba.types.uint64[::1](
+        numba.types.uint64,
+        numba.types.uint64,
+        numba.types.float32[::1],
+        numba.types.float32[:, ::1],
+    ),
+    cache=True,
+    fastmath=True,
+    parallel=True,
+)
+```
+and then we need to replace **range** by **[prange](https://numba.pydata.org/numba-doc/latest/user/parallel.html#numba-parallel)**.
+
+```python
+import time
+import numpy as np
+from numba import njit, prange
+import numba
+
+
+@njit(
+    numba.types.uint64(numba.types.float32[:], numba.types.uint64, numba.types.float32),
+    cache=True,
+    fastmath=True,
+)
+def get_spike(
+    h: np.ndarray, number_of_neurons: np.uint64, random_number: np.float32
+) -> np.uint64:
+    summation: np.float32 = np.float32(0.0)
+
+    output: np.uint64 = np.uint64(number_of_neurons - 1)
+
+    for i in range(0, np.uint64(number_of_neurons - 1)):
+        summation += h[i]
+
+        if random_number <= summation:
+            output = np.uint64(i)
+            return output
+
+    return output
+
+
+@njit(
+    numba.types.uint64[::1](
+        numba.types.uint64,
+        numba.types.uint64,
+        numba.types.float32[::1],
+        numba.types.float32[:, ::1],
+    ),
+    cache=True,
+    fastmath=True,
+    parallel=True,
+)
+def main(
+    number_of_iterations: np.uint64,
+    number_of_neurons: np.uint64,
+    random_number_spikes: np.ndarray,
+    random_number_h: np.ndarray,
+) -> np.ndarray:
+    results = np.zeros((number_of_iterations), dtype=np.uint64)
+
+    for i in prange(0, number_of_iterations):
+        h = random_number_h[i, :]
+        h /= h.sum()
+        results[i] = get_spike(h, number_of_neurons, random_number_spikes[i])
+
+    return results
+
+
+if __name__ == "__main__":
+    number_of_iterations: np.uint64 = np.uint64(10000)
+    number_of_neurons: np.uint64 = np.uint64(10000)
+    myrng = np.random.default_rng()
+
+    random_number_spikes = myrng.random((number_of_iterations), dtype=np.float32)
+    random_number_h = myrng.random(
+        (number_of_iterations, number_of_neurons), dtype=np.float32
+    )
+
+    start_time = time.perf_counter()
+    results = main(
+        number_of_iterations=number_of_iterations,
+        number_of_neurons=number_of_neurons,
+        random_number_spikes=random_number_spikes,
+        random_number_h=random_number_h,
+    )
+    end_time = time.perf_counter()
+
+    check_for_errors = np.sum([results >= number_of_neurons])
+    if check_for_errors > 0:
+        print("Something went really wrong! Panic!")
+    print(f"{end_time-start_time:.5f} sec")
+
+    print(results[0:10])
+```
+
+## Failure is an option: Debugging 
+
+
