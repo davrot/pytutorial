@@ -141,5 +141,18 @@ Output:
 (100, 10)
 ```
 
+## Non-blocking
+
+There is this option to receive packages in a non blocking way: 
+
+```python
+    confirm = False
+    while not confirm:
+        try:
+            packet_in = socket.recv_pyobj(zmq.NOBLOCK)
+            confirm = True
+        except zmq.error.Again:
+            pass
+```
 
 
