@@ -61,6 +61,7 @@ Important VS Code notes:
 * [The Python Standard Library​](python_basics/standard_libraries/README.md)
 * [Dataclass](python_basics/dataclass/README.md)
 * [Organizing parameters: dataclasses and dataconf](python_basics/dataconf/README.md)
+* [ProcessPoolExecutor: A fast way to implement multiprocessing](python_basics/ProcessPoolExecutor/README.md)
 
 
 ## Numpy: The Basics of the basics
