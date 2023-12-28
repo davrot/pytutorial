@@ -40,9 +40,10 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 There are many [socket types](https://libzmq.readthedocs.io/en/latest/zmq_socket.html). I will only quote the two relevant ones for this example from the API documentation:
 
 ### ZMQ_REQ
-A socket of type ZMQ_REQ is used by a client to send requests to and receive replies from a service. This socket type allows only an alternating sequence of zmq_send(request) and subsequent zmq_recv(reply) calls. Each request sent is round-robined among all services, and each reply received is matched with the last issued request.
 
-If no services are available, then any send operation on the socket shall block until at least one service becomes available. The REQ socket shall not discard messages.
+> A socket of type ZMQ_REQ is used by a client to send requests to and receive replies from a service. This socket type allows only an alternating sequence of zmq_send(request) and subsequent zmq_recv(reply) calls. Each request sent is round-robined among all services, and each reply received is matched with the last issued request.
+> 
+> If no services are available, then any send operation on the socket shall block until at least one service becomes available. The REQ socket shall not discard messages.
 
 **Summary of ZMQ_REQ characteristics**
 
@@ -56,7 +57,8 @@ If no services are available, then any send operation on the socket shall block 
 |Action in mute state|	Block|
 
 ### ZMQ_REP
-A socket of type ZMQ_REP is used by a service to receive requests from and send replies to a client. This socket type allows only an alternating sequence of zmq_recv(request) and subsequent zmq_send(reply) calls. Each request received is fair-queued from among all clients, and each reply sent is routed to the client that issued the last request. If the original requester does not exist any more the reply is silently discarded.
+
+> A socket of type ZMQ_REP is used by a service to receive requests from and send replies to a client. This socket type allows only an alternating sequence of zmq_recv(request) and subsequent zmq_send(reply) calls. Each request received is fair-queued from among all clients, and each reply sent is routed to the client that issued the last request. If the original requester does not exist any more the reply is silently discarded.
 
 **Summary of ZMQ_REP characteristics**
 
@@ -68,8 +70,76 @@ A socket of type ZMQ_REP is used by a service to receive requests from and send 
 |Incoming routing strategy|	Fair-queued|
 |Outgoing routing strategy|	Last peer|
 
+## Simple example where we move np.ndarrays around
 
-
+### Client
 
 ```python
+import zmq
+import numpy as np
+
+context = zmq.Context()
+
+socket = context.socket(zmq.REQ)
+# We connect to the localhost at port 5555
+socket.connect("tcp://localhost:5555")
+
+# Generating a random np matrix
+rng = np.random.default_rng()
+np_array = rng.random((100, 10))
+
+# Send it over the wire
+socket.send_pyobj(np_array)
+
+# We get the squared version back 
+np_array_return = socket.recv_pyobj()
+
+# Check if we get a correct return message 
+print(type(np_array_return))
+
+np_array = np_array**2
+
+print("Difference:")
+print(np.sum(np.abs(np_array_return - np_array)))
 ```
+
+Output:
+
+```python
+<class 'numpy.ndarray'>
+Difference:
+0.0
+```
+
+### Server
+
+```python
+import zmq
+
+context = zmq.Context()
+socket = context.socket(zmq.REP)
+# Listen at port 5555
+socket.bind("tcp://*:5555")
+
+while True:
+    # We should receive a numpy array
+    input_np = socket.recv_pyobj()
+
+    # Let's do something with this information
+    print(type(input_np))
+    print(input_np.shape)
+    input_np = input_np**2
+
+    # We send the results back
+    socket.send_pyobj(input_np)
+```
+
+Output:
+
+```python
+<class 'numpy.ndarray'>
+(100, 10)
+```
+
+
+
