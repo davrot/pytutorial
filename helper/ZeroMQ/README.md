@@ -44,24 +44,30 @@ A socket of type ZMQ_REQ is used by a client to send requests to and receive rep
 
 If no services are available, then any send operation on the socket shall block until at least one service becomes available. The REQ socket shall not discard messages.
 
-Summary of ZMQ_REQ characteristics
-Compatible peer sockets	ZMQ_REP, ZMQ_ROUTER
-Direction	Bidirectional
-Send/receive pattern	Send, Receive, Send, Receive, …
-Outgoing routing strategy	Round-robin
-Incoming routing strategy	Last peer
-Action in mute state	Block
+**Summary of ZMQ_REQ characteristics**
+
+|||
+|---|---|
+|Compatible peer sockets|	ZMQ_REP, ZMQ_ROUTER|
+|Direction|	Bidirectional|
+|Send/receive pattern|	Send, Receive, Send, Receive, …|
+|Outgoing routing strategy|	Round-robin|
+|Incoming routing strategy|	Last peer|
+|Action in mute state|	Block|
 
 ### ZMQ_REP
 A socket of type ZMQ_REP is used by a service to receive requests from and send replies to a client. This socket type allows only an alternating sequence of zmq_recv(request) and subsequent zmq_send(reply) calls. Each request received is fair-queued from among all clients, and each reply sent is routed to the client that issued the last request. If the original requester does not exist any more the reply is silently discarded.
 
-Summary of ZMQ_REP characteristics
-Compatible peer sockets	ZMQ_REQ, ZMQ_DEALER
-Direction	Bidirectional
-Send/receive pattern	Receive, Send, Receive, Send, …
-Incoming routing strategy	Fair-queued
-Outgoing routing strategy	Last peer
-[...]
+**Summary of ZMQ_REP characteristics**
+
+|||
+|---|---|
+|Compatible peer sockets|	ZMQ_REQ, ZMQ_DEALER|
+|Direction|	Bidirectional|
+|Send/receive pattern|	Receive, Send, Receive, Send, …|
+|Incoming routing strategy|	Fair-queued|
+|Outgoing routing strategy|	Last peer|
+
 
 
 
