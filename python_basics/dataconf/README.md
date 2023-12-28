@@ -152,6 +152,12 @@ Config(id=1, date=Date(day=22, month=7, year=1983, hour=1, minute=37, second=12)
 Experiment IV
 ```
 
+You can split the config file into several via:
+
+```python
+cfg = dataconf.multi.file("network.json").file("dataset.json").file("def.json").on(Config)
+```
+
 I have not tested the other properties of [dataconf](https://github.com/zifeo/dataconf).
 
 It is told that it can also use config information from different sources:
