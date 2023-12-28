@@ -34,9 +34,8 @@ $$ n_{1}+N_{1}\cdot (n_{2}+N_{2}\cdot (n_{3}+N_{3}\cdot (\cdots +N_{d-1}n_{d})\c
 
 [Illustration of difference between row- and column-major ordering](https://en.wikipedia.org/wiki/Row-_and_column-major_order#/media/File:Row_and_column_major_order.svg) (by CMG Lee. CC BY-SA 4.0)
 
-## Information about the inner-workings of the matrix
 
-### [numpy.ndarray.flags](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flags.html)
+## [numpy.ndarray.flags](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.flags.html)
 
 ```python
 ndarray.flags
@@ -62,7 +61,7 @@ Attributes:
 |FARRAY (FA)|BEHAVED and F_CONTIGUOUS and not C_CONTIGUOUS.|
 
 
-#### 1d
+### 1d
 
 ```python
 import numpy as np
@@ -82,7 +81,7 @@ Output
   WRITEBACKIFCOPY : False
 ```
 
-#### 2d
+### 2d
 
 ```python
 import numpy as np
@@ -101,3 +100,42 @@ Output
   ALIGNED : True
   WRITEBACKIFCOPY : False
 ```
+
+## C - contigousness
+
+There are situations when you need a C_CONTIGUOUS matrix. Examples are PyBind11 and numba.  
+
+```python
+import numpy as np
+
+a = np.arange(1, 10)
+
+print(a.flags["C_CONTIGUOUS"])  # -> True
+
+print(a[::1].flags["C_CONTIGUOUS"])  # -> True
+print(a[::2].flags["C_CONTIGUOUS"])  # -> False
+
+print(a[::2].copy().flags["C_CONTIGUOUS"])  # -> True
+```
+
+**You may want to make a copy of B for PyBind11 and numba or...**
+
+## [numpy.ascontiguousarray](https://numpy.org/doc/stable/reference/generated/numpy.ascontiguousarray.html)
+
+```python
+numpy.ascontiguousarray(a, dtype=None, *, like=None)
+```
+
+> Return a contiguous array (ndim >= 1) in memory (C order).
+
+```python
+import numpy as np
+
+a = np.arange(1, 10)
+
+print(a.flags["C_CONTIGUOUS"])  # -> True
+print(a[::2].flags["C_CONTIGUOUS"])  # -> False
+print(np.ascontiguousarray(a[::2]).flags["C_CONTIGUOUS"])  # -> True
+```
+
+
