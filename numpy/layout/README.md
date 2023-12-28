@@ -6,3 +6,7 @@ $$ n_{1}+N_{1}\cdot (n_{2}+N_{2}\cdot (n_{3}+N_{3}\cdot (\cdots +N_{d-1}n_{d})\c
 
 
 
+![Row_and_column_major_order.svg](Row_and_column_major_order.svg)
+
+[Illustration of difference between row- and column-major ordering](https://en.wikipedia.org/wiki/Row-_and_column-major_order#/media/File:Row_and_column_major_order.svg) (by CMG Lee. CC BY-SA 4.0)
+
