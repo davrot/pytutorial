@@ -58,7 +58,7 @@ Important VS Code notes:
 * [Built-in Keywords](python_basics/keywords/README.md)
 
 ## Python: Special topics
-* [pickle: save and load Python object](python_basics/pickle/README.md)
+* [pickle: save and load Python objects](python_basics/pickle/README.md)
 * [The Python Standard Library​](python_basics/standard_libraries/README.md)
 * [Dataclass](python_basics/dataclass/README.md)
 * [Organizing parameters: dataclasses and dataconf](python_basics/dataconf/README.md)
