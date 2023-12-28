@@ -128,6 +128,7 @@ In the case you know Matlab check here:
 ## Python: Daily little helper
 * [TQDM: Make your progress visible](helper/TQDM/README.md)
 * [Argh: Organize your command line arguments](helper/argh/README.md)
+* [psutil vs os.cpu_count: How many "CPUs" do I have?](helper/psutil/README.md)
 
 ## OpenCV2 and Python
 * [OpenCV2: Play, write, read a video](cv2/write_read_play/README.md)
