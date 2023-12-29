@@ -32,6 +32,7 @@ Important VS Code notes:
 * [Hello, Python](python_basics/hello_python/README.md)
 * [Style Rulez](python_basics/style_rulez/README.md)
 * [Programming Recommendations](python_basics/programming_recommendations/README.md)
+  - [Assert](python_basics/assert/README.md) 
 * [Basic Math Operations](python_basics/basic_math_operations/README.md)
 * [Truth Value Testing](python_basics/truth_value_testing/README.md)
 * [Formatted String Literals](python_basics/formatted_string_literals/README.md)
