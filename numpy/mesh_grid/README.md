@@ -293,3 +293,98 @@ Output:
  [0 1 2 3]
  [0 1 2 3]]
 ```
+
+## [numpy.ix_](https://numpy.org/doc/stable/reference/generated/numpy.ix_.html) (open mesh)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+numpy.ix_(*args)
+```
+
+> Construct an open mesh from multiple sequences.
+> 
+> This function takes N 1-D sequences and returns N outputs with N dimensions each, such that the shape is 1 in all but one dimension and the dimension with the non-unit shape value cycles through all N dimensions.
+>
+> Using ix_ one can quickly construct index arrays that will index the cross product. a[np.ix_([1,3],[2,5])] returns the array [[a[1,2] a[1,5]], [a[3,2] a[3,5]]].
+
+```python
+import numpy as np
+
+a, b = np.ix_(np.arange(2, 8), np.arange(4, 12))
+print(a)
+print(a.shape) # -> (6, 1)
+print()
+print(b) # -> [[ 4  5  6  7  8  9 10 11]]
+print(b.shape) # -> (1, 8)
+```
+Output:
+
+```python
+[[2]
+ [3]
+ [4]
+ [5]
+ [6]
+ [7]]
+```
+
+
+```python
+import numpy as np
+
+a, b = np.ix_([True, False, False, True, True], [True, True, False, False, True])
+print(a)
+print(a.shape)  # -> (3, 1)
+print()
+print(b)  # -> [[0 1 4]]
+print(b.shape)  # -> (1, 3)
+```
+
+Output:
+
+```python
+[[0]
+ [3]
+ [4]]
+```
+
+```python
+import numpy as np
+
+a = np.arange(1, 10).reshape(3, 3)
+
+print(a)
+print()
+
+x = a.sum(axis=1) > 6
+y = [0, 2]
+print(x) # -> [False  True  True]
+print(y) # -> [0, 2]
+
+b = np.zeros_like(a)
+b[x, y] = 1
+print(b)
+print()
+
+b = np.zeros_like(a)
+b[np.ix_(x, y)] = 1
+print(b)
+```
+
+Output: 
+
+```python
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+
+[[0 0 0]
+ [1 0 0]
+ [0 0 1]]
+
+[[0 0 0]
+ [1 0 1]
+ [1 0 1]]
+```
