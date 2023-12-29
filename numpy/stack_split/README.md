@@ -84,3 +84,73 @@ Output:
  [0 1 2 3 4 5 6 7 8 9]]
 ```
 
+## [numpy.vstack](https://numpy.org/doc/stable/reference/generated/numpy.vstack.html)
+
+```python
+numpy.vstack(tup, *, dtype=None, casting='same_kind')
+```
+
+> Stack arrays in sequence vertically (row wise).
+> 
+> This is equivalent to concatenation along the first axis after 1-D arrays of shape (N,) have been reshaped to (1,N). Rebuilds arrays divided by vsplit.
+> 
+> This function makes most sense for arrays with up to 3 dimensions. For instance, for pixel-data with a height (first axis), width (second axis), and r/g/b channels (third axis). The functions concatenate, stack and block provide more general stacking and concatenation operations.
+> 
+> np.row_stack is an alias for vstack. They are the same function.
+
+```python
+import numpy as np
+
+a = np.zeros((2, 3, 4))
+print(a.shape)  # -> (2, 3, 4)
+
+b = np.vstack((a, a))
+print(b.shape)  # -> (4, 3, 4)
+```
+
+
+
+## [numpy.hstack](https://numpy.org/doc/stable/reference/generated/numpy.hstack.html)
+
+```python
+numpy.hstack(tup, *, dtype=None, casting='same_kind')
+```
+
+> Stack arrays in sequence horizontally (column wise).
+> 
+> This is equivalent to concatenation along the second axis, except for 1-D arrays where it concatenates along the first axis. Rebuilds arrays divided by hsplit.
+> 
+> This function makes most sense for arrays with up to 3 dimensions. For instance, for pixel-data with a height (first axis), width (second axis), and r/g/b channels (third axis). The functions concatenate, stack and block provide more general stacking and concatenation operations.
+
+```python
+import numpy as np
+
+a = np.zeros((2, 3, 4))
+print(a.shape)  # -> (2, 3, 4)
+
+b = np.hstack((a, a))
+print(b.shape)  # -> (2, 6, 4)
+```
+
+## [numpy.dstack](https://numpy.org/doc/stable/reference/generated/numpy.dstack.html)
+
+```python
+numpy.dstack(tup)
+```
+
+> Stack arrays in sequence depth wise (along third axis).
+> 
+> This is equivalent to concatenation along the third axis after 2-D arrays of shape (M,N) have been reshaped to (M,N,1) and 1-D arrays of shape (N,) have been reshaped to (1,N,1). Rebuilds arrays divided by dsplit.
+> 
+> This function makes most sense for arrays with up to 3 dimensions. For instance, for pixel-data with a height (first axis), width (second axis), and r/g/b channels (third axis). The functions concatenate, stack and block provide more general stacking and concatenation operations.
+
+```python
+import numpy as np
+
+a = np.zeros((2, 3, 4))
+print(a.shape)  # -> (2, 3, 4)
+
+b = np.dstack((a, a))
+print(b.shape)  # -> (2, 3, 8)
+```
+
