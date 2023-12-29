@@ -1,4 +1,4 @@
-# Class
+# Input, Output, string, int, float
 {:.no_toc}
 
 <nav markdown="1" class="toc-class">
@@ -61,4 +61,32 @@ class int(x, base=10)
 > 
 > The integer type is described in [Numeric Types — int, float, complex.](https://docs.python.org/3/library/stdtypes.html#typesnumeric)
 
+## [float](https://docs.python.org/3/library/functions.html#float)
+
+```python
+class float(x=0.0)
+```
+
+> Return a floating point number constructed from a number or string x.
+> 
+> If the argument is a string, it should contain a decimal number, optionally preceded by a sign, and optionally embedded in whitespace. The optional sign may be '+' or '-'; a '+' sign has no effect on the value produced. The argument may also be a string representing a NaN (not-a-number), or positive or negative infinity. More precisely, the input must conform to the floatvalue production rule in the following grammar, after leading and trailing whitespace characters are removed:
+
+```python
+sign        ::=  "+" | "-"
+infinity    ::=  "Infinity" | "inf"
+nan         ::=  "nan"
+digitpart   ::=  `!digit` (["_"] `!digit`)*
+number      ::=  [digitpart] "." digitpart | digitpart ["."]
+exponent    ::=  ("e" | "E") ["+" | "-"] digitpart
+floatnumber ::=  number [exponent]
+floatvalue  ::=  [sign] (floatnumber | infinity | nan)
+```
+
+> Here digit is a Unicode decimal digit (character in the Unicode general category Nd). Case is not significant, so, for example, “inf”, “Inf”, “INFINITY”, and “iNfINity” are all acceptable spellings for positive infinity.
+> 
+> Otherwise, if the argument is an integer or a floating point number, a floating point number with the same value (within Python’s floating point precision) is returned. If the argument is outside the range of a Python float, an OverflowError will be raised.
+> 
+> For a general Python object x, float(x) delegates to x.\_\_float\_\_(). If \_\_float\_\_() is not defined then it falls back to \_\_index\_\_().
+> 
+> If no argument is given, 0.0 is returned.
 
