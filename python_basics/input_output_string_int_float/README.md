@@ -68,6 +68,28 @@ print(type(a))  # -> <class 'float'>
 a = float("Hello")  # ValueError: could not convert string to float: 'Hello'
 ```
 
+## Strings
+
+For formating string look [here](https://davrot.github.io/pytutorial/python_basics/formatted_string_literals/)
+
+```python
+a = "Part1 " "Part2 " "Part3 "
+print(a) # -> Part1 Part2 Part3
+
+
+a = "Part1 " + "Part2 " + "Part3 "
+print(a) # -> Part1 Part2 Part3
+
+x = 1
+y = 2
+z = 3
+u = "Part"
+v = " "
+a = u + str(x) + v + u + str(y) + v + u + str(z)
+print(a) # -> Part1 Part2 Part3
+```
+
+
 
 ## [input](https://docs.python.org/3/library/functions.html#input)
 
@@ -101,6 +123,33 @@ class str(object=b'', encoding='utf-8', errors='strict')
 > If object is not provided, returns the empty string. Otherwise, the behavior of str() depends on whether encoding or errors is given, as follows.
 > 
 > If neither encoding nor errors is given, str(object) returns type(object).\_\_str\_\_(object), which is the “informal” or nicely printable string representation of object. For string objects, this is the string itself. If object does not have a \_\_str\_\_() method, then str() falls back to returning repr(object).
+
+### selected [string methods](https://docs.python.org/3/library/stdtypes.html#string-methods)
+
+|||
+|---|---|
+|[str.capitalize()](https://docs.python.org/3/library/stdtypes.html#str.capitalize) |Return a copy of the string with its first character capitalized and the rest lowercased.|
+|[str.casefold()](https://docs.python.org/3/library/stdtypes.html#str.casefold) |Return a casefolded copy of the string. Casefolded strings may be used for caseless matching.|
+|[str.center(width[, fillchar])](https://docs.python.org/3/library/stdtypes.html#str.center) |Return centered in a string of length width.|
+|[str.count(sub[, start[, end]])](https://docs.python.org/3/library/stdtypes.html#str.count) |Return the number of non-overlapping occurrences of substring sub in the range [start, end]. |
+|[str.encode(encoding='utf-8', errors='strict')](https://docs.python.org/3/library/stdtypes.html#str.encode) |Return the string encoded to bytes.|
+|[str.endswith(suffix[, start[, end]])](https://docs.python.org/3/library/stdtypes.html#str.endswith)|Return True if the string ends with the specified suffix, otherwise return False. suffix can also be a tuple of suffixes to look for. |
+|[str.expandtabs(tabsize=8)](https://docs.python.org/3/library/stdtypes.html#str.expandtabs)|Return a copy of the string where all tab characters are replaced by one or more spaces, depending on the current column and the given tab size. |
+|[str.find(sub[, start[, end]])](https://docs.python.org/3/library/stdtypes.html#str.find)|Return the lowest index in the string where substring sub is found within the slice s[start:end]. |
+|[str.lower()](https://docs.python.org/3/library/stdtypes.html#str.lower)|Return a copy of the string with all the cased characters converted to lowercase.|
+|[str.lstrip([chars])](https://docs.python.org/3/library/stdtypes.html#str.lstrip)|Return a copy of the string with leading characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace.|
+|[str.replace(old, new[, count])](https://docs.python.org/3/library/stdtypes.html#str.replace)|Return a copy of the string with all occurrences of substring old replaced by new. |
+|[str.rfind(sub[, start[, end]])](https://docs.python.org/3/library/stdtypes.html#str.rfind)|Return the highest index in the string where substring sub is found, such that sub is contained within s[start:end]. |
+|[str.rsplit(sep=None, maxsplit=- 1)](https://docs.python.org/3/library/stdtypes.html#str.rsplit)|Return a list of the words in the string, using sep as the delimiter string. If maxsplit is given, at most maxsplit splits are done, the rightmost ones. If sep is not specified or None, any whitespace string is a separator.| 
+|[str.rstrip([chars])](https://docs.python.org/3/library/stdtypes.html#str.rstrip)|Return a copy of the string with trailing characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace.|
+|[str.split(sep=None, maxsplit=- 1)](https://docs.python.org/3/library/stdtypes.html#str.split)| Return a list of the words in the string, using sep as the delimiter string. If maxsplit is given, at most maxsplit splits are done (thus, the list will have at most maxsplit+1 elements). If maxsplit is not specified or -1, then there is no limit on the number of splits (all possible splits are made). |
+|[str.splitlines(keepends=False)](https://docs.python.org/3/library/stdtypes.html#str.split)| Return a list of the lines in the string, breaking at line boundaries. Line breaks are not included in the resulting list unless keepends is given and true.|
+|[str.startswith(prefix[, start[, end]])](https://docs.python.org/3/library/stdtypes.html#str.startswith)|Return True if string starts with the prefix, otherwise return False. prefix can also be a tuple of prefixes to look for. With optional start, test string beginning at that position.|
+|[str.strip([chars])](https://docs.python.org/3/library/stdtypes.html#str.strip)| Return a copy of the string with the leading and trailing characters removed. The chars argument is a string specifying the set of characters to be removed. If omitted or None, the chars argument defaults to removing whitespace. The chars argument is not a prefix or suffix; rather, all combinations of its values are stripped|
+|[str.swapcase()](https://docs.python.org/3/library/stdtypes.html#str.swapcase)|Return a copy of the string with uppercase characters converted to lowercase and vice versa.|
+|[str.upper()](https://docs.python.org/3/library/stdtypes.html#str.upper)|Return a copy of the string with all the cased characters converted to uppercase.|
+|[str.zfill(width)](https://docs.python.org/3/library/stdtypes.html#str.zfill)|Return a copy of the string left filled with ASCII '0' digits to make a string of length width. A leading sign prefix ('+'/'-') is handled by inserting the padding after the sign character rather than before. The original string is returned if width is less than or equal to len(s).|
+
 
 ## [int](https://docs.python.org/3/library/functions.html#int)
 
