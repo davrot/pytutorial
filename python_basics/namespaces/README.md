@@ -47,6 +47,21 @@ print("In global scope:", spam) # -> In global scope: global spam
 > You can also see that there was no previous binding for spam before the global assignment.
 
 
+Shortened quotes from  [https://docs.python.org/3/tutorial/classes.html](https://docs.python.org/3/tutorial/classes.html)
+
+> **Namespaces** are created at different moments and have different lifetimes. The namespace containing the built-in names is created when the Python interpreter starts up, and is never deleted. The global namespace for a module is created when the module definition is read in; normally, module namespaces also last until the interpreter quits.​
+> 
+​> The **local namespace** for a function is created when the function is called, and deleted when the function returns or raises an exception that is not handled within the function.​
+> 
+​> A **scope** is a textual region of a Python program where a namespace is directly accessible.​
+> 
+​> Although scopes are determined statically, they are used dynamically. At any time during execution, there are 3 or 4 nested scopes whose namespaces are directly accessible:​
+> * the innermost scope, which is searched first, contains the local names​
+> * the scopes of any enclosing functions, which are searched starting with the nearest enclosing scope, contains non-local, but also non-global names​
+> * the next-to-last scope contains the current module’s global names​
+> * the outermost scope (searched last) is the namespace containing built-in names​
+
+
 ## [The global statement](https://docs.python.org/3/reference/simple_stmts.html#the-global-statement)
 
 ```python
