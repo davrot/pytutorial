@@ -1,4 +1,4 @@
-# Stack and Split
+# Stack and Split, Compress
 {:.no_toc}
 
 <nav markdown="1" class="toc-class">
@@ -367,4 +367,53 @@ Output:
  [16 17]
  [18 19]]
 ```
+
+## [numpy.compress](https://numpy.org/doc/stable/reference/generated/numpy.compress.html)
+
+```python
+numpy.compress(condition, a, axis=None, out=None)
+```
+
+> Return selected slices of an array along given axis.
+> 
+> When working along a given axis, a slice along that axis is returned in output for each index where condition evaluates to True. When working on a 1-D array, compress is equivalent to extract.
+
+```python
+import numpy as np
+
+a = np.arange(0, 20).reshape(5, 4)
+print(a)
+print(a.shape)  # -> (5, 4)
+print()
+
+b = np.compress([True, False, False, True, True], a, axis=0)
+print(b)
+print(b.shape)  # -> (3, 4)
+print()
+
+b = np.compress([False, True, False, True], a, axis=1)
+print(b)
+print(b.shape)  # -> (5, 2)
+```
+
+Output:
+
+```python
+[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]
+ [12 13 14 15]
+ [16 17 18 19]]
+
+[[ 0  1  2  3]
+ [12 13 14 15]
+ [16 17 18 19]]
+
+[[ 1  3]
+ [ 5  7]
+ [ 9 11]
+ [13 15]
+ [17 19]]
+```
+
 
