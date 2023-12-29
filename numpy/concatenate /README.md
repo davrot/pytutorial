@@ -187,6 +187,16 @@ class slice(start, stop, step=None)
 > 
 > Slice objects are also generated when extended indexing syntax is used. For example: a[start:stop:step] or a[start:stop, i]. 
 
+```python
+import numpy as np
+
+idx = np.s_[2:10, 20:100, 10]
+print(idx) # -> (slice(2, 10, None), slice(20, 100, None), 10)
+
+data = np.zeros((20, 101, 11))
+x = data[idx]
+print(x.shape) # -> (8, 80)
+```
 
 
 ## [numpy.c_](https://numpy.org/doc/stable/reference/generated/numpy.c_.html)
