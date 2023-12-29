@@ -58,7 +58,7 @@ AssertionError                            Traceback (most recent call last)
 AssertionError: 
 ```
 
-or with expression 2:
+or with expression 2 (**Note: this can be a f-string!!!**):
 
 ```python
 assert 1 == 2, "1 should be the same as 2" 
