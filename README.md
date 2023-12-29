@@ -30,6 +30,7 @@ Important VS Code notes:
 ## Python: The Basics of the basics
 * [Overview](python_basics/where_to_start/README.md)
 * [Hello, Python](python_basics/hello_python/README.md)
+  - [input, print, string, int, float](python_basics/input_output_string_int_float/README.md)
 * [Style Rulez](python_basics/style_rulez/README.md)
 * [Programming Recommendations](python_basics/programming_recommendations/README.md)
   - [Assert](python_basics/assert/README.md) 
