@@ -77,6 +77,8 @@ print(c)
 print(c.shape)  # -> (10,2)
 ```
 
+Output:
+
 ```python
 [[0 0]
  [1 1]
@@ -89,4 +91,40 @@ print(c.shape)  # -> (10,2)
  [8 8]
  [9 9]]
 ```
+
+## [numpy.r_](https://numpy.org/doc/stable/reference/generated/numpy.r_.html)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+numpy.r_ = <numpy.lib.index_tricks.RClass object>
+```
+
+> Translates slice objects to concatenation along the first axis.
+
+```python
+import numpy as np
+
+a = np.arange(0, 10)
+print(a.shape)  # -> (10,)
+b = np.arange(0, 10)
+print(b.shape)  # -> (10,)
+
+c = np.r_[a, b]
+print(c.shape)  # -> (20,)
+```
+
+
+## [numpy.c_](https://numpy.org/doc/stable/reference/generated/numpy.c_.html)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+numpy.c_ = <numpy.lib.index_tricks.CClass object>
+```
+
+
+
 
