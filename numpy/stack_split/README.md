@@ -108,6 +108,15 @@ b = np.vstack((a, a))
 print(b.shape)  # -> (4, 3, 4)
 ```
 
+## [numpy.vsplit](https://numpy.org/doc/stable/reference/generated/numpy.vsplit.html)
+
+```python
+numpy.vsplit(ary, indices_or_sections)[source]
+```
+
+> Split an array into multiple sub-arrays vertically (row-wise).
+> 
+> vsplit is equivalent to split with axis=0 (default), the array is always split along the first axis regardless of the array dimension.
 
 
 ## [numpy.hstack](https://numpy.org/doc/stable/reference/generated/numpy.hstack.html)
@@ -132,6 +141,16 @@ b = np.hstack((a, a))
 print(b.shape)  # -> (2, 6, 4)
 ```
 
+## [numpy.hsplit](https://numpy.org/doc/stable/reference/generated/numpy.hsplit.html)
+
+```python
+numpy.hsplit(ary, indices_or_sections)[source]
+```
+
+> Split an array into multiple sub-arrays horizontally (column-wise).
+>
+> hsplit is equivalent to split with axis=1, the array is always split along the second axis except for 1-D arrays, where it is split at axis=0.
+
 ## [numpy.dstack](https://numpy.org/doc/stable/reference/generated/numpy.dstack.html)
 
 ```python
@@ -153,4 +172,47 @@ print(a.shape)  # -> (2, 3, 4)
 b = np.dstack((a, a))
 print(b.shape)  # -> (2, 3, 8)
 ```
+
+## [numpy.dsplit](https://numpy.org/doc/stable/reference/generated/numpy.dsplit.html)
+
+```python
+numpy.dsplit(ary, indices_or_sections)
+```
+
+> Split array into multiple sub-arrays along the 3rd axis (depth).
+> 
+> dsplit is equivalent to split with axis=2, the array is always split along the third axis provided the array dimension is greater than or equal to 3.
+
+
+## [numpy.stack](https://numpy.org/doc/stable/reference/generated/numpy.stack.html)
+
+```python
+numpy.stack(arrays, axis=0, out=None, *, dtype=None, casting='same_kind')
+```
+
+> Join a sequence of arrays along a **new axis**.
+> 
+> The axis parameter specifies the index of the new axis in the dimensions of the result. For example, if axis=0 it will be the first dimension and if axis=-1 it will be the last dimension.
+
+```python
+import numpy as np
+
+a = np.zeros((6, 8, 10))
+print(a.shape)  # -> (6, 8, 10)
+
+b = np.stack((a, a), axis=0)
+print(b.shape)  # -> (2, 6, 8, 10)
+
+b = np.stack((a, a), axis=1)
+print(b.shape)  # -> (6, 2, 8, 10)
+
+b = np.stack((a, a), axis=2)
+print(b.shape)  # -> (6, 8, 2, 10)
+
+b = np.stack((a, a), axis=3)
+print(b.shape)  # -> (6, 8, 10, 2)
+
+b = np.stack((a, a), axis=4) # AxisError: axis 4 is out of bounds for array of dimension 4
+```
+
 
