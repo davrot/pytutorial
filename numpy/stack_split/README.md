@@ -269,6 +269,61 @@ Output:
  [18 19]]
 ```
 
+np.split(a, [2, 5, 8, 9], axis=0) can be used for the following corresponding slices​:
+
+||
+|---|
+|[:2,:]|​
+|[2:5,:]|​
+|[5:8,:]|​
+|[8:9,:]|​
+|[9:,:]|
+
+```python
+import numpy as np
+
+a = np.arange(0, 20).reshape(10, 2)
+print(a.shape)  # -> (10, 2)
+print()
+
+b = np.split(a, [2, 5, 8, 9], axis=0)
+print(len(b))  # -> 5
+print(b[0])
+print(b[0].shape)  # -> (2, 2)
+print()
+print(b[1])
+print(b[1].shape)  # -> (3, 2)
+print()
+print(b[2])
+print(b[2].shape)  # -> (3, 2)
+print()
+print(b[3])
+print(b[3].shape)  # -> (1, 2)
+print()
+print(b[4])
+print(b[4].shape)  # -> (1, 2)
+```
+
+Output:
+
+```python
+[[0 1]
+ [2 3]]
+
+[[4 5]
+ [6 7]
+ [8 9]]
+
+[[10 11]
+ [12 13]
+ [14 15]]
+
+[[16 17]]
+
+[[18 19]]
+```
+
+
 ```python
 numpy.array_split(ary, indices_or_sections, axis=0)
 ```
@@ -276,4 +331,40 @@ numpy.array_split(ary, indices_or_sections, axis=0)
 > Split an array into multiple sub-arrays.
 > 
 > The only difference between these functions is that array_split allows indices_or_sections to be an integer that does not equally divide the axis. For an array of length l that should be split into n sections, it returns l % n sub-arrays of size l//n + 1 and the rest of size l//n.
+
+```python
+import numpy as np
+
+a = np.arange(0, 20).reshape(10, 2)
+print(a.shape)  # -> (10, 2)
+print()
+
+b = np.array_split(a, 3, axis=0)
+print(len(b))  # -> 3
+print(b[0])
+print(b[0].shape)  # -> (4, 2)
+print()
+print(b[1])
+print(b[1].shape)  # -> (3, 2)
+print()
+print(b[2])
+print(b[2].shape)  # -> (3, 2)
+```
+
+Output:
+
+```python
+[[0 1]
+ [2 3]
+ [4 5]
+ [6 7]]
+
+[[ 8  9]
+ [10 11]
+ [12 13]]
+
+[[14 15]
+ [16 17]
+ [18 19]]
+```
 
