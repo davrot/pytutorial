@@ -1,4 +1,4 @@
-# Input, Output, string, int, float
+# input, print, string, int, float
 {:.no_toc}
 
 <nav markdown="1" class="toc-class">
