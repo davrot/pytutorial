@@ -66,7 +66,7 @@ Important VS Code notes:
 * [Organizing parameters: dataclasses and dataconf](python_basics/dataconf/README.md)
 * [ProcessPoolExecutor: A fast way to implement multiprocessing](python_basics/ProcessPoolExecutor/README.md)
 * [Logging](python_basics/logger/README.md)
-
+* [Python Scopes and Namespaces](python_basics/namespaces/README.md)
 
 ## Numpy: The Basics of the basics
 * [The N-dimensional array (ndarray)​](numpy/ndarray/README.md)
