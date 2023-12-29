@@ -87,7 +87,7 @@ addHandler(hdlr)
 > Adds the specified handler hdlr to this logger.
 
 
-## Example function
+## Example code
 
 ```python
 import logging
@@ -127,4 +127,47 @@ def create_logger(save_logging_messages: bool, display_logging_messages: bool):
     return logger
 ```
 
+This is how you create a logger: 
 
+```python
+    logger = create_logger(
+        save_logging_messages=bool(config["save_logging_messages"]),
+        display_logging_messages=bool(config["display_logging_messages"]),
+    )
+```
+
+After creating the logger, you can use e.g. like this:
+
+```python
+logger.info(f"Using {device_str} device")
+```
+
+## [debug](https://docs.python.org/3/library/logging.html#logging.debug) , [info](https://docs.python.org/3/library/logging.html#logging.info) ,  [warning](https://docs.python.org/3/library/logging.html#logging.warning), and [error](https://docs.python.org/3/library/logging.html#logging.error)
+
+```python
+logging.debug(msg, *args, **kwargs)
+```
+
+> Logs a message with level DEBUG on the root logger. The msg is the message format string, and the args are the arguments which are merged into msg using the string formatting operator. (Note that this means that you can use keywords in the format string, together with a single dictionary argument.)
+
+```python
+logging.info(msg, *args, **kwargs)
+```
+
+> Logs a message with level INFO on the root logger. The arguments are interpreted as for debug().
+
+```python
+logging.warning(msg, *args, **kwargs)
+```
+
+> Logs a message with level WARNING on the root logger. The arguments are interpreted as for debug().
+
+
+```python
+logging.error(msg, *args, **kwargs)
+```
+
+> Logs a message with level ERROR on the root logger. The arguments are interpreted as for debug().
+
+
+    
