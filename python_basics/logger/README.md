@@ -8,7 +8,7 @@
 
 ## The goal
 
-
+We want to log either or onto the screen or file. 
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
@@ -45,7 +45,46 @@ setLevel(level)
 |logging.ERROR|40|Due to a more serious problem, the software has not been able to perform some function.|
 |logging.CRITICAL|50|A serious error, indicating that the program itself may be unable to continue running.
 
+## [Formatter](https://docs.python.org/3/library/logging.html#logging.Formatter)
 
+```python
+class logging.Formatter(fmt=None, datefmt=None, style='%', validate=True, *, defaults=None)
+```
+
+> Responsible for converting a LogRecord to an output string to be interpreted by a human or external system.
+
+
+## [FileHandler](https://docs.python.org/3/library/logging.handlers.html#logging.FileHandler)
+
+```python
+class logging.FileHandler(filename, mode='a', encoding=None, delay=False, errors=None)
+```
+
+> Returns a new instance of the FileHandler class. The specified file is opened and used as the stream for logging. If mode is not specified, 'a' is used. If encoding is not None, it is used to open the file with that encoding. If delay is true, then file opening is deferred until the first call to emit(). By default, the file grows indefinitely. If errors is specified, it’s used to determine how encoding errors are handled.
+
+## [StreamHandler](https://docs.python.org/3/library/logging.handlers.html#logging.StreamHandler)
+
+```python
+class logging.StreamHandler(stream=None)
+```
+
+> Returns a new instance of the StreamHandler class. If stream is specified, the instance will use it for logging output; otherwise, sys.stderr will be used.
+
+## [setFormatter(fmt)](https://docs.python.org/3/library/logging.html#logging.Handler.setFormatter)
+
+```python
+setFormatter(fmt)
+```
+
+> Sets the Formatter for this handler to fmt.
+
+## [addHandler(hdlr)](https://docs.python.org/3/library/logging.html#logging.Logger.addHandler)
+
+```python
+addHandler(hdlr)
+```
+
+> Adds the specified handler hdlr to this logger.
 
 
 ## Example function
