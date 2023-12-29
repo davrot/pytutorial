@@ -13,6 +13,62 @@
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 
+## Examples
+
+### Input / Print
+
+```python
+a = input() # <- test
+print(a) # -> test
+```
+
+### String to int
+
+```python
+a = int(5)
+print(a)  # -> 5
+print(type(a))  # -> <class 'int'>
+a = int(-5)
+print(a)  # -> -5
+print(type(a))  # -> <class 'int'>
+a = int("5")
+print(a)  # -> 5
+print(type(a))  # -> <class 'int'>
+a = int("-5")
+print(a)  # -> -5
+print(type(a))  # -> <class 'int'>
+a = int("   5     ")
+print(a)  # -> 5
+print(type(a))  # -> <class 'int'>
+a = int("3.4")  #  ValueError: invalid literal for int() with base 10: '3.4'
+a = int("Hello")  # ValueError: invalid literal for int() with base 10: 'Hello'
+```
+
+### String to float
+
+```python
+a = float(5)
+print(a)  # -> 5.0
+print(type(a))  # -> <class 'float'>
+a = float(5.1)
+print(a)  # -> 5.1
+print(type(a))  # -> <class 'float'>
+a = float(-5.1)
+print(a)  # -> -5.1
+print(type(a))  # -> <class 'float'>
+a = float("5.1")
+print(a)  # -> 5.1
+print(type(a))  # -> <class 'float'>
+a = float("-5.1")
+print(a)  # -> -5.1
+print(type(a))  # -> <class 'float'>
+a = float("   5.1     ")
+print(a)  # -> 5.1
+print(type(a))  # -> <class 'float'>
+a = float("Hello")  # ValueError: could not convert string to float: 'Hello'
+```
+
+
 ## [input](https://docs.python.org/3/library/functions.html#input)
 
 ```python
@@ -89,4 +145,15 @@ floatvalue  ::=  [sign] (floatnumber | infinity | nan)
 > For a general Python object x, float(x) delegates to x.\_\_float\_\_(). If \_\_float\_\_() is not defined then it falls back to \_\_index\_\_().
 > 
 > If no argument is given, 0.0 is returned.
+
+## [type](https://docs.python.org/3/library/functions.html#type)
+
+```python
+class type(object)
+class type(name, bases, dict, **kwds)
+```
+
+> With one argument, return the type of an object. The return value is a type object and generally the same object as returned by object.\_\_class\_\_.
+> 
+> **The isinstance() built-in function is recommended for testing the type of an object, because it takes subclasses into account.**
 
