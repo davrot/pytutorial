@@ -94,6 +94,7 @@ Important VS Code notes:
 
 ## Numpy: Special topics
 * [Memory layout of Numpy matrices](numpy/layout/README.md)
+* [Stack and Split, Compress](numpy/stack_split/README.md)
 * [Beyond normal np.save](numpy/save_special/README.md)
 * [nditer provides many ways to visit all the elements of one or more arrays](numpy/nditer/README.md)
 * [Manipulation of integers and their bits](numpy/bits_and_integers​/README.md)
