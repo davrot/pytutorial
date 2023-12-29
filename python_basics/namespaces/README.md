@@ -14,7 +14,7 @@ Shortened quotes from [https://docs.python.org/3/tutorial/classes.html](https://
 
 ## [Scopes and Namespaces Example](https://docs.python.org/3/tutorial/classes.html#scopes-and-namespaces-example)
 
-> This is an example demonstrating how to reference the different scopes and namespaces, and how [global](https://docs.python.org/3/reference/simple_stmts.html#global)https://docs.python.org/3/reference/simple_stmts.html#global and [nonlocal](https://docs.python.org/3/reference/simple_stmts.html#nonlocal)https://docs.python.org/3/reference/simple_stmts.html#nonlocal affect variable binding:
+> This is an example demonstrating how to reference the different scopes and namespaces, and how [global](https://docs.python.org/3/reference/simple_stmts.html#global) and [nonlocal](https://docs.python.org/3/reference/simple_stmts.html#nonlocal) affect variable binding:
 
 
 ```python
@@ -49,17 +49,17 @@ print("In global scope:", spam) # -> In global scope: global spam
 
 Shortened quotes from  [https://docs.python.org/3/tutorial/classes.html](https://docs.python.org/3/tutorial/classes.html)
 
-> **Namespaces** are created at different moments and have different lifetimes. The namespace containing the built-in names is created when the Python interpreter starts up, and is never deleted. The global namespace for a module is created when the module definition is read in; normally, module namespaces also last until the interpreter quits.​
+> **Namespaces** are created at different moments and have different lifetimes. The namespace containing the built-in names is created when the Python interpreter starts up, and is never deleted. The global namespace for a module is created when the module definition is read in; normally, module namespaces also last until the interpreter quits.
+>
+> The **local namespace** for a function is created when the function is called, and deleted when the function returns or raises an exception that is not handled within the function.
+>
+> A **scope** is a textual region of a Python program where a namespace is directly accessible.
 > 
-​> The **local namespace** for a function is created when the function is called, and deleted when the function returns or raises an exception that is not handled within the function.​
-> 
-​> A **scope** is a textual region of a Python program where a namespace is directly accessible.​
-> 
-​> Although scopes are determined statically, they are used dynamically. At any time during execution, there are 3 or 4 nested scopes whose namespaces are directly accessible:​
-> * the innermost scope, which is searched first, contains the local names​
-> * the scopes of any enclosing functions, which are searched starting with the nearest enclosing scope, contains non-local, but also non-global names​
-> * the next-to-last scope contains the current module’s global names​
-> * the outermost scope (searched last) is the namespace containing built-in names​
+> Although scopes are determined statically, they are used dynamically. At any time during execution, there are 3 or 4 nested scopes whose namespaces are directly accessible:​
+> * the innermost scope, which is searched first, contains the local names
+> * the scopes of any enclosing functions, which are searched starting with the nearest enclosing scope, contains non-local, but also non-global names
+> * the next-to-last scope contains the current module’s global names
+> * the outermost scope (searched last) is the namespace containing built-in names
 
 
 ## [The global statement](https://docs.python.org/3/reference/simple_stmts.html#the-global-statement)
