@@ -98,6 +98,7 @@ Important VS Code notes:
 * [Flip, rot90, and roll a matrix](numpy/reverse_an_axis/README.md)
 * Iterate
   - [ndenumerate](numpy/ndenumerate/README.md)
+  - [ndindex](numpy/ndindex/README.md)
 
 ## Numpy: Special topics
 * [Memory layout of Numpy matrices](numpy/layout/README.md)
