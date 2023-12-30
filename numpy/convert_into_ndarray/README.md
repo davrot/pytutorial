@@ -19,6 +19,8 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 numpy.asarray(a, dtype=None, order=None, *, like=None)
 ```
 
+The importance of **asarray**:
+
 > Convert the input to an array.
 
 ```python
