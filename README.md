@@ -84,6 +84,7 @@ Important VS Code notes:
 * [Merging matrices](numpy/merging/README.md)
 * [Unique](numpy/unique/README.md)
 * [Where](numpy/where/README.md)
+  - [Piecewise](numpy/piecewise​/README.md)
 * [Extending an existing matrix: tile, repeat, pad](numpy/extending/README.md)
 * [Boolean matricies and logic functions](numpy/bool_matrix/README.md)
 * [Advanced Indexing](numpy/advanced_indexing/README.md)
