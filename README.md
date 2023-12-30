@@ -98,7 +98,9 @@ Important VS Code notes:
 * [Memory layout of Numpy matrices](numpy/layout/README.md)
 * [Stack and Split, Compress](numpy/stack_split/README.md)
 * [Beyond normal np.save](numpy/save_special/README.md)
-* [nditer provides many ways to visit all the elements of one or more arrays](numpy/nditer/README.md)
+* Iterating over an array / matrix
+  - [nditer provides many ways to visit all the elements of one or more arrays](numpy/nditer/README.md)
+  - [Replacing an inner for loop with apply_along_axis](numpy/iterating/README.md)
 * [Manipulation of integers and their bits](numpy/bits_and_integers​/README.md)
 * [Numba: Numpy just in time compiler -- speeding Numpy up](numpy/numba/README.md)
 * [Numpy <-> JSON over Pandas](numpy/JSON/README.md)
