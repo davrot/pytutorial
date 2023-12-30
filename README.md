@@ -45,6 +45,7 @@ Important VS Code notes:
 * Sequence Types
   - [Lists](python_basics/list/README.md)
   - [Tuple](python_basics/tuple/README.md)
+    + [zip](python_basics/zip/README.md)
 * Mapping Types
   - [Dict​](python_basics/dict/README.md)
 * [Functions](python_basics/functions/README.md)
