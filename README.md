@@ -87,6 +87,7 @@ Important VS Code notes:
 * [Extending an existing matrix: tile, repeat, pad](numpy/extending/README.md)
 * [Boolean matricies and logic functions](numpy/bool_matrix/README.md)
 * [Advanced Indexing](numpy/advanced_indexing/README.md)
+  - [Ravel and UnRavel](numpy/ravel_unravel/README.md)
 * [Available dtypes](numpy/dtype/README.md)
 * [Constants](numpy/constants/README.md)
 * [Math functions](numpy/math_functions/README.md)
