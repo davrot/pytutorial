@@ -69,6 +69,7 @@ Important VS Code notes:
 * [ProcessPoolExecutor: A fast way to implement multiprocessing](python_basics/ProcessPoolExecutor/README.md)
 * [Logging](python_basics/logger/README.md)
 * [Python Scopes and Namespaces](python_basics/namespaces/README.md)
+* [Collection of distinct hashable objects -- set and frozenset](python_basics/set_frozenset/README.md)
 
 ## Numpy: The Basics of the basics
 * [The N-dimensional array (ndarray)​](numpy/ndarray/README.md)
