@@ -44,6 +44,7 @@ Important VS Code notes:
   - [Flow Control: match case](python_basics/match/README.md)
 * Sequence Types
   - [Lists](python_basics/list/README.md)
+    + [List Comprehensions​](python_basics/list_comprehensions​/README.md)
   - [Tuple](python_basics/tuple/README.md)
     + [zip](python_basics/zip/README.md)
 * Mapping Types
