@@ -99,6 +99,7 @@ Important VS Code notes:
 * Iterate
   - [ndenumerate](numpy/ndenumerate/README.md)
   - [ndindex](numpy/ndindex/README.md)
+  - [flat](numpy/flat/README.md)
 
 ## Numpy: Special topics
 * [Memory layout of Numpy matrices](numpy/layout/README.md)
