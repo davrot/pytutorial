@@ -263,3 +263,76 @@ Output:
  [7 8 9]]
 ```
 
+## [numpy.put](https://numpy.org/doc/stable/reference/generated/numpy.put.html)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+numpy.put(a, ind, v, mode='raise')[source]
+```
+
+> Replaces specified elements of an array with given values.
+> 
+> The indexing works on the flattened target array. put is roughly equivalent to:
+
+```python
+a.flat[ind] = v
+```
+
+## [numpy.take](https://numpy.org/doc/stable/reference/generated/numpy.take.html)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+numpy.take(a, indices, axis=None, out=None, mode='raise')
+```
+
+> Take elements from an array along an axis.
+> 
+> When axis is not None, this function does the same thing as “fancy” indexing (indexing arrays using arrays); however, it can be easier to use if you need elements along a given axis. A call such as np.take(arr, indices, axis=3) is equivalent to arr[:,:,:,indices,...].
+> 
+> Explained without fancy indexing, this is equivalent to the following use of ndindex, which sets each of ii, jj, and kk to a tuple of indices:
+
+```python
+Ni, Nk = a.shape[:axis], a.shape[axis+1:]
+Nj = indices.shape
+for ii in ndindex(Ni):
+    for jj in ndindex(Nj):
+        for kk in ndindex(Nk):
+            out[ii + jj + kk] = a[ii + (indices[jj],) + kk]
+```
+
+## [numpy.put_along_axis](https://numpy.org/doc/stable/reference/generated/numpy.put_along_axis.html)
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+numpy.put_along_axis(arr, indices, values, axis)
+```
+
+> Put values into the destination array by matching 1d index and data slices.
+> 
+> This iterates over matching 1d slices oriented along the specified axis in the index and data arrays, and uses the former to place values into the latter. These slices can be different lengths.
+> 
+> Functions returning an index along an axis, like argsort and argpartition, produce suitable indices for this function.
+
+## [numpy.take_along_axis]()
+
+{: .topic-optional}
+This is an optional topic!
+
+```python
+numpy.take_along_axis(arr, indices, axis)
+```
+
+> Take values from the input array by matching 1d index and data slices.
+> 
+> This iterates over matching 1d slices oriented along the specified axis in the index and data arrays, and uses the former to look up values in the latter. These slices can be different lengths.
+> 
+> Functions returning an index along an axis, like argsort and argpartition, produce suitable indices for this function.
+
+
+
