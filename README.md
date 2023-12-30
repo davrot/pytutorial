@@ -81,6 +81,7 @@ Important VS Code notes:
 * [Reshape and flatten](numpy/reshape/README.md)
 * [Slices and Views](numpy/slices_views/README.md)
 * [Concatenate Matrices and arrays](numpy/concatenate/README.md)
+* [Merging matrices](numpy/merging/README.md)
 * [Unique](numpy/unique/README.md)
 * [Where](numpy/where/README.md)
 * [Extending an existing matrix: tile, repeat, pad](numpy/extending/README.md)
