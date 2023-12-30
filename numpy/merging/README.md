@@ -156,7 +156,7 @@ Output:
  [ 6 17  8]]
 ```
 
-## [numpy.place](https://numpy.org/doc/stable/reference/generated/numpy.place.html) and [numpy.extract](https://numpy.org/doc/stable/reference/generated/numpy.extract.html) and [numpy.copyto](https://numpy.org/doc/stable/reference/generated/numpy.copyto.html)
+## [numpy.place](https://numpy.org/doc/stable/reference/generated/numpy.place.html) 
 
 ```python
 numpy.place(arr, mask, vals)
@@ -168,6 +168,37 @@ numpy.place(arr, mask, vals)
 >
 > Note that extract does the exact opposite of place.
 
+```python
+import numpy as np
+
+a = np.arange(1, 10).reshape((3, 3))
+print(a)
+print()
+np.place(a, a >= 7, 99)
+print(a)
+print()
+np.place(a, a >= 7, [70, 71, 72, 73])
+print(a)
+print()
+```
+
+Output:
+
+```python
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+
+[[ 1  2  3]
+ [ 4  5  6]
+ [99 99 99]]
+
+[[ 1  2  3]
+ [ 4  5  6]
+ [70 71 72]]
+```
+
+## [numpy.extract](https://numpy.org/doc/stable/reference/generated/numpy.extract.html) 
 
 ```python
 numpy.extract(condition, arr)
@@ -179,6 +210,27 @@ numpy.extract(condition, arr)
 > 
 > Note that place does the exact opposite of extract.
 
+```python
+import numpy as np
+
+a = np.arange(1, 10).reshape((3, 3))
+print(a)
+print()
+b = np.extract(a >= 7, a)
+print(b)
+```
+
+Output:
+
+```python
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+
+[7 8 9]
+```
+
+## [numpy.copyto](https://numpy.org/doc/stable/reference/generated/numpy.copyto.html)
 
 ```python
 numpy.copyto(dst, src, casting='same_kind', where=True)
@@ -188,4 +240,26 @@ numpy.copyto(dst, src, casting='same_kind', where=True)
 > 
 > Raises a TypeError if the casting rule is violated, and if where is provided, it selects which elements to copy.
 
+```python
+import numpy as np
+
+a = np.arange(1, 10).reshape((3, 3))
+b = np.zeros_like(a)
+print(a)
+print()
+np.copyto(b, a, where=(a >= 7))
+print(b)
+```
+
+Output:
+
+```python
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+
+[[0 0 0]
+ [0 0 0]
+ [7 8 9]]
+```
 
