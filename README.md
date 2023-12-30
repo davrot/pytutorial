@@ -113,6 +113,7 @@ Important VS Code notes:
 * Iterating over an array / matrix
   - [nditer provides many ways to visit all the elements of one or more arrays](numpy/nditer/README.md)
   - [Replacing an inner for loop with apply_along_axis](numpy/iterating/README.md)
+  - [nested_iters](numpy/nested_iters/README.md)
 * [Manipulation of integers and their bits](numpy/bits_and_integers​/README.md)
 * [Numpy <-> JSON over Pandas](numpy/JSON/README.md)
 * [Resize: Compensation for bad planning? Don't!](numpy/resize/README.md)
