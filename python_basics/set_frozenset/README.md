@@ -36,10 +36,30 @@ class frozenset([iterable])
 > * Use a set comprehension: {c for c in 'abracadabra' if c not in 'abc'}
 > * Use the type constructor: set(), set('foobar'), set(['a', 'b', 'foo'])
 
+Instances of **set and frozenset** provide the following operations:
 
-```python
+|||
+|---|---|
+|len(s)|Return the number of elements in set s (cardinality of s).|
+|x in s|Test x for membership in s.|
+|x not in s|Test x for non-membership in s.|
+|isdisjoint(other)|Return True if the set has no elements in common with other. Sets are disjoint if and only if their intersection is the empty set.|
+|issubset(other)|Test whether every element in the set is in other.|
+|set <= other|Test whether every element in the set is in other.|
+|set < other|Test whether the set is a proper subset of other, that is, set <= other and set != other.|
+|issuperset(other)|Test whether every element in other is in the set.|
+|set >= other|Test whether every element in other is in the set.|
+|set > other|Test whether the set is a proper superset of other, that is, set >= other and set != other.|
+|union(*others)|Return a new set with elements from the set and all others. |
+|set \| other \| ...|Return a new set with elements from the set and all others. |
+|intersection(*others)|Return a new set with elements common to the set and all others.|
+|set & other & ...|Return a new set with elements common to the set and all others.|
+|difference(*others)|Return a new set with elements in the set that are not in the others.|
+|set - other - ...|Return a new set with elements in the set that are not in the others.|
+|symmetric_difference(other)|Return a new set with elements in either the set or other but not both.|
+|set ^ other|Return a new set with elements in either the set or other but not both.|
+|copy()|Return a shallow copy of the set.|
 
-```
 
 The following table lists operations **available for set** that do not apply to immutable instances of frozenset:
 
