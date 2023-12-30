@@ -21,8 +21,30 @@ numpy.asarray(a, dtype=None, order=None, *, like=None)
 
 > Convert the input to an array.
 
+```python
+import numpy as np
 
 
+a_list = [[1, 2], [3, 4]]
+a_np = np.asarray(a_list)
+
+w = np.asarray(1)
+
+print(w.sum())  # -> 1
+print(a_np.sum())  # -> 10
+print(a_np > 2)
+
+print(1.sum()) # SyntaxError: invalid decimal literal
+print(a_list.sum())  # AttributeError: 'list' object has no attribute 'sum'
+print(a_list > 2) # TypeError: '>' not supported between instances of 'list' and 'int'
+```
+
+Output:
+
+```python
+[[False False]
+ [ True  True]]
+```
 
 ## [numpy.fromiter](https://numpy.org/doc/stable/reference/generated/numpy.fromiter.html)
 
