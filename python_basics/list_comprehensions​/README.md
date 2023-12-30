@@ -1,4 +1,4 @@
-# list-comprehensions​
+# List Comprehensions​
 {:.no_toc}
 
 <nav markdown="1" class="toc-class">
