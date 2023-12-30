@@ -64,3 +64,37 @@ Output:
  [3 4 5 6 7]]
 ```
 
+## This is not [numpy.ndarray.resize](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.resize.html#numpy.ndarray.resize)
+
+```python
+ndarray.resize(new_shape, refcheck=True)
+```
+
+> Change shape and size of array in-place.
+
+I added a copy because it does not work on views (*ValueError: cannot resize this array: it does not own its data*) , which reshape creates. 
+
+```python
+import numpy as np
+
+a = np.arange(1, 10).reshape((3, 3)).copy()
+print(a)
+print()
+a.resize((5, 5))
+print(a)
+```
+
+Output:
+
+```python
+[[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+
+[[1 2 3 4 5]
+ [6 7 8 9 0]
+ [0 0 0 0 0]
+ [0 0 0 0 0]
+ [0 0 0 0 0]]
+```
+
