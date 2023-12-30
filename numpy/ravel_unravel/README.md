@@ -55,6 +55,13 @@ numpy.unravel_index(indices, shape, order='C')
 
 > Converts a flat index or array of flat indices into a tuple of coordinate arrays.
 
+```python
+import numpy as np
 
+idx = np.ravel_multi_index(([0, 1, 2], [0, 1, 1]), dims=(3, 2))
+print(idx)  # -> [0 3 5]
 
-
+a, b = np.unravel_index(idx, shape=(3, 2))
+print(a)  # -> [0 1 2]
+print(b)  # -> [0 1 1]
+```
