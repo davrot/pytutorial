@@ -319,7 +319,7 @@ numpy.put_along_axis(arr, indices, values, axis)
 > 
 > Functions returning an index along an axis, like argsort and argpartition, produce suitable indices for this function.
 
-## [numpy.take_along_axis]()
+## [numpy.take_along_axis](https://numpy.org/doc/stable/reference/generated/numpy.take_along_axis.html)
 
 {: .topic-optional}
 This is an optional topic!
