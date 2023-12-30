@@ -96,6 +96,8 @@ Important VS Code notes:
   - [rfft and spectral power](numpy/numpy_fft_1/README.md)
 * [Meshgrid](numpy/mesh_grid/README.md)
 * [Flip, rot90, and roll a matrix](numpy/reverse_an_axis/README.md)
+* Iterate
+  - [ndenumerate](numpy/ndenumerate/README.md)
 
 ## Numpy: Special topics
 * [Memory layout of Numpy matrices](numpy/layout/README.md)
