@@ -104,6 +104,7 @@ Important VS Code notes:
 * [Memory layout of Numpy matrices](numpy/layout/README.md)
 * [Stack and Split, Compress](numpy/stack_split/README.md)
 * [Beyond normal np.save](numpy/save_special/README.md)
+* [Trim Zeros of a 1d array](numpy/trim_zeros/README.md)
 * Iterating over an array / matrix
   - [nditer provides many ways to visit all the elements of one or more arrays](numpy/nditer/README.md)
   - [Replacing an inner for loop with apply_along_axis](numpy/iterating/README.md)
