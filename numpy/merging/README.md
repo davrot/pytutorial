@@ -155,3 +155,37 @@ Output:
  [ 3  4 25]
  [ 6 17  8]]
 ```
+
+## [numpy.place](https://numpy.org/doc/stable/reference/generated/numpy.place.html) and [numpy.extract](https://numpy.org/doc/stable/reference/generated/numpy.extract.html) and [numpy.copyto](https://numpy.org/doc/stable/reference/generated/numpy.copyto.html)
+
+```python
+numpy.place(arr, mask, vals)
+```
+
+> Change elements of an array based on conditional and input values.
+>
+> Similar to np.copyto(arr, vals, where=mask), the difference is that place uses the first N elements of vals, where N is the number of True values in mask, while copyto uses the elements where mask is True.
+>
+> Note that extract does the exact opposite of place.
+
+
+```python
+numpy.extract(condition, arr)
+```
+
+> Return the elements of an array that satisfy some condition.
+> 
+> This is equivalent to np.compress(ravel(condition), ravel(arr)). If condition is boolean np.extract is equivalent to arr[condition].
+> 
+> Note that place does the exact opposite of extract.
+
+
+```python
+numpy.copyto(dst, src, casting='same_kind', where=True)
+```
+
+> Copies values from one array to another, broadcasting as necessary.
+> 
+> Raises a TypeError if the casting rule is violated, and if where is provided, it selects which elements to copy.
+
+
