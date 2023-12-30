@@ -30,6 +30,14 @@ numpy.choose(a, choices, out=None, mode='raise')
 > * if mode='wrap', values in a (and thus Ba) may be any (signed) integer; modular arithmetic is used to map integers outside the range [0, n-1] back into that range; and then the new array is constructed as above;
 > * if mode='clip', values in a (and thus Ba) may be any (signed) integer; negative integers are mapped to 0; values greater than n-1 are mapped to n-1; and then the new array is constructed as above.
 
+### Example:
+
+|||
+|---|---|
+|chosen_mask == 0| use a|
+|chosen_mask == 1| use b|
+|chosen_mask == 2| use c|
+
 ```python
 import numpy as np
 
