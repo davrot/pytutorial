@@ -10,6 +10,10 @@
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
+Choose vs select:​
+* Choose: One Matrix with integer values 0,...N-1​
+* Select: N binary matrices ​
+
 
 ## [numpy.choose](https://numpy.org/doc/stable/reference/generated/numpy.choose.html#numpy-choose)
 
@@ -30,7 +34,7 @@ numpy.choose(a, choices, out=None, mode='raise')
 > * if mode='wrap', values in a (and thus Ba) may be any (signed) integer; modular arithmetic is used to map integers outside the range [0, n-1] back into that range; and then the new array is constructed as above;
 > * if mode='clip', values in a (and thus Ba) may be any (signed) integer; negative integers are mapped to 0; values greater than n-1 are mapped to n-1; and then the new array is constructed as above.
 
-### Example:
+### Example
 
 |||
 |---|---|
@@ -87,3 +91,67 @@ Output:
  [16 27 28]]
 ```
 
+## [numpy.select](https://numpy.org/doc/stable/reference/generated/numpy.select.html)
+
+```python
+numpy.select(condlist, choicelist, default=0)[source]
+```
+
+> Return an array drawn from elements in choicelist, depending on conditions.
+
+### Example
+
+|||
+|---|---|
+|chosen_mask == 0| use a|
+|chosen_mask == 1| use b|
+|chosen_mask == 2| use c|
+
+```python
+import numpy as np
+
+a = np.arange(0, 9).reshape((3, 3))
+print(a)
+print()
+
+b = np.arange(10, 19).reshape((3, 3))
+print(b)
+print()
+
+c = np.arange(20, 29).reshape((3, 3))
+print(c)
+print()
+
+
+rng = np.random.default_rng()
+chosen_mask = rng.integers(size=c.shape, low=0, high=3)
+print(chosen_mask)
+print()
+
+d = np.select([chosen_mask == 0, chosen_mask == 1, chosen_mask == 2], (a, b, c))
+print(d)
+```
+
+Output:
+
+```python
+[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+
+[[10 11 12]
+ [13 14 15]
+ [16 17 18]]
+
+[[20 21 22]
+ [23 24 25]
+ [26 27 28]]
+
+[[2 2 0]
+ [0 0 2]
+ [0 1 0]]
+
+[[20 21  2]
+ [ 3  4 25]
+ [ 6 17  8]]
+```
