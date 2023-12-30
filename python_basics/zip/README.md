@@ -34,3 +34,10 @@ Output:
 (2, 'spice')
 (3, 'everything nice')
 ```
+
+> More formally: zip() returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument iterables.
+
+> By default, zip() stops when the shortest iterable is exhausted. It will ignore the remaining items in the longer iterables, cutting off the result to the length of the shortest iterable
+
+> zip() is often used in cases where the iterables are assumed to be of equal length. In such cases, it’s recommended to use the strict=True option. Its output is the same as regular zip(). Unlike the default behavior, it raises a ValueError if one iterable is exhausted before the others.
+
