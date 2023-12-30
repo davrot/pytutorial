@@ -103,6 +103,7 @@ Important VS Code notes:
   - [flat](numpy/flat/README.md)
 
 ## Numpy: Special topics
+* [Numba: Numpy just in time compiler -- speeding Numpy up](numpy/numba/README.md)
 * [Memory layout of Numpy matrices](numpy/layout/README.md)
 * [Stack and Split, Compress](numpy/stack_split/README.md)
 * [Beyond normal np.save](numpy/save_special/README.md)
@@ -111,9 +112,9 @@ Important VS Code notes:
   - [nditer provides many ways to visit all the elements of one or more arrays](numpy/nditer/README.md)
   - [Replacing an inner for loop with apply_along_axis](numpy/iterating/README.md)
 * [Manipulation of integers and their bits](numpy/bits_and_integers​/README.md)
-* [Numba: Numpy just in time compiler -- speeding Numpy up](numpy/numba/README.md)
 * [Numpy <-> JSON over Pandas](numpy/JSON/README.md)
 * [Resize: Compensation for bad planning? Don't!](numpy/resize/README.md)
+* [Dealing with the main diagonal / triangles of a matrix](numpy/diagonal_triangles/README.md)
 
 ## Numpy: Matlab topics
 * [Dealing with Matlab files](numpy/mat_files/README.md)
