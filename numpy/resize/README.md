@@ -98,3 +98,35 @@ Output:
  [0 0 0 0 0]]
 ```
 
+## More bad function
+
+**Try to avoid using these functions​!** 
+
+### [numpy.delete](https://numpy.org/doc/stable/reference/generated/numpy.delete.html)
+
+```python
+numpy.delete(arr, obj, axis=None)
+```
+
+> Return a new array with sub-arrays along an axis deleted. For a one dimensional array, this returns those entries not returned by arr[obj].
+
+### [numpy.insert](https://numpy.org/doc/stable/reference/generated/numpy.insert.html)
+
+```python
+numpy.insert(arr, obj, values, axis=None)
+```
+
+> Insert values along the given axis before the given indices.
+
+### [numpy.append](https://numpy.org/doc/stable/reference/generated/numpy.append.html)
+
+```python
+numpy.append(arr, values, axis=None)
+```
+
+> Append values to the end of an array.
+
+
+
+
+
