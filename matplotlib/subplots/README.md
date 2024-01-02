@@ -13,7 +13,7 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 ## Example 1 (2d regular grid)
 
-**subplot with s at the end!!!**
+**subplots with s at the end!!!**
 
 ```python
 import numpy as np
@@ -161,6 +161,14 @@ matplotlib.pyplot.subplots(nrows=1, ncols=1, *, sharex=False, sharey=False, sque
 > 
 > Number of rows/columns of the subplot grid.
 
+## [matplotlib.pyplot.subplot](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplot.html#matplotlib-pyplot-subplot)
+
+```python
+matplotlib.pyplot.subplot(*args, **kwargs)
+```
+
+> Add an Axes to the current figure or retrieve an existing Axes.
+
 
 ## [matplotlib.axes.Axes.imshow](https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.imshow.html)
 
@@ -247,6 +255,20 @@ Axes.legend(*args, **kwargs)
 
 > Place a legend on the Axes.
 
+|Location String|Location Code|
+|---|---|
+|'best' (Axes only)|0|
+|'upper right'|1|
+|'upper left'|2|
+|'lower left'|3|
+|'lower right'|4|
+|'right'|5|
+|'center left'|6|
+|'center right'|7|
+|'lower center'|8|
+|'upper center'|9|
+|'center'|10|
+
 ## [matplotlib.axes.Axes.plot](https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html#matplotlib-axes-axes-plot)
 
 ```python
@@ -279,10 +301,17 @@ Axes.semilogy(*args, **kwargs)
 
 > Make a plot with log scaling on the y-axis.
 
+## [matplotlib.colorbar](https://matplotlib.org/stable/api/colorbar_api.html#module-matplotlib.colorbar)
 
+```python
+class matplotlib.colorbar.Colorbar(ax, mappable=None, *, cmap=None, norm=None, alpha=None, values=None, boundaries=None, orientation=None, ticklocation='auto', extend=None, spacing='uniform', ticks=None, format=None, drawedges=False, extendfrac=None, extendrect=False, label='', location=None)
+```
 
-
-
-
-
+> Colorbars are a visualization of the mapping from scalar values to colors. In Matplotlib they are drawn into a dedicated Axes.
+> 
+> Draw a colorbar in an existing axes.
+> 
+> Typically, colorbars are created using Figure.colorbar or pyplot.colorbar and associated with ScalarMappables (such as an AxesImage generated via imshow).
+> 
+> In order to draw a colorbar not associated with other elements in the figure, e.g. when showing a colormap by itself, one can create an empty ScalarMappable, or directly pass cmap and norm instead of mappable to Colorbar.
 
