@@ -132,6 +132,7 @@ In the case you know Matlab check here:
 ## Matplotlib.pyplot
 * [Simple plot and imshow examples](matplotlib/basics/README.md)
 * [Subplot](matplotlib/subplot/README.md)
+* [subplots and gridspec: A more flexible placement](matplotlib/subplots/README.md)
 * [Overview of the available functions](matplotlib/overview/README.md)
 * [Animation and Slider](matplotlib/animation_and_slider/README.md)
 
