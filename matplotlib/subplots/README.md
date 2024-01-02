@@ -73,6 +73,46 @@ plt.show()
 
 ![image2](image2.png)
 
+### [matplotlib.gridspec](https://matplotlib.org/stable/api/gridspec_api.html#module-matplotlib.gridspec)
+
+> gridspec contains classes that help to layout multiple Axes in a grid-like pattern within a figure.
+> 
+> The GridSpec specifies the overall grid structure. Individual cells within the grid are referenced by SubplotSpecs.
+> 
+> Often, users need not access this module directly, and can use higher-level methods like subplots, subplot_mosaic and subfigures. See the tutorial [Arranging multiple Axes in a Figure](https://matplotlib.org/stable/users/explain/axes/arranging_axes.html#arranging-multiple-axes-in-a-figure) for a guide.
+
+### [matplotlib.gridspec.GridSpec](https://matplotlib.org/stable/api/_as_gen/matplotlib.gridspec.GridSpec.html#matplotlib.gridspec.GridSpec)
+
+```python
+class matplotlib.gridspec.GridSpec(nrows, ncols, figure=None, left=None, bottom=None, right=None, top=None, wspace=None, hspace=None, width_ratios=None, height_ratios=None)[source]
+```
+
+> A grid layout to place subplots within a figure.
+> 
+> The location of the grid cells is determined in a similar way to SubplotParams using left, right, top, bottom, wspace and hspace.
+> 
+> Indexing a GridSpec instance returns a SubplotSpec.
+
+> **nrows**, **ncols** : int
+> The number of rows and columns of the grid.
+> 
+> **figure** : Figure, optional
+> Only used for constrained layout to create a proper layoutgrid.
+> 
+> **left**, **right**, **top**, **bottom** : float, optional
+> Extent of the subplots as a fraction of figure width or height. Left cannot be larger than right, and bottom cannot be larger than top. If not given, the values will be inferred from a figure or rcParams at draw time. See also > GridSpec.get_subplot_params.
+> 
+> **wspace** : float, optional
+> The amount of width reserved for space between subplots, expressed as a fraction of the average axis width. If not given, the values will be inferred from a figure or rcParams when necessary. See also GridSpec.get_subplot_params.
+> 
+> **hspace** : float, optional
+> The amount of height reserved for space between subplots, expressed as a fraction of the average axis height. If not given, the values will be inferred from a figure or rcParams when necessary. See also GridSpec.get_subplot_params.
+> 
+> **width_ratios** : array-like of length ncols, optional
+> Defines the relative widths of the columns. Each column gets a relative width of width_ratios[i] / sum(width_ratios). If not given, all columns will have the same width.
+> 
+> **height_ratios** : array-like of length nrows, optional
+> Defines the relative heights of the rows. Each row gets a relative height of height_ratios[i] / sum(height_ratios). If not given, all rows will have the same height.
 
 
 
