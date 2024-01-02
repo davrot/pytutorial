@@ -106,7 +106,7 @@ This is just a small selection of optimizers (i.e. the algorithm that learns the
 |[ASGD](https://pytorch.org/docs/stable/generated/torch.optim.ASGD.html#torch.optim.ASGD)|	Implements Averaged Stochastic Gradient Descent.|
 |[RMSprop](https://pytorch.org/docs/stable/generated/torch.optim.RMSprop.html#torch.optim.RMSprop)|	Implements RMSprop algorithm.|
 |[Rprop](https://pytorch.org/docs/stable/generated/torch.optim.Rprop.html#torch.optim.Rprop)|	Implements the resilient backpropagation algorithm.|
-|[SGD](https://pytorch.org/docs/stable/generated/torch.optim.SGD.html#torch.optim.SGD)https://pytorch.org/docs/stable/generated/torch.optim.SGD.html#torch.optim.SGD|	Implements stochastic gradient descent (optionally with momentum).|
+|[SGD](https://pytorch.org/docs/stable/generated/torch.optim.SGD.html#torch.optim.SGD)|	Implements stochastic gradient descent (optionally with momentum).|
 
 
 ### [Learning rate scheduler](https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate)
@@ -127,3 +127,96 @@ A non-representative selection is
 |[lr_scheduler.ReduceLROnPlateau](https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html#torch.optim.lr_scheduler.ReduceLROnPlateau)|	Reduce learning rate when a metric has stopped improving.|
 
 However, typically I only use [lr_scheduler.ReduceLROnPlateau](https://pytorch.org/docs/stable/generated/torch.optim.lr_scheduler.ReduceLROnPlateau.html#torch.optim.lr_scheduler.ReduceLROnPlateau).
+
+## [Tensorboard](https://pytorch.org/docs/stable/tensorboard.html)
+
+We want to monitor our progress and will use Tensorboard for this.
+
+In the beginning we need to open a Tensorboard session
+
+```python
+import os
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+
+from torch.utils.tensorboard import SummaryWriter
+tb = SummaryWriter()
+```
+
+Afterwards we need to close the Tensorboard session again
+
+```python
+tb.close()
+```
+
+During learning we can flush the information. This allows us to observer the development in parallel in the viewer (a viewer that is build into **VS code** I might add...). 
+
+```python
+tb.flush()
+```
+
+We can add histograms for e.g. weights 
+
+```python
+tb.add_histogram("LABEL OF THE VARIABLE", VARIABLE, LEARNING_STEP_NUMBER)
+```
+
+or add scalars (e.g. performances or loss values)
+
+```python
+tb.add_scalar("LABEL OF THE VARIABLE", VARIABLE, LEARNING_STEP_NUMBER)
+```
+
+We can also add images, matplotlib figures, videos, audio, text, graph data, and other stuff. Just because we can doesn't mean that we want to...
+
+
+We can use the event_accumulator to retrieve the stored information.
+
+* acc = event_accumulator.EventAccumulator(PATH)
+* acc.Tags() : Return all tags found as a dictionary (e.g. acc.Tags()['scalars'] and acc.Tags()['histograms']).
+* acc.Scalars(tag) : Given a summary tag, return all associated `ScalarEvent`s.
+* acc.Graph() : Return the graph definition, if there is one.
+* acc.MetaGraph() : Return the metagraph definition, if there is one.
+* acc.Histograms(tag) : Given a summary tag, return all associated histograms.
+* acc.CompressedHistograms(tag) : Given a summary tag, return all associated compressed histograms.
+* acc.Images(tag) : Given a summary tag, return all associated images.
+* acc.Audio(tag) : Given a summary tag, return all associated audio.
+* acc.Tensors(tag) : Given a summary tag, return all associated tensors.
+
+Here as an example:  
+
+```python
+import os
+
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+import matplotlib.pyplot as plt
+
+from tensorboard.backend.event_processing import event_accumulator
+import numpy as np
+
+path: str = "./runs/Jan26_18-03-23_doppio/"  # this way tensorboard directory
+
+acc = event_accumulator.EventAccumulator(path)
+acc.Reload()
+
+available_scalar = acc.Tags()["scalars"]
+available_histograms = acc.Tags()["histograms"]
+print("Available Scalars")
+print(available_scalar)
+
+print("Available Histograms")
+print(available_histograms)
+
+which_scalar = "Train Performance"
+te = acc.Scalars(which_scalar)
+# %%
+temp = []
+for te_item in te:
+    temp.append((te_item[1], te_item[2]))
+temp = np.array(temp)
+
+plt.plot(temp[:, 0], temp[:, 1])
+plt.xlabel("Steps")
+plt.ylabel("Train Performance")
+plt.title(which_scalar)
+plt.show()
+```
