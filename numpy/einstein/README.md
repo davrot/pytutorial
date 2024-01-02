@@ -55,6 +55,7 @@ a = np.arange(0, 25).reshape(5, 5)
 print(np.einsum("ij->i", a))  # -> [ 10  35  60  85 110]
 print(np.einsum(a, [0, 1], [0]))  # -> [ 10  35  60  85 110]
 print(np.einsum("...j->...", a))  # -> [ 10  35  60  85 110]
+print(np.einsum(a, [..., 1], [...]))  # -> [ 10  35  60  85 110]
 ```
 
 $$b(j,i) = a_{i,j}$$
@@ -158,9 +159,9 @@ numpy.einsum(subscripts, *operands, out=None, dtype=None, order='K', casting='sa
 >
 > The subscripts string is a comma-separated list of subscript labels, where each label refers to a dimension of the corresponding operand. Whenever a label is repeated it is summed, so np.einsum('i,i', a, b) is equivalent to np.inner(a,b). If a label appears only once, it is not summed, so np.einsum('i', a) produces a view of a with no changes. A further example np.einsum('ij,jk', a, b) describes traditional matrix multiplication and is equivalent to np.matmul(a,b). Repeated subscript labels in one operand take the diagonal. For example, np.einsum('ii', a) is equivalent to np.trace(a).
 > 
-> In implicit mode, the chosen subscripts are important since the axes of the output are reordered alphabetically. This means that np.einsum('ij', a) doesn’t affect a 2D array, while np.einsum('ji', a) takes its transpose. Additionally, np.einsum('ij,jk', a, b) returns a matrix multiplication, while, np.einsum('ij,jh', a, b) returns the transpose of the multiplication since subscript ‘h’ precedes subscript ‘i’.
+> In **implicit mode**, the chosen subscripts are important since the axes of the output are reordered alphabetically. This means that np.einsum('ij', a) doesn’t affect a 2D array, while np.einsum('ji', a) takes its transpose. Additionally, np.einsum('ij,jk', a, b) returns a matrix multiplication, while, np.einsum('ij,jh', a, b) returns the transpose of the multiplication since subscript ‘h’ precedes subscript ‘i’.
 > 
-> In explicit mode the output can be directly controlled by specifying output subscript labels. This requires the identifier ‘->’ as well as the list of output subscript labels. This feature increases the flexibility of the function since summing can be disabled or forced when required. The call np.einsum('i->', a) is like np.sum(a, axis=-1), and np.einsum('ii->i', a) is like np.diag(a). The difference is that einsum does not allow broadcasting by default. Additionally np.einsum('ij,jh->ih', a, b) directly specifies the order of the output subscript labels and therefore returns matrix multiplication, unlike the example above in implicit mode.
+> In **explicit mode** the output can be directly controlled by specifying output subscript labels. This requires the identifier ‘->’ as well as the list of output subscript labels. This feature increases the flexibility of the function since summing can be disabled or forced when required. The call np.einsum('i->', a) is like np.sum(a, axis=-1), and np.einsum('ii->i', a) is like np.diag(a). The difference is that einsum does not allow broadcasting by default. Additionally np.einsum('ij,jh->ih', a, b) directly specifies the order of the output subscript labels and therefore returns matrix multiplication, unlike the example above in implicit mode.
 > 
 > To enable and control broadcasting, use an ellipsis. Default NumPy-style broadcasting is done by adding an ellipsis to the left of each term, like np.einsum('...ii->...i', a). To take the trace along the first and last axes, you can do np.einsum('i...i', a), or to do a matrix-matrix product with the left-most indices instead of rightmost, one can do np.einsum('ij...,jk...->ik...', a, b).
 > 
