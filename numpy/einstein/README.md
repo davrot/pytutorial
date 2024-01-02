@@ -104,6 +104,16 @@ print(b)  # -> [0 1 2 3 4]
 print(np.einsum("ij,j", a, b))  # -> [ 30  80 130 180 230]
 ```
 
+```python
+[[ 0  1  2  3  4]
+ [ 5  6  7  8  9]
+ [10 11 12 13 14]
+ [15 16 17 18 19]
+ [20 21 22 23 24]]
+```
+
+**Note: If you are repeating one einsum configuration, [numpy.einsum_path](https://numpy.org/doc/stable/reference/generated/numpy.einsum_path.html#numpy.einsum_path) might speed it up.**
+
 
 ## [numpy.einsum](https://numpy.org/doc/stable/reference/generated/numpy.einsum.html)
 
@@ -142,4 +152,51 @@ numpy.einsum(subscripts, *operands, out=None, dtype=None, order='K', casting='sa
 > 
 > einsum also provides an alternative way to provide the subscripts and operands as einsum(op0, sublist0, op1, sublist1, ..., [sublistout]). If the output shape is not provided in this format einsum will be calculated in implicit mode, otherwise it will be performed explicitly. The examples below have corresponding einsum calls with the two parameter methods.
 
+## [numpy.einsum_path](https://numpy.org/doc/stable/reference/generated/numpy.einsum_path.html#numpy-einsum-path)
 
+```python
+numpy.einsum_path(subscripts, *operands, optimize='greedy')
+```
+
+> Evaluates the lowest cost contraction order for an einsum expression by considering the creation of intermediate arrays.
+
+
+```python
+import numpy as np
+
+rng = np.random.default_rng()
+
+a = rng.random((2, 2))
+b = rng.random((2, 5))
+c = rng.random((5, 2))
+
+print(a.shape)  # -> (2, 2)
+print(b.shape)  # -> (2, 5)
+print(c.shape)  # -> (5, 2)
+
+path_info = np.einsum_path("ij,jk,kl->il", a, b, c, optimize="optimal")
+
+print(path_info[0])  # -> ['einsum_path', (1, 2), (0, 1)]
+print(path_info[1])
+print()
+
+print(np.einsum("ij,jk,kl->il", a, b, c, optimize=path_info[0]))
+```
+
+```python
+  Complete contraction:  ij,jk,kl->il
+         Naive scaling:  4
+     Optimized scaling:  3
+      Naive FLOP count:  1.200e+02
+  Optimized FLOP count:  5.700e+01
+   Theoretical speedup:  2.105
+  Largest intermediate:  4.000e+00 elements
+--------------------------------------------------------------------------
+scaling                  current                                remaining
+--------------------------------------------------------------------------
+   3                   kl,jk->jl                                ij,jl->il
+   3                   jl,ij->il                                   il->il
+
+[[0.69016492 0.59064076]
+ [1.32938288 1.14208553]]
+```
