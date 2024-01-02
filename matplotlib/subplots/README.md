@@ -11,6 +11,72 @@
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 
+## Example 1 (2d regular grid)
+
+```python
+import numpy as np
+import matplotlib.pylab as plt
+
+rng = np.random.default_rng()
+
+a = rng.random((100, 100))
+
+fig, axs = plt.subplots(nrows=3, ncols=3)
+print(axs.shape)  # -> (3, 3)
+
+for x in range(0, axs.shape[0]):
+    for y in range(0, axs.shape[1]):
+        im = axs[x, y].imshow(a, cmap="hot")
+        axs[x, y].set_axis_off()
+        fig.colorbar(im, ax=axs[x, y], orientation="vertical")
+plt.show()
+```
+
+![image1](image1.png)
+
+## Example 2 (2d)
+
+```python
+## Example 1 (2d regular grid)
+
+import numpy as np
+import matplotlib.pylab as plt
+import matplotlib.gridspec as gridspec
+
+rng = np.random.default_rng()
+
+a = rng.random((100, 200))
+b = rng.random((300, 100))
+c = rng.random((200, 200))
+
+fig = plt.figure()
+gs = gridspec.GridSpec(3, 3)
+
+
+ax1 = plt.subplot(gs[0, 0:2])
+im = ax1.imshow(a, cmap="hot", aspect="auto")
+ax1.set_axis_off()
+fig.colorbar(im, ax=ax1, orientation="vertical")
+
+ax2 = plt.subplot(gs[0:3, 2])
+im = ax2.imshow(b, cmap="hot", aspect="auto")
+ax2.set_axis_off()
+fig.colorbar(im, ax=ax2, orientation="vertical")
+
+ax3 = plt.subplot(gs[1:3, 0:2])
+im = ax3.imshow(b, cmap="hot", aspect="auto")
+ax3.set_axis_off()
+fig.colorbar(im, ax=ax3, orientation="vertical")
+
+plt.show()
+```
+
+![image2](image2.png)
+
+
+
+
+
 ## [matplotlib.pyplot.subplots](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots)
 
 ```python
