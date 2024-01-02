@@ -658,3 +658,325 @@ Sequential(
   (9): Linear(in_features=1024, out_features=10, bias=True)
 )
 ```
+
+## A closer look into our layers
+
+We can address them like this:
+
+```python
+for module_id in range(0, len(network._modules)):
+    print(f"Layer ID: {module_id}")
+    print(network._modules[str(module_id)])
+```
+
+
+```python
+import torch
+
+input_number_of_channel: int = 1
+input_dim_x: int = 24
+input_dim_y: int = 24
+
+number_of_output_channels_conv1: int = 32
+number_of_output_channels_conv2: int = 64
+number_of_output_channels_flatten1: int
+number_of_output_channels_full1: int = 1024
+number_of_output_channels_out: int = 10
+
+kernel_size_conv1: tuple[int, int] = (5, 5)
+kernel_size_pool1: tuple[int, int] = (2, 2)
+kernel_size_conv2: tuple[int, int] = (5, 5)
+kernel_size_pool2: tuple[int, int] = (2, 2)
+
+stride_conv1: tuple[int, int] = (1, 1)
+stride_pool1: tuple[int, int] = (2, 2)
+stride_conv2: tuple[int, int] = (1, 1)
+stride_pool2: tuple[int, int] = (2, 2)
+
+padding_conv1: int = 0
+padding_pool1: int = 0
+padding_conv2: int = 0
+padding_pool2: int = 0
+
+number_of_output_channels_flatten1 = 576
+
+network = torch.nn.Sequential(
+    torch.nn.Conv2d(
+        in_channels=input_number_of_channel,
+        out_channels=number_of_output_channels_conv1,
+        kernel_size=kernel_size_conv1,
+        stride=stride_conv1,
+        padding=padding_conv1,
+    ),
+    torch.nn.ReLU(),
+    torch.nn.MaxPool2d(
+        kernel_size=kernel_size_pool1, stride=stride_pool1, padding=padding_pool1
+    ),
+    torch.nn.Conv2d(
+        in_channels=number_of_output_channels_conv1,
+        out_channels=number_of_output_channels_conv2,
+        kernel_size=kernel_size_conv2,
+        stride=stride_conv2,
+        padding=padding_conv2,
+    ),
+    torch.nn.ReLU(),
+    torch.nn.MaxPool2d(
+        kernel_size=kernel_size_pool2, stride=stride_pool2, padding=padding_pool2
+    ),
+    torch.nn.Flatten(
+        start_dim=1,
+    ),
+    torch.nn.Linear(
+        in_features=number_of_output_channels_flatten1,
+        out_features=number_of_output_channels_full1,
+        bias=True,
+    ),
+    torch.nn.ReLU(),
+    torch.nn.Linear(
+        in_features=number_of_output_channels_full1,
+        out_features=number_of_output_channels_out,
+        bias=True,
+    ),
+)
+
+for module_id in range(0, len(network._modules)):
+    print(f"Layer ID: {module_id}")
+    print(network._modules[str(module_id)])
+```
+
+Output:
+
+```python
+Layer ID: 0
+Conv2d(1, 32, kernel_size=(5, 5), stride=(1, 1))
+Layer ID: 1
+ReLU()
+Layer ID: 2
+MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)
+Layer ID: 3
+Conv2d(32, 64, kernel_size=(5, 5), stride=(1, 1))
+Layer ID: 4
+ReLU()
+Layer ID: 5
+MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)
+Layer ID: 6
+Flatten(start_dim=1, end_dim=-1)
+Layer ID: 7
+Linear(in_features=576, out_features=1024, bias=True)
+Layer ID: 8
+ReLU()
+Layer ID: 9
+Linear(in_features=1024, out_features=10, bias=True)
+```
+
+## Extracting activations
+
+We can use this to extract the activations in a very easy way
+
+```python
+number_of_pattern: int = 111
+fake_input = torch.rand(
+    (number_of_pattern, input_number_of_channel, input_dim_x, input_dim_y),
+    dtype=torch.float32,
+)
+
+activity: list[torch.Tensor] = []
+activity.append(fake_input)
+
+for module_id in range(0, len(network._modules)):
+    temp = network._modules[str(module_id)](activity[-1])
+    activity.append(temp)
+
+for id, data in enumerate(activity):
+    print(f"ID: {id} Shape:{data.shape}")
+```
+
+
+```python
+import torch
+
+input_number_of_channel: int = 1
+input_dim_x: int = 24
+input_dim_y: int = 24
+
+number_of_output_channels_conv1: int = 32
+number_of_output_channels_conv2: int = 64
+number_of_output_channels_flatten1: int
+number_of_output_channels_full1: int = 1024
+number_of_output_channels_out: int = 10
+
+kernel_size_conv1: tuple[int, int] = (5, 5)
+kernel_size_pool1: tuple[int, int] = (2, 2)
+kernel_size_conv2: tuple[int, int] = (5, 5)
+kernel_size_pool2: tuple[int, int] = (2, 2)
+
+stride_conv1: tuple[int, int] = (1, 1)
+stride_pool1: tuple[int, int] = (2, 2)
+stride_conv2: tuple[int, int] = (1, 1)
+stride_pool2: tuple[int, int] = (2, 2)
+
+padding_conv1: int = 0
+padding_pool1: int = 0
+padding_conv2: int = 0
+padding_pool2: int = 0
+
+number_of_output_channels_flatten1 = 576
+
+network = torch.nn.Sequential(
+    torch.nn.Conv2d(
+        in_channels=input_number_of_channel,
+        out_channels=number_of_output_channels_conv1,
+        kernel_size=kernel_size_conv1,
+        stride=stride_conv1,
+        padding=padding_conv1,
+    ),
+    torch.nn.ReLU(),
+    torch.nn.MaxPool2d(
+        kernel_size=kernel_size_pool1, stride=stride_pool1, padding=padding_pool1
+    ),
+    torch.nn.Conv2d(
+        in_channels=number_of_output_channels_conv1,
+        out_channels=number_of_output_channels_conv2,
+        kernel_size=kernel_size_conv2,
+        stride=stride_conv2,
+        padding=padding_conv2,
+    ),
+    torch.nn.ReLU(),
+    torch.nn.MaxPool2d(
+        kernel_size=kernel_size_pool2, stride=stride_pool2, padding=padding_pool2
+    ),
+    torch.nn.Flatten(
+        start_dim=1,
+    ),
+    torch.nn.Linear(
+        in_features=number_of_output_channels_flatten1,
+        out_features=number_of_output_channels_full1,
+        bias=True,
+    ),
+    torch.nn.ReLU(),
+    torch.nn.Linear(
+        in_features=number_of_output_channels_full1,
+        out_features=number_of_output_channels_out,
+        bias=True,
+    ),
+)
+
+number_of_pattern: int = 111
+fake_input = torch.rand(
+    (number_of_pattern, input_number_of_channel, input_dim_x, input_dim_y),
+    dtype=torch.float32,
+)
+
+activity: list[torch.Tensor] = []
+activity.append(fake_input)
+
+for module_id in range(0, len(network._modules)):
+    temp = network._modules[str(module_id)](activity[-1])
+    activity.append(temp)
+
+for id, data in enumerate(activity):
+    print(f"ID: {id} Shape:{data.shape}")
+```
+
+Output:
+
+```python
+ID: 0 Shape:torch.Size([111, 1, 24, 24])
+ID: 1 Shape:torch.Size([111, 32, 20, 20])
+ID: 2 Shape:torch.Size([111, 32, 20, 20])
+ID: 3 Shape:torch.Size([111, 32, 10, 10])
+ID: 4 Shape:torch.Size([111, 64, 6, 6])
+ID: 5 Shape:torch.Size([111, 64, 6, 6])
+ID: 6 Shape:torch.Size([111, 64, 3, 3])
+ID: 7 Shape:torch.Size([111, 576])
+ID: 8 Shape:torch.Size([111, 1024])
+ID: 9 Shape:torch.Size([111, 1024])
+ID: 10 Shape:torch.Size([111, 10])
+```
+
+## Accessing the parameters / weights of a layer 
+
+We can look at what is stored about a layer (here as example layer "0") with
+
+```python
+print(network._modules["0"].__dict__)
+```
+
+And we get a lot of information. Too much information in fact... 
+
+Output: 
+
+```python
+{'training': True, '_parameters': OrderedDict([('weight', Parameter containing:
+tensor([[[[ 0.0191, -0.0144,  0.1454,  0.0232,  0.0703],
+          [-0.1926, -0.0220,  0.1859,  0.0434,  0.1332],
+          [-0.0688,  0.0699,  0.0693,  0.0630, -0.1771],
+          [-0.1913, -0.1783,  0.1728, -0.0257, -0.1868],
+          [-0.0771,  0.1046,  0.0862,  0.1091, -0.0156]]],
+
+
+        [[[ 0.0717,  0.1716,  0.0488, -0.0746,  0.1527],
+          [ 0.1975,  0.0298, -0.0073,  0.1443, -0.1383],
+          [-0.1215, -0.0553,  0.1201, -0.0282,  0.1653],
+          [-0.0372, -0.1186, -0.1730,  0.1192,  0.0732],
+          [ 0.0769,  0.1973, -0.1270, -0.1427, -0.1871]]],
+[...]
+        [[[-0.0835,  0.1259, -0.0632, -0.1857, -0.1243],
+          [-0.1389, -0.1182, -0.1034,  0.1469, -0.0461],
+          [ 0.1088,  0.0572, -0.0438, -0.1451, -0.0171],
+          [-0.0472,  0.1664, -0.0792, -0.0200, -0.1221],
+          [-0.1937,  0.1914,  0.0493,  0.1763,  0.0273]]]], requires_grad=True)), ('bias', Parameter containing:
+tensor([ 0.1289, -0.0354,  0.0642, -0.0767,  0.0876, -0.0429,  0.1400,  0.1130,
+        -0.0845,  0.0800,  0.1310, -0.0756,  0.0790, -0.1698,  0.1385,  0.1654,
+         0.1249, -0.1413, -0.0439,  0.1302, -0.0877,  0.0926,  0.0420,  0.0107,
+         0.1039,  0.1675,  0.1516, -0.0741,  0.1934,  0.1042,  0.1118, -0.0692],
+       requires_grad=True))]), '_buffers': OrderedDict(), '_non_persistent_buffers_set': set(), '_backward_pre_hooks': OrderedDict(), '_backward_hooks': OrderedDict(), '_is_full_backward_hook': None, '_forward_hooks': OrderedDict(), '_forward_hooks_with_kwargs': OrderedDict(), '_forward_pre_hooks': OrderedDict(), '_forward_pre_hooks_with_kwargs': OrderedDict(), '_state_dict_hooks': OrderedDict(), '_state_dict_pre_hooks': OrderedDict(), '_load_state_dict_pre_hooks': OrderedDict(), '_load_state_dict_post_hooks': OrderedDict(), '_modules': OrderedDict(), 'in_channels': 1, 'out_channels': 32, 'kernel_size': (5, 5), 'stride': (1, 1), 'padding': (0, 0), 'dilation': (1, 1), 'transposed': False, 'output_padding': (0, 0), 'groups': 1, 'padding_mode': 'zeros', '_reversed_padding_repeated_twice': (0, 0, 0, 0)}
+```
+
+Let us look at the keys of the dictionary instead:
+
+```python
+print(network._modules["0"].__dict__.keys())
+```
+
+```python
+dict_keys([
+'training',
+'_parameters',
+'_buffers',
+'_non_persistent_buffers_set',
+'_backward_pre_hooks',
+'_backward_hooks',
+'_is_full_backward_hook',
+'_forward_hooks',
+'_forward_hooks_with_kwargs',
+'_forward_pre_hooks',
+'_forward_pre_hooks_with_kwargs',
+'_state_dict_hooks',
+'_state_dict_pre_hooks',
+'_load_state_dict_pre_hooks',
+'_load_state_dict_post_hooks',
+'_modules',
+'in_channels',
+'out_channels',
+'kernel_size',
+'stride',
+'padding',
+'dilation',
+'transposed',
+'output_padding',
+'groups',
+'padding_mode',
+'_reversed_padding_repeated_twice'])
+```
+
+Our main interest is located in \_parameters :
+
+```python
+print(network._modules["0"].__dict__["_parameters"].keys())
+```
+
+```python
+odict_keys(['weight', 'bias'])
+```
+
