@@ -187,3 +187,30 @@ output = network(fake_input)
 print(fake_input.shape)  # -> torch.Size([111, 1, 24, 24])
 print(output.shape)  # -> torch.Size([111, 10])
 ```
+
+## Flatten -> Linear Problem
+
+If you want to use a linear layer after the flatten layer, you need to know the output dimensions of the flatten layer. If you know, everything is good. If not what to do then? There are two main alternatives:
+
+### [LazyLinear Layer](https://pytorch.org/docs/stable/generated/torch.nn.LazyLinear.html)
+
+```python
+CLASS torch.nn.LazyLinear(out_features, bias=True, device=None, dtype=None)
+```
+
+> A torch.nn.Linear module where in_features is inferred.
+> 
+> In this module, the weight and bias are of torch.nn.UninitializedParameter class. They will be initialized after the first call to forward is done and the module will become a regular torch.nn.Linear module. The in_features argument of the Linear is inferred from the input.shape[-1].
+> 
+> Check the torch.nn.modules.lazy.LazyModuleMixin for [further documentation](https://pytorch.org/docs/stable/generated/torch.nn.modules.lazy.LazyModuleMixin.html#torch.nn.modules.lazy.LazyModuleMixin) on lazy modules and their limitations.
+
+**If you want to manipulate the weights and such of this layer before using it then this can get ugly.** If possible you should try to use alternative 2:
+
+### Building your network iteratively
+
+Let us build the network layer by layer and assume we don't know **number_of_output_channels_flatten1 = 576**. But we know that the input has 1 input channel and 24x24 pixel in the spatial domain. 
+
+
+
+
+
