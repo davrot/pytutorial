@@ -154,22 +154,22 @@ During learning we can flush the information. This allows us to observer the dev
 tb.flush()
 ```
 
-We can add histograms for e.g. weights 
+We can [add histograms](https://pytorch.org/docs/stable/tensorboard.html#torch.utils.tensorboard.writer.SummaryWriter.add_histogram) for e.g. weights 
 
 ```python
 tb.add_histogram("LABEL OF THE VARIABLE", VARIABLE, LEARNING_STEP_NUMBER)
 ```
 
-or add scalars (e.g. performances or loss values)
+or [add scalars](https://pytorch.org/docs/stable/tensorboard.html#torch.utils.tensorboard.writer.SummaryWriter.add_scalar) (e.g. performances or loss values)
 
 ```python
 tb.add_scalar("LABEL OF THE VARIABLE", VARIABLE, LEARNING_STEP_NUMBER)
 ```
 
-We can also add images, matplotlib figures, videos, audio, text, graph data, and other stuff. Just because we can doesn't mean that we want to...
+We can also add [images](https://pytorch.org/docs/stable/tensorboard.html#torch.utils.tensorboard.writer.SummaryWriter.add_image), [matplotlib figures](https://pytorch.org/docs/stable/tensorboard.html#torch.utils.tensorboard.writer.SummaryWriter.add_figure), [videos](https://pytorch.org/docs/stable/tensorboard.html#torch.utils.tensorboard.writer.SummaryWriter.add_video), [audio](https://pytorch.org/docs/stable/tensorboard.html#torch.utils.tensorboard.writer.SummaryWriter.add_audio), [text](https://pytorch.org/docs/stable/tensorboard.html#torch.utils.tensorboard.writer.SummaryWriter.add_text), [graph data](https://pytorch.org/docs/stable/tensorboard.html#torch.utils.tensorboard.writer.SummaryWriter.add_graph), and other stuff. Just because we can doesn't mean that we want to...
 
 
-We can use the event_accumulator to retrieve the stored information.
+We can use the [event_accumulator](https://github.com/tensorflow/tensorboard/blob/master/tensorboard/backend/event_processing/event_accumulator.py) to retrieve the stored information.
 
 * acc = event_accumulator.EventAccumulator(PATH)
 * acc.Tags() : Return all tags found as a dictionary (e.g. acc.Tags()['scalars'] and acc.Tags()['histograms']).
