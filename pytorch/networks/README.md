@@ -335,3 +335,149 @@ print(fake_input.shape)  # torch.Size([1, 10])
 print(network)
 ```
 
+## [Save and load the network](https://pytorch.org/tutorials/beginner/saving_loading_models.html)
+
+### [TORCH.SAVE](https://pytorch.org/docs/stable/generated/torch.save.html#torch-save)
+
+```python
+torch.save(obj, f, pickle_module=pickle, pickle_protocol=DEFAULT_PROTOCOL, _use_new_zipfile_serialization=True)
+```
+
+> Saves an object to a disk file.
+
+### [TORCH.LOAD](https://pytorch.org/docs/stable/generated/torch.load.html)
+
+```python
+torch.load(f, map_location=None, pickle_module=pickle, *, weights_only=False, mmap=None, **pickle_load_args)
+```
+
+> Loads an object saved with torch.save() from a file.
+
+> torch.load() uses Python’s unpickling facilities but treats storages, which underlie tensors, specially. They are first deserialized on the CPU and are then moved to the device they were saved from. If this fails (e.g. because the run time system doesn’t have certain devices), an exception is raised. However, storages can be dynamically remapped to an alternative set of devices using the map_location argument.
+
+> If map_location is a callable, it will be called once for each serialized storage with two arguments: storage and location. The storage argument will be the initial deserialization of the storage, residing on the CPU. Each serialized storage has a location tag associated with it which identifies the device it was saved from, and this tag is the second argument passed to map_location. The builtin location tags are 'cpu' for CPU tensors and 'cuda:device_id' (e.g. 'cuda:2') for CUDA tensors. map_location should return either None or a storage. If map_location returns a storage, it will be used as the final deserialized object, already moved to the right device. Otherwise, torch.load() will fall back to the default behavior, as if map_location wasn’t specified.
+
+> If map_location is a torch.device object or a string containing a device tag, it indicates the location where all tensors should be loaded.
+
+> Otherwise, if map_location is a dict, it will be used to remap location tags appearing in the file (keys), to ones that specify where to put the storages (values).
+
+> User extensions can register their own location tags and tagging and deserialization methods using torch.serialization.register_package().
+
+
+
+### Save the whole network 
+
+One way to do it, is like this:
+
+```python
+torch.save(network, "torch_network.pt")
+```
+
+```python
+network = torch.load("torch_network.pt")
+network.eval()
+```
+
+#### Example:
+
+Save: 
+
+```python
+import torch
+
+input_number_of_channel: int = 1
+input_dim_x: int = 24
+input_dim_y: int = 24
+
+number_of_output_channels_conv1: int = 32
+number_of_output_channels_conv2: int = 64
+number_of_output_channels_flatten1: int
+number_of_output_channels_full1: int = 1024
+number_of_output_channels_out: int = 10
+
+kernel_size_conv1: tuple[int, int] = (5, 5)
+kernel_size_pool1: tuple[int, int] = (2, 2)
+kernel_size_conv2: tuple[int, int] = (5, 5)
+kernel_size_pool2: tuple[int, int] = (2, 2)
+
+stride_conv1: tuple[int, int] = (1, 1)
+stride_pool1: tuple[int, int] = (2, 2)
+stride_conv2: tuple[int, int] = (1, 1)
+stride_pool2: tuple[int, int] = (2, 2)
+
+padding_conv1: int = 0
+padding_pool1: int = 0
+padding_conv2: int = 0
+padding_pool2: int = 0
+
+number_of_output_channels_flatten1 = 576
+
+network = torch.nn.Sequential(
+    torch.nn.Conv2d(
+        in_channels=input_number_of_channel,
+        out_channels=number_of_output_channels_conv1,
+        kernel_size=kernel_size_conv1,
+        stride=stride_conv1,
+        padding=padding_conv1,
+    ),
+    torch.nn.ReLU(),
+    torch.nn.MaxPool2d(
+        kernel_size=kernel_size_pool1, stride=stride_pool1, padding=padding_pool1
+    ),
+    torch.nn.Conv2d(
+        in_channels=number_of_output_channels_conv1,
+        out_channels=number_of_output_channels_conv2,
+        kernel_size=kernel_size_conv2,
+        stride=stride_conv2,
+        padding=padding_conv2,
+    ),
+    torch.nn.ReLU(),
+    torch.nn.MaxPool2d(
+        kernel_size=kernel_size_pool2, stride=stride_pool2, padding=padding_pool2
+    ),
+    torch.nn.Flatten(
+        start_dim=1,
+    ),
+    torch.nn.Linear(
+        in_features=number_of_output_channels_flatten1,
+        out_features=number_of_output_channels_full1,
+        bias=True,
+    ),
+    torch.nn.ReLU(),
+    torch.nn.Linear(
+        in_features=number_of_output_channels_full1,
+        out_features=number_of_output_channels_out,
+        bias=True,
+    ),
+)
+torch.save(network, "torch_network.pt")
+```
+
+Load:
+
+```python
+import torch
+
+network = torch.load("torch_network.pt")
+network.eval()
+print(network)
+```
+
+Output:
+
+```python
+Sequential(
+  (0): Conv2d(1, 32, kernel_size=(5, 5), stride=(1, 1))
+  (1): ReLU()
+  (2): MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)
+  (3): Conv2d(32, 64, kernel_size=(5, 5), stride=(1, 1))
+  (4): ReLU()
+  (5): MaxPool2d(kernel_size=(2, 2), stride=(2, 2), padding=0, dilation=1, ceil_mode=False)
+  (6): Flatten(start_dim=1, end_dim=-1)
+  (7): Linear(in_features=576, out_features=1024, bias=True)
+  (8): ReLU()
+  (9): Linear(in_features=1024, out_features=10, bias=True)
+)
+```
+
+
