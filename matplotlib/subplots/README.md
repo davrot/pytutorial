@@ -64,7 +64,7 @@ ax2.set_axis_off()
 fig.colorbar(im, ax=ax2, orientation="vertical")
 
 ax3 = plt.subplot(gs[1:3, 0:2])
-im = ax3.imshow(b, cmap="hot", aspect="auto")
+im = ax3.imshow(c, cmap="hot", aspect="auto")
 ax3.set_axis_off()
 fig.colorbar(im, ax=ax3, orientation="vertical")
 
@@ -72,6 +72,8 @@ plt.show()
 ```
 
 ![image2](image2.png)
+
+
 
 ### [matplotlib.gridspec](https://matplotlib.org/stable/api/gridspec_api.html#module-matplotlib.gridspec)
 
@@ -115,6 +117,30 @@ class matplotlib.gridspec.GridSpec(nrows, ncols, figure=None, left=None, bottom=
 > Defines the relative heights of the rows. Each row gets a relative height of height_ratios[i] / sum(height_ratios). If not given, all rows will have the same height.
 
 
+## 1d 
+
+```python
+import numpy as np
+import matplotlib.pylab as plt
+
+rng = np.random.default_rng()
+
+a = rng.random((100, 2))
+
+
+fig, ax1 = plt.subplots()
+ax1.plot(a[:, 0], label="Data 1")
+ax1.plot(a[:, 1], label="Data 2")
+ax1.legend(loc="best")
+ax1.set_xlabel("X-Axes")
+ax1.set_ylabel("Y-Axes")
+ax1.set_title("Title")
+ax1.set_ylim(0, 1.5)
+ax1.set_xlim(0, 99)
+plt.show()
+```
+
+![image3](image3.png)
 
 
 ## [matplotlib.pyplot.subplots](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots)
