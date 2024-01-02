@@ -18,12 +18,12 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 We need to download the MNIST database files 
 
-* t10k-images-idx3-ubyte.gz
-* t10k-labels-idx1-ubyte.gz
-* train-images-idx3-ubyte.gz
-* train-labels-idx1-ubyte.gz
+* t10k-images.idx3-ubyte.gz
+* t10k-labels.idx1-ubyte.gz
+* train-images.idx3-ubyte.gz
+* train-labels.idx1-ubyte.gz
 
-A source for that is for example [https://deepai.org/dataset/mnist](https://deepai.org/dataset/mnist)
+A source for that is for example [https://www.kaggle.com/datasets/hojjatk/mnist-dataset?resource=download](https://www.kaggle.com/datasets/hojjatk/mnist-dataset?resource=download)
 
 ## Unpack the gz files
 
@@ -218,13 +218,13 @@ def proprocess_dataset(testdata_mode: bool) -> None:
     if testdata_mode is True:
         filename_out_pattern: str = "test_pattern_storage.npy"
         filename_out_label: str = "test_label_storage.npy"
-        filename_in_image: str = "t10k-images-idx3-ubyte"
-        filename_in_label: str = "t10k-labels-idx1-ubyte"
+        filename_in_image: str = "t10k-images.idx3-ubyte"
+        filename_in_label: str = "t10k-labels.idx1-ubyte"
     else:
         filename_out_pattern = "train_pattern_storage.npy"
         filename_out_label = "train_label_storage.npy"
-        filename_in_image = "train-images-idx3-ubyte"
-        filename_in_label = "train-labels-idx1-ubyte"
+        filename_in_image = "train-images.idx3-ubyte"
+        filename_in_label = "train-labels.idx1-ubyte"
 
     pictures = ReadPicture(filename_in_image)
     labels = ReadLabel(filename_in_label)
