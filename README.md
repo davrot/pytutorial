@@ -107,6 +107,7 @@ Important VS Code notes:
   - [flat](numpy/flat/README.md)
 
 ## Numpy: Special topics
+* [Einstein summation](numpy/einstein/README.md)
 * [Numba: Numpy just in time compiler -- speeding Numpy up](numpy/numba/README.md)
 * [Memory layout of Numpy matrices](numpy/layout/README.md)
 * [Stack and Split, Compress](numpy/stack_split/README.md)
