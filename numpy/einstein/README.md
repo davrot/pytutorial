@@ -12,7 +12,7 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 ## Examples
 
-$$\sum_i a_{i,i}$$
+$$b = \sum_i a_{i,i}$$
 
 ```python
 import numpy as np
@@ -80,6 +80,29 @@ Output:
  [ 4  9 14 19 24]]
 ```
 
+$$b = \sum_i a_i a_i$$
+
+```python
+import numpy as np
+
+a = np.arange(0, 5)
+print(a) # -> [0 1 2 3 4]
+print(np.einsum("i,i", a, a)) # -> 30
+```
+
+$$c(i) = \sum_j a_{i,j} b_j$$
+
+```python
+import numpy as np
+
+
+a = np.arange(0, 25).reshape(5, 5)
+b = np.arange(0, 5)
+print(a)
+print()
+print(b)  # -> [0 1 2 3 4]
+print(np.einsum("ij,j", a, b))  # -> [ 30  80 130 180 230]
+```
 
 
 ## [numpy.einsum](https://numpy.org/doc/stable/reference/generated/numpy.einsum.html)
