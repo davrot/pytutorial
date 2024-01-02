@@ -1081,3 +1081,82 @@ tensor([[[[30., 30., 30.,  ..., 30., 30., 30.],
           [30., 30., 30.,  ..., 30., 30., 30.]]]],
        grad_fn=<ConvolutionBackward0>)
 ```
+
+## More Class ([torch.nn.Module](https://pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module))
+
+Usually you will see this construct in tutorials:
+
+```python
+class MyNetworkClass(torch.nn.Module):
+    def __init__(self):
+        super().__init__()
+
+        input_number_of_channel: int = 1
+
+        number_of_output_channels_conv1: int = 32
+        number_of_output_channels_conv2: int = 64
+        number_of_output_channels_flatten1: int = 576
+        number_of_output_channels_full1: int = 10
+
+        kernel_size_conv1: tuple[int, int] = (5, 5)
+        kernel_size_pool1: tuple[int, int] = (2, 2)
+        kernel_size_conv2: tuple[int, int] = (5, 5)
+        kernel_size_pool2: tuple[int, int] = (2, 2)
+
+        stride_conv1: tuple[int, int] = (1, 1)
+        stride_pool1: tuple[int, int] = (2, 2)
+        stride_conv2: tuple[int, int] = (1, 1)
+        stride_pool2: tuple[int, int] = (2, 2)
+
+        padding_conv1: int = 0
+        padding_pool1: int = 0
+        padding_conv2: int = 0
+        padding_pool2: int = 0
+
+        self.conv1 = torch.nn.Conv2d(
+            in_channels=input_number_of_channel,
+            out_channels=number_of_output_channels_conv1,
+            kernel_size=kernel_size_conv1,
+            stride=stride_conv1,
+            padding=padding_conv1,
+        )
+
+        self.relu1 = torch.nn.ReLU()
+
+        self.max_pooling_1 = torch.nn.MaxPool2d(
+            kernel_size=kernel_size_pool1, stride=stride_pool1, padding=padding_pool1
+        )
+        self.conv2 = torch.nn.Conv2d(
+            in_channels=number_of_output_channels_conv1,
+            out_channels=number_of_output_channels_conv2,
+            kernel_size=kernel_size_conv2,
+            stride=stride_conv2,
+            padding=padding_conv2,
+        )
+        self.relu2 = torch.nn.ReLU()
+
+        self.max_pooling_2 = torch.nn.MaxPool2d(
+            kernel_size=kernel_size_pool2, stride=stride_pool2, padding=padding_pool2
+        )
+        self.flatten1 = torch.nn.Flatten(
+            start_dim=1,
+        )
+        self.fully_connected_1 = torch.nn.Linear(
+            in_features=number_of_output_channels_flatten1,
+            out_features=number_of_output_channels_full1,
+            bias=True,
+        )
+
+    def forward(self, input):
+        out = self.conv1(input)
+        out = self.relu1(out)
+        out = self.max_pooling_1(out)
+        out = self.conv2(out)
+        out = self.relu2(out)
+        out = self.max_pooling_2(out)
+        out = self.flatten1(out)
+        out = self.fully_connected_1(out)
+        return out
+
+```
+
