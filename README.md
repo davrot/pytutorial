@@ -172,6 +172,7 @@ In the case you know Matlab check here:
 * [Interfacing Data](pytorch/interfacing_data/README.md)
 * [Data augmentation](pytorch/augmentation/README.md)
 * [Layers](pytorch/layers/README.md)
+* [Creating networks](pytorch/networks/README.md)
 * [Converting the original MNIST files into numpy](pytorch/MNIST/README.md)
 * [How to take advantage of an optimizer for your non-Pytorch project](pytorch/optimizer_special/README.md)
 * [How to take advantage of a learning rate scheduler for your non-Pytorch project](pytorch/scheduler_special/README.md)
