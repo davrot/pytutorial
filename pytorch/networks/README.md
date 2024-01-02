@@ -480,4 +480,6 @@ Sequential(
 )
 ```
 
+You will have a bigger file than in approach 2. However, you don't need the definition of the network for loading it. 
+
 
