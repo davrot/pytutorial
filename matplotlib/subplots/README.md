@@ -1,4 +1,4 @@
-# subplots 
+# subplots and gridspec
 {:.no_toc}
 
 <nav markdown="1" class="toc-class">
@@ -12,6 +12,8 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 
 ## Example 1 (2d regular grid)
+
+**subplot with s at the end!!!**
 
 ```python
 import numpy as np
@@ -35,6 +37,8 @@ plt.show()
 ![image1](image1.png)
 
 ## Example 2 (2d)
+
+**subplot without s at the end!!!**
 
 ```python
 ## Example 1 (2d regular grid)
