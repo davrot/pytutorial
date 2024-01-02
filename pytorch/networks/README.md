@@ -210,7 +210,128 @@ CLASS torch.nn.LazyLinear(out_features, bias=True, device=None, dtype=None)
 
 Let us build the network layer by layer and assume we don't know **number_of_output_channels_flatten1 = 576**. But we know that the input has 1 input channel and 24x24 pixel in the spatial domain. 
 
+```python
+import torch
+
+input_number_of_channel: int = 1
+input_dim_x: int = 24
+input_dim_y: int = 24
+
+number_of_output_channels_conv1: int = 32
+number_of_output_channels_conv2: int = 64
+number_of_output_channels_flatten1: int
+number_of_output_channels_full1: int = 1024
+number_of_output_channels_out: int = 10
+
+kernel_size_conv1: tuple[int, int] = (5, 5)
+kernel_size_pool1: tuple[int, int] = (2, 2)
+kernel_size_conv2: tuple[int, int] = (5, 5)
+kernel_size_pool2: tuple[int, int] = (2, 2)
+
+stride_conv1: tuple[int, int] = (1, 1)
+stride_pool1: tuple[int, int] = (2, 2)
+stride_conv2: tuple[int, int] = (1, 1)
+stride_pool2: tuple[int, int] = (2, 2)
+
+padding_conv1: int = 0
+padding_pool1: int = 0
+padding_conv2: int = 0
+padding_pool2: int = 0
 
 
+fake_input = torch.zeros((1, input_number_of_channel, input_dim_x, input_dim_y))
+print(fake_input.shape)  # -> torch.Size([1, 1, 24, 24])
 
+network = torch.nn.Sequential()
+
+network.append(
+    torch.nn.Conv2d(
+        in_channels=input_number_of_channel,
+        out_channels=number_of_output_channels_conv1,
+        kernel_size=kernel_size_conv1,
+        stride=stride_conv1,
+        padding=padding_conv1,
+    )
+)
+fake_input = network[-1](fake_input)
+print(fake_input.shape)  # -> torch.Size([1, 32, 20, 20])
+
+network.append(torch.nn.ReLU())
+fake_input = network[-1](fake_input)
+print(fake_input.shape)  # -> torch.Size([1, 32, 20, 20])
+
+network.append(
+    torch.nn.MaxPool2d(
+        kernel_size=kernel_size_pool1, stride=stride_pool1, padding=padding_pool1
+    )
+)
+fake_input = network[-1](fake_input)
+print(fake_input.shape)  # -> torch.Size([1, 32, 10, 10])
+
+
+network.append(
+    torch.nn.Conv2d(
+        in_channels=number_of_output_channels_conv1,
+        out_channels=number_of_output_channels_conv2,
+        kernel_size=kernel_size_conv2,
+        stride=stride_conv2,
+        padding=padding_conv2,
+    )
+)
+fake_input = network[-1](fake_input)
+print(fake_input.shape)  # -> torch.Size([1, 64, 6, 6])
+
+
+network.append(torch.nn.ReLU())
+fake_input = network[-1](fake_input)
+print(fake_input.shape)  # -> torch.Size([1, 64, 6, 6])
+
+
+network.append(
+    torch.nn.MaxPool2d(
+        kernel_size=kernel_size_pool2, stride=stride_pool2, padding=padding_pool2
+    )
+)
+fake_input = network[-1](fake_input)
+print(fake_input.shape)  # -> torch.Size([1, 64, 3, 3])
+
+
+network.append(
+    torch.nn.Flatten(
+        start_dim=1,
+    )
+)
+fake_input = network[-1](fake_input)
+print(fake_input.shape)  # torch.Size([1, 576])
+
+number_of_output_channels_flatten1 = fake_input.shape[1]
+
+network.append(
+    torch.nn.Linear(
+        in_features=number_of_output_channels_flatten1,
+        out_features=number_of_output_channels_full1,
+        bias=True,
+    )
+)
+fake_input = network[-1](fake_input)
+print(fake_input.shape)  # torch.Size([1, 1024])
+
+
+network.append(torch.nn.ReLU())
+fake_input = network[-1](fake_input)
+print(fake_input.shape)  # torch.Size([1, 1024])
+
+network.append(
+    torch.nn.Linear(
+        in_features=number_of_output_channels_full1,
+        out_features=number_of_output_channels_out,
+        bias=True,
+    )
+)
+fake_input = network[-1](fake_input)
+print(fake_input.shape)  # torch.Size([1, 10])
+
+
+print(network)
+```
 
