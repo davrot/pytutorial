@@ -22,6 +22,8 @@ print(a)
 print(a.shape)  # -> (5, 5)
 
 print(np.einsum("ii", a)) # -> 60
+print(np.einsum(a, [0, 0]))  # -> 60
+print(np.einsum(a, [0, 0], []))  # -> 60
 ```
 
 Output:
@@ -41,6 +43,7 @@ import numpy as np
 
 a = np.arange(0, 25).reshape(5, 5)
 print(np.einsum("ii->i", a))  # -> [ 0  6 12 18 24]
+print(np.einsum(a, [0, 0], [0]))  # -> [ 0  6 12 18 24]
 ```
 
 $$b(i) = \sum_j a_{i,j}$$
@@ -50,6 +53,7 @@ import numpy as np
 
 a = np.arange(0, 25).reshape(5, 5)
 print(np.einsum("ij->i", a))  # -> [ 10  35  60  85 110]
+print(np.einsum(a, [0, 1], [0]))  # -> [ 10  35  60  85 110]
 print(np.einsum("...j->...", a))  # -> [ 10  35  60  85 110]
 ```
 
@@ -62,6 +66,8 @@ a = np.arange(0, 25).reshape(5, 5)
 print(a)
 print()
 print(np.einsum("ij->ji", a))
+print()
+print(np.einsum(a, [0, 1], [1, 0]))
 ```
 
 Output:
@@ -78,6 +84,12 @@ Output:
  [ 2  7 12 17 22]
  [ 3  8 13 18 23]
  [ 4  9 14 19 24]]
+
+[[ 0  5 10 15 20]
+ [ 1  6 11 16 21]
+ [ 2  7 12 17 22]
+ [ 3  8 13 18 23]
+ [ 4  9 14 19 24]]
 ```
 
 $$b = \sum_i a_i a_i$$
@@ -88,6 +100,8 @@ import numpy as np
 a = np.arange(0, 5)
 print(a) # -> [0 1 2 3 4]
 print(np.einsum("i,i", a, a)) # -> 30
+print(np.einsum(a, [0], a, [0]))  # -> 30
+print(np.einsum(a, [0], a, [0], []))  # -> 30
 ```
 
 $$c(i) = \sum_j a_{i,j} b_j$$
@@ -102,6 +116,8 @@ print(a)
 print()
 print(b)  # -> [0 1 2 3 4]
 print(np.einsum("ij,j", a, b))  # -> [ 30  80 130 180 230]
+print(np.einsum(a, [0, 1], b, [1]))  # -> [ 30  80 130 180 230]
+print(np.einsum(a, [0, 1], b, [1], [0]))  # -> [ 30  80 130 180 230]
 ```
 
 ```python
