@@ -186,6 +186,9 @@ In the case you know Matlab check here:
 * [The fast and furious way (CPU and GPU CUDA)](PyBind11/direct/README.md)
 * [PyBind11 Stub-Generation](PyBind11/stubs/README.md)
 
+## Tensorflow / Keras 
+* [A fast non-introduction](tensorflow/intro/README.md)
+
 ## Sympy
 * [Symbolic Computation](sympy/intro/README.md)
   
@@ -213,6 +216,4 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 * [Machine Learning Resources](other/ml_resources/README.md)
 * [Datasets](other/datasets/README.md)
 
-{: .topic-optional}
-Note: I will transfer the old pages to this new place (and update them). It will take some time but it will happen... 
 
