@@ -184,6 +184,9 @@ In the case you know Matlab check here:
 * [Expanding Python with C++ modules](PyBind11/basics/README.md)
 * [The fast and furious way (CPU and GPU CUDA)](PyBind11/direct/README.md)
 * [PyBind11 Stub-Generation](PyBind11/stubs/README.md)
+
+## Sympy
+* [Symbolic Computation](sympy/intro/README.md)
   
 ## Arduino
 * [Basics with Python / Matlab](arduino/basics/README.md)
