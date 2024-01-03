@@ -550,9 +550,10 @@ for i in range(1, len(weights_bias), 2):
     counter_layer += 1
 ```
 
-## Type of layers
+## [Type of layers](https://www.tensorflow.org/api_docs/python/tf/keras/layers#classes_2)
 
 Reduced list with the most relevant network layers
+
 |||
 |---|---|
 |[Activation](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Activation)|	Applies an activation function to an output.|
@@ -577,77 +578,89 @@ Reduced list with the most relevant network layers
 |[ZeroPadding3D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/ZeroPadding3D)	|Zero-padding layer for 3D data (spatial or spatio-temporal).|
  
 
-Preprocessing layers 
+## [Preprocessing layers](https://www.tensorflow.org/api_docs/python/tf/keras/layers#classes_2) 
+
 Reduced list with the most relevant preprocessing layers
 
-CenterCrop	A preprocessing layer which crops images.
-RandomContrast	A preprocessing layer which randomly adjusts contrast during training.
-RandomCrop	A preprocessing layer which randomly crops images during training.
-RandomFlip	A preprocessing layer which randomly flips images during training.
-RandomHeight	A preprocessing layer which randomly varies image height during training.
-RandomRotation	A preprocessing layer which randomly rotates images during training.
-RandomTranslation	A preprocessing layer which randomly translates images during training.
-RandomWidth	A preprocessing layer which randomly varies image width during training.
-RandomZoom	A preprocessing layer which randomly zooms images during training.
-Rescaling	A preprocessing layer which rescales input values to a new range.
-Resizing	A preprocessing layer which resizes images.
+|||
+|---|---|
+|[CenterCrop](https://www.tensorflow.org/api_docs/python/tf/keras/layers/CenterCrop)	|A preprocessing layer which crops images.|
+|[RandomContrast](https://www.tensorflow.org/api_docs/python/tf/keras/layers/RandomContrast)	|A preprocessing layer which randomly adjusts contrast during training.|
+|[RandomCrop](https://www.tensorflow.org/api_docs/python/tf/keras/layers/RandomCrop)	|A preprocessing layer which randomly crops images during training.|
+|[RandomFlip](https://www.tensorflow.org/api_docs/python/tf/keras/layers/RandomFlip)	|A preprocessing layer which randomly flips images during training.|
+|[RandomHeight](https://www.tensorflow.org/api_docs/python/tf/keras/layers/RandomHeight)|	A preprocessing layer which randomly varies image height during training.|
+|[RandomRotation](https://www.tensorflow.org/api_docs/python/tf/keras/layers/RandomRotation)	|A preprocessing layer which randomly rotates images during training.|
+|[RandomTranslation](https://www.tensorflow.org/api_docs/python/tf/keras/layers/RandomTranslation)	|A preprocessing layer which randomly translates images during training.|
+|[RandomWidth](https://www.tensorflow.org/api_docs/python/tf/keras/layers/RandomWidth)	|A preprocessing layer which randomly varies image width during training.|
+|[RandomZoom](https://www.tensorflow.org/api_docs/python/tf/keras/layers/RandomZoom)	|A preprocessing layer which randomly zooms images during training.|
+|[Rescaling](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Rescaling)	|A preprocessing layer which rescales input values to a new range.|
+|[Resizing](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Resizing)	|A preprocessing layer which resizes images.|
  
 
-Activation functions
+## [Activation functions](https://www.tensorflow.org/api_docs/python/tf/keras/activations)
+
 Reduced list with the most relevant activation functions
-
-hard_sigmoid(...)	Hard sigmoid activation function.
-relu(...)	Applies the rectified linear unit activation function.
-sigmoid(...)	Sigmoid activation function, sigmoid(x) = 1 / (1 + exp(-x)).
-softmax(...)	Softmax converts a vector of values to a probability distribution.
-softplus(...)	Softplus activation function, softplus(x) = log(exp(x) + 1).
-softsign(...)	Softsign activation function, softsign(x) = x / (abs(x) + 1).
-tanh(...)	Hyperbolic tangent activation function.
+|||
+|---|---|
+|[hard_sigmoid(...)](https://www.tensorflow.org/api_docs/python/tf/keras/activations/hard_sigmoid)|	Hard sigmoid activation function.|
+|[relu(...)](https://www.tensorflow.org/api_docs/python/tf/keras/activations/relu)	|Applies the rectified linear unit activation function.|
+|[sigmoid(...)](https://www.tensorflow.org/api_docs/python/tf/keras/activations/sigmoid)	|Sigmoid activation function, sigmoid(x) = 1 / (1 + exp(-x)).|
+|[softmax(...)](https://www.tensorflow.org/api_docs/python/tf/keras/activations/softmax)	|Softmax converts a vector of values to a probability distribution.|
+|[softplus(...)](https://www.tensorflow.org/api_docs/python/tf/keras/activations/softplus)	|Softplus activation function, softplus(x) = log(exp(x) + 1).|
+|[softsign(...)](https://www.tensorflow.org/api_docs/python/tf/keras/activations/softsign)	|Softsign activation function, softsign(x) = x / (abs(x) + 1).|
+|[tanh(...)](https://www.tensorflow.org/api_docs/python/tf/keras/activations/tanh)	|Hyperbolic tangent activation function.|
  
 
-Loss-functions
+## [Loss-functions](https://www.tensorflow.org/api_docs/python/tf/keras/losses)
+
 Reduced list with the most relevant loss functions
 
-BinaryCrossentropy	Computes the cross-entropy loss between true labels and predicted labels.
-CategoricalCrossentropy	Computes the crossentropy loss between the labels and predictions.
-KLDivergence	Computes Kullback-Leibler divergence loss between y_true and y_pred.
-MeanAbsoluteError	Computes the mean of absolute difference between labels and predictions.
-MeanSquaredError	Computes the mean of squares of errors between labels and predictions.
-Poisson	Computes the Poisson loss between y_true and y_pred.
-SparseCategoricalCrossentropy	Computes the crossentropy loss between the labels and predictions.
+|||
+|---|---|
+|[BinaryCrossentropy](https://www.tensorflow.org/api_docs/python/tf/keras/losses/BinaryCrossentropy)	|Computes the cross-entropy loss between true labels and predicted labels.|
+|[CategoricalCrossentropy](https://www.tensorflow.org/api_docs/python/tf/keras/losses/CategoricalCrossentropy)	|Computes the crossentropy loss between the labels and predictions.|
+|[KLDivergence](https://www.tensorflow.org/api_docs/python/tf/keras/losses/KLDivergence)	|Computes Kullback-Leibler divergence loss between y_true and y_pred.|
+|[MeanAbsoluteError](https://www.tensorflow.org/api_docs/python/tf/keras/losses/MeanAbsoluteError)	|Computes the mean of absolute difference between labels and predictions.|
+|[MeanSquaredError](https://www.tensorflow.org/api_docs/python/tf/keras/losses/MeanSquaredError)	|Computes the mean of squares of errors between labels and predictions.|
+|[Poisson](https://www.tensorflow.org/api_docs/python/tf/keras/losses/Poisson)	|Computes the Poisson loss between y_true and y_pred.|
+|[SparseCategoricalCrossentropy](https://www.tensorflow.org/api_docs/python/tf/keras/losses/SparseCategoricalCrossentropy)	|Computes the crossentropy loss between the labels and predictions.|
  
 
-Optimizer 
+## [Optimizer](https://www.tensorflow.org/api_docs/python/tf/keras/optimizers) 
+
 Reduced list with the most relevant optimizer
 
-Adagrad	Optimizer that implements the Adagrad algorithm.
-Adam	Optimizer that implements the Adam algorithm.
-RMSprop	Optimizer that implements the RMSprop algorithm.
-SGD	Gradient descent (with momentum) optimizer.
+|||
+|---|---|
+|[Adagrad](https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/experimental/Adagrad)	|Optimizer that implements the Adagrad algorithm.|
+|[Adam](https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam)	|Optimizer that implements the Adam algorithm.|
+|[RMSprop](https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/experimental/RMSprop)	|Optimizer that implements the RMSprop algorithm.|
+|[SGD](https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/experimental/SGD)	|Gradient descent (with momentum) optimizer.|
  
 
-Metrics 
+## [Metrics](https://www.tensorflow.org/api_docs/python/tf/keras/metrics) 
 A very reduced list with the most relevant metrics
 
-Accuracy	Calculates how often predictions equal labels.
-BinaryAccuracy	Calculates how often predictions match binary labels.
-BinaryCrossentropy	Computes the crossentropy metric between the labels and predictions.
-CategoricalAccuracy	Calculates how often predictions match one-hot labels.
-CategoricalCrossentropy	Computes the crossentropy metric between the labels and predictions.
-KLDivergence	Computes Kullback-Leibler divergence metric between y_true and y_pred.
-Mean	Computes the (weighted) mean of the given values.
-MeanAbsoluteError	Computes the mean absolute error between the labels and predictions.
-MeanSquaredError	Computes the mean squared error between y_true and y_pred.
-Poisson	Computes the Poisson metric between y_true and y_pred.
-Precision	Computes the precision of the predictions with respect to the labels.
-RootMeanSquaredError	Computes root mean squared error metric between y_true and y_pred.
-SparseCategoricalAccuracy	Calculates how often predictions match integer labels.
-SparseCategoricalCrossentropy	Computes the crossentropy metric between the labels and predictions.
-SparseTopKCategoricalAccuracy	Computes how often integer targets are in the top K predictions.
-Sum	Computes the (weighted) sum of the given values.
-TopKCategoricalAccuracy	Computes how often targets are in the top K predictions.
+|||
+|---|---|
+|[Accuracy](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/Accuracy)	| Calculates how often predictions equal labels.|
+|[BinaryAccuracy](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/BinaryAccuracy)	| Calculates how often predictions match binary labels.|
+|[BinaryCrossentropy](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/BinaryCrossentropy)	| Computes the crossentropy metric between the labels and predictions.|
+|[CategoricalAccuracy](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/CategoricalAccuracy)	| Calculates how often predictions match one-hot labels.|
+|[CategoricalCrossentropy](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/CategoricalCrossentropy)	| Computes the crossentropy metric between the labels and predictions.|
+|[KLDivergence](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/KLDivergence)	| Computes Kullback-Leibler divergence metric between y_true and y_pred.|
+|[Mean](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/Mean)	| Computes the (weighted) mean of the given values.|
+|[MeanAbsoluteError](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/MeanAbsoluteError)	| Computes the mean absolute error between the labels and predictions.|
+|[MeanSquaredError](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/MeanSquaredError)	| Computes the mean squared error between y_true and y_pred.|
+|[Poisson](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/Poisson)	| Computes the Poisson metric between y_true and y_pred.|
+|[Precision](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/Precision)	| Computes the precision of the predictions with respect to the labels.|
+|[RootMeanSquaredError](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/RootMeanSquaredError)	| Computes root mean squared error metric between y_true and y_pred.|
+|[SparseCategoricalAccuracy](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/SparseCategoricalAccuracy)	| Calculates how often predictions match integer labels.|
+|[SparseCategoricalCrossentropy](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/SparseCategoricalCrossentropy)	| Computes the crossentropy metric between the labels and predictions.|
+|[SparseTopKCategoricalAccuracy](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/SparseTopKCategoricalAccuracy)	 | Computes how often integer targets are in the top K predictions.|
+|[Sum](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/Sum)	| Computes the (weighted) sum of the given values.|
+|[TopKCategoricalAccuracy](https://www.tensorflow.org/api_docs/python/tf/keras/metrics/TopKCategoricalAccuracy)|	Computes how often targets are in the top K predictions.|
 
 
 
-```python
-```
+
