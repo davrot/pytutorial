@@ -377,8 +377,277 @@ for epoch_id in range(0, epoch_max):
 
 ## Test the example network performance
 
+|||
+|---|---|
+|[tf.keras.models.load_model](https://www.tensorflow.org/api_docs/python/tf/keras/saving/load_model) | "Loads a model saved via model.save()."|
+|[network.evaluate()](https://www.tensorflow.org/api_docs/python/tf/keras/Sequential#evaluate) | "Returns the loss value & metrics values for the model in test mode."|
+
+```python
+from tensorflow import keras
+from DataGenerator import DataGenerator
+
+number_of_classes: int = 10
+size_of_batch_test: int = 100
+model_id: int = 49
+
+test_data = DataGenerator(
+    train=False,
+    size_of_batch=size_of_batch_test,
+    number_of_classes=number_of_classes,
+    do_shuffle=False,
+)
+
+keras.backend.clear_session()
+
+network = keras.models.load_model("./Model_" + str(model_id) + ".h5")
+
+test_loss, test_acc = network.evaluate(x=test_data)
+
+print(f"Correct: {test_acc * 100.0:.2f}%")
+```
+## How to extract the activities from the network
+
+```python
+from tensorflow import keras
+from DataGenerator import DataGenerator
+import numpy as np
+
+number_of_classes: int = 10
+size_of_batch_test: int = 100
+model_id: int = 49
+pattern_batch_id: int = 0
+pattern_id: int = 42
+
+test_data = DataGenerator(
+    train=False,
+    size_of_batch=size_of_batch_test,
+    number_of_classes=number_of_classes,
+    do_shuffle=False,
+)
+
+keras.backend.clear_session()
+
+network = keras.models.load_model("./Model_" + str(model_id) + ".h5")
+
+image, target = test_data.__getitem__(pattern_batch_id)
+the_target = target[pattern_id]
+
+print("Layer 1 (Conv1)")
+input_0 = image[pattern_id : pattern_id + 1, :, :, :]
+output_0 = network.layers[0](input_0)
+
+print("Input Shape:")
+print(input_0.shape)
+print("Output Shape:")
+print(output_0.numpy().shape)
+print("")
+
+print("Layer 2 (Pool1)")
+input_1 = output_0
+output_1 = network.layers[1](input_1)
+
+print("Input Shape:")
+print(input_1.numpy().shape)
+print("Output Shape:")
+print(output_1.numpy().shape)
+print("")
+
+print("Layer 3 (Conv2)")
+input_2 = output_1
+output_2 = network.layers[2](input_2)
+
+print("Input Shape:")
+print(input_2.numpy().shape)
+print("Output Shape:")
+print(output_2.numpy().shape)
+print("")
+
+print("Layer 4 (Pool2)")
+input_3 = output_2
+output_3 = network.layers[3](input_3)
+
+print("Input Shape:")
+print(input_3.numpy().shape)
+print("Output Shape:")
+print(output_3.numpy().shape)
+print("")
+
+print("Layer 5 (Flatten)")
+input_4 = output_3
+output_4 = network.layers[4](input_4)
+
+print("Input Shape:")
+print(input_4.numpy().shape)
+print("Output Shape:")
+print(output_4.numpy().shape)
+print("")
+
+print("Layer 6 (Full)")
+input_5 = output_4
+output_5 = network.layers[5](input_5)
+
+print("Input Shape:")
+print(input_5.numpy().shape)
+print("Output Shape:")
+print(output_5.numpy().shape)
+print("")
+
+print("Layer 7 (Output)")
+input_6 = output_5
+output_6 = network.layers[6](input_6)
+
+print("Input Shape:")
+print(input_6.numpy().shape)
+print("Output Shape:")
+print(output_6.numpy().shape)
+print("")
+
+print("\nEstimation")
+print(np.round(output_6.numpy(), 4))
+print("Strongest reponse is at " + str(np.argmax(output_6.numpy())))
+print("Correct output is " + str(np.argmax(the_target)))
+```
+
+## Extracting weight and bias
+
+Here is one way to extract the weights and bias of the whole network. Alternatively you can use [get_weights](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Layer#get_weights) from [tf.keras.layers.Layer](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Layer) in combination with [get_layer](https://www.tensorflow.org/api_docs/python/tf/keras/Sequential#get_layer) of [tf.keras.Sequential](https://www.tensorflow.org/api_docs/python/tf/keras/Sequential).
+
+```python
+from tensorflow import keras
+from DataGenerator import DataGenerator
+
+number_of_classes: int = 10
+size_of_batch_test: int = 100
+model_id: int = 49
+pattern_batch_id: int = 0
+pattern_id: int = 42
+
+test_data = DataGenerator(
+    train=False,
+    size_of_batch=size_of_batch_test,
+    number_of_classes=number_of_classes,
+    do_shuffle=False,
+)
+
+keras.backend.clear_session()
+
+network = keras.models.load_model("./Model_" + str(model_id) + ".h5")
+
+weights_bias = network.get_weights()
+
+counter_layer: int = 0
+for i in range(0, len(weights_bias), 2):
+    print("Layer " + str(counter_layer) + " weights_bias position: " + str(i) + " =>")
+    print(weights_bias[i].shape)
+    counter_layer += 1
+
+print("")
+
+counter_layer = 0
+for i in range(1, len(weights_bias), 2):
+    print("Bias " + str(counter_layer) + " weights_bias position: " + str(i) + " =>")
+    print(weights_bias[i].shape)
+    counter_layer += 1
+```
+
+## Type of layers
+
+Reduced list with the most relevant network layers
+|||
+|---|---|
+|[Activation](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Activation)|	Applies an activation function to an output.|
+|[AveragePooling1D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/AveragePooling1D)|	Average pooling for temporal data.|
+|[AveragePooling2D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/AveragePooling2D)|	Average pooling operation for spatial data.|
+|[AveragePooling3D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/AveragePooling3D)	|Average pooling operation for 3D data (spatial or spatio-temporal).|
+|[BatchNormalization](https://www.tensorflow.org/api_docs/python/tf/keras/layers/BatchNormalization)|	Layer that normalizes its inputs.|
+|[Conv1D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv1D)|	1D convolution layer (e.g. temporal convolution).|
+|[Conv2D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv2D)	|2D convolution layer (e.g. spatial convolution over images).|
+|[Conv3D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv3D)|	3D convolution layer (e.g. spatial convolution over volumes).|
+|[Dense](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense)|	Just your regular densely-connected NN layer.|
+|[Dropout](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dropout)	|Applies Dropout to the input.|
+|[Flatten](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Flatten)	|Flattens the input. Does not affect the batch size.|
+|[MaxPooling1D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPooling1D)|	Max pooling operation for 1D temporal data.|
+|[MaxPooling2D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPooling2D)	|Max pooling operation for 2D spatial data.|
+|[MaxPooling3D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPooling3D)	|Max pooling operation for 3D data (spatial or spatio-temporal).|
+|[SpatialDropout1D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/SpatialDropout1D)	|Spatial 1D version of Dropout.|
+|[SpatialDropout2D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/SpatialDropout2D)	|Spatial 2D version of Dropout.|
+|[SpatialDropout3D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/SpatialDropout3D)	|Spatial 3D version of Dropout.|
+|[ZeroPadding1D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/ZeroPadding1D)	|Zero-padding layer for 1D input (e.g. temporal sequence).|
+|[ZeroPadding2D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/ZeroPadding2D)	|Zero-padding layer for 2D input (e.g. picture).|
+|[ZeroPadding3D](https://www.tensorflow.org/api_docs/python/tf/keras/layers/ZeroPadding3D)	|Zero-padding layer for 3D data (spatial or spatio-temporal).|
+ 
+
+Preprocessing layers 
+Reduced list with the most relevant preprocessing layers
+
+CenterCrop	A preprocessing layer which crops images.
+RandomContrast	A preprocessing layer which randomly adjusts contrast during training.
+RandomCrop	A preprocessing layer which randomly crops images during training.
+RandomFlip	A preprocessing layer which randomly flips images during training.
+RandomHeight	A preprocessing layer which randomly varies image height during training.
+RandomRotation	A preprocessing layer which randomly rotates images during training.
+RandomTranslation	A preprocessing layer which randomly translates images during training.
+RandomWidth	A preprocessing layer which randomly varies image width during training.
+RandomZoom	A preprocessing layer which randomly zooms images during training.
+Rescaling	A preprocessing layer which rescales input values to a new range.
+Resizing	A preprocessing layer which resizes images.
+ 
+
+Activation functions
+Reduced list with the most relevant activation functions
+
+hard_sigmoid(...)	Hard sigmoid activation function.
+relu(...)	Applies the rectified linear unit activation function.
+sigmoid(...)	Sigmoid activation function, sigmoid(x) = 1 / (1 + exp(-x)).
+softmax(...)	Softmax converts a vector of values to a probability distribution.
+softplus(...)	Softplus activation function, softplus(x) = log(exp(x) + 1).
+softsign(...)	Softsign activation function, softsign(x) = x / (abs(x) + 1).
+tanh(...)	Hyperbolic tangent activation function.
+ 
+
+Loss-functions
+Reduced list with the most relevant loss functions
+
+BinaryCrossentropy	Computes the cross-entropy loss between true labels and predicted labels.
+CategoricalCrossentropy	Computes the crossentropy loss between the labels and predictions.
+KLDivergence	Computes Kullback-Leibler divergence loss between y_true and y_pred.
+MeanAbsoluteError	Computes the mean of absolute difference between labels and predictions.
+MeanSquaredError	Computes the mean of squares of errors between labels and predictions.
+Poisson	Computes the Poisson loss between y_true and y_pred.
+SparseCategoricalCrossentropy	Computes the crossentropy loss between the labels and predictions.
+ 
+
+Optimizer 
+Reduced list with the most relevant optimizer
+
+Adagrad	Optimizer that implements the Adagrad algorithm.
+Adam	Optimizer that implements the Adam algorithm.
+RMSprop	Optimizer that implements the RMSprop algorithm.
+SGD	Gradient descent (with momentum) optimizer.
+ 
+
+Metrics 
+A very reduced list with the most relevant metrics
+
+Accuracy	Calculates how often predictions equal labels.
+BinaryAccuracy	Calculates how often predictions match binary labels.
+BinaryCrossentropy	Computes the crossentropy metric between the labels and predictions.
+CategoricalAccuracy	Calculates how often predictions match one-hot labels.
+CategoricalCrossentropy	Computes the crossentropy metric between the labels and predictions.
+KLDivergence	Computes Kullback-Leibler divergence metric between y_true and y_pred.
+Mean	Computes the (weighted) mean of the given values.
+MeanAbsoluteError	Computes the mean absolute error between the labels and predictions.
+MeanSquaredError	Computes the mean squared error between y_true and y_pred.
+Poisson	Computes the Poisson metric between y_true and y_pred.
+Precision	Computes the precision of the predictions with respect to the labels.
+RootMeanSquaredError	Computes root mean squared error metric between y_true and y_pred.
+SparseCategoricalAccuracy	Calculates how often predictions match integer labels.
+SparseCategoricalCrossentropy	Computes the crossentropy metric between the labels and predictions.
+SparseTopKCategoricalAccuracy	Computes how often integer targets are in the top K predictions.
+Sum	Computes the (weighted) sum of the given values.
+TopKCategoricalAccuracy	Computes how often targets are in the top K predictions.
+
 
 
 ```python
 ```
-
