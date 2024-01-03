@@ -39,6 +39,28 @@ pip install sympy
 |[Topics](https://docs.sympy.org/latest/reference/public/topics/index.html#topics)|Contains method docstrings for several modules. Subcategories include : Plotting, Polynomials, Geometry, Category Theory, Cryptography, Differential, Holonomic, Lie Algebra, and Stats.|
 
 
+### [Basics](https://docs.sympy.org/latest/reference/public/basics/index.html#basic-modules)
+
+||
+|---|
+|[Assumptions](https://docs.sympy.org/latest/modules/assumptions/index.html)|
+|[Calculus](https://docs.sympy.org/latest/modules/calculus/index.html)|
+|[Combinatorics](https://docs.sympy.org/latest/modules/combinatorics/index.html)|
+|[Functions](https://docs.sympy.org/latest/modules/functions/index.html)|
+|[Integrals](https://docs.sympy.org/latest/modules/integrals/index.html)|
+|[Series](https://docs.sympy.org/latest/modules/series/index.html)|
+|[Simplify](https://docs.sympy.org/latest/modules/simplify/index.html)|
+|[Solvers](https://docs.sympy.org/latest/modules/solvers/index.html)|
+|[abc](https://docs.sympy.org/latest/modules/abc.html)|
+|[Algebras](https://docs.sympy.org/latest/modules/algebras.html)|
+|[Concrete](https://docs.sympy.org/latest/modules/concrete.html)|
+|[Core](https://docs.sympy.org/latest/modules/core.html)|
+|[Discrete](https://docs.sympy.org/latest/modules/discrete.html)|
+|[Numerical Evaluation](https://docs.sympy.org/latest/modules/evalf.html)|
+|[Numeric Computation](https://docs.sympy.org/latest/modules/numeric-computation.html)|
+|[Term Rewriting](https://docs.sympy.org/latest/modules/rewriting.html)|
+
+
 ## [Some examples](https://docs.sympy.org/latest/tutorials/intro-tutorial/intro.html#a-more-interesting-example)
 
 ## [Substitution](https://docs.sympy.org/latest/tutorials/intro-tutorial/basic_operations.html#substitution)
