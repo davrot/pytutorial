@@ -162,6 +162,7 @@ In the case you know Matlab check here:
 * [Argh: Organize your command line arguments](helper/argh/README.md)
 * [psutil vs os.cpu_count: How many "CPUs" do I have?](helper/psutil/README.md)
 * [ZeroMQ: Microservices as well as connecting computers via message queue](helper/ZeroMQ/README.md)
+* [Austin: Time and memory profiling](helper/austin/README.md)
 
 ## OpenCV2 and Python
 * [OpenCV2: Play, write, read a video](cv2/write_read_play/README.md)
