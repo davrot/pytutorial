@@ -38,6 +38,9 @@ cp src/austin ~/P3.11/bin/
 
 Go [here](https://github.com/P403n1x87/austin/releases/latest) and download the latest Windows64 msi installer. And don't let Windows intimidate you: 
 
+![image4](image4.png)
+
+![image3](image3.png)
 
 ## Installing [Austin TUI](https://github.com/P403n1x87/austin-tui)
 
