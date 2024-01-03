@@ -14,7 +14,7 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 ## Design corner stone
 
-It is the job of Python (Numpy or PyTorch) to provide the tensors from which we read and in which we write. In the cpp domain, we will use this matrices as the interface to Python. We are not allowed to change the sizes of these tensors. We are only allowed to change the content of the tensors. 
+It is the job of Python (Numpy or PyTorch) to provide the tensors from which we read and in which we write. In the cpp domain, we will use this matrices as the interface to Python. We are not allowed to change the sizes of these tensors. We are only allowed to change the content of the tensors. In addition we need to make sure that the matrices are in C_CONTIGUOUS shape. 
 
 ## On the Python side
 
@@ -53,11 +53,13 @@ int64_t np_input_dim_3,
 
 Inside your C++ method you convert the address into a pointer. **BE WARNED:** Make absolutely sure that the dtype of the np.ndarray is correctly reflected in the pointer type
 
-dtype=np.float32 --> float
-dtype=np.float64 --> double
-dtype=np.uint64 --> uint64
+* dtype=np.float32 --> float
+* dtype=np.float64 --> double
+* dtype=np.uint64 --> uint64
+* ...
 
-If you fuck this up then this will end in tears!
+  
+**If you fuck this up then this will end in tears!**
 
 ```cpp
 float *np_input_pointer = (float *)np_input_pointer_addr;
