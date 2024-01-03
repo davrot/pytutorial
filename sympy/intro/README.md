@@ -16,15 +16,25 @@ pip install sympy
 
 ||
 |---|
+|[Basic Operations](https://docs.sympy.org/latest/tutorials/intro-tutorial/basic_operations.html)|
+|[Printing](https://docs.sympy.org/latest/tutorials/intro-tutorial/printing.html)|
 |[Simplification](https://docs.sympy.org/latest/tutorials/intro-tutorial/simplification.html)|
 |[Calculus](https://docs.sympy.org/latest/tutorials/intro-tutorial/calculus.html) |
 |[Solvers](https://docs.sympy.org/latest/tutorials/intro-tutorial/solvers.html)|
 
 
-
-
 ## [Some examples](https://docs.sympy.org/latest/tutorials/intro-tutorial/intro.html#a-more-interesting-example)
 
+## [Substitution](https://docs.sympy.org/latest/tutorials/intro-tutorial/basic_operations.html#substitution)
+```python
+import sympy
+
+x, y = sympy.symbols("x y")
+
+expr = sympy.cos(x) + 1
+z = expr.subs(x, y**2)
+print(z) # -> cos(y**2) + 1
+```
 
 ### [Derivatives](https://docs.sympy.org/latest/tutorials/intro-tutorial/calculus.html#derivatives)
 
