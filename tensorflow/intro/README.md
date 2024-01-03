@@ -25,6 +25,8 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 ## Basic
 
+[DataGenerator_no_dataugmentation.py](DataGenerator_no_dataugmentation.py)
+
 ```python
 from tensorflow import keras
 import numpy as np
@@ -122,6 +124,8 @@ if __name__ == "__main__":
 ## With data augmentation
 
 To the pre-processing chain **self.data_augmentation** you can add other preprocessing layers which are then applied to the input before given to the network.
+
+[DataGenerator.py](DataGenerator.py)
 
 ```python
 from tensorflow import keras
@@ -265,6 +269,8 @@ Parameters for the layers:
 |[activation](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv1D)| "Activation function to use. If you don't specify anything, no activation is applied (see [keras.activations](https://www.tensorflow.org/api_docs/python/tf/keras/activations))."|
 [data_format](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv1D)| " A string, one of channels_last (default) or channels_first."|
 
+[keras_learn.py](keras_learn.py)
+
 ```python
 from tensorflow import keras
 from DataGenerator import DataGenerator
@@ -381,6 +387,8 @@ for epoch_id in range(0, epoch_max):
 |---|---|
 |[tf.keras.models.load_model](https://www.tensorflow.org/api_docs/python/tf/keras/saving/load_model) | "Loads a model saved via model.save()."|
 |[network.evaluate()](https://www.tensorflow.org/api_docs/python/tf/keras/Sequential#evaluate) | "Returns the loss value & metrics values for the model in test mode."|
+
+[keras_test.py](keras_test.py)
 
 ```python
 from tensorflow import keras
