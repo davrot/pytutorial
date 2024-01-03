@@ -57,5 +57,26 @@ You need to install this extension:
 
 ![image0](image0.png)
 
-```python
+## Using austin-tui
+
+This is how it looks like under Linux. I haven't tested it under Windows yet.
+
+I am using the PyTorch MNIST network example. 
+
+### Without memory profiling
+
+```shell
+austin-tui ~/P3.9/bin/python3 network.py
 ```
+
+![image1](image1.png)
+
+### With memory profiling
+
+```shell
+austin-tui -m ~/P3.9/bin/python3 network.py
+```
+
+![image2](image2.png)
+
+
