@@ -179,6 +179,9 @@ In the case you know Matlab check here:
 * [How to take advantage of a learning rate scheduler for your non-Pytorch project](pytorch/scheduler_special/README.md)
 * [Unfold: How to manually calculate the indices for a sliding 2d window](pytorch/Unfold/README.md)
 
+## PyBind11
+* [Expanding Python with C++ modules](PyBind11/basics/README.md)
+
 ## Arduino
 * [Basics with Python / Matlab](arduino/basics/README.md)
 
