@@ -16,11 +16,11 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 We need to install the Remote ssh extension
 
-!(image0)[image0.png]
+![image0](image0.png)
 
 and these one too:
 
-!(image1)[image1.png]
+![image1](image1.png)
 
 However, the second one should be installed automatically. 
 
