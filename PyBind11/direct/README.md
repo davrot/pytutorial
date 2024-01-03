@@ -12,7 +12,9 @@ Let us assume that you know what you are doing. And also let us assume that you 
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
+## Design corner stone
 
+It is the job of Python (Numpy or PyTorch) to provide the tensors from which we read and in which we write. In the cpp domain, we will use this matrices as the interface to Python. We are not allowed to change the sizes of these tensors. We are only allowed to change the content of the tensors. 
 
 ## On the Python side
 
