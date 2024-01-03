@@ -81,10 +81,51 @@ py::array MyModule::GetStuffOut(void){
 }
 ```
 
+## The save (and slow) way to communicate ([MyModuleCPU.cpp](MyModuleCPU.cpp))
+
+Please see this just a set of examples. I focused on double (float64) in this example. 
+
+### C++ in and Python out
+* Put vector of vector<> in and get a py::list out : py::list MakeList(std::vector<std::vector<double>> &Arg_Data, std::vector<std::vector<size_t>> &Arg_Shape);
+* Put vector<> in and get py::array out : py::array Converter(std::vector<double> &Arg_Data, std::vector<size_t> &Arg_Shape);
+* Put a value in and get a py:array out : py::array Converter(double &Arg_Data);
+
+### Python in and C++ out
+* Put py::array in and get vector<> out : bool Converter(py::array &Arg_In, std::vector<double> &Arg_Data);
+* Put py::list in and get vector<vector<>> out : bool ConvertList(py::list &Arg_List, std::vector<std::vector<double>> &Arg_Data, std::vector<std::vector<size_t>> &Arg_Shape);
+* Put a py::array in and get a vector<> with the dimensions out : bool GetShape(py::array &Arg_Input, std::vector<size_t> &Arg_Shape);
+* Put a py::list in and get a vector<vector<>> with the dimensions out : int GetShape(py::list &Arg_List, std::vector<std::vector<size_t>> &Arg_Shape);
+
+### Helper functions
+* Put a py::list in and get a vector<vector<>> of the data out : int CopyData(py::list &Arg_List, std::vector<std::vector<double>>  Arg_Data, std::vector<std::vector<size_t>> &Arg_Shape);
+* Check the properties of a list : bool CheckList(py::list &Arg_List, int Check_NumberOfDimensions, size_t dType);
+
+
+
 ## The test program ([test.py](test.py))
 
 I think that the mathematical operation that the test code does, need no additional explanation. (A random matrix is multiplied by 5.0)
 
+```python
+X
+[[0.43861361 0.34633103 0.30473636 0.25559892 0.61136669 0.61763177]
+ [0.58565176 0.04562993 0.89141907 0.17663681 0.94354389 0.08857159]
+ [0.40814404 0.58116521 0.76818518 0.11430939 0.90513926 0.38985626]
+ [0.07986693 0.41520487 0.11921055 0.12390022 0.64135749 0.04744072]
+ [0.44492385 0.94347543 0.01514797 0.74471067 0.34624101 0.91923338]]
+X-Y:
+[[0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0.]]
+X*5-Z:
+[[0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 0.]]
+```
 
 ## Source code 
 
@@ -660,8 +701,39 @@ Z = MyCExtension.GetStuffOut()
 
 print("X*5-Z:")
 print(X * 5.0 - Z)
-
 ```
+
+## [OpenMP](https://bisqwit.iki.fi/story/howto/openmp/)
+
+### [SIMD (Single Instruction Multiple Data)](https://en.wikipedia.org/wiki/Single_instruction,_multiple_data)
+
+Make absolutely sure that you don't overlap read and write memory areas. Also make absolutely sure that you don't write at same positions. (I mean stuff like s[i] = v[i+j]; )
+
+```cpp
+#pragma omp simd
+
+for(...){}
+```
+ 
+```cpp
+#pragma omp simd reduction(+ : SOME_VARIABLE_NAME)
+for(...){
+   SOME_VARIABLE_NAME += ...
+}
+``` 
+
+Parallel loop (on multiple cores)
+
+```cpp 
+omp_set_num_threads(number_of_cpu_processes);
+```
+
+```cpp
+#pragma omp parallel for
+for(...){}
+``` 
+
+For the parallel loop you need to add the parameters -fopenmp=libomp -lomp into the Makefile.
 
 
 ## Reference 
