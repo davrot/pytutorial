@@ -186,9 +186,6 @@ clean:
 
 ### .cu File
 
-Some note: 
-
-
 #### CuBlas
 
 You want to use [cublas](https://docs.nvidia.com/cuda/cublas/index.html) if possible. 
