@@ -8,7 +8,82 @@
 
 ## Top
 
+A minimal introduction in how to use PyBind11. PyBind11 allows you to extend Python with C++ modules which are written in C++11 or newer.
+
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
+
+## A very simple example
+
+What do we need in the most minimal scenario?
+
+* [Makefile](Makefile) plus a .env file
+* Module wrapper ([PyMyModuleCPU.cpp](PyMyModuleCPU.cpp))
+* The module ([MyModuleCPU.cpp](MyModuleCPU.cpp) and [MyModuleCPU.h](MyModuleCPU.h))
+* Some test code [test.py](test.py)
+
+
+## [Makefile](Makefile)
+
+If you are programming in C++ and don't know how to use a Makefile then you really should [look it up](https://www.gnu.org/software/make/manual/html_node/Simple-Makefile.html). 
+
+I am working under Linux and my Makefile looks like [this](Makefile)... MyModuleCPU.cpp and PyMyModuleCPU.cpp are compiled in .o files and then linked into PyMyModuleCPU. However, Python needs a special filename ending which depends on the Python version. Thus there is this additional copy command dealing with this issue. 
+
+## The wrapper file ([PyMyModuleCPU.cpp](PyMyModuleCPU.cpp))
+
+The wrapper file is the connection point between Python and C++. It tells Python what to call. In this example we have three functions we export into the Python space:
+
+* PutStuffIn , which is connected to MyModule::PutStuffIn
+* DoStuff  , which is connected to MyModule::DoStuff
+* GetStuffOut , which is connected to MyModule::GetStuffOut
+  
+These methods of the class MyModule are defined in MyModuleCPU.h and do what their names suggest they will do...
+
+## The class definition of MyModule ([MyModuleCPU.h](MyModuleCPU.h))
+
+The exported methods are public. The rest are a collection of methods to handle the data exchange between C++ and Python in a safe way.  
+
+The exported methods do the following:
+
+* PutStuffIn : An Numpy array arrives. GetShape extracts the shape of the numpy.ndarray and stored it into std::vector<size_t> Data_Shape;. Then it puts the numpy.ndarray into Converter and makes std::vector<double> Data_Data; out of it.
+* DoStuff: Python gives double Factor to the method. The method multiplies this number with the data Data_Data from the numpy.ndarray. This is done in SIMD (single instruction multiple data) fashion using openmp. 
+* GetStuffOut : It takes Data_Data and Data_Shape and makes a Python numpy.ndarray out of it and gives it to Python.
+
+```cpp
+int MyModule::PutStuffIn(py::array & Arg_Input){
+
+        if (GetShape(Arg_Input, Data_Shape) == false){
+                return false;
+        }
+
+        if (MyModule::Converter(Arg_Input, Data_Data) == false){
+                return false;
+        }
+
+        return true;
+}
+
+int MyModule::DoStuff(double Factor){
+
+        size_t Counter; 
+
+        #pragma omp simd
+        for (Counter = 0; Counter < Data_Data.size(); Counter++){
+            Data_Data[Counter] *= Factor;
+        }
+
+        return true;
+}
+
+py::array MyModule::GetStuffOut(void){
+
+        return Converter(Data_Data, Data_Shape);
+
+}
+```
+
+## The test program ([test.py](test.py))
+
+I think that the mathematical operation that the test code does, need no additional explanation. (A random matrix is multiplied by 5.0)
 
 
 ## Source code 
@@ -587,3 +662,9 @@ print("X*5-Z:")
 print(X * 5.0 - Z)
 
 ```
+
+
+## Reference 
+
+* [PyBind11](https://pybind11.readthedocs.io/en/stable/)
+
