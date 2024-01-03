@@ -61,7 +61,7 @@ z = y.series(x, 0, 8) # around x = 0 , up order 7
 print(z)  # -> 1 - x**2/2 + x**4/24 - x**6/720 + O(x**8)
 ```
 
-## [simplify](https://docs.sympy.org/latest/tutorials/intro-tutorial/simplification.html#simplify)
+### [simplify](https://docs.sympy.org/latest/tutorials/intro-tutorial/simplification.html#simplify)
 
 ```python
 import sympy
@@ -72,7 +72,11 @@ y = sympy.simplify(sympy.sin(x) ** 2 + sympy.cos(x) ** 2)
 print(y)  # -> 1
 ```
 
-## [Solving Equations Algebraically](https://docs.sympy.org/latest/tutorials/intro-tutorial/solvers.html)
+### [Solving Equations Algebraically](https://docs.sympy.org/latest/tutorials/intro-tutorial/solvers.html)
+
+```python
+solveset(equation, variable=None, domain=S.Complexes)
+```
 
 > Recall from the [gotchas section](https://docs.sympy.org/latest/tutorials/intro-tutorial/gotchas.html#tutorial-gotchas-equals) of this tutorial that symbolic equations in SymPy are not represented by = or ==, but by Eq.
 
@@ -88,4 +92,33 @@ Output:
 
 $$x=y$$
 
+
+```python
+import sympy
+
+x, y, z = sympy.symbols("x y z")
+
+y = sympy.Eq(x**2 - x, 0)
+z = sympy.solveset(y, x)
+print(z) # -> {0, 1}
+```
+
+### [Solving Differential Equations](https://docs.sympy.org/latest/tutorials/intro-tutorial/solvers.html#solving-differential-equations)
+
+```python
+import sympy
+
+# Undefined functions
+f = sympy.symbols("f", cls=sympy.Function)
+
+x = sympy.symbols("x")
+
+
+diffeq = sympy.Eq(f(x).diff(x, x) - 2 * f(x).diff(x) + f(x), sympy.sin(x))
+
+print(diffeq)  # -> Eq(f(x) - 2*Derivative(f(x), x) + Derivative(f(x), (x, 2)), sin(x))
+
+result = sympy.dsolve(diffeq, f(x))
+print(result)  # -> Eq(f(x), (C1 + C2*x)*exp(x) + cos(x)/2)
+```
 
