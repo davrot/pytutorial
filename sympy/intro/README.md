@@ -170,3 +170,18 @@ result = sympy.dsolve(diffeq, f(x))
 print(result)  # -> Eq(f(x), (C1 + C2*x)*exp(x) + cos(x)/2)
 ```
 
+## [Numerical Evaluation](https://docs.sympy.org/latest/modules/evalf.html)
+
+```python
+import sympy
+
+x, y = sympy.symbols("x y")
+
+expr = sympy.cos(x) + 1
+print(expr)  # -> cos(x) + 1
+expr = expr.subs(x, 0.333 * sympy.pi)
+print(expr)  # -> cos(0.333*pi) + 1
+print(sympy.N(expr)) # -> 1.50090662536071
+```
+
+
