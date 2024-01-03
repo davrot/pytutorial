@@ -181,7 +181,8 @@ In the case you know Matlab check here:
 
 ## PyBind11
 * [Expanding Python with C++ modules](PyBind11/basics/README.md)
-
+* [PyBind11 Stub-Generation](PyBind11/stubs/README.md)
+  
 ## Arduino
 * [Basics with Python / Matlab](arduino/basics/README.md)
 
