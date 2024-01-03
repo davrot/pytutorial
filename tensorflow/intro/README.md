@@ -258,10 +258,12 @@ if __name__ == "__main__":
 
 Parameters for the layers: 
 
-[padding](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv1D): "One of "valid", "same" or "causal" (case-insensitive). "valid" means no padding. "same" results in padding with zeros evenly to the left/right or up/down of the input such that output has the same height/width dimension as the input. "causal" results in causal (dilated) convolutions, e.g. output[t] does not depend on input[t+1:]. "
-[use_bias](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv1D): "Boolean, whether the layer uses a bias vector."
-[activation](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv1D): "Activation function to use. If you don't specify anything, no activation is applied (see [keras.activations](https://www.tensorflow.org/api_docs/python/tf/keras/activations))."
-[data_format](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv1D): " A string, one of channels_last (default) or channels_first."
+|||
+|---|---|
+|[padding](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv1D) | "One of "valid", "same" or "causal" (case-insensitive). "valid" means no padding. "same" results in padding with zeros evenly to the left/right or up/down of the input such that output has the same height/width dimension as the input. "causal" results in causal (dilated) convolutions, e.g. output[t] does not depend on input[t+1:]. "|
+|[use_bias](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv1D)| "Boolean, whether the layer uses a bias vector."|
+|[activation](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv1D)| "Activation function to use. If you don't specify anything, no activation is applied (see [keras.activations](https://www.tensorflow.org/api_docs/python/tf/keras/activations))."|
+[data_format](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv1D)| " A string, one of channels_last (default) or channels_first."|
 
 ```python
 from tensorflow import keras
