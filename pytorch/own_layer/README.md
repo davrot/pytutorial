@@ -17,7 +17,7 @@ I am rewriting the code for [Linear](https://pytorch.org/docs/stable/_modules/to
 
 \_\_init\_\_() : It contains a tensor for the weights and optionally a second tensor for the bias. Both tensors are wrapped within the torch.nn.Parameter class. This is necessary, otherwise the optimizer will not find them. Afterwards the tensors will be initialized via reset_parameters(self).
 
-reset_parameters(): I copied it from the original code. 
+reset_parameters(): I copied it from the original code. Doesn't need to be there could also be handled directly in the init. 
 
 forward(): We get an input tensor and need to produce an output tensor. Please remember that dimension 0 contains the batch. Here we just multiply the input with the weights and add the bias to it (if available).
 
