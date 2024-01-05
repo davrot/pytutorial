@@ -81,4 +81,4 @@ class MyOwnLayer(torch.nn.Module):
         return f"in_features={self.in_features}, out_features={self.out_features}, bias={self.bias is not None}"
 ```
 
-![image0](Figure_1,png)
+![Figure_1.png](Figure_1.png)
