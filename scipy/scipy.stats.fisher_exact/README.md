@@ -52,11 +52,19 @@ The input table is [[a, b], [c, d]].
 |a| b |
 |c|d|
 
-Where $N_A = a + c$ for the elements in group A and $N_B = b + d$ for the elements in group B.
+Where $N_A = a + c$ for the elements in group A (performance values of network A with $N_A$ as number of test pattern) and $N_B = b + d$ for the elements in group B (performance values of network B with $N_B$ as number of test pattern). 
 
 |||
 |---|---|
 |$N_A - c$| $N_B-d$ |
+|c|d|
+
+
+If network architectures are tested, typically, the same data set is used in both conditions and such $N = N_A = N_B$. 
+
+|||
+|---|---|
+|$N - c$| $N - d$ |
 |c|d|
 
 
