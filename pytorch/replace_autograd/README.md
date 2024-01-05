@@ -64,6 +64,21 @@ class FunctionalLinear(torch.autograd.Function):
         return grad_input, grad_weight, grad_bias
 ```
 
+We can now add it to our own class. First we have to add it to the class via 
+
+```python
+self.functional_linear = FunctionalLinear.apply
+```
+
+in the \_\_init\_\_() function. Then we have to use it in the forward function:
+
+```python
+return self.functional_linear(input, self.weight, self.bias)
+```
+
+Here we combine it also with normal autograd operations. **Not everything needs to be in the our own autograd function. In fact, try to put as little as possible into your own autograd function and let the rest handle by torch. Less is more.** 
+
+
 ```python
 class MyOwnLayer(torch.nn.Module):
     def __init__(
@@ -114,3 +129,4 @@ class MyOwnLayer(torch.nn.Module):
         return f"in_features={self.in_features}, out_features={self.out_features}, bias={self.bias is not None}"
 ```
         
+![Figure_1.png](Figure_1.png)
