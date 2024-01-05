@@ -45,8 +45,19 @@ scipy.stats.fisher_exact(table, alternative='two-sided')
 > 
 > The probability under the null hypothesis of obtaining a table at least as extreme as the one that was actually observed.
 
-The input table is [[a, b], [c, d]]. Where N_A = a + c for the elements in group A and N_B = b + d for the elements in group B.
-[[N_A-c, N_B-d], [c, d]]
+The input table is [[a, b], [c, d]]. 
+
+|||
+|---|---|
+|a| b |
+|c|d|
+
+Where $N_A = a + c$ for the elements in group A and $N_B = b + d$ for the elements in group B.
+
+|||
+|---|---|
+|$N_A - c$| $N_B-d$ |
+|c|d|
 
 
 ## [Example](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.fisher_exact.html)
