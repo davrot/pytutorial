@@ -95,7 +95,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 N: int = 10000
-correct_a: int = N // 2
+correct_b: int = N // 2
 
 values = np.arange(0, N + 1, 100)
 results_less = np.zeros((values.shape[0]))
@@ -104,21 +104,21 @@ results_two_sided = np.zeros((values.shape[0]))
 
 
 for i in range(0, values.shape[0]):
-    correct_b: int = int(values[i])
+    correct_a: int = int(values[i])
     res = fisher_exact(
         [[N - correct_a, N - correct_b], [correct_a, correct_b]], alternative="less"
     )
     results_less[i] = res.pvalue
 
 for i in range(0, values.shape[0]):
-    correct_b = int(values[i])
+    correct_a = int(values[i])
     res = fisher_exact(
         [[N - correct_a, N - correct_b], [correct_a, correct_b]], alternative="greater"
     )
     results_greater[i] = res.pvalue
 
 for i in range(0, values.shape[0]):
-    correct_b = int(values[i])
+    correct_a = int(values[i])
     res = fisher_exact(
         [[N - correct_a, N - correct_b], [correct_a, correct_b]],
         alternative="two-sided",
@@ -130,7 +130,7 @@ plt.plot(100.0 * values / N, results_two_sided, label="two-sided")
 plt.plot(100.0 * values / N, results_less, label="less")
 plt.plot(100.0 * values / N, results_greater, label="greater")
 
-plt.title(f"Compared to a performance A of {100.0 * correct_a /N}%")
+plt.title(f"Compared to a performance B of {100.0 * correct_b /N}%")
 plt.ylabel("p-value")
 plt.xlabel("Correct [%]")
 plt.legend()
@@ -145,7 +145,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 N: int = 10000
-correct_a: int = int(N * 0.99)
+correct_b: int = int(N * 0.99)
 
 values = np.arange(int(N * 0.98), N + 1)
 results_less = np.zeros((values.shape[0]))
@@ -154,21 +154,21 @@ results_two_sided = np.zeros((values.shape[0]))
 
 
 for i in range(0, values.shape[0]):
-    correct_b: int = int(values[i])
+    correct_a: int = int(values[i])
     res = fisher_exact(
         [[N - correct_a, N - correct_b], [correct_a, correct_b]], alternative="less"
     )
     results_less[i] = res.pvalue
 
 for i in range(0, values.shape[0]):
-    correct_b = int(values[i])
+    correct_a = int(values[i])
     res = fisher_exact(
         [[N - correct_a, N - correct_b], [correct_a, correct_b]], alternative="greater"
     )
     results_greater[i] = res.pvalue
 
 for i in range(0, values.shape[0]):
-    correct_b = int(values[i])
+    correct_a = int(values[i])
     res = fisher_exact(
         [[N - correct_a, N - correct_b], [correct_a, correct_b]],
         alternative="two-sided",
@@ -180,7 +180,7 @@ plt.plot(100.0 * values / N, results_two_sided, label="two-sided")
 plt.plot(100.0 * values / N, results_less, label="less")
 plt.plot(100.0 * values / N, results_greater, label="greater")
 
-plt.title(f"Compared to a performance A of {100.0 * correct_a /N}%")
+plt.title(f"Compared to a performance B of {100.0 * correct_b /N}%")
 plt.ylabel("p-value")
 plt.xlabel("Correct [%]")
 plt.legend()
