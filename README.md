@@ -178,6 +178,7 @@ In the case you know Matlab check here:
 * [Creating networks](pytorch/networks/README.md)
 * [Train the network](pytorch/train/README.md)
 * [Fisher Exact Test: Test if your performance difference is significant](scipy/scipy.stats.fisher_exact/README.md)
+* [Write your own layer](pytorch/own_layer/README.md)
 * [How to take advantage of an optimizer for your non-Pytorch project](pytorch/optimizer_special/README.md)
 * [How to take advantage of a learning rate scheduler for your non-Pytorch project](pytorch/scheduler_special/README.md)
 * [Unfold: How to manually calculate the indices for a sliding 2d window](pytorch/Unfold/README.md)
