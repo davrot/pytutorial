@@ -27,8 +27,8 @@ scipy.stats.fisher_exact(table, alternative='two-sided')
 > **alternative** : {‘two-sided’, ‘less’, ‘greater’}, optional
 > Defines the alternative hypothesis. The following options are available (default is ‘two-sided’):
 > 
-> * ‘two-sided’: the odds ratio of the underlying population is not one
-> * ‘less’: the odds ratio of the underlying population is less than one
+> * ‘two-sided’: the odds ratio of the underlying population is not one (The two-sided p-value is the probability that, under the null hypothesis, a random table would have a probability equal to or less than the probability of the input table.)
+> * ‘less’: the odds ratio of the underlying population is less than one 
 > * ‘greater’: the odds ratio of the underlying population is greater than one
 
 > Returns:
