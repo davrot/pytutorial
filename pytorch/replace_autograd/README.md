@@ -10,6 +10,33 @@
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
+## [Extending torch.autograd](https://pytorch.org/docs/stable/notes/extending.html#extending-autograd)
+
+### [When to use](https://pytorch.org/docs/stable/notes/extending.html#when-to-use)
+
+> In general, implement a custom function if you want to perform computations in your model that are not differentiable or rely on non-PyTorch libraries (e.g., NumPy), but still wish for your operation to chain with other ops and work with the autograd engine.
+>
+> In some situations, custom functions can also be used to improve performance and memory usage: If you implemented your forward and backward passes using a C++ extension, you can wrap them in Function to interface with the autograd engine. If you’d like to reduce the number of buffers saved for the backward pass, custom functions can be used to combine ops together.
+
+## [How to use](https://pytorch.org/docs/stable/notes/extending.html#how-to-use)
+
+After subclassing Function, you’ll need to define two methods:
+> **forward()** is the code that performs the operation. **It can take as many arguments as you want, with some of them being optional, if you specify the default values.** All kinds of Python objects are accepted here. Tensor arguments that track history (i.e., with requires_grad=True) will be converted to ones that don’t track history before the call, and their use will be registered in the graph. Note that this logic won’t traverse lists/dicts/any other data structures and will only consider tensors that are direct arguments to the call. You can return either a single Tensor output, or a tuple of tensors if there are multiple outputs.
+>
+> **backward()** (or vjp()) defines the gradient formula. It will be given as many Tensor arguments as there were outputs, with each of them representing gradient w.r.t. that output. It is important NEVER to modify these in-place. **It should return as many tensors as there were inputs, with each of them containing the gradient w.r.t. its corresponding input.** **If your inputs didn’t require gradient** (needs_input_grad is a tuple of booleans indicating whether each input needs gradient computation), **or were non-Tensor objects, you can return python:None.** Also, if you have optional arguments to forward() you can return more gradients than there were inputs, as long as they’re all None.
+
+> It is your responsibility to use the functions in ctx properly in order to ensure that the new Function works properly with the autograd engine.
+> * [save_for_backward()](https://pytorch.org/docs/stable/generated/torch.autograd.function.FunctionCtx.save_for_backward.html#torch.autograd.function.FunctionCtx.save_for_backward) must be used to save any tensors to be used in the backward pass. Non-tensors should be stored directly on ctx. If tensors that are neither input nor output are saved for backward your Function may not support double backward (see step 3).
+
+I never had to deal with those: 
+
+> * [mark_dirty()](https://pytorch.org/docs/stable/generated/torch.autograd.function.FunctionCtx.mark_dirty.html#torch.autograd.function.FunctionCtx.mark_dirty) must be used to mark any input that is modified inplace by the forward function.
+> * [mark_non_differentiable()](https://pytorch.org/docs/stable/generated/torch.autograd.function.FunctionCtx.mark_non_differentiable.html#torch.autograd.function.FunctionCtx.mark_non_differentiable) must be used to tell the engine if an output is not differentiable. By default all output tensors that are of differentiable type will be set to require gradient. Tensors of non-differentiable type (i.e., integral types) are never marked as requiring gradients.
+> * [set_materialize_grads()](https://pytorch.org/docs/stable/generated/torch.autograd.function.FunctionCtx.set_materialize_grads.html#torch.autograd.function.FunctionCtx.set_materialize_grads) can be used to tell the autograd engine to optimize gradient computations in the cases where the output does not depend on the input by not materializing grad tensors given to backward function. That is, if set to False, None object in Python or “undefined tensor” (tensor x for which x.defined() is False) in C++ will not be converted to a tensor filled with zeros prior to calling backward, and so your code will need to handle such objects as if they were tensors filled with zeros. The default value of this setting is True.
+
+
+> If your Function does not support double backward you should explicitly declare this by decorating backward with the once_differentiable(). With this decorator, attempts to perform double backward through your function will produce an error. See our double backward tutorial for more information on double backward.
+
 ## [TORCH.AUTOGRAD.FUNCTION.FUNCTIONCTX.SAVE_FOR_BACKWARD](https://pytorch.org/docs/stable/generated/torch.autograd.function.FunctionCtx.save_for_backward.html)
 
 ```python
@@ -51,6 +78,8 @@ Non-tensor (e.g. int):
 ```python
 z = ctx.z
 ```
+
+
 
 
 ## Example 
