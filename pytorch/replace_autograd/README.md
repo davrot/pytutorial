@@ -76,7 +76,7 @@ in the \_\_init\_\_() function. Then we have to use it in the forward function:
 return self.functional_linear(input, self.weight, self.bias)
 ```
 
-Here we combine it also with normal autograd operations. **Not everything needs to be in the our own autograd function. In fact, try to put as little as possible into your own autograd function and let the rest handle by torch. Less is more.** 
+In the forward function we should / can combine it with normal autograd operations. **Not everything needs to be in our own autograd function. In fact, try to put as little as possible into your own autograd function and let the rest handle by torch's autograd. Less is more.** 
 
 
 ```python
