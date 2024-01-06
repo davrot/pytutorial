@@ -73,7 +73,7 @@ Here, $\vec{x}$ is the solution vector being sought.
 
 The formal solution of the equation $D\,\vec{x} = \vec{b}$ is given by
 
-&$\vec{x} = D^{-1}\, \vec{b} \, ,$&
+$$\vec{x} = D^{-1}\, \vec{b} \, ,$$
 
 where $D^{-1}$ denotes the inverse of the matrix $D$.
 
