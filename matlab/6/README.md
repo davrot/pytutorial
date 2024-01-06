@@ -241,7 +241,7 @@ set(gca, 'DataAspectRatio', [1 1 1]);
 
 The second to last command reshaped the array to enable the usage of imagesc to display the image correctly.
 
-In the last example, the Matlab user might be annoyed that the imagesc-command projects the first dimension of the array (with length 500, thus e.g. the $x$ -axis of a photo in landscape format!) onto the $y$ -axis. The versatile command permute remedies this situation -- this command **swaps** single dimensions of an array. It is important to understand that not only the organization of an array in rows and columns is changed, but also the sequence of the entries in the memory! The syntax of the command is `permuted = permute(array, [dimidx_dim1, dimidx_dim2, ..., dimidx_dimN]);`. Here, the second argument holds the numbers from $1$ to $N$ (where $N$ is the number of dimensions of an array, i.e. $N=2 $ for a matrix), that specify the permutation of the dimensions. In the array permuted, the first dimension will be the dimidx_dim1-th dimension of the old array array, the second dimension the dimidx_dim2-th dimension of the old array, etc.
+In the last example, the Matlab user might be annoyed that the imagesc-command projects the first dimension of the array (with length 500, thus e.g. the $x$ -axis of a photo in landscape format!) onto the $y$ -axis. The versatile command permute remedies this situation -- this command **swaps** single dimensions of an array. It is important to understand that not only the organization of an array in rows and columns is changed, but also the sequence of the entries in the memory! The syntax of the command is `permuted = permute(array, [dimidx_dim1, dimidx_dim2, ..., dimidx_dimN]);`. Here, the second argument holds the numbers from $1$ to $N$ (where $N$ is the number of dimensions of an array, i.e. $N=2$ for a matrix), that specify the permutation of the dimensions. In the array permuted, the first dimension will be the dimidx_dim1-th dimension of the old array array, the second dimension the dimidx_dim2-th dimension of the old array, etc.
 
 In order to display the digital photo from our example correctly, we thus have to type:
 
@@ -416,7 +416,7 @@ for i=1:n
 end
 ```
 
-As a first step, we can subsume the $23$ coordinate-tuple to a$2x23$-matrix, that we call r:
+As a first step, we can subsume the $23$ coordinate-tuple to a $2x23$ -matrix, that we call r:
 
 ```matlab
 r = [x; y];
