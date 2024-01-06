@@ -73,11 +73,11 @@ $I_i = f(x_i)\Delta x+ f''(x_i)\frac{\Delta x^3}{24}+{\cal O}(\Delta x^5)$
 
 Writing now with central derivation
 
-$ f''(x_i) = \frac{f'(x_i+\Delta x/2)-f'(x_i-\Delta x/2)}{\Delta x}+ {\cal O}(\Delta x^2) \, .$
+$f''(x_i) = \frac{f'(x_i+\Delta x/2)-f'(x_i-\Delta x/2)}{\Delta x}+ {\cal O}(\Delta x^2) \, .$
 
 Insertion yields
 
-$ I_i = f(x_i)\Delta x+ \left[f'(x_i+\Delta x/2)- f'(x_i-\Delta x/2)\right]\frac{\Delta x^2}{24}+{\cal O}(\Delta x^5) \, . $
+$I_i = f(x_i)\Delta x+ \left[f'(x_i+\Delta x/2)- f'(x_i-\Delta x/2)\right]\frac{\Delta x^2}{24}+{\cal O}(\Delta x^5) \, . $
 
 Taking the sum $I = \sum_{i=1}^N I_i$, many terms will vanish, thus
 
@@ -97,11 +97,11 @@ The width of the sub-intervals is $\Delta x = (b-a)/(N-1)$. The supporting point
 
 In the part integral $I_1$, the area of the trapezoid can be split up into an area of a triangle and the area of a rectangle (see fig. 7.3),
 
-$ I_1 = \int_{x_1}^{x_2}f(x)dx \approx f(x_1)\Delta x+\frac{1}{2}[f(x_2)-f(x_1)]\Delta x = \frac{1}{2}\left[f(x_1)+f(x_2)\right]\Delta x$
+$I_1 = \int_{x_1}^{x_2}f(x)dx \approx f(x_1)\Delta x+\frac{1}{2}[f(x_2)-f(x_1)]\Delta x = \frac{1}{2}\left[f(x_1)+f(x_2)\right]\Delta x$
 
 It follows the 'compound' trapezoid rule:
 
-$ I \approx I_T =\frac{1}{2}\left[f(x_1)+f(x_N)\right]\Delta x + \sum_{i=2}^{N-1} f(x_i)\Delta x \, .$
+$I \approx I_T =\frac{1}{2}\left[f(x_1)+f(x_N)\right]\Delta x + \sum_{i=2}^{N-1} f(x_i)\Delta x \, .$
 
 Note that the trapezoid rule contains the boundaries $a$ and $b$ of the interval. This is referred to as a closed formula. In contrast, the midpoint rule does not contain the boundaries of the interval (open formula). The latter is an advantage, in case that integrable singularities exist at $x=a$ or $x=b$.
 
@@ -205,7 +205,7 @@ Consider the following Taylor series
 
 $f(x+h) = f(x)+f'(x)h+\frac{f''(x)}{2}h^2+\frac{f'''(x)}{6}h^3+ {\cal O}(h^4)$
 
-$ f(x-h) = f(x)-f'(x)h+\frac{f''(x)}{2}h^2-\frac{f'''(x)}{6}h^3+ {\cal O}(h^4) \, .$
+$f(x-h) = f(x)-f'(x)h+\frac{f''(x)}{2}h^2-\frac{f'''(x)}{6}h^3+ {\cal O}(h^4) \, .$
 
 Subtraction of both equation gives
 
