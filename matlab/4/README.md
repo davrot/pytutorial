@@ -49,6 +49,7 @@ title('The sine is a pretty boring function');
 ```
 
 ![Figure 4.1.](2022-04-15_16-24_0.png)
+
 Figure 4.1.: Simple example plot.
 
 If one desires to plot more than one function into the same graph, Matlab can be advised to do so by the keyword hold on; after plotting the first function. This command prevents Matlab from drawing new axes for the following plots. All further plotting commands now add functions to the already existing graphs, until the command hold off; is given:
@@ -84,6 +85,7 @@ plot(t, cos(t), 'm--');
 ```
 
 ![Three functions in one graph.](2022-04-15_16-27_2.png)
+
 Three functions in one graph.
 
 Since multiple annotation of an axis is not possible, a legend can be produced when several functions are displayed in one graph. The command syntax for this is
@@ -135,7 +137,8 @@ A window can be closed by `close(n);`
 Furthermore the possibility exist to position several graphs next to each other in the same plot window. For this, Matlab internally subdivides the window into $nx$ times $ny$ rectangles, that are numbered in ascending order from $1$ to $nx$*$ny$ from left to right and from top to bottom. A new graph is created in one such rectangle by the command subplot(ny, nx, k);. The output of the following plotting command will then be shown in the rectangle with number $k$. It is also possible to extend graphs across several rectangles that together form a bigger rectangle. To achieve this, a vector with two components has to be given as the third argument to subplot, which holds the index of the upper left rectangle and the one of the lower right of the area where the graph is supposed to go.
 
 ![Figure 4.3.](2022-04-15_17-00.png)
-Figure 4.3.: Example of the deďŹnition of two plotting region in a 3x4 raster.
+
+Figure 4.3.: Example of the definition of two plotting region in a 3x4 raster.
 
 
 Other useful functions are:
@@ -154,6 +157,7 @@ Parametric functions are also easily plotted. First, an independent variable, on
 An example is the harmonic oscillator in two dimensions (2D pendulum), that, due to friction, slowly comes to a halt (note that Matlab, when creating annotations, even understands a bit of TeX, which comes in handy for example to set indices or Greek symbols!):
 
 ![Figure 4.4.](2022-04-15_17-04.png)
+
 Figure 4.4.: Parametric function.
 
 ```matlab
@@ -222,6 +226,7 @@ axis off;
 ```
 
 ![Figure 4.5.](2022-04-15_17-08.png)
+
 Figure 4.5.: Examples for grid functions.
 
 A useful command is `set(gca, 'DataAspectRatio', [1 1 1]);`, which scales all axes such that their size relationship on the screen is approximately equal.
@@ -243,6 +248,7 @@ axis off;
 Instead of a color-coded illustration also contour lines can be used. The correspondent command is `contour(array);`. Optionally, in a second argument the number of contour lines used for the plot can be set:
 
 ![Figure 4.6.](2022-04-15_17-12.png)
+
 Figure 4.6.: Examples for a top-view and a contour plot.
 
 ```matlab
