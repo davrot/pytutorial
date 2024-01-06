@@ -21,7 +21,7 @@ It has to be distinguished between the discrete Fourier transformation and the c
 ### Fourier Integral
 The Fourier integral can be defined as follows:
 
-$$\hat{x}(\omega) =  {1 \over 2\pi} \int_{-\infty}^{+\infty} x(t) \exp\left( -i\omega t \right) \, dt$$ 
+$$\hat{x}(\omega) =  { \frac{1}{2\pi}} \int_{-\infty}^{+\infty} x(t) \exp\left( -i\omega t \right) \, dt$$ 
 
 Attention: in the literature sometimes a pre-factor of $1/\sqrt{2\pi}$ is used. The factor in our definition is chosen such that it is compatible with the normalization of the Matlab-FFT which is described later on. The Fourier transformation is reversible; the correspondent reverse transformation is
 
@@ -41,7 +41,7 @@ Here, $i$ is the imaginary unit and $\Re$ and $\Im$ denote the real respectively
 
 If $x(t)$ is periodic, for example in $2\pi$, or if $x(t)$ is only defined in the interval $[0, 2\pi]$, this can be expressed as the Fourier series with coefficients $\hat{x}_k$:
 
-$$\hat{x}_k = {1 \over 2\pi} \int_{0}^{2\pi} x(t) \exp\left( -ikt \right) \, dt \,$$ . (9.1)
+$$\hat{x}_k = {\frac{1}{2\pi}} \int_{0}^{2\pi} x(t) \exp\left( -ikt \right) \, dt \,$$ . (9.1)
 
 The reverse transformation is written as an infinite sum:
 
@@ -54,11 +54,11 @@ For further properties of the Fourier transformation you may consult the instruc
 ### Discrete Fourier Transformation
 In the computer, functions are defined on discrete sampling points in a finite interval. Let us assume a function $a(t)$ is sampled at $N$ equidistant points $t_n=Tn/N$, and the values at these points are $a_n=a(t_n)$. By the transformation $t'=(2\pi/T) t$ we transfer $a(t)$ to a function $x(t')$ in the interval $[0, 2\pi]$ and approximate the integral from equation (9.1) with the midpoint rule (see chapter Integration an Differentiation):
 
-$$\hat{x}_k = {1 \over 2\pi} \int_{0}^{2\pi} x(t') \exp\left( -ikt' \right) \, dt'  \approx {1 \over 2\pi} \sum_{n=0}^{N-1} a_n \exp\left( -ik 2\pi t_n/T \right) \Delta t' \,$$ .
+$$\hat{x}_k = {\frac{1}{2\pi}} \int_{0}^{2\pi} x(t') \exp\left( -ikt' \right) \, dt'  \approx {\frac{1}{2\pi}} \sum_{n=0}^{N-1} a_n \exp\left( -ik 2\pi t_n/T \right) \Delta t' \,$$ .
 
 Here, $\Delta t'$ is given by $(2\pi/T)(T/N)=2\pi/N$, which means that
 
-$$\hat{x}_k \approx A_k = {1 \over N} \sum_{n=0}^{N-1} a_n \exp\left( -i 2\pi nk/N \right) \,$$ . (9.2)
+$$\hat{x}_k \approx A_k = {\frac{1}{N}} \sum_{n=0}^{N-1} a_n \exp\left( -i 2\pi nk/N \right) \,$$ . (9.2)
 
 This equation describes the discrete Fourier transformation, the implementation of which we will discuss more extensively in the following paragraph. The corresponding reverse transformation is:
 
@@ -472,7 +472,7 @@ $$\sigma_{a_1} = \sqrt{\frac{\Sigma_{x^2}}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2}} , \
 
 As an example we consider:
 
-$$\hat{x}_k = {1 \over 2\pi} \int_{0}^{2\pi} x(t') \exp\left( -ikt' \right) \, dt' \approx {1 \over 2\pi} \sum_{n=0}^{N-1} a_n \exp\left( -ik 2\pi t_n/T \right) \Delta t' \,$$
+$$\hat{x}_k = \frac{1}{2\pi} \int_{0}^{2\pi} x(t') \exp\left( -ikt' \right) \, dt' \approx frac{1}{2\pi} \sum_{n=0}^{N-1} a_n \exp\left( -ik 2\pi t_n/T \right) \Delta t' \,$$
 
 Here the fit parameters are $a_1 = 0.1529 \pm 0.2633$ and $a_2 = 1.0939\pm 0.0670$. Note that the error bars $\sigma_{a_j}$ do not depend on the $y_i$. These error bars are thus no quantifier of the goodness of the fit.
 
