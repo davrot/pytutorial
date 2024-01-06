@@ -37,7 +37,7 @@ A major advantage of Matlab in comparison to a conventional programming language
 
 | | | |
 | ------------- |:-------------:|:-------------:|
-| `a = [3;1];`	| defines a column vector	| $\vec{a} = \left(\begin{matrix}3 & 1 \end{matrix}\right)$ |
+| `a = [3;1];`	| defines a column vector	| $\vec{a} = \left(\begin{pmatrix}3 \ 1 \end{pmatrix}\right)$ |
 | `a(k)`	| means the vector component	| $a_k$ |
 | `b = [0,3,-4];` |	defines a row vector	| $\vec{b} = (0,3,-4)$ |
 
