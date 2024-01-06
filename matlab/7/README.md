@@ -38,7 +38,7 @@ Figure 7.2.: Scheme of the midpoint rule.
 
 The integral is then replaced by the Riemann sum:
 
-$I \approx I_M = \sum_{i=1}^N f(x_i)\Delta x$
+$$I \approx I_M = \sum_{i=1}^N f(x_i)\Delta x$$
 
 To illustrate the accuracy of this approximation, consider the following integral of the Gaussian bell-curve
 
@@ -79,7 +79,9 @@ Insertion yields
 
 $I_i = f(x_i)\Delta x+ \left[f'(x_i+\Delta x/2)- f'(x_i-\Delta x/2)\right]\frac{\Delta x^2}{24}+{\cal O}(\Delta x^5) \, . $
 
-Taking the sum $I = \sum_{i=1}^N I_i$, many terms will vanish, thus
+Taking the sum 
+$$I = \sum_{i=1}^N I_i$$
+, many terms will vanish, thus
 
 $I-I_M  = \frac{\Delta x^2}{24}\left[f'(b)-f'(a)\right]+{\cal O}(\Delta x^4) \ .$
 
@@ -101,7 +103,7 @@ $I_1 = \int_{x_1}^{x_2}f(x)dx \approx f(x_1)\Delta x+\frac{1}{2}[f(x_2)-f(x_1)]\
 
 It follows the 'compound' trapezoid rule:
 
-$I \approx I_T =\frac{1}{2}\left[f(x_1)+f(x_N)\right]\Delta x + \sum_{i=2}^{N-1} f(x_i)\Delta x \, .$
+$$I \approx I_T =\frac{1}{2}\left[f(x_1)+f(x_N)\right]\Delta x + \sum_{i=2}^{N-1} f(x_i)\Delta x \, .$$
 
 Note that the trapezoid rule contains the boundaries $a$ and $b$ of the interval. This is referred to as a closed formula. In contrast, the midpoint rule does not contain the boundaries of the interval (open formula). The latter is an advantage, in case that integrable singularities exist at $x=a$ or $x=b$.
 
