@@ -91,7 +91,7 @@ tries to create a 1x2x3x4x5x6x7x8x9x10x11x12x13x14x15x16x17-matrix
 
 and does not find enough memory!
 
-A similar problem can occur when invoking the commands with only one argument $n$. Matlab will try to create a $n$x$n$-Matrix instead of a $1$x$n$-vector (which might have been intended).
+A similar problem can occur when invoking the commands with only one argument $n$. Matlab will try to create a $n$ x $n$ -Matrix instead of a $1$ x $n$ -vector (which might have been intended).
 
 |||
 |---|---|
@@ -215,7 +215,7 @@ The product of these dimension has to equal the product of the **old** dimension
 
 In the following situations, the command is sensibly applied:
 
-* Reshaping of arrays to a form that is suitable for vector operations. Let us assume that we have $8$ vectors of $10$ constellations each in a $3$x$8$x$10$-array wit the name $r$. Now we want to rotate the vectors with a rotation matrix $D$ ,to simulate the movement of the night sky:
+* Reshaping of arrays to a form that is suitable for vector operations. Let us assume that we have $8$ vectors of $10$ constellations each in a $3$ x $8$ x $10$ -array wit the name $r$. Now we want to rotate the vectors with a rotation matrix $D$ ,to simulate the movement of the night sky:
 
 ```matlab
 dummy = D*reshape(r, [3 80]);
@@ -223,7 +223,7 @@ dummy = D*reshape(r, [3 80]);
 r = reshape(dummy, [3 8 10]);
 ```
 
-We first reshaped the $8$x$10$-matrix of vectors to form a $800$-element vector, then we applied the rotation and finally brought the result matrix back to its original form.
+We first reshaped the $8$ x $10$ -matrix of vectors to form a $800$ -element vector, then we applied the rotation and finally brought the result matrix back to its original form.
 
 * Interpretation of data, that was initially written from a file into a one-dimensional array. Example:
 
@@ -241,7 +241,7 @@ set(gca, 'DataAspectRatio', [1 1 1]);
 
 The second to last command reshaped the array to enable the usage of imagesc to display the image correctly.
 
-In the last example, the Matlab user might be annoyed that the imagesc-command projects the first dimension of the array (with length 500, thus e.g. the $x$-axis of a photo in landscape format!) onto the $y$-axis. The versatile command permute remedies this situation -- this command **swaps** single dimensions of an array. It is important to understand that not only the organization of an array in rows and columns is changed, but also the sequence of the entries in the memory! The syntax of the command is `permuted = permute(array, [dimidx_dim1, dimidx_dim2, ..., dimidx_dimN]);`. Here, the second argument holds the numbers from $1$ to $N$ (where $N$ is the number of dimensions of an array, i.e. $N=2 $ for a matrix), that specify the permutation of the dimensions. In the array permuted, the first dimension will be the dimidx_dim1-th dimension of the old array array, the second dimension the dimidx_dim2-th dimension of the old array, etc.
+In the last example, the Matlab user might be annoyed that the imagesc-command projects the first dimension of the array (with length 500, thus e.g. the $x$ -axis of a photo in landscape format!) onto the $y$ -axis. The versatile command permute remedies this situation -- this command **swaps** single dimensions of an array. It is important to understand that not only the organization of an array in rows and columns is changed, but also the sequence of the entries in the memory! The syntax of the command is `permuted = permute(array, [dimidx_dim1, dimidx_dim2, ..., dimidx_dimN]);`. Here, the second argument holds the numbers from $1$ to $N$ (where $N$ is the number of dimensions of an array, i.e. $N=2 $ for a matrix), that specify the permutation of the dimensions. In the array permuted, the first dimension will be the dimidx_dim1-th dimension of the old array array, the second dimension the dimidx_dim2-th dimension of the old array, etc.
 
 In order to display the digital photo from our example correctly, we thus have to type:
 
@@ -251,7 +251,7 @@ a_permuted = permute(reshape(a, [500 375 3]), [2 1 3]);
 imagesc(a_permuted);
 ```
 
-This interchanges the $x$- and the $y$-direction, while the color information is preserved in the third dimension.
+This interchanges the $x$ - and the $y$ - direction, while the color information is preserved in the third dimension.
 
 `repmat`, another important command, duplicates an array or matrix along one or several dimensions. The syntax is similar to reshape,
 
@@ -340,7 +340,7 @@ ans =
 ```
 
 ## Example: Vectorization of a Program
-To close this chapter, we will discuss two examples of what to do when vectorizing a program. First, consider the problem of generating a $N$x$N$-Matrix with entries $a_{ij} = i \cdot j$.
+To close this chapter, we will discuss two examples of what to do when vectorizing a program. First, consider the problem of generating a $N$ x $N$ -Matrix with entries $a_{ij} = i \cdot j$.
 
 The tedious way via loops looks like this:
 
@@ -356,7 +356,7 @@ for i=1:N,
 end
 ```
 
-It is much simpler to first create a row vector of the numbers $1$ bis $N$, and subsequently duplicate this this vector via repmat to obtain a $N$x$N$-matrix. Finally, this matrix is multiplied element-wise with its transpose:
+It is much simpler to first create a row vector of the numbers $1$ bis $N$, and subsequently duplicate this this vector via repmat to obtain a $N$ x $N$ -matrix. Finally, this matrix is multiplied element-wise with its transpose:
 
 ```matlab
 N = 17;
@@ -368,7 +368,7 @@ manifold = repmat(onefold, [N 1]);
 a2 = manifold.*manifold';
 ```
 
-However, this is still not yet the pinnacle of elegance that can be reached. Thinking a little about this problem, one might come to the conclusion that the mathematical operation that is intended can be described as a matrix multiplication of a $N$x$1$-matrix with a $1$x$N$-matrix (the so-called outer product of two vectors):
+However, this is still not yet the pinnacle of elegance that can be reached. Thinking a little about this problem, one might come to the conclusion that the mathematical operation that is intended can be described as a matrix multiplication of a $N$ x $1$ -matrix with a $1$ x $N$ -matrix (the so-called outer product of two vectors):
 
 ```matlab
 N = 17;
@@ -378,7 +378,7 @@ onefold = 1:N;
 a3 = onefold'*onefold;
 ```
 
-As a second example we consider the following program: It defines two vectors with $x$- and $y$-coordinates, performs a translation of these coordinates and finally a rotation.
+As a second example we consider the following program: It defines two vectors with $x$ - and $y$ -coordinates, performs a translation of these coordinates and finally a rotation.
 
 ```matlab
 %%% Example: before vectorizing
