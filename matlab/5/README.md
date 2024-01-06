@@ -81,6 +81,7 @@ A lot of the aforementioned steps are not always clearly separable in practice. 
 ### Finding Prime Numbers
 
 ![Figure 5.1.](2022-04-15_17-35.png)
+
 Figure 5.1.: Flow chart of a ’brute-force’ prime number ﬁnder
 
 The task our example program has to solve is the calculation of all prime numbers in the interval from $1$ to $N$. Reminder: a prime number is a natural number that is only divisible without remainder by itself and by $1$. $1$ itself is no prime number.
@@ -140,6 +141,7 @@ prime_numbers = prime_numbers(1:idx_prime_number-1);
 ```
 
 ![Figure 5.2.](2022-04-15_17-35_1.png)
+
 Figure 5.2.: Flow chart for the ’Sieve of Eratosthenes’.
 
 For large $N$ this code will run for a long time, that is to say (running Matlab 6.1, Intel DualCore processor, $n=10000$) approximately 141 seconds.
@@ -256,6 +258,7 @@ fprintf('the mean number of steps used is %f ...\n', ...
 ```
 
 ![Figure 5.3.](2022-04-15_17-36.png)
+
 Figure 5.3.: Flow chart for the simulation of a diﬀusion process.
 
  
