@@ -21,7 +21,7 @@ It has to be distinguished between the discrete Fourier transformation and the c
 ### Fourier Integral
 The Fourier integral can be defined as follows:
 
-$$\hat{x}(\omega) =  { \frac{1}{2\pi}} \int_{-\infty}^{+\infty} x(t) \exp\left( -i\omega t \right) \, dt$$ 
+$$\hat{x}(\omega) =  \frac{1}{2\pi} \int_{-\infty}^{+\infty} x(t) \exp\left( -i\omega t \right) \, dt$$ 
 
 Attention: in the literature sometimes a pre-factor of $1/\sqrt{2\pi}$ is used. The factor in our definition is chosen such that it is compatible with the normalization of the Matlab-FFT which is described later on. The Fourier transformation is reversible; the correspondent reverse transformation is
 
@@ -41,7 +41,7 @@ Here, $i$ is the imaginary unit and $\Re$ and $\Im$ denote the real respectively
 
 If $x(t)$ is periodic, for example in $2\pi$, or if $x(t)$ is only defined in the interval $[0, 2\pi]$, this can be expressed as the Fourier series with coefficients $\hat{x}_k$:
 
-$$\hat{x}_k = {\frac{1}{2\pi}} \int_{0}^{2\pi} x(t) \exp\left( -ikt \right) \, dt$$ . (9.1)
+$$\hat{x}_k = \frac{1}{2\pi} \int_{0}^{2\pi} x(t) \exp\left( -ikt \right) \, dt$$ . (9.1)
 
 The reverse transformation is written as an infinite sum:
 
@@ -54,11 +54,11 @@ For further properties of the Fourier transformation you may consult the instruc
 ### Discrete Fourier Transformation
 In the computer, functions are defined on discrete sampling points in a finite interval. Let us assume a function $a(t)$ is sampled at $N$ equidistant points $t_n=Tn/N$, and the values at these points are $a_n=a(t_n)$. By the transformation $t'=(2\pi/T) t$ we transfer $a(t)$ to a function $x(t')$ in the interval $[0, 2\pi]$ and approximate the integral from equation (9.1) with the midpoint rule (see chapter Integration an Differentiation):
 
-$$\hat{x}_k = {\frac{1}{2\pi}} \int_{0}^{2\pi} x(t') \exp\left( -ikt' \right) \, dt'  \approx {\frac{1}{2\pi}} \sum_{n=0}^{N-1} a_n \exp\left( -ik 2\pi t_n/T \right) \Delta t' \,$$ .
+$$\hat{x}_k = \frac{1}{2\pi} \int_{0}^{2\pi} x(t') \exp\left( -ikt' \right) \, dt'  \approx {\frac{1}{2\pi}} \sum_{n=0}^{N-1} a_n \exp\left( -ik 2\pi t_n/T \right) \Delta t'$$ .
 
 Here, $\Delta t'$ is given by $(2\pi/T)(T/N)=2\pi/N$, which means that
 
-$$\hat{x}_k \approx A_k = {\frac{1}{N}} \sum_{n=0}^{N-1} a_n \exp\left( -i 2\pi nk/N \right)$$ . (9.2)
+$$\hat{x}_k \approx A_k = \frac{1}{N} \sum_{n=0}^{N-1} a_n \exp\left( -i 2\pi nk/N \right)$$ . (9.2)
 
 This equation describes the discrete Fourier transformation, the implementation of which we will discuss more extensively in the following paragraph. The corresponding reverse transformation is:
 
@@ -175,11 +175,11 @@ $$f(t) = F^{-1}\left.\left.\left[ \hat{f}(k) \right]\right( t \right)$$
 
 Now we apply the Fourier transform to both the left and the right side of the Definition (9.3) and gain after short computation,
 
-$$\hat{h}(k) = 2\pi \hat{f}(k) \hat{g}(k) \, ,$$
+$$\hat{h}(k) = 2\pi \hat{f}(k) \hat{g}(k)$$
 
 or, in short notation, $\hat{h} = 2\pi F[f] F[g]$. To get the sought result $h(t)$, we apply the inverse Fourier transform to the equation, which results in
 
-$$h  =  F^{-1}\left[ 2\pi F[f] \cdot F[g] \right] \, .$$ (9.4)
+$$h  =  F^{-1}\left[ 2\pi F[f] \cdot F[g] \right]$$ (9.4)
 
 The advantage of equation (9.4) over (9.3) lies in the computation speed of FFT: despite a three-fold transformation, calculating equation (9.4) is faster than computing the integral in (9.3), since the convolution integral corresponds to an element-wise multiplication of the Fourier coefficients in the Fourier space $k$ -- try to verify!
 
@@ -429,7 +429,7 @@ is minimized. This method is dubbed least squares method. It is not the only pos
 
 Usually the data points have an estimated error bar (the confidence interval), that we denote as $y_i\pm \sigma_i$. In this case we should change our fitting criterion such that points with bigger error bars have a smaller weight. Following this logic we define
 
-$$ \chi^2(a_1,\ldots,a_M) = \sum_{i=1}^N\left(\frac{\Delta_i}{\sigma_i}\right)^2 = \sum_{i=1}^N\frac{[Y(x_i;a_1,\ldots,a_M)-y_i]^2}{\sigma_i^2}$$ .
+$$\chi^2(a_1,\ldots,a_M) = \sum_{i=1}^N\left(\frac{\Delta_i}{\sigma_i}\right)^2 = \sum_{i=1}^N\frac{[Y(x_i;a_1,\ldots,a_M)-y_i]^2}{\sigma_i^2}$$ .
 
 ### Linear Regression
 We now want to fit a straight line to the data points,
