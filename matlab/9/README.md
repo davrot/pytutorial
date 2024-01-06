@@ -472,7 +472,7 @@ $$\sigma_{a_1} = \sqrt{\frac{\Sigma_{x^2}}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2}} , \
 
 As an example we consider:
 
-$$\hat{x}_k = \frac{1}{2\pi} \int_{0}^{2\pi} x(t') \exp\left( -ikt' \right) dt' \approx frac{1}{2\pi} \sum_{n=0}^{N-1} a_n \exp\left( -ik 2\pi t_n/T \right) \Delta t'$$
+$$\hat{x}_k = \frac{1}{2\pi} \int_{0}^{2\pi} x(t') \exp\left( -ikt' \right) dt' \approx \frac{1}{2\pi} \sum_{n=0}^{N-1} a_n \exp\left( -ik 2\pi t_n/T \right) \Delta t'$$
 
 Here the fit parameters are $a_1 = 0.1529 \pm 0.2633$ and $a_2 = 1.0939\pm 0.0670$. Note that the error bars $\sigma_{a_j}$ do not depend on the $y_i$. These error bars are thus no quantifier of the goodness of the fit.
 
