@@ -69,7 +69,7 @@ Schematically, the algorithm is as follows:
 * Specify an initial condition $\vec{x}_1$
 * Set the counter $n$ to $1$
 * While $t_n \leq t_{\mbox{max}}$:
-  - Evaluate the right side of the DES$\vec{F}_n$
+  - Evaluate the right side of the DES $\vec{F}_n$
   - Find the new places and velocities via $\vec{x}_{n+1} = \vec{x}_n + \vec{F}_n\tau$
   - Increase the counter by 1
     
@@ -93,15 +93,15 @@ $E = \frac{1}{2}m\left(\dot{x}^2+\dot{y}^2\right)+mgy$
 
 with gravitational acceleration $g$. From fig. 8.2, the following relations can be extracted:
 
-$x = L\sin{\Theta} $
+$$x = L\sin{\Theta} $$
 
-$y = -L\cos{\Theta} \, .$
+$$y = -L\cos{\Theta} \, .$$
 
 Taking the time derivation while considering $\dot{L} = 0$
 
-$\dot{x} = L\dot{\Theta}\cos{\Theta} $
+$$\dot{x} = L\dot{\Theta}\cos{\Theta}$$
 
-$\dot{y} = L\dot{\Theta}\sin{\Theta} $ .
+$$\dot{y} = L\dot{\Theta}\sin{\Theta}$$
 
 This yields
 
@@ -241,13 +241,13 @@ $\vec{x}\,^*(t+\frac{\tau}{2}) = \vec{x}(t)+\vec{F}(\vec{x},t)\frac{\tau}{2}$.
 
 It can be seen that
 
-$\vec{F}\left(\vec{x}\,^*(t+\frac{\tau}{2}),t+\frac{\tau}{2}\right) $
+$$\vec{F}\left(\vec{x}\,^*(t+\frac{\tau}{2}),t+\frac{\tau}{2}\right) =$$
 
-$ = \vec{F}(\vec{x},t)+\frac{\partial \vec{F}}{\partial \vec{x}}\Big|_{(\vec{x},t)}\vec{F}(\vec{x},t)\frac{\tau}{2}+ \frac{\partial \vec{F}}{\partial t}\Big|_{(\vec{x},t)}\frac{\tau}{2} +{\cal O}(\tau^2)$
+$$= \vec{F}(\vec{x},t)+\frac{\partial \vec{F}}{\partial \vec{x}}\Big|_{(\vec{x},t)}\vec{F}(\vec{x},t)\frac{\tau}{2}+ \frac{\partial \vec{F}}{\partial t}\Big|_{(\vec{x},t)}\frac{\tau}{2} +{\cal O}(\tau^2)$$
 
-$ = \dot{\vec{x}}(t)+\left(\frac{\partial \vec{F}}{\partial \vec{x}}\Big|_{(\vec{x},t)}\dot{\vec{x}}(t)+ \frac{\partial \vec{F}}{\partial t}\Big|_{(\vec{x},t)}\right)\frac{\tau}{2}+ {\cal O}(\tau^2)$
+$$= \dot{\vec{x}}(t)+\left(\frac{\partial \vec{F}}{\partial \vec{x}}\Big|_{(\vec{x},t)}\dot{\vec{x}}(t)+ \frac{\partial \vec{F}}{\partial t}\Big|_{(\vec{x},t)}\right)\frac{\tau}{2}+ {\cal O}(\tau^2)$$
 
-$ = \dot{\vec{x}}(t)+ \ddot{\vec{x}}(t)\frac{\tau}{2}+ {\cal O}(\tau^2) \, .$
+$$= \dot{\vec{x}}(t)+ \ddot{\vec{x}}(t)\frac{\tau}{2}+ {\cal O}(\tau^2) \, .$$
 
 This yields the Runge-Kutta method of 2. order
 
@@ -345,11 +345,11 @@ Both questions lead toward the so called adaptive methods, where the step width 
 
 With these two approximations, a relative error $\Delta$ can be approximated,
 
-$\Delta = \frac{|\vec{x}_k-\vec{x}_g|}{|\vec{x}_k|+\varepsilon} \, ,$
+$$\Delta = \frac{|\vec{x}_k-\vec{x}_g|}{|\vec{x}_k|+\varepsilon}$$
 
 with the machine precision $\varepsilon$. We want that this error is approximately equal to a given value $\Delta_0$. To achieve this, we recall that the local error of the Runge-Kutta method of 4. order is proportional to $\tau^5$. Thus, $\Delta$ is proportional to $\tau^5$. The step width has to be adjusted such that $\Delta_0 \propto \tau_0^5$. It follows for the approximated step width:
 
-$\tau_0 = S_1\tau\left(\frac{\Delta_0}{\Delta}\right)^{1/5} \, .$
+$$\tau_0 = S_1\tau\left(\frac{\Delta_0}{\Delta}\right)^{1/5}$$
 
 Here, $S_1 < 1$ is a "security factor", which assures that the approximated step width is not to big. A second "security factor" $S_2 > 1$ is introduced to prevent too large steps $\tau\to\tau_{new}$,
 
