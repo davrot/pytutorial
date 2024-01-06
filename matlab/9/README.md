@@ -25,7 +25,7 @@ $$\hat{x}(\omega) =  { \frac{1}{2\pi}} \int_{-\infty}^{+\infty} x(t) \exp\left( 
 
 Attention: in the literature sometimes a pre-factor of $1/\sqrt{2\pi}$ is used. The factor in our definition is chosen such that it is compatible with the normalization of the Matlab-FFT which is described later on. The Fourier transformation is reversible; the correspondent reverse transformation is
 
-$$x(t)  = \int_{-\infty}^{+\infty} \hat{x}(\omega) \exp\left( i\omega t \right) \, d\omega \,$$ .
+$$x(t)  = \int_{-\infty}^{+\infty} \hat{x}(\omega) \exp\left( i\omega t \right) \, d\omega $$ .
 
 If $x(t)$ is a real valued function, the transform $\hat{x}(\omega)$ is usually complex. For the existence of the Fourier transformation it is sufficient that $x(t)$ is absolutely integrable, i.e. $\int_{-\infty}^{+\infty} | x(t) | dt \, < \, \infty$ .
 
@@ -41,11 +41,11 @@ Here, $i$ is the imaginary unit and $\Re$ and $\Im$ denote the real respectively
 
 If $x(t)$ is periodic, for example in $2\pi$, or if $x(t)$ is only defined in the interval $[0, 2\pi]$, this can be expressed as the Fourier series with coefficients $\hat{x}_k$:
 
-$$\hat{x}_k = {\frac{1}{2\pi}} \int_{0}^{2\pi} x(t) \exp\left( -ikt \right) \, dt \,$$ . (9.1)
+$$\hat{x}_k = {\frac{1}{2\pi}} \int_{0}^{2\pi} x(t) \exp\left( -ikt \right) \, dt$$ . (9.1)
 
 The reverse transformation is written as an infinite sum:
 
-$$x(t) = \sum_{k=-\infty}^{+\infty} \hat{x}(t) \exp\left( ikt \right) \,$$ . 
+$$x(t) = \sum_{k=-\infty}^{+\infty} \hat{x}(t) \exp\left( ikt \right)$$ . 
 
 By rescaling of the t-axis by $t'=2\pi t/T$, a function $a(t)$ defined on an interval $[0, T]$ can always be mapped on a function $x(t')$ in the interval $[0, 2\pi]$, and thus can be transformed by equation (9.1).
 
@@ -58,11 +58,11 @@ $$\hat{x}_k = {\frac{1}{2\pi}} \int_{0}^{2\pi} x(t') \exp\left( -ikt' \right) \,
 
 Here, $\Delta t'$ is given by $(2\pi/T)(T/N)=2\pi/N$, which means that
 
-$$\hat{x}_k \approx A_k = {\frac{1}{N}} \sum_{n=0}^{N-1} a_n \exp\left( -i 2\pi nk/N \right) \,$$ . (9.2)
+$$\hat{x}_k \approx A_k = {\frac{1}{N}} \sum_{n=0}^{N-1} a_n \exp\left( -i 2\pi nk/N \right)$$ . (9.2)
 
 This equation describes the discrete Fourier transformation, the implementation of which we will discuss more extensively in the following paragraph. The corresponding reverse transformation is:
 
-$$a_n = \sum_{k=0}^{N-1} A_k \exp\left( i 2\pi nk/N \right) \,$$ .
+$$a_n = \sum_{k=0}^{N-1} A_k \exp\left( i 2\pi nk/N \right)$$ .
 
 ### Fast Fourier Transform (FFT)
 The discrete Fourier transformation is invoked in Matlab by the command a_trans = fft(a);, where $a$ is a function or time series. The fast Fourier transform is an algorithm that is optimized for a fast execution of the transformation. It is based on the idea to first divide a function of $N$ sampling points into two function of $N/2$ sampling points, and then to compute two Fourier transformations on the partial functions and combining the two results to the sought transformation of the full function. This procedure can be iteratively extended: further partial function then have $N/4$, $N/8$, $\ldots$ sampling points. The reverse transformation, the inverse Fourier transformation, is invoked by the command ifft.
@@ -391,7 +391,7 @@ Figure 9.6.: Hit-and-miss method: draw two uniformly distributed random numbers 
 
 The hit-and-miss method can be very time consuming. It is easier if the inverse function of the primitive $F$ of $\rho$ can be calculated. The idea is to start out with a uniformly distributed random number $y$ and find a transformation $x = g(y)$ such that the probabilities $\rho_u(y)\,dy$ and $\rho(x)\,dx$ are equal. With $\rho_u(y)=1$ one can derive
 
-$$y  = F(x) = \int_{-\infty}^x \rho(x') \, dx' \,$$ , 
+$$y  = F(x) = \int_{-\infty}^x \rho(x') \, dx'$$ , 
 
 and thus $x = g(y) = F^{-1}(y)$. Is $F^{-1}$ known, one simply draws the uniformly distributed random numbers $y$ and calculates the sought random numbers $x$ from the inverse function. If $F^{-1}$ can not be found analytically, there are two possibilities:
 
@@ -401,7 +401,7 @@ The primitive $F$ can be numerically approximated as the integral of $\rho$ with
 ##### Tabulation.
 If many random number have to be drawn, the inverse function $F^{-1}(y)$ can first be tabulated. For this one is advised to use equidistant sampling points $y_j$. In order to then draw a random number $x$ from $\rho(x)$, again first a random number $y_1$ is taken from a uniform distribution, and then the neighboring values $y_j$ and $y_{j+1}$ are found, for which $y_j \leq y_1 < y_{j+1}$. With another random number $y_2$ from a uniform distribution in the interval $[0, 1[$ the random number $x$ is:
 
-$$x  =  y_2 (F^{-1}(y_{j+1})-F^{-1}(y_j)) + F^{-1}(y_j) \,$$ .
+$$x  =  y_2 (F^{-1}(y_{j+1})-F^{-1}(y_j)) + F^{-1}(y_j)$$ .
 
 ## Regression Analysis
 Analysis of measured data is an important part in evaluating physical theories and models. Usually, some parameters of the physical models have to be fitted to the data and then the adapted model shall be scrutinized whether it describes the data well. The mandatory techniques of parameter fitting as well as the evaluation of the goodness of a fit will be discussed in the following.
@@ -419,7 +419,7 @@ Figure 9.7.: Fitting a curve to data points.
 
 It is the aim to adjust the values of these parameters such that the function $Y(x;a_1,\ldots,a_M)$ represents the date as well as possible. Intuitively we would assume that in case a fit is good, the graph of the function $Y(x;a_1,\ldots,a_M)$ will lie close to the points $(x_i,y_i)$ (see figure 9.7). We can quantify this statement by measuring the deviations between the data points and the function
 
-$$\Delta_i = Y(x_i;a_1,\ldots,a_M)-y_i \,$$ .
+$$\Delta_i = Y(x_i;a_1,\ldots,a_M)-y_i$$ .
 
 We choose our fitting criterion such that the sum of the squares of the deviations becomes minimal. This means that we have to tune our parameter values $a_1,\ldots,a_M$ such that the "cost function"
 
@@ -429,12 +429,12 @@ is minimized. This method is dubbed least squares method. It is not the only pos
 
 Usually the data points have an estimated error bar (the confidence interval), that we denote as $y_i\pm \sigma_i$. In this case we should change our fitting criterion such that points with bigger error bars have a smaller weight. Following this logic we define
 
-$$ \chi^2(a_1,\ldots,a_M) = \sum_{i=1}^N\left(\frac{\Delta_i}{\sigma_i}\right)^2 = \sum_{i=1}^N\frac{[Y(x_i;a_1,\ldots,a_M)-y_i]^2}{\sigma_i^2} \,$$ .
+$$ \chi^2(a_1,\ldots,a_M) = \sum_{i=1}^N\left(\frac{\Delta_i}{\sigma_i}\right)^2 = \sum_{i=1}^N\frac{[Y(x_i;a_1,\ldots,a_M)-y_i]^2}{\sigma_i^2}$$ .
 
 ### Linear Regression
 We now want to fit a straight line to the data points,
  
-$$Y(x;a_1,a_2) = a_1+a_2 x \,$$ .
+$$Y(x;a_1,a_2) = a_1+a_2 x$$ .
 
 This type of fitting is called linear regression. The two parameters $a_1$ and $a_2$ have to be chosen such that
 
@@ -444,13 +444,13 @@ becomes minimal. The minimum can be found by taking the derivation of the equati
 
 $$\frac{\partial \chi^2}{\partial a_1}  =  2\sum_{i=1}^N\frac{a_1+a_2 x_i-y_i}{\sigma_i^2} = 0$$
 
-$$\frac{\partial \chi^2}{\partial a_2} = 2\sum_{i=1}^Nx_i \frac{a_1+a_2 x_i-y_i}{\sigma_i^2} = 0 \,$$
+$$\frac{\partial \chi^2}{\partial a_2} = 2\sum_{i=1}^Nx_i \frac{a_1+a_2 x_i-y_i}{\sigma_i^2} = 0$$
 
 We now introduce the following quantities
 
 $$\Sigma = \sum_{i=1}^N \frac{1}{\sigma_i^2}, \quad \Sigma_x = \sum_{i=1}^N\frac{x_i}{\sigma_i^2}, \quad \Sigma_y = \sum_{i=1}^N\frac{y_i}{\sigma_i^2},$$
 
-$$\Sigma_{x^2} = \sum_{i=1}^N\frac{x_i^2}{\sigma_i^2}, \quad \Sigma_{xy} = \sum_{i=1}^N\frac{x_iy_i}{\sigma_i^2} \,$$
+$$\Sigma_{x^2} = \sum_{i=1}^N\frac{x_i^2}{\sigma_i^2}, \quad \Sigma_{xy} = \sum_{i=1}^N\frac{x_iy_i}{\sigma_i^2}$$
 
 These sums are calculated directly from the data points, are thus known constants. Hence we can rewrite the previous system of equations as
 
@@ -460,19 +460,19 @@ $$a_1\Sigma_x+a_2\Sigma_{x^2}-\Sigma_{xy}  =  0$$
 
 This is a system of linear equations with two unknowns $a_1$ and $a_2$. The solutions are
 
-$$a_1 = \frac{\Sigma_y\Sigma_{x^2}- \Sigma_x\Sigma_{xy}}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2}, \quad a_2 = \frac{\Sigma\Sigma_{xy}-\Sigma_y\Sigma_{x}}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2} \,$$ (9.6)
+$$a_1 = \frac{\Sigma_y\Sigma_{x^2}- \Sigma_x\Sigma_{xy}}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2}, \quad a_2 = \frac{\Sigma\Sigma_{xy}-\Sigma_y\Sigma_{x}}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2}$$ (9.6)
 
 In a second step we want to estimate the error bars for the parameters $a_1$ and $a_2$. We use the law of error propagation
 
-$$\sigma_{a_j}^2 = \sum_{i=1}^N\left(\frac{\partial a_j}{\partial y_i}\right)^2\sigma_i^2 \,$$
+$$\sigma_{a_j}^2 = \sum_{i=1}^N\left(\frac{\partial a_j}{\partial y_i}\right)^2\sigma_i^2$$
 
 Insertion of the equations (9.6) yields
 
-$$\sigma_{a_1} = \sqrt{\frac{\Sigma_{x^2}}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2}} , \quad \sigma_{a_2} = \sqrt{\frac{\Sigma}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2}} \,$$ .
+$$\sigma_{a_1} = \sqrt{\frac{\Sigma_{x^2}}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2}} , \quad \sigma_{a_2} = \sqrt{\frac{\Sigma}{\Sigma\Sigma_{x^2}-(\Sigma_x)^2}}$$ .
 
 As an example we consider:
 
-$$\hat{x}_k = \frac{1}{2\pi} \int_{0}^{2\pi} x(t') \exp\left( -ikt' \right) \, dt' \approx frac{1}{2\pi} \sum_{n=0}^{N-1} a_n \exp\left( -ik 2\pi t_n/T \right) \Delta t' \,$$
+$$\hat{x}_k = \frac{1}{2\pi} \int_{0}^{2\pi} x(t') \exp\left( -ikt' \right) \, dt' \approx frac{1}{2\pi} \sum_{n=0}^{N-1} a_n \exp\left( -ik 2\pi t_n/T \right) \Delta t'$$
 
 Here the fit parameters are $a_1 = 0.1529 \pm 0.2633$ and $a_2 = 1.0939\pm 0.0670$. Note that the error bars $\sigma_{a_j}$ do not depend on the $y_i$. These error bars are thus no quantifier of the goodness of the fit.
 
@@ -487,18 +487,18 @@ $$|y_i-Y(x_i)| \approx \sigma_i \, .$$
 
 Insertion into the definition of $\chi^2$ in
 
-$$\chi^2(a_1,\ldots,a_M) = \sum_{i=1}^N\left(\frac{\Delta_i}{\sigma_i}\right)^2 = \sum_{i=1}^N\frac{[Y(x_i;a_1,\ldots,a_M)-y_i]^2}{\sigma_i^2} \,$$ .
+$$\chi^2(a_1,\ldots,a_M) = \sum_{i=1}^N\left(\frac{\Delta_i}{\sigma_i}\right)^2 = \sum_{i=1}^N\frac{[Y(x_i;a_1,\ldots,a_M)-y_i]^2}{\sigma_i^2}$$ .
 
 yields $\chi^2 \approx N$. The more parameters are used, the better the fit will be. For the case of $N=M$, the fit will be exact. For the case of the straight line, this simply means that to $N=2$ points, we can always exactly fit a straight line ($M=2$). Thus, a good criterion for the goodness of the fit is
 
-$$\chi^2 \approx N-M \,$$ .
+$$\chi^2 \approx N-M$$ .
 
 As an example we again refer to fig. 9.8. Here, $\chi^2 \approx 4.5$ and $N-M = 8$. The goodness of the fit is thus quite high.
 
 ### Non-linear Regression
 In many cases, the fitting of a non-linear function can be broken down through a clever variable transformation to the fitting of a linear function. As the first example, the commonly occurring case
 
-$$Z(x;\alpha,\beta) = \alpha e^{\beta x} \,$$
+$$Z(x;\alpha,\beta) = \alpha e^{\beta x}$$
 
 shall be observed. One thinks for example of exponential decays. With the variable transformation
 
@@ -506,11 +506,11 @@ $$Y = \ln{Z}, \quad a_1 = \ln{\alpha}, \quad a_2 = \beta$$
 
 we get the linear function
 
-$$Y(x;a_1,a_2) = a_1+a_2 x \,$$.
+$$Y(x;a_1,a_2) = a_1+a_2 x$$.
 
 A second example are power laws of the type
 
-$$Z(t;\alpha,\beta) = \alpha t^\beta \,$$ .
+$$Z(t;\alpha,\beta) = \alpha t^\beta$$ .
 
 the variable transformation
 
