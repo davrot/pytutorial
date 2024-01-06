@@ -41,7 +41,7 @@ Here, $i$ is the imaginary unit and $\Re$ and $\Im$ denote the real respectively
 
 If $x(t)$ is periodic, for example in $2\pi$, or if $x(t)$ is only defined in the interval $[0, 2\pi]$, this can be expressed as the Fourier series with coefficients $\hat{x}_k$:
 
-$$\hat{x}_k = \frac{1}{2\pi} \int_{0}^{2\pi} x(t) \exp\left( -ikt \right) \, dt$$ . (9.1)
+$$\hat{x}_k = \frac{1}{2\pi} \int_{0}^{2\pi} x(t) \exp\left( -ikt \right) dt$$ . (9.1)
 
 The reverse transformation is written as an infinite sum:
 
@@ -169,9 +169,9 @@ Here, $g$ is often referred to as convolution kernel. The procedure of a convolu
 
 Applications of this equation are numerous in physics, and reach from simple filter operations to timely resolved frequency analysis (examples will be discussed later). First, we want to understand the connection between convolutions and the Fourier transformation. As a short notation of the application of the Fourier transform $F$ to a function $f$ (resp. its reverse transformation $F^{-1}$) we introduce:
 
-$$\hat{f}(k) = F\left.\left.\left[ f(t) \right]\right( k \right)$$
+$$\hat{f}(k) = F\left.\left.\left[ f(t) \right]\right) k \right)$$
 
-$$f(t) = F^{-1}\left.\left.\left[ \hat{f}(k) \right]\right( t \right)$$
+$$f(t) = F^{-1}\left.\left.\left[ \hat{f}(k) \right]\right) t \right)$$
 
 Now we apply the Fourier transform to both the left and the right side of the Definition (9.3) and gain after short computation,
 
@@ -263,7 +263,7 @@ Here, $\tau$ denotes the delay between the 'leading' signal $f$ and the for $\ta
 
 Equation (9.5) is not directly a convolution, this means one has to be careful when applying the convolution theorem. Utilizing that $F[f(-t)](k) = \hat{f}(-k)$ it holds:
 
-$$C(\tau) = F^{-1}\left[\left.\left. 2\pi F[ f(t) ](k) F[ g(t) ](-k) \right]\right(-\tau\right)$$
+$$C(\tau) = F^{-1}\left[\left.\left. 2\pi F[ f(t) ](k) F[ g(t) ](-k) \right]\right)-\tau\right)$$
 
  
 
@@ -282,7 +282,7 @@ $$w(x, y, \tau) \propto \int r(t) s(x, y, t-\tau) dt$$
 
 After application of the convolution theorem, we get:
 
-$$w(x, y, \tau) = F^{-1}\left[\left.\left. 2\pi F[ r(t) ](k) F[ s(x, y, t) ](-k) \right]\right(\tau\right)$$
+$$w(x, y, \tau) = F^{-1}\left[\left.\left. 2\pi F[ r(t) ](k) F[ s(x, y, t) ](-k) \right]\right)\tau\right)$$
 
 #### Recurrent Networks.
 Neuronal networks usually have a one- or two-dimensional topology, where a neuron at position $x$ is coupled to a neuron at position $x'$ by a weight of magnitude $w(x, x')$. The dynamics of such a network are usually described as a differential equation for the neuronal activities $A(x, t)$ in the following form:
