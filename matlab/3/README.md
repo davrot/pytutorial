@@ -51,7 +51,7 @@ $3x+y = 1 $
 
 can be formulated elegantly:
 
-$$ \left(\begin{array}{cc} 1 & 2 \\ 3 & 1 \end{array}\right) \left(\begin{array}{c} x & y \end{array}\right) = \left(\begin{array}{c} 3 & 1 \end{array}\right) $$
+$$ \left(\begin{array}{cc} 1 & 2 \\ 3 & 1 \end{array}\right) \left(\begin{array}{c} x & y \end{array}\right) = \left(\begin{matrix} 3 & 1 \end{matrix}\right) $$
 
 respectively
 
