@@ -67,7 +67,7 @@ $f(x) = f(x_i)+f'(x_i)(x-x_i) + f''(x_i)\frac{(x-x_i)^2}{2} + f'''(x_i)\frac{(x-
 
 Substitution shows that some terms vanish
 
-$I_i  =  f(x_i)\Delta x+f'(x_i)\frac{(x-x_i)^2}{2}\Big|_{x_i-\Delta x/2}^{x_i+ \Delta x/2}+f''(x_i)\frac{(x-x_i)^3}{6}\Big|_{x_i-\Delta x/2}^{x_i+  \Delta x/2}  +f'''(x_i)\frac{(x-x_i)^4}{24}\Big|_{x_i-\Delta x/2}^{x_i+ \Delta x/2} + {\cal O}(\Delta x^5) $
+$I_i  =  f(x_i)\Delta x + \left. f'(x_i)\frac{(x-x_i)^2}{2}\right\vert_{x_i-\Delta x/2}^{x_i+ \Delta x/2} + \left. f''(x_i)\frac{(x-x_i)^3}{6}\right\vert_{x_i-\Delta x/2}^{x_i+  \Delta x/2}  + \left. f'''(x_i)\frac{(x-x_i)^4}{24}\right\vert_{x_i-\Delta x/2}^{x_i+ \Delta x/2} + {\cal O}(\Delta x^5) $
 
 $I_i = f(x_i)\Delta x+ f''(x_i)\frac{\Delta x^3}{24}+{\cal O}(\Delta x^5)$
 
