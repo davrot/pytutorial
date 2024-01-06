@@ -243,9 +243,9 @@ It can be seen that
 
 $$\vec{F}\left(\vec{x}\,^*(t+\frac{\tau}{2}),t+\frac{\tau}{2}\right) =$$
 
-$$= \vec{F}(\vec{x},t)+\frac{\partial \vec{F}}{\partial \vec{x}}\Big|_{(\vec{x},t)}\vec{F}(\vec{x},t)\frac{\tau}{2}+ \frac{\partial \vec{F}}{\partial t}\Big|_{(\vec{x},t)}\frac{\tau}{2} +{\cal O}(\tau^2)$$
+$$= \vec{F}(\vec{x},t)+ \left. \frac{\partial \vec{F}}{\partial \vec{x}}\right\vert_{(\vec{x},t)}\vec{F}(\vec{x},t)\frac{\tau}{2}+ \left. \frac{\partial \vec{F}}{\partial t}\right\vert_{(\vec{x},t)}\frac{\tau}{2} +{\cal O}(\tau^2)$$
 
-$$= \dot{\vec{x}}(t)+\left(\frac{\partial \vec{F}}{\partial \vec{x}}\Big|_{(\vec{x},t)}\dot{\vec{x}}(t)+ \frac{\partial \vec{F}}{\partial t}\Big|_{(\vec{x},t)}\right)\frac{\tau}{2}+ {\cal O}(\tau^2)$$
+$$= \dot{\vec{x}}(t)+\left(\left. \frac{\partial \vec{F}}{\partial \vec{x}}\right\vert_{(\vec{x},t)}\dot{\vec{x}}(t)+ \left. \frac{\partial \vec{F}}{\partial t}\right\vert_{(\vec{x},t)}\right)\frac{\tau}{2}+ {\cal O}(\tau^2)$$
 
 $$= \dot{\vec{x}}(t)+ \ddot{\vec{x}}(t)\frac{\tau}{2}+ {\cal O}(\tau^2) \, .$$
 
