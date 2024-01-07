@@ -23,7 +23,7 @@ This is an optional topic!
 
 ### ttk.Spinbox
 
-!(image_sb)[image_sb.png]
+![image_sb](image_sb.png)
 
 ```python
 # %%
