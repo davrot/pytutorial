@@ -21,7 +21,32 @@ This is an optional topic!
 ```shell
 ```
 
-### ttk.Spinbox
+### [ttk.Spinbox](https://docs.python.org/3/library/tkinter.ttk.html#spinbox)
+
+```python
+class tkinter.ttk.Spinbox
+```
+
+> **get()**
+> Returns the current value of the spinbox.
+> 
+> **set(value)**
+> 
+> Sets the value of the spinbox to value.
+
+> Virtual events
+> 
+> The spinbox widget generates an <<Increment>> virtual event when the user presses <Up>, and a <<Decrement>> virtual event when the user presses <Down>.
+
+|Option|Description|
+|---|---|
+|from|Float value. If set, this is the minimum value to which the decrement button will decrement. Must be spelled as from_ when used as an argument, since from is a Python keyword.|
+|to|Float value. If set, this is the maximum value to which the increment button will increment.|
+|increment|Float value. Specifies the amount which the increment/decrement buttons change the value. Defaults to 1.0.|
+|values|Sequence of string or float values. If specified, the increment/decrement buttons will cycle through the items in this sequence rather than incrementing or decrementing numbers.|
+|wrap|Boolean value. If True, increment and decrement buttons will cycle from the to value to the from value or the from value to the to value, respectively.|
+|format|String value. This specifies the format of numbers set by the increment/decrement buttons. It must be in the form “%W.Pf”, where W is the padded width of the value, P is the precision, and ‘%’ and ‘f’ are literal.|
+|command|Python callable. Will be called with no arguments whenever either of the increment or decrement buttons are pressed.|
 
 ![image_sb](image_sb.png)
 
