@@ -21,6 +21,43 @@ This is an optional topic!
 ```shell
 ```
 
+### ttk.Spinbox
+
+!(image_sb)[image_sb.png]
+
+```python
+# %%
+import tkinter as tk
+from tkinter import ttk
+
+root = tk.Tk()
+
+number_of_patches: int = 10
+width_label: int = 20
+width_element: int = 10
+
+row_id: int = 0
+column_id: int = 0
+
+frame = ttk.LabelFrame(root, text="Spin Box")
+frame.grid(row=row_id, column=column_id, sticky="nw", pady=5)
+
+label_number_of_patches = ttk.Label(frame, text="SpinBox Text", width=width_label)
+label_number_of_patches.grid(row=0, column=0, sticky="w")
+
+spinbox_number_of_patches = ttk.Spinbox(
+    frame,
+    values=list(f"{x:d}" for x in range(1, 301)),
+    width=width_element,
+)
+spinbox_number_of_patches.grid(row=0, column=1, sticky="w")
+spinbox_number_of_patches.set(number_of_patches)
+
+root.mainloop()
+
+del root
+```
+
 ## [tk.Canvas](https://tkinter-docs.readthedocs.io/en/latest/widgets/canvas.html)
 
 ```python
