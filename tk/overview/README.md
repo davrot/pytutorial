@@ -51,9 +51,13 @@ class tkinter.ttk.Spinbox
 ![image_sb](image_sb.png)
 
 ```python
-# %%
 import tkinter as tk
 from tkinter import ttk
+
+
+def changed() -> None:
+    print("Changed")
+
 
 root = tk.Tk()
 
@@ -74,6 +78,7 @@ spinbox_number_of_patches = ttk.Spinbox(
     frame,
     values=list(f"{x:d}" for x in range(1, 301)),
     width=width_element,
+    command=changed,
 )
 spinbox_number_of_patches.grid(row=0, column=1, sticky="w")
 spinbox_number_of_patches.set(number_of_patches)
