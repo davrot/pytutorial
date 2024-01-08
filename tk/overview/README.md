@@ -120,6 +120,9 @@ Widget options:
 |yscrollcommand=|Specifies the prefix for a command used to communicate with vertical scrollbars. This option is treated in the same way as the xscrollcommand option, except that it is used for vertical scrollbars and is provided by widgets that support vertical scrolling. See the description of xscrollcommand for details on how this option is used. The default value is to call no function.|
 |yscrollincrement=|Specifies an increment for vertical scrolling, in the form of any valid Tk length. If the value of this option is greater than zero, the vertical view in the window will be constrained so that the canvas y coordinate at the top edge of the window is always an even multiple of yscrollincrement; furthermore, the units for scrolling (e.g., the change in view when the top and bottom arrows of a scrollbar are selected) will also be yscrollincrement. If the value of this option is less than or equal to zero, then vertical scrolling is unconstrained. The default value is 0.|
 
+![image_logo](image_logo.png)
+
+[Test image](ISee2.png)
 
 ```python
 import tkinter as tk
@@ -127,32 +130,27 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import os
 
+root = tk.Tk()
 
-class GUILogoGUI:
-    logo: tk.Canvas
-    logo_image: int
-    my_tk_root: tk.Tk
+logo_filename: str = os.path.join("ISee2.png")
+pil_image = Image.open(logo_filename)
+pil_imagetk = ImageTk.PhotoImage(pil_image)
+canvas_width: int = pil_image.width
+canvas_height: int = pil_image.height
 
-    pic_path: str = os.path.join("gui", "logo")
+logo = tk.Canvas(root, width=canvas_width, height=canvas_height)
+logo.pack()
 
-    def __init__(self, tk_root: tk.Tk):
-        self.my_tk_root = tk_root
+logo_image = logo.create_image(
+    0,
+    0,
+    anchor=tk.NW,
+    image=pil_imagetk,
+)
 
-        logo_filename: str = os.path.join(self.pic_path, "ISee2.png")
-        pil_image = Image.open(logo_filename)
-        self.pil_imagetk = ImageTk.PhotoImage(pil_image)
-        canvas_width: int = pil_image.width
-        canvas_height: int = pil_image.height
+root.mainloop()
 
-        self.logo = tk.Canvas(self.my_tk_root, width=canvas_width, height=canvas_height)
-        self.logo.pack()
-
-        self.logo_image = self.logo.create_image(
-            0,
-            0,
-            anchor=tk.NW,
-            image=self.pil_imagetk,
-        )
+del root
 ```
 
 
