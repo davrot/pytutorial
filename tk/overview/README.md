@@ -23,6 +23,66 @@ This is an optional topic!
 
 ## [ttk.Button](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Button.html)
 
+```python
+w = ttk.Button(parent, option=value, ...)
+```
+
+|Option|Description|
+|---|---|
+|command|	A function to be called when the button is pressed.|
+|compound|If you provide both image and text options, the compound option specifies the position of the image relative to the text. The value may be tk.TOP (image above text), tk.BOTTOM (image below text), tk.LEFT (image to the left of the text), or tk.RIGHT (image to the right of the text). When you provide both image and text options but don't specify a compound option, the image will appear and the text will not.|
+|cursor|	The cursor that will appear when the mouse is over the button; see Section 5.8, “Cursors”.|
+|image|	An image to appear on the button; see Section 5.9, “Images”.|
+|style|	The style to be used in rendering this button; see Section 49, “Using and customizing ttk styles”.|
+|takefocus|	By default, a ttk.Button will be included in focus traversal; see Section 53, “Focus: routing keyboard input”. To remove the widget from focus traversal, use takefocus=False.|
+|text|	The text to appear on the button, as a string.|
+|textvariable|	A variable that controls the text that appears on the button; see Section 52, “Control variables: the values behind the widgets”.|
+|underline|	If this option has a nonnegative value n, an underline will appear under the character at position n.|
+|width|	If the label is text, this option specifies the absolute width of the text area on the button, as a number of characters; the actual width is that number multiplied by the average width of a character in the current font. For image labels, this option is ignored. The option may also be configured in a style.|
+
+
+![image_button.png](image_button.png)
+
+```python
+import tkinter as tk
+from tkinter import ttk
+
+
+def changed() -> None:
+    print("Changed")
+
+
+root = tk.Tk()
+
+number_of_patches: int = 10
+width_label: int = 20
+width_element: int = 10
+
+row_id: int = 0
+column_id: int = 0
+
+frame = ttk.LabelFrame(root, text="Button")
+frame.grid(row=row_id, column=column_id, sticky="nw", pady=5)
+
+label_number_of_patches = ttk.Label(frame, text="Button Text", width=width_label)
+label_number_of_patches.grid(row=0, column=0, sticky="w")
+
+a_button = ttk.Button(
+    frame,
+    text="Don't press",
+    width=width_element,
+    command=changed,
+)
+a_button.grid(row=0, column=1, sticky="w")
+
+
+root.mainloop()
+
+del root
+```
+
+
+
 ## [ttk.Checkbutton](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Checkbutton.html)
 
 ## [ttk.Combobox](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Combobox.html)
