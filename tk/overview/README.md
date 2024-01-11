@@ -255,5 +255,70 @@ root.mainloop()
 del root
 ```
 
+### Movie
 
+```python
+import tkinter as tk
+from PIL import Image, ImageTk
+import numpy as np
+import time
+
+
+# Create a window
+window = tk.Tk()
+
+# Create a canvas
+canvas = tk.Canvas(window, width=500, height=500)
+canvas.pack()
+
+# Put an initial image into the canvas
+image_array = np.full((500, 500, 3), 0, dtype=np.uint8)
+img = ImageTk.PhotoImage(image=Image.fromarray(image_array))
+image_item = canvas.create_image(0, 0, anchor=tk.NW, image=img)
+
+
+i = 0
+start_time = time.perf_counter()
+end_time = start_time
+
+
+def update_image():
+    global i
+    global start_time
+    global end_time
+    global image_item
+    global image_array
+    global canvas
+
+    image_array[:] = int(i)
+
+    # Convert the Image object into a TkPhoto object
+    img = ImageTk.PhotoImage(image=Image.fromarray(image_array))
+
+    # Update the image
+    canvas.itemconfig(image_item, image=img)
+
+    # Save a reference to the image (Tkinter needs this to prevent the image from being garbage collected)
+    canvas.img = img
+
+    # Changing the brightness
+    i += 1
+    if i > 255:
+        i = 0
+
+    # Measuring time
+    end_time = start_time
+    start_time = time.perf_counter()
+    print(f"{i}: {(start_time - end_time) * 1000.0:.2f}ms")
+
+    # Schedule the next update
+    window.after(1, update_image)
+
+
+# Start the update process
+update_image()
+
+# Start the main loop
+window.mainloop()
+```
         
