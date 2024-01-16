@@ -209,7 +209,7 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 * [Graphics](matlab/4/README.md)
 * [Systematic Programming](matlab/5/README.md)
 * [Vectorization and Vector Calculus in Matlab](matlab/6/README.md)
-* [Integration and Differentiation](matlab/7/README.md)
+* [Integration and Differentiation](matlab/7/README.md) (Matlab and Python code)
 * [Differential Equations](matlab/8/README.md) (Matlab and Python code)
 * [Data Analysis](matlab/9/README.md)
 
