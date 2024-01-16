@@ -134,20 +134,66 @@ Figure 7.4.: Comparison of the absolute errors between the trapezoid rule and Si
 ## Integration with Matlab
 Matlab provides several routines for integration. The most important one for one-dimensional integrals is
 
-```python
+```matlab
 y = quad(f,a,b);
 ```
 
 Here, $f$ is the integrand function and $a$ and $b$ are the boundaries of the interval. This routines uses an adaptive Simpson rule. It is adaptive in the sense that more supporting points are used where the function varies strongly. Invoking the routine can be done by
 
-```python
+```matlab
 y = quad(@(x)exp(x),0,1);
 ```
 
 or
 
-```python
+```matlab
 y = quad(@(x)1.0./(1.0+x.\pow 2),0,1);
+```
+
+## Integration with Python
+
+[scipy.integrate.quad](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quad.html)
+
+```python
+scipy.integrate.quad(func, a, b, args=(), full_output=0, epsabs=1.49e-08, epsrel=1.49e-08, limit=50, points=None, weight=None, wvar=None, wopts=None, maxp1=50, limlst=50, complex_func=False)[source]
+```
+
+> Compute a definite integral.
+> 
+> Integrate func from a to b (possibly infinite interval) using a technique from the Fortran library QUADPACK.
+
+```python
+import scipy
+import numpy as np
+
+
+# Define the function to integrate
+def function(x):
+    return np.exp(x)
+
+
+# Perform the integration from 0 to 1
+y, _ = scipy.integrate.quad(func=function, a=0, b=1)
+
+print(y) # -> 1.7182818284590453
+```
+
+or
+
+```python
+import scipy
+import numpy as np
+
+
+# Define the function to integrate
+def function(x):
+    return 1.0 / (1.0 + x**2)
+
+
+# Perform the integration from 0 to 1
+y, _ = scipy.integrate.quad(func=function, a=0, b=1)
+
+print(y)  # -> 0.7853981633974484
 ```
 
 ## Miscellaneous
