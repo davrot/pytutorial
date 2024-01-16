@@ -215,6 +215,66 @@ rhs = [s(2); -sin(s(1))];
 return;
 ```
 
+#### Python version:
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import typing
+
+
+def derive_pendulum(t: float, s: np.ndarray):
+    return np.array([s[1], -np.sin(s[0])])
+
+
+def euler_integration(t: float, x: np.ndarray, tau: float, derivs: typing.Callable):
+    return x + tau * derivs(t, x)
+
+
+# set initial conditions and constants
+try:
+    theta0: float = float(input("initial angle = "))
+except ValueError:
+    theta0 = 90
+    print(f"theta0 = {theta0}°")
+
+x: np.ndarray = np.array([theta0 * np.pi / 180, 0])
+
+try:
+    tmax: float = float(input("time = "))
+except ValueError:
+    tmax = 100
+    print(f"tmax = {tmax}")
+
+try:
+    tau: float = float(input("step width = "))
+except ValueError:
+    tau = 0.001
+    print(f"tau = {tau}")
+
+time: np.ndarray = np.linspace(
+    start=0,
+    stop=tmax,
+    num=int(np.ceil(tmax / tau)),
+    endpoint=True,
+)
+
+t_plot = np.zeros_like(time)
+th_plot = np.zeros_like(time)
+
+for i, t in enumerate(time):
+    # remember angle and time
+    t_plot[i] = t
+    th_plot[i] = x[0] * 180 / np.pi
+
+    x = euler_integration(t, x, tau, derive_pendulum)
+
+# figure
+plt.plot(t_plot, th_plot)
+plt.xlabel("time")
+plt.ylabel("theta")
+plt.show()
+```
+
 All three sub-program can be written in one file. However, for this, the main program has to be also defined as a function.
 
 Fig. 8.4(a) shows a solution of the equation of motion by the method of Euler with step width $\tau = 0.1$. We observe that the amplitude, and hence the energy, of the oscillation increases strongly with time. This violates energy conservation and has to be considered an artifact of the discretization of time. The non-physical increase of energy can be slowed down by choosing a smaller step width. This is demonstrated in fig.8.4(b) for the case of $\tau =0.05$. Unfortunately, the deviation from the true solution is still considerable, despite the small step width.
