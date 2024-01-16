@@ -514,8 +514,11 @@ scipy.integrate.solve_ivp(fun, t_span, y0, method='RK45', t_eval=None, dense_out
 > 
 > This function numerically integrates a system of ordinary differential equations given an initial value:
 > 
+
 $$dy / dt = f(t, y)$$
+
 $$y(t0) = y0$$
+
 > Here t is a 1-D independent variable (time), y(t) is an N-D vector-valued function (state), and an N-D vector-valued function f(t, y) determines the differential equations. The goal is to find y(t) approximately satisfying the differential equations, given an initial value y(t0)=y0.
 > 
 > Some of the solvers support integration in the complex domain, but note that for stiff ODE solvers, the right-hand side must be complex-differentiable (satisfy Cauchy-Riemann equations). To solve a problem in the complex domain, pass y0 with a complex data type. Another option always available is to rewrite your problem for real and imaginary parts separately.
