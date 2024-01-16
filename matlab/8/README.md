@@ -450,3 +450,87 @@ Calling the solver and the graphical representation of the solution can than be 
 
 plot(t,y(:,1)/pi*180);
 ```
+
+### Python version
+
+```python
+import numpy as np
+import scipy
+import matplotlib.pyplot as plt
+
+
+def derive_pendulum(t, s):
+    return [s[1], -np.sin(s[0])]
+
+
+# set initial conditions and constants
+try:
+    theta0: float = float(input("initial angle = "))
+except ValueError:
+    theta0 = 90
+    print(f"theta0 = {theta0}°")
+
+x: np.ndarray = np.array([theta0 * np.pi / 180, 0])
+
+tmin: float = 0.0
+try:
+    tmax: float = float(input("time = "))
+except ValueError:
+    tmax = 100
+    print(f"tmax = {tmax}")
+
+try:
+    tau: float = float(input("step width = "))
+except ValueError:
+    tau = 0.1
+    print(f"tau = {tau}")
+
+time: np.ndarray = np.linspace(
+    start=tmin,
+    stop=tmax,
+    num=int(np.ceil((tmax - tmin) / tau)),
+    endpoint=True,
+)
+
+t_eval = np.linspace(tmin, tmax, 1000)
+
+sol = scipy.integrate.solve_ivp(
+    fun=derive_pendulum, t_span=[tmin, tmax], y0=x, t_eval=time, method="RK45"
+)
+
+plt.plot(sol.t, sol.y[0] / np.pi * 180)
+plt.xlabel("time")
+plt.ylabel("theta")
+plt.show()
+```
+
+[scipy.integrate.solve_ivp](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html#scipy.integrate.solve_ivp)
+
+```python
+scipy.integrate.solve_ivp(fun, t_span, y0, method='RK45', t_eval=None, dense_output=False, events=None, vectorized=False, args=None, **options)
+```
+
+> Solve an initial value problem for a system of ODEs.
+> 
+> This function numerically integrates a system of ordinary differential equations given an initial value:
+> 
+$$dy / dt = f(t, y)$$
+$$y(t0) = y0$$
+> Here t is a 1-D independent variable (time), y(t) is an N-D vector-valued function (state), and an N-D vector-valued function f(t, y) determines the differential equations. The goal is to find y(t) approximately satisfying the differential equations, given an initial value y(t0)=y0.
+> 
+> Some of the solvers support integration in the complex domain, but note that for stiff ODE solvers, the right-hand side must be complex-differentiable (satisfy Cauchy-Riemann equations). To solve a problem in the complex domain, pass y0 with a complex data type. Another option always available is to rewrite your problem for real and imaginary parts separately.
+
+**method**: 
+
+|||
+|---|---|
+|**‘RK45’** (default)| Explicit Runge-Kutta method of order 5(4). The error is controlled assuming accuracy of the fourth-order method, but steps are taken using the fifth-order accurate formula (local extrapolation is done). A quartic interpolation polynomial is used for the dense output. Can be applied in the complex domain.|
+|**‘RK23’**| Explicit Runge-Kutta method of order 3(2). The error is controlled assuming accuracy of the second-order method, but steps are taken using the third-order accurate formula (local extrapolation is done). A cubic Hermite polynomial is used for the dense output. Can be applied in the complex domain.|
+|**‘DOP853’**| Explicit Runge-Kutta method of order 8. Python implementation of the “DOP853” algorithm originally written in Fortran. A 7-th order interpolation polynomial accurate to 7-th order is used for the dense output. Can be applied in the complex domain.|
+|**‘Radau’**| Implicit Runge-Kutta method of the Radau IIA family of order 5. The error is controlled with a third-order accurate embedded formula. A cubic polynomial which satisfies the collocation conditions is used for the dense output.|
+|**‘BDF’**| Implicit multi-step variable-order (1 to 5) method based on a backward differentiation formula for the derivative approximation. A quasi-constant step scheme is used and accuracy is enhanced using the NDF modification. Can be applied in the complex domain.|
+|**‘LSODA’**| Adams/BDF method with automatic stiffness detection and switching. This is a wrapper of the Fortran solver from ODEPACK.|
+
+
+
+
