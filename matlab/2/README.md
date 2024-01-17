@@ -142,6 +142,8 @@ end
 x = x*2;
 ```
 
+Python version:
+
 ```python
 x: float = 1.0
 
@@ -149,7 +151,7 @@ while 1 + x != 1:
     x = x / 2
 
 x = x * 2
-print(x)
+print(x) # -> 2.220446049250313e-16
 ```
 
 
