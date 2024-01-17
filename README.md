@@ -198,7 +198,7 @@ In the case you know Matlab check here:
 ## Sympy
 * [Symbolic Computation](sympy/intro/README.md)
 
-## Numerical Integration, Differentiation and Differential Equations (Matlab and Python code)
+## Numerical Integration, Differentiation, and Differential Equations
 * [Integration and Differentiation](matlab/7/README.md) 
 * [Differential Equations](matlab/8/README.md) 
 
