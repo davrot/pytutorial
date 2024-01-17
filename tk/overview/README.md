@@ -54,26 +54,16 @@ def changed() -> None:
 
 root = tk.Tk()
 
-number_of_patches: int = 10
-width_label: int = 20
 width_element: int = 10
 
-row_id: int = 0
-column_id: int = 0
-
-frame = ttk.LabelFrame(root, text="Button")
-frame.grid(row=row_id, column=column_id, sticky="nw", pady=5)
-
-label_number_of_patches = ttk.Label(frame, text="Button Text", width=width_label)
-label_number_of_patches.grid(row=0, column=0, sticky="w")
 
 a_button = ttk.Button(
-    frame,
+    root,
     text="Don't press",
     width=width_element,
     command=changed,
 )
-a_button.grid(row=0, column=1, sticky="w")
+a_button.grid(row=0, column=0, sticky="w")
 
 
 root.mainloop()
