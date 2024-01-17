@@ -8,7 +8,7 @@
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
-*By Jan Wiersig, modified by Udo Ernst and translated into English by Daniel Harnack.*
+*By Jan Wiersig, modified by Udo Ernst and translated into English by Daniel Harnack. David Rotermund replaced the Matlab code with Python code.*
 
 ## Ordinary Differential Equations
 In many fields of science, problems occur where one or several quantities vary dependent on time, e.g. oscillations or decay processes. The description of these processes can be formalized by differential equations. As a simple example, radioactive decay may serve. An amount of radioactive material is give at time $t = 0$. We are looking for a function $x(t)$ that gives the amount of the material $x$ which is still present at time $t$. The rate at time $t$ by which the radioactive material decays is proportional to the amount of the material $x(t)$ that exists at time $t$. From these considerations, the following differential equation can be derived:
@@ -159,63 +159,8 @@ $\Theta_{n+1} = \Theta_n+\tau\gamma_n $
 
 $\gamma_{n+1} = \gamma_n-\tau\sin{\Theta_n}$
 
-For the sake of clarity, the program is divided into sub-programs.
+For the sake of clarity, the program is divided into functions.
 
-### Script "pendulum.m":
-
-```matlab
-%pendulum - calculating the dynamics of the pendulum via the method of Euler
-
-clear all;
-
-% set initial conditions and constants
-theta0 = input('initial angle = ');
-x = [theta0*pi/180; 0];
-t = 0;
-tmax = input('time = ');
-tau = input('step width = ');
-
-% count iterations
-i = 1;
-while (t <= tmax)
-
-	% remember angle and time
-	t_plot(i) = t;
-	th_plot(i) = x(1)*180/pi;
-
-	x = euler_integration(t, x, tau, 'derive_pendulum');
-
-	t = t+tau;
-	i = i+1;
-
-end
-
-% figure
-plot(t_plot, th_plot, '+');
-xlabel('time'); ylabel('theta');
-```
-
-#### Function file "euler_integration.m}:
-
-```matlab
-function xout = euler_integration(t, x, tau, derivs)
-
-xout = x+tau*feval(derivs, t, x);
-
-return;
-```
-
-#### Function file "derive_pendulum.m":
-
-```matlab
-function rhs = derive_pendulum(t, s)
-
-rhs = [s(2); -sin(s(1))];
-
-return;
-```
-
-#### Python version:
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -274,8 +219,6 @@ plt.xlabel("time")
 plt.ylabel("theta")
 plt.show()
 ```
-
-All three sub-program can be written in one file. However, for this, the main program has to be also defined as a function.
 
 Fig. 8.4(a) shows a solution of the equation of motion by the method of Euler with step width $\tau = 0.1$. We observe that the amplitude, and hence the energy, of the oscillation increases strongly with time. This violates energy conservation and has to be considered an artifact of the discretization of time. The non-physical increase of energy can be slowed down by choosing a smaller step width. This is demonstrated in fig.8.4(b) for the case of $\tau =0.05$. Unfortunately, the deviation from the true solution is still considerable, despite the small step width.
 
@@ -422,36 +365,7 @@ Here, $S_1 < 1$ is a "security factor", which assures that the approximated step
 
 Feasible values are $S_1 = 0.9$ and $S_2 = 1.25$. By the way: As the new initial condition for the next time step $\vec{x}_k$ should be used, since this value is more accurate than $\vec{x}_g$.
 
-## Matlab Solver
-
-Matlab provides several solvers for DES. In the simplest case, these are invoked by
-
-```matlab
-[t,y] = solver(function, time_interval, initial_values);
-```
-
-The objects in this command are:
-
-* t a column vector of length $n$ (adaptively found by the solver) holding the times of the output points.
-* y a $n\times m$ matrix with the $m$ coordinates of the solution vector y(:,i), $i=1,\ldots,m$.
-* **solver**, z.B.
-	- ode23 Runge-Kutta Method (2,3) order. The abbreviation "ode" stems from "ordinary differential equation}.
-	- ode45 Runge-Kutta method (4,5) order. First choose, if no information about the properties of the system is known.
-	- ode113 a solver of variable order. Ideal, if high accuracy is needed or if the calculation of the right side of the DES is very intricate.
-	- ode15s a solver of variable order for stiff DES. DES are called stiff when the individual components vary on highly different time scales. The terminology probably originates from the investigation of spring pendula with very stiff springs, i.e. high spring constants.
-* **function**, In the simplest form, function has the form function dx = function_name(t,x). Both arguments dx and x are column vectors, the time t is a scalar. The function value dx has to give the derivative of the $m$ differential equations.
-* **time_interval**, A row or column vector, e.g [t0,t1] or [t0:step_width:t1]
-* **initial_values** A row or column vector of length $m$.
-
-Calling the solver and the graphical representation of the solution can than be accomplished for example by
-
-```matlab
-[t,y] = ode45('derivspendulum',[0,30],[10/180*pi,0]);
-
-plot(t,y(:,1)/pi*180);
-```
-
-### Python version
+## Python Solver
 
 ```python
 import numpy as np
