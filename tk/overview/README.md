@@ -24,7 +24,7 @@ This is an optional topic!
 ## [Control variables](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/control-variables.html)
 
 ```python
-v = BooleanVar()     # Holds a boolean
+v = tk.BooleanVar()     # Holds a boolean
 v = tk.DoubleVar()   # Holds a float; default value 0.0
 v = tk.IntVar()      # Holds an int; default value 0
 v = tk.StringVar()   # Holds a string; default value ''
