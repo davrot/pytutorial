@@ -75,6 +75,37 @@ del root
 
 ## [ttk.Checkbutton](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Checkbutton.html)
 
+![image_checkbutton.png](image_checkbutton.png)
+
+```python
+import tkinter as tk
+from tkinter import ttk
+
+
+def changed() -> None:
+    global variable
+    print(f"Changed: Now it is set to {variable.get()}")
+
+
+root = tk.Tk()
+
+width_element: int = 10
+InitialValue: bool = True
+
+variable = tk.BooleanVar()
+variable.set(InitialValue)
+
+a_button = ttk.Checkbutton(
+    root, text="Don't press", width=width_element, command=changed, variable=variable
+)
+a_button.grid(row=0, column=0, sticky="w")
+
+
+root.mainloop()
+
+del root
+```
+
 ## [ttk.Combobox](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Combobox.html)
 
 ## [ttk.Entry](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Entry.html)
