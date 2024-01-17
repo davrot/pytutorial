@@ -21,6 +21,23 @@ This is an optional topic!
 ```shell
 ```
 
+## [Control variables](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/control-variables.html)
+
+```python
+v = BooleanVar()     # Holds a boolean
+v = tk.DoubleVar()   # Holds a float; default value 0.0
+v = tk.IntVar()      # Holds an int; default value 0
+v = tk.StringVar()   # Holds a string; default value ''
+```
+
+> All control variables have these two methods:
+
+|Method|Description|
+|---|---|
+|.get()|Returns the current value of the variable.|
+|.set(value)|Changes the current value of the variable. If any widget options are slaved to this variable, those widgets will be updated when the main loop next idles|
+
+
 ## [ttk.Button](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Button.html)
 
 ```python
@@ -42,6 +59,29 @@ w = ttk.Button(parent, option=value, ...)
 
 
 ![image_button.png](image_button.png)
+
+```python
+w = ttk.Checkbutton(parent, option=value, ...)
+```
+
+|Option|Description|
+|---|---|
+|command|	A function to be called whenever the state of this checkbutton changes.|
+|compound|	This option specifies the relative position of the image relative to the text when you specify both. The value may be tk.TOP (image above text), tk.BOTTOM (image below text), tk.LEFT (image to the left of the text), or tk.RIGHT (image to the right of the text). If you provide both image and text options but do not specify a value for compound, only the image will appear.|
+|cursor|	The cursor that will appear when the mouse is over the checkbutton|
+|image|	An image to appear on the checkbutton|
+|offvalue|	By default, when a checkbutton is in the off (unchecked) state, the value of the associated variable is 0. You can use the offvalue option to specify a different value for the off state.|
+|onvalue|	By default, when a checkbutton is in the on (checked) state, the value of the associated variable is 1. You can use the onvalue option to specify a different value for the on state.|
+|style|	The style to be used in rendering this checkbutton|
+|takefocus|	By default, a ttk.Checkbutton will be included in focus traversal. To remove the widget from focus traversal, use takefocus=False.|
+|text|	The text to appear on the checkbutton, as a string.|
+|textvariable|	A variable that controls the text that appears on the checkbutton|
+|underline|	If this option has a nonnegative value n, an underline will appear under the text character at position n.|
+|variable|	A control variable that tracks the current state of the checkbutton|
+|width	|Use this option to specify a fixed width or a minimum width. The value is specified in characters; a positive value sets a fixed width of that many average characters, while a negative width sets a minimum width.|
+
+
+
 
 ```python
 import tkinter as tk
