@@ -217,6 +217,49 @@ del root
 
 ## [ttk.Frame](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Frame.html)
 
+```python
+w = ttk.Frame(parent, option=value, ...)
+```
+
+|Option|Description|
+|---|---|
+|borderwidth|	Use this option to specify the width of the border element; the default is zero.|
+|cursor| Use this option to specify the appearance of the mouse cursor when it is over the widget|
+|height| This option is a dimension that sets the height of the frame. If you want to force the frame to have a specific height, call the .grid_propagate(0) on the widget|
+|padding| To create an empty area inside the frame and outside of the contained widgets, set this option to the desired dimension. For example, padding='0.5i' would clear a half-inch-wide area inside the frame and around the outside of the widgets inside it.|
+|relief| Specifies the relief style for the border; see Section 5.6, “Relief styles”. This has no effect unless you also increase the borderwidth.|
+|style| Use this option to specify a custom widget style name; see Section 47, “Customizing and creating ttk themes and styles”.|
+|takefocus |Use this option to specify whether a widget is visited during focus traversal|
+|width| This option is a dimension that sets the width of the frame. If you want to force the frame to have a specific width, call the .grid_propagate(0) on the widget|
+
+![image_frame.png](image_frame.png)
+
+```python
+import tkinter as tk
+from tkinter import ttk
+
+root = tk.Tk()
+
+width_element: int = 10
+height_element: int = 100
+
+
+my_frame = ttk.Frame(
+    root,
+    width=width_element,
+    height=height_element,
+)
+my_frame.grid(row=0, column=0, sticky="w")
+
+my_object_1 = ttk.Button(my_frame, text="Button A")
+my_object_1.grid(row=0, column=0, sticky="w")
+my_object_2 = ttk.Button(my_frame, text="Button B")
+my_object_2.grid(row=1, column=0, sticky="w")
+
+root.mainloop()
+del root
+```
+
 ## [ttk.Label](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Label.html)
 
 ## [ttk.LabelFrame](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-LabelFrame.html)
