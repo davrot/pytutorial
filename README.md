@@ -9,6 +9,8 @@
 All the tutorials are tested with Python 3.11.x. Older version might have a problem with the new versions of type anotations. 
 
 ## Flow chart
+* [Basic Structure of a Computer](matlab/1/README.md)
+* [Representation of Numbers in the Computer](matlab/2/README.md)
 * [Flow chart symbols](flow/overview/README.md)
 * [Examples](flow/examples/README.md)
 * [Flow chart for baking bread](flow/baking_bread/README.md)
@@ -194,7 +196,11 @@ In the case you know Matlab check here:
 
 ## Sympy
 * [Symbolic Computation](sympy/intro/README.md)
-  
+
+## Numerical Integration, Differentiation and Differential Equations (Matlab and Python code)
+* [Integration and Differentiation](matlab/7/README.md) 
+* [Differential Equations](matlab/8/README.md) 
+
 ## Arduino
 * [Basics with Python / Matlab](arduino/basics/README.md)
 
@@ -203,14 +209,10 @@ In the case you know Matlab check here:
 {: .topic-optional}
 This pages are in a rough state. e.g. equations are broken. Don't know why...
 
-* [Basic Structure of a Computer](matlab/1/README.md)
-* [Representation of Numbers in the Computer](matlab/2/README.md)
 * [Basic Commands and Variables](matlab/3/README.md)
 * [Graphics](matlab/4/README.md)
 * [Systematic Programming](matlab/5/README.md)
 * [Vectorization and Vector Calculus in Matlab](matlab/6/README.md)
-* [Integration and Differentiation](matlab/7/README.md) (Matlab and Python code)
-* [Differential Equations](matlab/8/README.md) (Matlab and Python code)
 * [Data Analysis](matlab/9/README.md)
 
 
