@@ -379,6 +379,59 @@ fprintf('the mean number of steps used is %f ...\n', ...
 	sum(steps)/n_trials);
 ```
 
+Python version:
+
+```python
+# %%
+# TASK:
+# ========
+# perform a random walk with step width dx starting at
+# x=0 until x crosses either -1 or +1
+
+import random
+import numpy as np
+
+# perform this many trials:
+n_trials: int = 1000
+
+# elementary step width
+dx: float = 0.5
+
+# initialize result list
+steps = [0] * n_trials
+
+for i in range(n_trials):
+    # start random walk at x=0
+    x: float = 0
+
+    # initialize counting variable
+    n_steps: int = 0
+
+    # perform random walk until +1 or -1 is reached
+    while abs(x) <= 1:
+        # draw random number.
+        # choose direction with equal probability
+        if random.random() >= 0.5:
+            # to the left...
+            direction: float = -1
+        else:
+            # to the right...
+            direction = 1
+
+        # update position and number of steps
+        x = x + direction * dx
+        n_steps += 1
+
+    # return number of steps
+    print(f"In the {i+1}-th trial, {n_steps} steps needed until boundary!")
+
+    # remember number of steps for trial i
+    steps[i] = n_steps
+
+# evaluate the mean of the steps and return the value
+print(f"the mean number of steps used is {np.mean(steps)} ...")
+```
+
 ![Figure 5.3.](2022-04-15_17-36.png)
 
 Figure 5.3.: Flow chart for the simulation of a diﬀusion process.
