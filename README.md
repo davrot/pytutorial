@@ -11,6 +11,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 ## Flow chart
 * [Basic Structure of a Computer](matlab/1/README.md)
 * [Representation of Numbers in the Computer](matlab/2/README.md)
+* [Systematic Programming](matlab/5/README.md) (Matlab and Python code)
 * [Flow chart symbols](flow/overview/README.md)
 * [Examples](flow/examples/README.md)
 * [Flow chart for baking bread](flow/baking_bread/README.md)
@@ -211,7 +212,6 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 
 * [Basic Commands and Variables](matlab/3/README.md)
 * [Graphics](matlab/4/README.md)
-* [Systematic Programming](matlab/5/README.md)
 * [Vectorization and Vector Calculus in Matlab](matlab/6/README.md)
 * [Data Analysis](matlab/9/README.md)
 
