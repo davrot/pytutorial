@@ -264,6 +264,52 @@ del root
 
 ## [ttk.LabelFrame](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-LabelFrame.html)
 
+```python
+w = ttk.LabelFrame(parent, option=value, ...)
+```
+
+|Option|Description|
+|---|---|
+|borderwidth|	Use this option to set the width of the border around the widget to a given dimension. This option may also be configured using a style.|
+|cursor|	Use this option to specify the appearance of the mouse cursor when it is over the widget|
+|height|	This option can be set to some dimension to specify the height of the frame. If you don't call the .grid_propagate(0) method, this option will be ignored|
+|labelanchor|Use this option to specify the position of the label on the widget's border. The default position is 'nw', which places the label at the left end of the top border. |
+|labelwidget|Instead of a text label, you can use any widget as the label in a ttk.LabelFrame. Create some widget w but do not register it with the .grid() method. Then create the LabelFrame with labelwidget=w. If you specify this option as well as the text option, the latter is ignored.|
+|padding|	To add extra clear area around the contents of this widget, set this option to a dimension. This option may also be specified by a style.|
+|relief|	Use this option to specify a 3-d border style|
+|style|	Use this option to specify a custom widget style name|
+|takefocus|Use this option to specify whether the widget is visited during focus traversal|
+|text|	The value of this option is a string that will appear as part of the border.|
+|underline	|You can request that one of the letters in the text string be underline by setting this option to the position of that letter. For example, if you specified text='Panic' and underline=2, an underline would appear under the 'n'.|
+|width|	This option can be set to some dimension to specify the width of the frame. If you don't call the .grid_propagate(0) method, this option will be ignored|
+
+![image_labelframe.png](image_labelframe.png)
+
+```python
+import tkinter as tk
+from tkinter import ttk
+
+root = tk.Tk()
+
+width_element: int = 10
+height_element: int = 100
+
+
+my_frame = ttk.LabelFrame(
+    root, width=width_element, height=height_element, text="This is a LabelFrame"
+)
+my_frame.grid(row=0, column=0, sticky="w")
+
+my_object_1 = ttk.Button(my_frame, text="Button A")
+my_object_1.grid(row=0, column=0, sticky="w")
+my_object_2 = ttk.Button(my_frame, text="Button B")
+my_object_2.grid(row=1, column=0, sticky="w")
+
+root.mainloop()
+del root
+```
+
+
 ## [ttk.Menubutton](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Menubutton.html)
 
 ## [ttk.Notebook](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Notebook.html)
