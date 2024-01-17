@@ -8,7 +8,7 @@
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
-*By Jan Wiersig, modified by Udo Ernst and translated into English by Daniel Harnack.*
+*By Jan Wiersig, modified by Udo Ernst and translated into English by Daniel Harnack. David Rotermund replaced the Matlab code with Python code.*
 
 
 ## Numerical Integration
@@ -131,26 +131,9 @@ The error term is of higher order as compared to the trapezoid rule. Thus we exp
 
 Figure 7.4.: Comparison of the absolute errors between the trapezoid rule and Simpson's rule when evaluating the integral $I = \int_0^1\frac{2}{\sqrt{\pi}}e^{-x^2}dx$ as a function of the number of supporting points $N$. Note the double logarithmic plotting. For large $N$, rounding errors dominate.
 
-## Integration with Matlab
-Matlab provides several routines for integration. The most important one for one-dimensional integrals is
-
-```matlab
-y = quad(f,a,b);
-```
-
-Here, $f$ is the integrand function and $a$ and $b$ are the boundaries of the interval. This routines uses an adaptive Simpson rule. It is adaptive in the sense that more supporting points are used where the function varies strongly. Invoking the routine can be done by
-
-```matlab
-y = quad(@(x)exp(x),0,1);
-```
-
-or
-
-```matlab
-y = quad(@(x)1.0./(1.0+x.\pow 2),0,1);
-```
-
 ## Integration with Python
+
+Python provides several routines for integration. The most important one for one-dimensional integrals is
 
 [scipy.integrate.quad](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quad.html)
 
@@ -161,6 +144,9 @@ scipy.integrate.quad(func, a, b, args=(), full_output=0, epsabs=1.49e-08, epsrel
 > Compute a definite integral.
 > 
 > Integrate func from a to b (possibly infinite interval) using a technique from the Fortran library QUADPACK.
+
+Here, $func$ is the integrand function and $a$ and $b$ are the boundaries of the interval. This routines uses an adaptive Simpson rule. It is adaptive in the sense that more supporting points are used where the function varies strongly. Invoking the routine can be done by
+
 
 ```python
 import scipy
