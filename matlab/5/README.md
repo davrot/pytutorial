@@ -8,7 +8,7 @@
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
-*By Jan Wiersig, modified by Udo Ernst and translated into English by Daniel Harnack.*
+*By Jan Wiersig, modified by Udo Ernst and translated into English by Daniel Harnack. David Rotermund replaced the Matlab code with Python code.*
 
 
 Computers are at the same time incredibly fast and incredibly stupid. They will do exactly what they were told, but usually not what you want. To change this or even prevent it from happening, second to the thorough knowledge of the syntax of a programming language and the available commands, a careful planning is mandatory -- this becomes more and more important the bigger the programs and the more complex the problems in question become.
@@ -71,7 +71,7 @@ For this, it is mandatory to use the help function! -- especially for beginners 
 
 After finalizing your program, it needs to be tested: Does the code perform as intended? If not, that is it back to the drawing board: First, all the syntax errors are eliminated (somewhere is a comma instead of a dot, in a comparison the double equality sign was not used, an intermediate result was not assigned to a variable, etc), and then the logic of the program is checked -- are the results plausible?
 
-Assistance for this step -- the so called 'debugging' -- provides the debugger, which is part of many programming languages. Matlab also offers a debugging functions, however, many errors can be solved by command line based interaction with the (with an error message) aborting program. A good idea is to test the program with a reduced data set or problem, for example to run a search for prime numbers first until $n=17$ before making the program return all prime numbers between one and one trillion.
+Assistance for this step -- the so called 'debugging' -- provides the debugger, which is part of many programming languages. Python under VS Code also offers a debugging functions, however, many errors can be solved by command line based interaction with the (with an error message) aborting program. A good idea is to test the program with a reduced data set or problem, for example to run a search for prime numbers first until $n=17$ before making the program return all prime numbers between one and one trillion.
 
 A lot of the aforementioned steps are not always clearly separable in practice. Most likely, while breaking up a problem in smaller steps, you will already think about useful commands you know and how these might help. Program development is thus a constant interaction between these different levels of planning.
 
@@ -87,60 +87,8 @@ Figure 5.1.: Flow chart of a ’brute-force’ prime number ﬁnder
 The task our example program has to solve is the calculation of all prime numbers in the interval from $1$ to $N$. Reminder: a prime number is a natural number that is only divisible without remainder by itself and by $1$. $1$ itself is no prime number.
 
 
-The simplest method to determine whether $i$ is a prime number is the following: One tries every divisor from 2 to $i-1$. If a divisor is found that divides without remainder, then $i$ is no prime number. This so called 'brute-force'-ansatz (leads to an end, but is not very smart) can be easily implemented in a program. We check, in a loop, whether for a particular number $i$ a divisor can be found. If this is the case, a so-called flag is set (a variable, that is either $0$ or $1$ and signal, whether a certain event occurred). If the flag is not set after the loop is finished, no divisor has been found and the number is remembered as a prime number. If the flag is not set, the program does nothing. After this, the next number $i+1$ is scrutinized and so forth until all natural numbers until $N$ have been tested. The latter will also be done in a loop. Figure 5.1 shows the flow chart, the following gives the correspondent Matlab code:
+The simplest method to determine whether $i$ is a prime number is the following: One tries every divisor from 2 to $i-1$. If a divisor is found that divides without remainder, then $i$ is no prime number. This so called 'brute-force'-ansatz (leads to an end, but is not very smart) can be easily implemented in a program. We check, in a loop, whether for a particular number $i$ a divisor can be found. If this is the case, a so-called flag is set (a variable, that is either $0$ or $1$ and signal, whether a certain event occurred). If the flag is not set after the loop is finished, no divisor has been found and the number is remembered as a prime number. If the flag is not set, the program does nothing. After this, the next number $i+1$ is scrutinized and so forth until all natural numbers until $N$ have been tested. The latter will also be done in a loop. Figure 5.1 shows the flow chart, the following gives the correspondent Python code:
 
-```matlab
-%%% TASK:
-%%% ========
-%%% find all prime numbers between 1 and N and save them
-%%% in a vector 'prime_numbers'
-%%%
-%%% solution: brute force
-
-%%% until which natural number shall be calculated?
-n = 10000;
-
-%%% there are maximally m<=n-1 prime numbers for all natural
-%%% numbers until n
-prime_numbers = zeros([1 n-1]);
-
-%%% The next prime number shall be saved in the vector component
-%%% with the index idx_prime_number
-idx_prime_number = 1;
-
-%%% check all numbers
-for i=2:n
-	
-	%%% try all divisors from 2 to i-1
-	found = 0;
-	for divisor=2:i-1
-		
-		%%% is the number i divisable by divisor without remainder?
-		if (i/divisor == fix(i/divisor))
-			found = 1;
-
-			%%% terminate the loop, one divisor is enough!
-			break;	%%%WITH OPTIMIZATION			
-		end
-
-	end
-
-	%%% No divisor found? Then the number i is a prime number!
-	if (gefunden == 0)
-
-		%%% remember prime number, go to next index
-		prime_numbers(idx_prime_number) = i;
-		idx_prime_number = idx_prime_number+1;
-	
-	end
-end
-
-%%% shorten the result vector,
-%%% only keep the found prime numbers
-prime_numbers = prime_numbers(1:idx_prime_number-1);
-```
-
-Python version:
 ```python
 # TASK:
 # ========
@@ -196,47 +144,7 @@ When scrutinizing the program code, a point can be found at which the code can b
 
 A much more sophisticated method to find prime numbers is the 'Sieve of Eratosthenes'. The principle is easy to grasp: First a list of all natural numbers is generated from $1$ bis $n$, from which successively all non-prime numbers are deleted. Except for $1$ at first all numbers are candidates form prime numbers. Now every number $i$ from $2$ to $n$ is checked. If $i$ is already marked as a non-prime number, it is skipped. If it is not marked (like for example $2$ at the beginning of the procedure), all multiples of this number are marked as non-prime numbers, i.e. $2i$, $3i$, $4i$ until $n$. Left over will only be the prime numbers!
 
-See the flow chart of the correspondent program (figure 5.2) and the Matlab code:
-
-```matlab
-%%% TASK:
-%%% ========
-%%% find all prime numbers between 1 and N and save them
-%%% in a vector 'prime_numbers'
-%%%
-%%% solution: sieve of Eratosthenes
-
-%%% until which natural number shall be calculated?
-n = 10000;
-
-%%% define so called flags for all natural numbers
-%%% until n. Is the flag equal to 1 at the end of the program
-%%% the number is a prime number
-flag_prime_number = ones([1 n]);
-
-%%% by definitioin, 1 is not a prime number
-flag_prime_number(1) = 0;
-
-for i=2:n
-
-	%%% is the current number i a prime number?
-	if (flag_prime_number(i) == 1)
-
-		%%% yes, mark all multiples as non-prime numbers
-		for j=i+i:i:n						% WITHOUT OPTIMIZATION
-			flag_prime_number(j) = 0;			% WITHOUT OPTIMIZATION
-		end							% WITHOUT OPTIMIZATION
-%%%		flag_prime_number(i+i:i:n) = 0;				% WITH OPTIMIZATION
-	end
-
-end
-
-%%% find the indices of all entries=1 in the vector
-%%% the indices are the sought prime numbers
-prime_numbers = find(flag_prime_number);
-```
-
-Python version:
+See the flow chart of the correspondent program (figure 5.2) and the Python code:
 
 WITHOUT OPTIMIZATION
 
@@ -312,7 +220,7 @@ print(
 
 ```
 
-The run time underlines the ingenuity of the sieve-idea: 0.22 seconds instead of 16 seconds! Additionally, the program code can even be optimized by replacing the inner loop by a vectorized command (comment all lines marked with WITHOUT OPTIMIZATION and uncomment all lines marked with WITH OPTIMIZATION): 0.05 seconds!
+The run time underlines the ingenuity of the sieve-idea: 0.22 seconds instead of 16 seconds! Additionally, the program code can even be optimized by replacing the inner loop by a vectorized command (i.e. WITH OPTIMIZATION): 0.05 seconds!
 
 With this, in comparison to the first attempt at this program, the execution time could be shortened by a factor of $6400$! Important to note is that both programs are completely correct and yield identical results, depite their different appearance and run time.
 
@@ -320,66 +228,6 @@ With this, in comparison to the first attempt at this program, the execution tim
 A second example is a simulation of a so-called 'random walk'. A random walk describes a movement of a particle (e.g. molecule, protein) that is determined by a random process. In our case the particle starts at the location $x=0$ and moves in every time step by a distance of $dx$ either to the left or to the right. Both possibilities have the same probability of happening. The task for the computer is to simulate $n=1000$ trials with the particle and stop the simulation each time the particle crosses a barrier at $x=-1$ or $x=1$. The output of our program shall be the mean number of steps needed to reach one barrier, calculated from the $n$ iterations.
 
 This is the flow chart (figure 5.3) and the program code:
-
-```matlab
-%%% TASK:
-%%% ========
-%%% perform a random walk with step width dx starting at
-%%% x=0 until x crosses either -1 or +1
-%%%
-
-%%% perform this many trials:
-n_trials = 1000;
-
-%%% elementary step width
-dx = 0.5;
-
-%%% initialize result vector
-steps = zeros([1 n_trials]);
-
-for i=1:n_trials
-
-	%%% start random walk at x=0
-	x = 0;
-
-	%%% initialize counting variable
-	n_steps = 0;
-
-	%%% perform random walk until +1 or -1 is reached
-	while abs(x) <= 1
-
-		%%% draw random number.
-		%%% choose direction with equal probability
-		if (rand >= 0.5) 
-
-			%%% to the left...
-			direction = -1;
-		else
-
-			%%% to the right...
-			direction = 1;
-		end
-
-		%%% update position and number of steps
-		x = x+direction*dx;
-		n_steps = n_steps+1;
-	end
-
-	%%% return number of steps
-	fprintf(['In the %i-th trial, %i steps needed ' ...
-		'until boundary!\n'], i, n_steps);
-
-	%%% remember number of steps for trial i
-	steps(i) = n_steps;
-
-end
-
-%%% evaluate the mean of the steps and return the value
-fprintf('the mean number of steps used is %f ...\n', ...
-	sum(steps)/n_trials);
-```
-
-Python version:
 
 ```python
 # %%
