@@ -60,6 +60,39 @@ w = ttk.Button(parent, option=value, ...)
 
 ![image_button.png](image_button.png)
 
+
+```python
+import tkinter as tk
+from tkinter import ttk
+
+
+def changed() -> None:
+    print("Changed")
+
+
+root = tk.Tk()
+
+width_element: int = 10
+
+
+my_object = ttk.Button(
+    root,
+    text="Don't press",
+    width=width_element,
+    command=changed,
+)
+my_object.grid(row=0, column=0, sticky="w")
+
+
+root.mainloop()
+
+del root
+```
+
+
+
+## [ttk.Checkbutton](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Checkbutton.html)
+
 ```python
 w = ttk.Checkbutton(parent, option=value, ...)
 ```
@@ -82,39 +115,6 @@ w = ttk.Checkbutton(parent, option=value, ...)
 
 
 
-
-```python
-import tkinter as tk
-from tkinter import ttk
-
-
-def changed() -> None:
-    print("Changed")
-
-
-root = tk.Tk()
-
-width_element: int = 10
-
-
-a_button = ttk.Button(
-    root,
-    text="Don't press",
-    width=width_element,
-    command=changed,
-)
-a_button.grid(row=0, column=0, sticky="w")
-
-
-root.mainloop()
-
-del root
-```
-
-
-
-## [ttk.Checkbutton](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Checkbutton.html)
-
 ![image_checkbutton.png](image_checkbutton.png)
 
 ```python
@@ -135,10 +135,10 @@ InitialValue: bool = True
 variable = tk.BooleanVar()
 variable.set(InitialValue)
 
-a_button = ttk.Checkbutton(
+my_object = ttk.Checkbutton(
     root, text="Don't press", width=width_element, command=changed, variable=variable
 )
-a_button.grid(row=0, column=0, sticky="w")
+my_object.grid(row=0, column=0, sticky="w")
 
 
 root.mainloop()
@@ -147,6 +147,71 @@ del root
 ```
 
 ## [ttk.Combobox](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Combobox.html)
+
+```python
+w = ttk.Combobox(parent, option=value, ...)
+```
+
+|Option|Description|
+|---|---|
+|cursor|	The cursor that will appear when the mouse is over the checkbutton|
+|exportselection|	By default, if you select text within an Entry widget, it is automatically exported to the clipboard. To avoid this exportation, use exportselection=0.|
+|height|	Use this option to specify a maximum number of rows that will appear in the drop-down menu; the default is 20. If there are more values than this number, the drop-down menu will automatically include a vertical scrollbar.|
+|justify|	This option specifies how the text will be positioned within the entry area when it does not completely fill the area. Values may be tk.LEFT to left-justify; tk.CENTER to center; or tk.RIGHT to right-justify.|
+|postcommand|	You may use this option to supply a callback function that will be invoked when the user clicks on the down-arrow. This callback may change the values option; if so, the changes will appear in the drop-down menu.|
+|style|	The style to be used in rendering this checkbutton|
+|takefocus|	By default, a ttk.Checkbutton will be included in focus traversal To remove the widget from focus traversal, use takefocus=False.|
+|textvariable|	A variable that controls the text that appears in the entry area|
+|validate|	You may use this option to request dynamic validation of the widget's text content. |
+|validatecommand|	You may use this option to specify a callback function that dynamically validates the widget's text content. |
+|values|	The choices that will appear in the drop-down menu, as a sequence of strings.|
+|width|	This option specifies the width of the entry area as a number of characters. The actual width will be this number times the average width of a character in the effective font. The default value is 20.|
+|xscrollcommand|	If the widget has an associated horizontal scrollbar, set this option to the .set method of that scrollbar.|
+
+
+![image_combobox.png](image_combobox.png)
+
+```python
+import tkinter as tk
+from tkinter import ttk
+
+
+def command() -> bool:
+    global variable
+    print(f"Command {variable.get()}")
+    return True
+
+
+root = tk.Tk()
+
+width_element: int = 10
+height_element: int = 100
+
+values = list(f"{x:d}" for x in range(1, 301))
+
+InitialValueID: int = 41
+variable = tk.StringVar()
+
+
+my_object = ttk.Combobox(
+    root,
+    width=width_element,
+    height=height_element,
+    values=values,
+    textvariable=variable,
+    validate="all",
+    validatecommand=command,
+)
+my_object.current(InitialValueID)
+my_object.grid(row=0, column=0, sticky="w")
+
+
+root.mainloop()
+
+print(f"Selection: {variable.get()}")
+
+del root
+```
 
 ## [ttk.Entry](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Entry.html)
 
