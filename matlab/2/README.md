@@ -8,7 +8,7 @@
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
-*By Jan Wiersig, modified by Udo Ernst and translated into English by Daniel Harnack.*
+*By Jan Wiersig, modified by Udo Ernst and translated into English by Daniel Harnack. David Rotermund replaced the Matlab code with Python code.*
 
 ## Bits and Bytes
 
