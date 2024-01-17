@@ -61,7 +61,7 @@ Flow charts may be very helpful to review more complex program logics. Often pro
 Only now the carefully structured problem is translated to a specific programming language. Here, also some guidelines exist that should be adhered to:
 
 * How are data, data structures and intermediary results represented?
-Not every mathematical algorithm is portable 1:1 to the computer. Complex numbers, for example are unknown to many programming languages -- these will be represented by a real part and an imaginary part in two floating-point numbers. When working with Matlab is is important to consider when to use scalar quantities, vectors, two dimensional arrays or higher dimensional arrays. Important is also which type of data is used. A floating-point number for example is unsuitable to represent a string. Also one should always be aware of the memory consumption of the program.
+Not every mathematical algorithm is portable 1:1 to the computer. Complex numbers, for example are unknown to many programming languages -- these will be represented by a real part and an imaginary part in two floating-point numbers. When working with Python is is important to consider when to use scalar quantities, vectors, two dimensional arrays or higher dimensional arrays. Important is also which type of data is used. A floating-point number for example is unsuitable to represent a string. Also one should always be aware of the memory consumption of the program.
 
 * Replace every sub-step by at least one program command
 * Unexpectedly complex sub-steps should be further broken down
