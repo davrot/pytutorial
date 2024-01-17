@@ -142,6 +142,16 @@ end
 x = x*2;
 ```
 
+```python
+x: float = 1.0
+
+while 1 + x != 1:
+    x = x / 2
+
+x = x * 2
+print(x)
+```
+
 
 One might think that this constitutes an infinite loop. To the contrary, the loop will be left in finite time. The result for double precision is $x \approx 2\times 10^{-16}$ (= Matlab variable eps). eps is the smallest number with $1+$eps$>1$, and is the \quoting{machine accuracy}. Rounding errors of this order of magnitude occur on a regular basis. For example, Matlab calculates $\sin{\pi} \approx 1.2246\times 10^{-16}$. It shall be mentioned hat the machine accuracy for double precision is exactly eps $= 2^{-52}$,
 
