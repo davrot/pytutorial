@@ -299,12 +299,12 @@ root = tk.Tk()
 
 width_element: int = 10
 
-my_frame = ttk.Label(
+my_object = ttk.Label(
     root,
     width=width_element,
     text="A label thing",
 )
-my_frame.grid(row=0, column=0, sticky="w")
+my_object.grid(row=0, column=0, sticky="w")
 
 
 root.mainloop()
