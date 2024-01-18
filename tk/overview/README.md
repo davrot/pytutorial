@@ -376,6 +376,46 @@ del root
 
 ## [ttk.Separator](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Separator.html)
 
+```python
+w = tk.Spinbox(parent, option, ...)
+```
+
+|Option|Description|
+|---|---|
+|orient|	Set orient=tk.HORIZONTAL for a horizontal separator, orient=tk.VERTICAL for a vertical one (the default orientation).|
+|style|	The style to be used in rendering this scrollbar|
+
+![image_separator](image_separator.png)
+
+```python
+import tkinter as tk
+from tkinter import ttk
+
+root = tk.Tk()
+
+width_element: int = 10
+height_element: int = 100
+
+
+my_frame = ttk.Frame(
+    root,
+    width=width_element,
+    height=height_element,
+)
+my_frame.grid(row=0, column=0, sticky="w")
+
+my_object_1 = ttk.Button(my_frame, text="Button A")
+my_object_1.grid(row=0, column=0, sticky="w")
+my_separator = ttk.Separator(my_frame, orient=tk.HORIZONTAL)
+my_separator.grid(row=1, column=0, sticky="w")
+my_object_2 = ttk.Button(my_frame, text="Button B")
+my_object_2.grid(row=2, column=0, sticky="w")
+
+root.mainloop()
+del root
+```
+
+
 ## [ttk.Sizegrip](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Sizegrip.html)
 
 ## [ttk.Treeview](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Treeview.html)
@@ -386,7 +426,7 @@ del root
 ## [ttk.Spinbox](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/spinbox.html)
 
 ```python
-class tkinter.ttk.Spinbox
+w = tk.Spinbox(parent, option, ...)
 ```
 
 > **get()**
