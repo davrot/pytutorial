@@ -262,6 +262,56 @@ del root
 
 ## [ttk.Label](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-Label.html)
 
+```python
+w = ttk.Label(parent, option=value, ...)
+```
+
+|Option|Description|
+|---|---|
+|anchor |	If the text and/or image are smaller than the specified width, you can use the anchor option to specify where to position them: tk.W, tk.CENTER, or tk.E for left, centered, or right alignment, respectively. You may also specify this option using a style.|
+|background|	Use this option to set the background color. You may also specify this option using a style.|
+|borderwidth|	To add a border around the label, set this option to the width dimension. You may also specify this option using a style.|
+|compound|If you provide both text and image options, the compound option specifies how to display them.|
+|cursor|	Use this option to specify the appearance of the mouse cursor when it is over the widget|
+|font|	Use this option to specify the font style for the displayed text. You may also specify this option using a style.|
+|foreground|	Use this option to specify the color of the displayed text. You may also specify this option using a style.|
+|image	|This option specifies an image or images to be displayed either in addition to or instead of text. |
+|justify|	If the text you provide contains newline ('\n') characters, this option specifies how each line will be positioned horizontally: tk.LEFT to left-justify; tk.CENTER to center; or tk.RIGHT to right-justify each line. You may also specify this option using a style.|
+|padding|	To add more space around all four sides of the text and/or image, set this option to the desired dimension. You may also specify this option using a style.|
+|relief|	Set this option to a relief style to create a 3-d effect. You will need to increase the borderwidth to make this effect appear. You may also specify this option using a style.|
+|style|	Use this option to specify a custom widget style name|
+|takefocus|Use this option to specify whether the widget is visited during focus traversal|
+|text|	A string of text to be displayed in the widget.|
+|textvariable|	A StringVar instance; the text displayed on the widget will be its value. If both text and textvariable are specified, the text option will be ignored.|
+|underline	|You can request that one of the letters in the text string be underline by setting this option to the position of that letter. For example, the options text='Quit' and underline=0 would underline the Q.|
+|width	|To specify a fixed width, set this option to the number of characters. To specify a minimum width, set this option to minus the number of characters. If you don't specify this option, the size of the label area will be just enough to accommodate the current text and/or image.|
+|wraplength|	If you set this option to some dimension, all the text will be chopped into lines no longer than this dimension. This option may also be specified through a style.|
+
+
+![image_label.png](image_label.png)
+
+```python
+import tkinter as tk
+from tkinter import ttk
+
+
+root = tk.Tk()
+
+width_element: int = 10
+
+my_frame = ttk.Label(
+    root,
+    width=width_element,
+    text="A label thing",
+)
+my_frame.grid(row=0, column=0, sticky="w")
+
+
+root.mainloop()
+del root
+```
+
+
 ## [ttk.LabelFrame](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/ttk-LabelFrame.html)
 
 ```python
