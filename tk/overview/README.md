@@ -368,35 +368,30 @@ from tkinter import ttk
 
 
 def changed() -> None:
-    print("Changed")
+    global my_frame
+
+    print(f"Changed {my_frame.get()}")
 
 
 root = tk.Tk()
 
-number_of_patches: int = 10
-width_label: int = 20
 width_element: int = 10
+height_element: int = 100
 
-row_id: int = 0
-column_id: int = 0
+InitialIndex: int = 10
 
-frame = ttk.LabelFrame(root, text="Spin Box")
-frame.grid(row=row_id, column=column_id, sticky="nw", pady=5)
+values: list = list(f"{x:d}" for x in range(1, 301))
 
-label_number_of_patches = ttk.Label(frame, text="SpinBox Text", width=width_label)
-label_number_of_patches.grid(row=0, column=0, sticky="w")
-
-spinbox_number_of_patches = ttk.Spinbox(
-    frame,
-    values=list(f"{x:d}" for x in range(1, 301)),
+my_frame = ttk.Spinbox(
+    root,
     width=width_element,
+    values=values,
     command=changed,
 )
-spinbox_number_of_patches.grid(row=0, column=1, sticky="w")
-spinbox_number_of_patches.set(number_of_patches)
+my_frame.grid(row=0, column=0, sticky="w")
+my_frame.set(InitialIndex)
 
 root.mainloop()
-
 del root
 ```
 
