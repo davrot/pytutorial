@@ -217,3 +217,22 @@ plt.show()
 ```
 
 ![image1](image1.png)
+
+
+## Assumptions about the symbols
+
+```python
+C1 = sympy.symbols('C1', positive=True)
+```
+
+|||
+|---|---|
+|real=True| The symbol represents a real number.|
+|positive=True| The symbol represents a positive number.|
+|negative=True| The symbol represents a negative number.|
+|integer=True| The symbol represents an integer.|
+|prime=True| The symbol represents a prime number.|
+|odd=True| The symbol represents an odd number.|
+|even=True| The symbol represents an even number.|
+
+
