@@ -46,9 +46,39 @@ plt.show()
 
 ![Image1](image1.png)
 
+## Fund the cumsum maximum
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(1)
+
+a_x = rng.normal(1.5, 1.0, size=(5000))
+b_x = rng.normal(0.0, 1.0, size=(5000))
+
+data_data = np.concatenate([a_x, b_x])
+data_class = np.concatenate([np.full_like(a_x, -1), np.full_like(b_x, +1)])
+idx = np.argsort(data_data)
+
+data_data = data_data[idx]
+data_class = data_class[idx]
+
+data_cumsum = np.cumsum(data_class)
+
+plt.plot(data_cumsum)
+plt.plot(
+    [np.argmax(data_cumsum), np.argmax(data_cumsum)], [0, np.max(data_cumsum)], "k--"
+)
+plt.ylabel("Cumsum of the classes")
+plt.xlabel("Sorted sample id")
+plt.show()
+```
+![Image2](image2.png)
+
+
+
 ```python
 ```
 
 
-```shell
-```
