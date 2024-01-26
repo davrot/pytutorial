@@ -145,11 +145,12 @@ In the case you know Matlab check here:
 * [Basics](pandas/basics/README.md)
 
 
-## Sci-kit Learn 
+## Sci-kit Learn
 * [Overview](scikit-learn/overview/README.md)
 * [KMeans](scikit-learn/kmeans/README.md)
 * [PCA](scikit-learn/pca/README.md)
 * [FastICA](scikit-learn/fast_ica/README.md)
+* [ROC (pure numpy)](numpy/roc/README.md)
 
 
 ## SciPy
