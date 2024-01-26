@@ -235,4 +235,11 @@ C1 = sympy.symbols('C1', positive=True)
 |odd=True| The symbol represents an odd number.|
 |even=True| The symbol represents an even number.|
 
+## Limiting the range of a symbol
 
+```python
+import sympy
+
+x = sympy.symbols("x")
+sympy.solve([x**2 - 1, x >= 0.5, x <= 3], x)
+```
