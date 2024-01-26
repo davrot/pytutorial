@@ -184,4 +184,36 @@ print(expr)  # -> cos(0.333*pi) + 1
 print(sympy.N(expr)) # -> 1.50090662536071
 ```
 
+## Plot your function
 
+
+```python
+import sympy
+import inspect
+import numpy as np
+import matplotlib.pyplot as plt
+
+f = sympy.symbols("f", cls=sympy.Function)
+x = sympy.symbols("x")
+diffeq = sympy.Eq(f(x).diff(x, x) - 2 * f(x).diff(x) + f(x), sympy.sin(x))
+result = sympy.dsolve(diffeq, f(x))
+
+symbols = list(result.rhs.free_symbols)
+
+f = sympy.lambdify(symbols, result.rhs, "numpy")
+
+
+print("The arguments of the result:")
+print(inspect.getfullargspec(f).args)
+print("The source code behind f:")
+print(inspect.getsource(f))
+
+np_x = np.linspace(0, 2 * np.pi, 100)
+
+plt.plot(f(x=np_x, C1=1.0, C2=1.0))
+plt.xlabel("x")
+plt.ylabel("f(x)")
+plt.show()
+```
+
+![image1](image1.png)
