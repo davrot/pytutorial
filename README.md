@@ -200,8 +200,8 @@ In the case you know Matlab check here:
 * [Symbolic Computation](sympy/intro/README.md)
 
 ## Numerical Integration, Differentiation, and Differential Equations
-* [Integration and Differentiation](matlab/7/README.md) 
-* [Differential Equations](matlab/8/README.md) 
+* [Integration and Differentiation](numpy/7/README.md) 
+* [Differential Equations](numpy/8/README.md) 
 
 ## Arduino
 * [Basics with Python / Matlab](arduino/basics/README.md)
