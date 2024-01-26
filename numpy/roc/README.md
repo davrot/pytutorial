@@ -44,7 +44,7 @@ plt.legend()
 plt.show()
 ```
 
-!(Image1)[image1.png]
+![Image1](image1.png)
 
 ```python
 ```
