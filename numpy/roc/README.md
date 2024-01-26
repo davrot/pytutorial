@@ -46,7 +46,7 @@ plt.show()
 
 ![Image1](image1.png)
 
-## Fund the cumsum maximum
+## Find the cumsum maximum
 
 ```python
 import numpy as np
@@ -76,7 +76,7 @@ plt.show()
 ```
 ![Image2](image2.png)
 
-## How to create an estimate from ROC
+## How to create an estimate from the ROC cumsum maximum
 
 ```python
 import numpy as np
