@@ -141,6 +141,19 @@ If you change the py file, then you need to clean it from the memory via
 >> clear classes
 ```
 
+Future David here: Well, I had to do this for a file gauss_smear.py with a function gauss_smear: 
+```matlab
+if ~exist('mod', 'var')
+    mod = py.importlib.import_module('gauss_smear');
+end
+
+py.importlib.reload(mod);
+
+clearvars -except mod
+mod.gauss_smear(2.0, 0.1)
+```
+
+
 ## Save a numpy file with Matlab
 
 In Matlab we save data into numpy file:
