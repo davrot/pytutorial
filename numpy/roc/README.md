@@ -95,7 +95,7 @@ data_data = data_data[idx]
 data_class = data_class[idx]
 
 data_cumsum = np.cumsum(data_class)
-border = np.argmax(data_cumsum)
+border = np.argmax(np.abs(data_cumsum))
 
 variant_a = (data_class[:border] == -1).sum() + (data_class[border:] == +1).sum()
 
