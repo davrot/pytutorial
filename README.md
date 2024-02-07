@@ -151,7 +151,8 @@ In the case you know Matlab check here:
 * [PCA](scikit-learn/pca/README.md)
 * [FastICA](scikit-learn/fast_ica/README.md)
 * [ROC (pure numpy)](numpy/roc/README.md)
-
+* [Support Vector Machine](scikit-learn/svm/README.md)
+* [K Nearest Neighbours (pure numpy)](numpy/knn/README.md)
 
 ## SciPy
 * [Remove a common signal from your data](scipy/SVD_data_cleaning/README.md)
