@@ -10,6 +10,8 @@
 
 Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
+The following code is for the case where the amount of data for both classes is the same. 
+
 ## Test data
 
 ```python
