@@ -57,7 +57,8 @@ np.save("label_test.npy", label_test)
 ```python
 import numpy as np
 
-k: int = 3
+n: int = 1
+k: int = 2 * n + 1
 
 data_train = np.load("data_train.npy")
 data_test = np.load("data_test.npy")
