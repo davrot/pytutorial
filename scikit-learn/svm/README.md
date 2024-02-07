@@ -99,8 +99,22 @@ np.save("label_test.npy", label_test)
 ## Train and test 
 
 ```python
+import numpy as np
+import sklearn.svm  # type:ignore
+
+data_train = np.load("data_train.npy")
+data_test = np.load("data_test.npy")
+label_train = np.load("label_train.npy")
+label_test = np.load("label_test.npy")
+
+svm = sklearn.svm.SVC()
+
+svm.fit(X=data_train, y=label_train)
+prediction = svm.predict(X=data_test)
+
+performance = 100.0 * (prediction == label_test).sum() / prediction.shape[0]
+
+print(f"Performance correct: {performance}%") # -> Performance correct: 95.4%
 ```
 
 
-```shell
-```
