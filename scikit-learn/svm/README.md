@@ -117,4 +117,31 @@ performance = 100.0 * (prediction == label_test).sum() / prediction.shape[0]
 print(f"Performance correct: {performance}%") # -> Performance correct: 95.4%
 ```
 
+Sometimes it is useful to scale the value range of the individual features to the same range: 
 
+```pythonv
+import numpy as np
+import sklearn.svm  # type:ignore
+
+data_train = np.load("data_train.npy")
+data_test = np.load("data_test.npy")
+label_train = np.load("label_train.npy")
+label_test = np.load("label_test.npy")
+
+svm = sklearn.svm.SVC()
+
+min_value = data_train.min(axis=0, keepdims=True)
+data_train -= min_value
+data_test -= min_value
+
+min_value = data_train.max(axis=0, keepdims=True)
+data_train /= min_value
+data_test /= min_value
+
+svm.fit(X=data_train, y=label_train)
+prediction = svm.predict(X=data_test)
+
+performance = 100.0 * (prediction == label_test).sum() / prediction.shape[0]
+
+print(f"Performance correct: {performance}%")
+```
