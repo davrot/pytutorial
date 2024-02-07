@@ -1,4 +1,4 @@
-# Supprt Vector Machine
+# Support Vector Machine
 {:.no_toc}
 
 <nav markdown="1" class="toc-class">
