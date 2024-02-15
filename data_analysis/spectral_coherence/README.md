@@ -1,4 +1,4 @@
-# Spectral Coherence
+# Instantanious Spectral Coherence
 {:.no_toc}
 
 <nav markdown="1" class="toc-class">
