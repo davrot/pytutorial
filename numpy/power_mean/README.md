@@ -32,7 +32,7 @@ plt.xlabel("t [s]")
 plt.show()
 ```
 
-![image0.png]
+![image0.png](image0.png)
 
 
 ```python
@@ -52,4 +52,4 @@ plt.plot(t, sinus.mean(axis=-1), "k--")
 plt.show()
 ```
 
-![image1.png]
+![image1.png](image1.png)
