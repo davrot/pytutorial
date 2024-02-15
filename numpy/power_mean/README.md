@@ -94,3 +94,47 @@ plt.show()
 ```
 
 ![image2.png](image2.png)
+
+## How to do it correctly
+
+First calculate the power and then average: 
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+t: np.ndarray = np.linspace(0, 1.0, 10000)
+f: float = 10
+
+sampling_frequency: float = 1.0 / (t[1] - t[0])
+
+sinus_a = np.sin(f * t * 2.0 * np.pi)
+sinus_b = np.sin(f * t * 2.0 * np.pi + np.pi)
+
+sinus_a_fft: np.ndarray = np.fft.rfft(sinus_a)
+sinus_b_fft: np.ndarray = np.fft.rfft(sinus_b)
+frequency_axis: np.ndarray = np.fft.rfftfreq(sinus_a.shape[0]) * sampling_frequency
+
+y_power_a: np.ndarray = (1 / (sampling_frequency * sinus_a.shape[0])) * np.abs(
+    sinus_a_fft
+) ** 2
+y_power_a[1:-1] *= 2
+
+y_power_b: np.ndarray = (1 / (sampling_frequency * sinus_b.shape[0])) * np.abs(
+    sinus_b_fft
+) ** 2
+y_power_b[1:-1] *= 2
+
+if frequency_axis[-1] != (sampling_frequency / 2.0):
+    y_power_a[-1] *= 2
+    y_power_b[-1] *= 2
+
+y_power = (y_power_a + y_power_b) / 2.0
+
+plt.plot(frequency_axis, y_power, label="Power")
+plt.xlabel("Frequency [Hz]")
+plt.xlim(0, 50)
+plt.show()
+```
+
+![image3.png](image3.png)
