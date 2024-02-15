@@ -103,6 +103,7 @@ Important VS Code notes:
 * [Statistics](numpy/statistics/README.md)
 * [FFT](numpy/fft/README.md)
   - [rfft and spectral power](numpy/numpy_fft_1/README.md)
+  - [Spectral power and averaging over trials](numpy/power_mean/README.md)
 * [Meshgrid](numpy/mesh_grid/README.md)
 * [Flip, rot90, and roll a matrix](numpy/reverse_an_axis/README.md)
 * Iterate
