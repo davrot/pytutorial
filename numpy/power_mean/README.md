@@ -59,3 +59,38 @@ plt.show()
 ![image1.png](image1.png)
 
 And please remember the Fourier approach: Every curve can be decomposed in to sin waves.
+
+## Fourier is a linear operation
+
+Since Fourier is a linear operation, it doesn't help you if you shift the averaging after the fft. Same problem:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+t: np.ndarray = np.linspace(0, 1.0, 10000)
+f: float = 10
+
+sampling_frequency: float = 1.0 / (t[1] - t[0])
+
+sinus_a = np.sin(f * t * 2.0 * np.pi)
+sinus_b = np.sin(f * t * 2.0 * np.pi + np.pi)
+
+sinus_a_fft: np.ndarray = np.fft.rfft(sinus_a)
+sinus_b_fft: np.ndarray = np.fft.rfft(sinus_b)
+frequency_axis: np.ndarray = np.fft.rfftfreq(sinus_a.shape[0]) * sampling_frequency
+
+y_fft = (sinus_a_fft + sinus_b_fft) / 2.0
+
+y_power: np.ndarray = (1 / (sampling_frequency * sinus_a.shape[0])) * np.abs(y_fft) ** 2
+y_power[1:-1] *= 2
+
+if frequency_axis[-1] != (sampling_frequency / 2.0):
+    y_power[-1] *= 2
+
+plt.plot(frequency_axis, y_power, label="Power")
+plt.xlabel("Frequency [Hz]")
+plt.show()
+```
+
+![image2.png](image2.png)
