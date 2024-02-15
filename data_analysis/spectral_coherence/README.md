@@ -35,7 +35,7 @@ plt.xlabel("Time [s]")
 plt.xlim(0, 0.5)
 plt.show()
 ```
-!{image0.png](image0.png)
+![image0.png](image0.png)
 
 Let us look at wavelet power of the time series:
 
@@ -172,4 +172,4 @@ plt.ylabel("Frequency [Hz]")
 plt.show()
 ```
 
-!{image1.png](image1.png)
+![image1.png](image1.png)
