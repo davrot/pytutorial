@@ -16,25 +16,38 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 import numpy as np
 import matplotlib.pyplot as plt
 
+dt: float = 1.0 / 1000.0
+
+# I want more trials
 f_base: float = 50
-f_delta: float = 50
+f_delta: float = 1
 
 rng = np.random.default_rng(1)
-n: int = 10000
-dt: float = 1.0 / 1000.0
-amplitude: float = 2.0
-t: np.ndarray = np.arange(0, n) * dt
-y: np.ndarray = np.sin(2.0 * np.pi * f_delta * t) + amplitude * rng.random(t.shape)
+n_t: int = 1000
+n_trials: int = 1
+t: np.ndarray = np.arange(0, n_t) * dt
+amplitude: float = 0.75
 
+x = dt * 2.0 * np.pi * (f_base + f_delta * 2 * (rng.random((n_t, n_trials)) - 0.5))
+x = np.cumsum(x, axis=0)
+
+y_a: np.ndarray = np.sin(x)
+y_a[:400, :] = 0.0
+y_a[-400:, :] = 0.0
+y_a = y_a + amplitude * rng.random((n_t, n_trials))
+
+y_a -= y_a.mean(axis=0, keepdims=True)
+y_a /= y_a.std(axis=0, keepdims=True)
+
+y = y_a[:, 0]
 
 np.savez("testdata.npz", y=y, t=t)
 
 plt.plot(t, y)
 plt.xlabel("Time [s]")
-plt.xlim(0, 0.5)
 plt.show()
-
 ```
+
 ![image0.png](image0.png)
 
 Let us look at wavelet power of the time series:
@@ -180,6 +193,7 @@ plt.show()
 import numpy as np
 import matplotlib.pyplot as plt
 import pywt
+from tqdm import trange
 
 
 # Calculate the wavelet scales we requested
@@ -295,27 +309,36 @@ dt: float = 1.0 / 1000.0
 
 # I want more trials
 f_base: float = 50
-f_delta: float = 50
+f_delta: float = 1
+
+delay_enable: bool = False
 
 # Test data ->
 rng = np.random.default_rng(1)
-n_t: int = 10000
+n_t: int = 1000
 n_trials: int = 100
 t: np.ndarray = np.arange(0, n_t) * dt
-amplitude: float = 2.0
+amplitude: float = 0.75
 
-y_a: np.ndarray = np.sin(
-    2.0 * np.pi * f_delta * t[:, np.newaxis]
-) + amplitude * rng.random((n_t, n_trials))
+x = dt * 2.0 * np.pi * (f_base + f_delta * 2 * (rng.random((n_t, n_trials)) - 0.5))
+x = np.cumsum(x, axis=0)
+
+y_a: np.ndarray = np.sin(x)
+y_a[:400, :] = 0.0
+y_a[-400:, :] = 0.0
+y_a = y_a + amplitude * rng.random((n_t, n_trials))
 
 y_a -= y_a.mean(axis=0, keepdims=True)
 y_a /= y_a.std(axis=0, keepdims=True)
 # <- Test data
 
-y_b: np.ndarray = y_a.copy()
 
+if delay_enable:
+    y_b: np.ndarray = np.roll(y_a, shift=250, axis=0)
+else:
+    y_b = y_a.copy()
 
-for trial_id in range(0, n_trials):
+for trial_id in trange(0, n_trials):
     wave_data_a, frequency_axis, t = calculate_wavelet_tf_complex_coeffs(
         data=y_a[..., trial_id],
         number_of_frequences=number_of_frequences,
@@ -386,4 +409,10 @@ plt.xlabel("Frequency [Hz]")
 plt.show()
 ```
 
+With delay_enable = False: 
+
 ![image2.png](image2.png)
+
+With delay_enable = True: 
+
+![image3.png](image3.png)
