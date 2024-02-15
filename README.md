@@ -162,6 +162,7 @@ In the case you know Matlab check here:
 
 ## Python: Questions of spectral nature
 * [PyWavelets: Wavelet Transforms in Python](pywavelet/README.md)
+* [Instantanious Spectral Coherence](data_analysis/spectral_coherence/README.md)
 
 
 ## Python: Daily little helper
