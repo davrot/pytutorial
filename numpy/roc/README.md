@@ -60,7 +60,9 @@ a_x = rng.normal(1.5, 1.0, size=(5000))
 b_x = rng.normal(0.0, 1.0, size=(5000))
 
 data_data = np.concatenate([a_x, b_x])
-data_class = np.concatenate([np.full_like(a_x, -1), np.full_like(b_x, +1)])
+data_class = np.concatenate(
+    [np.full_like(a_x, -1 / a_x.shape[0]), np.full_like(b_x, +1 / b_x.shape[0])]
+)
 idx = np.argsort(data_data)
 
 data_data = data_data[idx]
@@ -76,6 +78,7 @@ plt.ylabel("Cumsum of the classes")
 plt.xlabel("Sorted sample id")
 plt.show()
 ```
+
 ![Image2](image2.png)
 
 ## How to create an estimate from the ROC cumsum maximum
@@ -90,41 +93,42 @@ a_x = rng.normal(1.5, 1.0, size=(5000))
 b_x = rng.normal(0.0, 1.0, size=(5000))
 
 data_data = np.concatenate([a_x, b_x])
-data_class = np.concatenate([np.full_like(a_x, -1), np.full_like(b_x, +1)])
+data_class = np.concatenate(
+    [np.full_like(a_x, -1 / a_x.shape[0]), np.full_like(b_x, +1 / b_x.shape[0])]
+)
+data_class_id = np.concatenate([np.full_like(a_x, -1), np.full_like(b_x, +1)])
 idx = np.argsort(data_data)
 
 data_data = data_data[idx]
 data_class = data_class[idx]
+data_class_id = data_class_id[idx]
 
 data_cumsum = np.cumsum(data_class)
 border = np.argmax(np.abs(data_cumsum))
 
-variant_a = (data_class[:border] == -1).sum() + (data_class[border:] == +1).sum()
-
-variant_b = (data_class[:border] == +1).sum() + (data_class[border:] == -1).sum()
-
-estimate_a = np.concatenate(
-    (np.full_like(data_class[:border], -1), np.full_like(data_class[border:], +1))
-)
-
-estimate_b = np.concatenate(
-    (np.full_like(data_class[:border], +1), np.full_like(data_class[border:], -1))
-)
-
-if variant_a > variant_b:
-    print("We will use: Estimate A")
-    estimate = estimate_a
+if data_cumsum[border] < 0:
+    estimate = np.concatenate(
+        (
+            np.full_like(data_class[: border + 1], -1),
+            np.full_like(data_class[border + 1 :], +1),
+        )
+    )
 
 else:
-    print("We will use: Estimate B")
-    estimate = estimate_b
+    estimate = np.concatenate(
+        (
+            np.full_like(data_class[: border + 1], +1),
+            np.full_like(data_class[border + 1 :], -1),
+        )
+    )
 
-performance = 100.0 * (data_class == estimate).sum() / data_class.shape[0]
+
+performance = 100.0 * (data_class_id == estimate).sum() / data_class_id.shape[0]
 print(f"Performance: {performance}% correct")
 
-plt.subplot(3, 1, 1)
-idx_a = np.where(data_class == -1)[0]
-idx_b = np.where(data_class == +1)[0]
+plt.subplot(2, 1, 1)
+idx_a = np.where(data_class < 0)[0]
+idx_b = np.where(data_class > 0)[0]
 idx = np.arange(0, data_class.shape[0])
 
 plt.plot(data_data[idx_a], np.zeros_like(idx_a), "c*")
@@ -132,34 +136,22 @@ plt.plot(data_data[idx_b], np.zeros_like(idx_b), "m.")
 plt.yticks([])
 plt.title("Data")
 
-plt.subplot(3, 1, 2)
-idx_a = np.where(estimate_a == -1)[0]
-idx_b = np.where(estimate_a == +1)[0]
-idx = np.arange(0, estimate_a.shape[0])
+plt.subplot(2, 1, 2)
+idx_a = np.where(estimate < 0)[0]
+idx_b = np.where(estimate > 0)[0]
+idx = np.arange(0, estimate.shape[0])
 
 plt.plot(data_data[idx_a], np.zeros_like(idx_a), "c*")
 plt.plot(data_data[idx_b], np.zeros_like(idx_b), "m.")
 plt.yticks([])
-plt.title("Estimate A")
-
-plt.subplot(3, 1, 3)
-idx_a = np.where(estimate_b == -1)[0]
-idx_b = np.where(estimate_b == +1)[0]
-idx = np.arange(0, estimate_b.shape[0])
-
-plt.plot(data_data[idx_a], np.zeros_like(idx_a), "c*")
-plt.plot(data_data[idx_b], np.zeros_like(idx_b), "m.")
-plt.yticks([])
-
-plt.title("Estimate B")
+plt.title("Estimate")
 plt.xlabel("Data Value")
 plt.show()
 ```
 
 Output:
 ```python
-We will use: Estimate B
-Performance: 77.3% correct
+Performance: 77.31% correct
 ```
 
 ![Image3](image3.png)
