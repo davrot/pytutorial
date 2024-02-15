@@ -342,12 +342,12 @@ def calculate_spectral_coherence(
         )
 
         if trial_id == 0:
-            calculation = wave_data_a * wave_data_b
+            calculation = wave_data_a * np.conj(wave_data_b)
             norm_data_a = np.abs(wave_data_a) ** 2
             norm_data_b = np.abs(wave_data_b) ** 2
 
         else:
-            calculation += wave_data_a * wave_data_b
+            calculation += wave_data_a * np.conj(wave_data_b)
             norm_data_a += np.abs(wave_data_a) ** 2
             norm_data_b += np.abs(wave_data_b) ** 2
 
@@ -355,7 +355,7 @@ def calculate_spectral_coherence(
     norm_data_a /= float(n_trials)
     norm_data_b /= float(n_trials)
 
-    coherence = np.abs(calculation) ** 2 / (norm_data_a * norm_data_b)
+    coherence = np.abs(calculation) ** 2 / ((norm_data_a * norm_data_b) + 1e-20)
 
     return np.nanmean(coherence, axis=-1), frequency_axis, t
 
@@ -377,6 +377,7 @@ rng = np.random.default_rng(1)
 n_t: int = 1000
 n_trials: int = 100
 t: np.ndarray = np.arange(0, n_t) * dt
+
 amplitude: float = 0.75
 
 x = dt * 2.0 * np.pi * (f_base + f_delta * 2 * (rng.random((n_t, n_trials)) - 0.5))
