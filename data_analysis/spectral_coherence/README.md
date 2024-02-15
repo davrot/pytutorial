@@ -193,7 +193,6 @@ plt.show()
 import numpy as np
 import matplotlib.pyplot as plt
 import pywt
-from tqdm import trange
 
 
 # Calculate the wavelet scales we requested
@@ -301,6 +300,66 @@ def calculate_wavelet_tf_complex_coeffs(
     return (complex_spectrum, frequency_axis, t)
 
 
+def calculate_spectral_coherence(
+    n_trials: int,
+    y_a: np.ndarray,
+    y_b: np.ndarray,
+    number_of_frequences: int,
+    frequency_range_min: float,
+    frequency_range_max: float,
+    dt: float,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+
+    for trial_id in range(0, n_trials):
+        wave_data_a, frequency_axis, t = calculate_wavelet_tf_complex_coeffs(
+            data=y_a[..., trial_id],
+            number_of_frequences=number_of_frequences,
+            frequency_range_min=frequency_range_min,
+            frequency_range_max=frequency_range_max,
+            dt=dt,
+        )
+
+        wave_data_b, frequency_axis, t = calculate_wavelet_tf_complex_coeffs(
+            data=y_b[..., trial_id],
+            number_of_frequences=number_of_frequences,
+            frequency_range_min=frequency_range_min,
+            frequency_range_max=frequency_range_max,
+            dt=dt,
+        )
+
+        cone_of_influence = calculate_cone_of_influence(dt, frequency_axis)
+
+        wave_data_a = mask_cone_of_influence(
+            complex_spectrum=wave_data_a,
+            cone_of_influence=cone_of_influence,
+            fill_value=np.NaN,
+        )
+
+        wave_data_b = mask_cone_of_influence(
+            complex_spectrum=wave_data_b,
+            cone_of_influence=cone_of_influence,
+            fill_value=np.NaN,
+        )
+
+        if trial_id == 0:
+            calculation = wave_data_a * wave_data_b
+            norm_data_a = np.abs(wave_data_a) ** 2
+            norm_data_b = np.abs(wave_data_b) ** 2
+
+        else:
+            calculation += wave_data_a * wave_data_b
+            norm_data_a += np.abs(wave_data_a) ** 2
+            norm_data_b += np.abs(wave_data_b) ** 2
+
+    calculation /= float(n_trials)
+    norm_data_a /= float(n_trials)
+    norm_data_b /= float(n_trials)
+
+    coherence = np.abs(calculation) ** 2 / (norm_data_a * norm_data_b)
+
+    return np.nanmean(coherence, axis=-1), frequency_axis, t
+
+
 # Parameters for the wavelet transform
 number_of_frequences: int = 25  # frequency bands
 frequency_range_min: float = 5  # Hz
@@ -338,72 +397,18 @@ if delay_enable:
 else:
     y_b = y_a.copy()
 
-for trial_id in trange(0, n_trials):
-    wave_data_a, frequency_axis, t = calculate_wavelet_tf_complex_coeffs(
-        data=y_a[..., trial_id],
-        number_of_frequences=number_of_frequences,
-        frequency_range_min=frequency_range_min,
-        frequency_range_max=frequency_range_max,
-        dt=dt,
-    )
-
-    wave_data_b, frequency_axis, t = calculate_wavelet_tf_complex_coeffs(
-        data=y_b[..., trial_id],
-        number_of_frequences=number_of_frequences,
-        frequency_range_min=frequency_range_min,
-        frequency_range_max=frequency_range_max,
-        dt=dt,
-    )
-
-    cone_of_influence = calculate_cone_of_influence(dt, frequency_axis)
-
-    wave_data_a = mask_cone_of_influence(
-        complex_spectrum=wave_data_a,
-        cone_of_influence=cone_of_influence,
-        fill_value=np.NaN,
-    )
-
-    wave_data_b = mask_cone_of_influence(
-        complex_spectrum=wave_data_b,
-        cone_of_influence=cone_of_influence,
-        fill_value=np.NaN,
-    )
-
-    if trial_id == 0:
-        calculation = wave_data_a * wave_data_b
-        norm_data_a = np.abs(wave_data_a) ** 2
-        norm_data_b = np.abs(wave_data_b) ** 2
-
-    else:
-        calculation += wave_data_a * wave_data_b
-        norm_data_a += np.abs(wave_data_a) ** 2
-        norm_data_b += np.abs(wave_data_b) ** 2
-
-calculation /= float(n_trials)
-norm_data_a /= float(n_trials)
-norm_data_b /= float(n_trials)
-
-coherence = np.abs(calculation) ** 2 / (norm_data_a * norm_data_b)
-
-y_reduction_to_ticks: int = 10
-x_reduction_to_ticks: int = 10
-y_round: int = 1
-x_round: int = 1
-
-freq_ticks, freq_values = get_y_ticks(
-    reduction_to_ticks=y_reduction_to_ticks,
-    frequency_axis=frequency_axis,
-    round=y_round,
-)
-
-time_ticks, time_values = get_x_ticks(
-    reduction_to_ticks=x_reduction_to_ticks,
+coherence, frequency_axis, t = calculate_spectral_coherence(
+    n_trials=n_trials,
+    y_a=y_a,
+    y_b=y_b,
+    number_of_frequences=number_of_frequences,
+    frequency_range_min=frequency_range_min,
+    frequency_range_max=frequency_range_max,
     dt=dt,
-    number_of_timesteps=t.shape[0],
-    round=x_round,
 )
 
-plt.plot(frequency_axis, np.nanmean(coherence, axis=-1))
+
+plt.plot(frequency_axis, coherence)
 plt.ylabel("Spectral Coherence")
 plt.xlabel("Frequency [Hz]")
 plt.show()
