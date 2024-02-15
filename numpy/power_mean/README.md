@@ -14,6 +14,8 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 You are not allowed to average over the trials before calculating the power. This is the same for calculating the fft power as well as the wavelet power. 
 
+The worst case senario would be two waves in anti-phase:
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -35,6 +37,8 @@ plt.show()
 ![image0.png](image0.png)
 
 
+However if you have server randomly phase-jittered curves then something similar will happen. 
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -53,3 +57,5 @@ plt.show()
 ```
 
 ![image1.png](image1.png)
+
+And please remember the Fourier approach: Every curve can be decomposed in to sin waves.
