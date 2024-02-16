@@ -82,3 +82,39 @@ To get started, similar to what was previously done, load these signals and comp
 Implement the **ROC analysis** as your own function/module. Then compute the **ROC curve** for different frequency bands. Plot the ROC accuracy over different frequencies: in which band do you get a better performance? 
 
 
+## Voluntary Tasks: Preprocessing
+
+For the main tasks, we provided you with data that was already properly preprocessed. Normally, several preprocessing steps ensure that your signals are clean and filtered in your frequency range of interest. Performing these steps can be trained on data we made 'dirty' for you:
+
+## 1.
+The data set **V1\_LFP1kHz\_dirty.npy** contains the LFPs which are still contaminated with a common source recorded on all channels (e.g., line noise). Load the data and remove the common signal using the **singular value decomposition (SVD)**, then compare your cleaned signal with the LFPs in **FlickerV1V4\_LFP1kHz.mat**. 
+    
+## 2.
+The data set **V1\_Raw32kHz.npy** contains the raw signals sampled with a frequency of 32 kHz. These contain both low-frequency components (e.g. LFPs) as well as high-frequency components (e.g. spikes). Process these data by applying a **lowpass filter** to remove high-frequency spikes while preserving the underlying low-frequency neural activity. Optionally, you may downsample the signals to reduce computational load on subsequent analysis steps without sacrificing significant information.
+    
+Plot the filtered LFP signals to visualize the neural activity dynamics over time. Compare your results with the original signal. Be sure to label your axes appropriately for a clear interpretation of the results.
+
+Compute the firing rate of each neuron by analyzing the **high-pass filtered** raw signals from the V1 area. You can utilize appropriate techniques (such as any spike detection algorithms) to identify neuronal firing events. Once the firing rates are computed, plot a histogram of neuron firing distribution to visualize the variability across the neural population. 
+
+*Concerning the memory of your computer*
+
+The shape of **V1\_Raw32kHz.npy** is (trials=100, time=48000, channels=100) and the file is 3.6 GB in size.
+
+Depending on the memory of your computer you can do this:
+
+```python
+import numpy as np
+data = np.load("V1_Raw32kHz.npy")
+print(data.shape)
+```
+
+Or if your computer says no, you can load each trial individually like this
+
+```python
+import numpy as np
+trial_id: int = 0
+data = np.load("V1_Raw32kHz.npy", mmap_mode="r")[trial_id, ...][
+    np.newaxis, ...
+].copy()
+print(data.shape)
+```
