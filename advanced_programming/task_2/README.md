@@ -58,10 +58,11 @@ $$p(f) = \left |\frac{1}{T}\sum_t^T \frac{a_1(t,f)}{\left| a_1(t,f)  \right |} \
  
 Similarly, you can compute the **spectral coherence** of these signals. The spectral coherence $c(f) \in [0,1]$ is given by:
 
-$$c(f) = \frac{\left| \sum_t a_1(t,f) \overline{a_2(t,f)} \right|^2}{1}$$
+$$c(f) = \frac{\left| \sum_t^T a_1(t,f) \overline{a_2(t,f)} \right|^2}{ \left( \sum_t^T \left| a_1(t,f)  \right|^2 \right) \left( \sum_t^T \left| a_2(t,f) \right|^2 \right)}$$
 
-{ \left( \sum_t \left| a_1(t,f)  \right|^2 \right) \left( \sum_t \left| a_2(t,f) \right|^2 \right)}
 $T$ contains time and trials. 
+
+
 
 \item 
 % task 4
@@ -73,10 +74,7 @@ $T$ contains time and trials.
 % task 6a
     You might have observed that also V1 activity is modulated by attention (explain which result of your previous analysis supports such a statement!). How well can location of attention be decoded from one recorded electrode?
 
-    % class\_dataset0\_train.npy -> Kobe\_V1\_LFP1kHz\_NotAtt\_train.npy
-    % class\_dataset1\_train.npy -> Kobe\_V1\_LFP1kHz\_Att\_train.npy
-    % class\_dataset0\_test.npy -> Kobe\_V1\_LFP1kHz\_NotAtt\_test.npy
-    % class\_dataset1\_test.npy -> Kobe\_V1\_LFP1kHz\_Att\_test.npy
+
     Here you will use some machine-learning techniques to classify \textbf{attended} against \textbf{non-attended }signals based on V1 LFPs. For this purpose, you have been provided with:\\
     \texttt{Kobe\_V1\_LFP1kHz\_NotAtt\_train.npy} and\\
     \texttt{Kobe\_V1\_LFP1kHz\_Att\_train.npy}\\
