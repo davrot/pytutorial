@@ -231,6 +231,7 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 * [Task 1 -- Classycal neurons: Simulation and Mathematical Anaylsis](advanced_programming/task_1/README.md)
 * [Task 2 -- Collective coherent cortices: Data analysis](advanced_programming/task_2/README.md)
 * Neuron Models Equations
+  - For detailed descriptions, please see: ['Neuronal Dynamics' textbook](https://neuronaldynamics.epfl.ch/online) ['Theoretical Neuroscience' textbook](https://boulderschool.yale.edu/sites/default/files/files/DayanAbbott.pdf)
   - [DivInE-model for MT neurons](advanced_programming/DivInE/README.md)
   - [Leaky Integrate-and-Fire](advanced_programming/leaky_integrate_and_fire/README.md)
   - [Exponential Integrate-and-Fire](advanced_programming/exponential_integrate_and_fire/README.md)
