@@ -228,6 +228,7 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 ## S1: Advanced Programming (last update 16.02.2024)
 
 * [S1 Advanced programming and data analysis](advanced_programming/overview_2024/README.md)
+* [Preperations](advanced_programming/preperations/README.md)
 * [Task 1 -- Classycal neurons: Simulation and Mathematical Anaylsis](advanced_programming/task_1/README.md)
 * [Task 2 -- Collective coherent cortices: Data analysis](advanced_programming/task_2/README.md)
 * Neuron Models Equations
