@@ -1,27 +1,27 @@
 
 ## alpha-values
-$$alpha_n = (0.02 * (v + 45.7)) / (1 - np.exp(-0.1 * (v + 45.7)))$$
+$$\alpha_n(V) = \frac{0.02mV^{-1} (V + 45.7mV)}{1 - \exp(-0.1mV^{-1} (V + 45.7mV))}$$
 
-$$alpha_m = (0.38 * (v + 29.7)) / (1 - np.exp(-0.1 * (v + 29.7)))$$
+$$\alpha_m(V) = \frac{0.38mV^{-1} (V + 29.7mV)}{1 - \exp(-0.1mV^{-1} (V + 29.7mV))}$$
 
-$$alpha_h = 0.266 * np.exp(-0.05 * (v + 48.0))$$
+$$\alpha_h(V) = 0.266 \exp(-0.05mV^{-1} (V + 48.0mV))$$
 
 ## beta-values
-$$beta_n = 0.25 * np.exp(-0.0125 * (v + 55.7))$$
+$$\beta_n(V) = 0.25 \exp(-0.0125mV^{-1} (V + 55.7mV))$$
 
-$$beta_m = 15.2 * np.exp(-0.0556 * (v + 54.7))$$
+$$\beta_m(V) = 15.2 \exp(-0.0556mV^{-1} (V + 54.7mV))$$
 
-$$beta_h = 3.8 / (1 + np.exp(-0.1 * (v + 18)))$$
+$$\beta_h(V) = \frac{3.8}{1 + \exp(-0.1mV^{-1} (V + 18mV))}$$
 
 ## time constants
-$$tau_n = 1.0 / (alpha_n + beta_n)$$
+$$\tau_n(V) = \frac{1.0ms}{\alpha_n(V) + \beta_n(V)}$$
 
-$$tau_m = 1.0 / (alpha_m + beta_m)$$
+$$\tau_m(V) = \frac{1.0ms}{\alpha_m(V) + \beta_m(V)}$$
 
-$$tau_h = 1.0 / (alpha_h + beta_h)$$
+$$\tau_h(V) = \frac{1.0ms}{\alpha_h(V) + \beta_h(V)}$$
 
-$$tau_a = 0.3632 + 1.158 / (1.0 + np.exp(0.0497 * (v + 55.96)))$$
+$$\tau_a(V) = 0.3632ms + \frac{1.158ms}{1.0 + \exp(0.0497mV^{-1} (V + 55.96mV))}$$
 
-$$tau_b = 1.24 + 2.678 / (1.0 + np.exp(0.0624 * (v + 50.0)))$$
+$$\tau_b(V) = 1.24ms + \frac{2.678ms}{1.0 + \exp(0.0624mV^{-1} (V + 50.0mV))}$$
 
 
