@@ -225,8 +225,8 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 * [Machine Learning Resources](other/ml_resources/README.md)
 * [Datasets](other/datasets/README.md)
 
-## S1: Advanced Programming
+## S1: Advanced Programming (last update 16.02.2024)
 
-* Equations
+* Neuron Models Equations
   - [Connor Stevens](advanced_programming/connor_stevens/README.md)
 
