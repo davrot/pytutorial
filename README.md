@@ -156,7 +156,7 @@ In the case you know Matlab check here:
 * [K Nearest Neighbours (pure numpy)](numpy/knn/README.md)
 
 ## SciPy
-* [Remove a common signal from your data](scipy/SVD_data_cleaning/README.md)
+* [Remove a common signal from your data with SVD](scipy/SVD_data_cleaning/README.md)
 * [scipy.signal: Butterworth low, high and band-pass](scipy/scipy.signal_butterworth/README.md)
 
 
