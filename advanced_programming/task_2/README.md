@@ -58,32 +58,27 @@ $$p(f) = \left |\frac{1}{T}\sum_t^T \frac{a_1(t,f)}{\left| a_1(t,f)  \right |} \
  
 Similarly, you can compute the **spectral coherence** of these signals. The spectral coherence $c(f) \in [0,1]$ is given by:
 
-$$c(f) = \frac{\left| \sum_t^T a_1(t,f) \overline{a_2(t,f)} \right|^2}{ \left( \sum_t^T \left| a_1(t,f)  \right|^2 \right) \left( \sum_t^T \left| a_2(t,f) \right|^2 \right)}$$
+$$c(f) = \frac{\left| \sum\_t a_1(t,f) \overline{a\_2(t,f)} \right|^2}{ \left( \sum\_t \left| a_1(t,f)  \right|^2 \right) \left( \sum\_t \left| a\_2(t,f) \right|^2 \right)}$$
 
 $T$ contains time and trials. 
 
+## 5.
+In the experiment, attention was devoted to one of the visual stimuli. You do not know to which one, but you know that V4 will selectively respond to the attended stimulus.
 
+Compute the coherence of the V4 signal with each of the flicker signals. We first start with the **phase coherence**, and next apply the **spectral coherence**. Which of the two flicker stimuli is attended?
 
-\item 
-% task 4
-    In the experiment, attention was devoted to one of the visual stimuli. You do not know to which one, but you know that V4 will selectively respond to the attended stimulus.
+## 6.
+You might have observed that also V1 activity is modulated by attention (explain which result of your previous analysis supports such a statement!). How well can location of attention be decoded from one recorded electrode?
 
-    Compute the coherence of the V4 signal with each of the flicker signals. We first start with the \textbf{phase coherence}, and next apply the \textbf{spectral coherence}. Which of the two flicker stimuli is attended?
+Here you will use some machine-learning techniques to classify **attended** against **non-attended** signals based on V1 LFPs. For this purpose, you have been provided with:
 
-\item
-% task 6a
-    You might have observed that also V1 activity is modulated by attention (explain which result of your previous analysis supports such a statement!). How well can location of attention be decoded from one recorded electrode?
+**V1\_LFP1kHz\_NotAtt\_train.npy** and **V1\_LFP1kHz\_Att\_train.npy**
 
+which contain training data sets for 100 trials recorded from one specific channel, corresponding to the non-attended and attended conditions, respectively. After applying any classifier, you can use  **V1\_LFP1kHz\_NotAtt\_test.npy** and **V1\_LFP1kHz\_Att\_test.npy** files to evaluate your results.
 
-    Here you will use some machine-learning techniques to classify \textbf{attended} against \textbf{non-attended }signals based on V1 LFPs. For this purpose, you have been provided with:\\
-    \texttt{Kobe\_V1\_LFP1kHz\_NotAtt\_train.npy} and\\
-    \texttt{Kobe\_V1\_LFP1kHz\_Att\_train.npy}\\
-    which contain training data sets for 100 trials recorded from one specific channel, corresponding to the non-attended and attended conditions, respectively. After applying any classifier, you can use  \texttt{Kobe\_V1\_LFP1kHz\_NotAtt\_test.npy} and \texttt{Kobe\_V1\_LFP1kHz\_Att\_test.npy} files to evaluate your results.
+To get started, similar to what was previously done, load these signals and compute their time-frequency spectrum for different frequency bands. Since you need these spectra for all the following sub-tasks, it is recommended that you save your results in separate files.
 
-    To get started, similar to what was previously done, load these signals and compute their time-frequency spectrum for different frequency bands. Since you need these spectra for all the following sub-tasks, it is recommended that you save your results in separate files.
-
-\item
-% task 6b
-    Implement the \textbf{ROC analysis} as your own function/module. Then compute the \textbf{ROC curve} for different frequency bands. Plot the ROC accuracy over different frequencies: in which band do you get a better performance? 
+## 7.
+Implement the **ROC analysis** as your own function/module. Then compute the **ROC curve** for different frequency bands. Plot the ROC accuracy over different frequencies: in which band do you get a better performance? 
 
 
