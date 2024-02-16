@@ -1,6 +1,19 @@
 
 ## Main equations
 
+$$c_m \frac{d V}{dt} = -i_m + \frac{I_e}{A}$$
+
+$$t_m(V) \frac{d m}{dt} = m_{\infty}(V) - m$$
+
+$$t_h(V) \frac{d h}{dt} = h_{\infty}(V) - h$$
+
+$$t_n(V) \frac{d n}{dt} = n_{\infty}(V) - n$$
+
+$$t_a(V) \frac{d a}{dt} = a_{\infty}(V) - a$$
+
+$$t_b(V) \frac{d b}{dt} = b_{\infty}(V) - b$$
+
+
 $$i_m =\bar{g}_L (V - E_L) + \bar{g}_{Na} m^3 h (V - E_{Na}) + \bar{g}_{K} n^4 (V - E_{K}) + \bar{g}_{A} a^3 b (V-E_A)$$
 
 
