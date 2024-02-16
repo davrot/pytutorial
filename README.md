@@ -228,5 +228,6 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 ## S1: Advanced Programming (last update 16.02.2024)
 
 * Neuron Models Equations
+  - [DivInE-model for MT neurons](advanced_programming/DivInE/README.md)
   - [Connor Stevens](advanced_programming/connor_stevens/README.md)
 
