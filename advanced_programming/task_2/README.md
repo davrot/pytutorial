@@ -94,6 +94,7 @@ The data set **V1\_Raw32kHz.npy** contains the raw signals sampled with a freque
     
 Plot the filtered LFP signals to visualize the neural activity dynamics over time. Compare your results with the original signal. Be sure to label your axes appropriately for a clear interpretation of the results.
 
+## 3.
 Compute the firing rate of each neuron by analyzing the **high-pass filtered** raw signals from the V1 area. You can utilize appropriate techniques (such as any spike detection algorithms) to identify neuronal firing events. Once the firing rates are computed, plot a histogram of neuron firing distribution to visualize the variability across the neural population. 
 
 *Concerning the memory of your computer*
@@ -118,3 +119,13 @@ data = np.load("V1_Raw32kHz.npy", mmap_mode="r")[trial_id, ...][
 ].copy()
 print(data.shape)
 ```
+
+## Voluntary Tasks: More Information!
+
+Combining information contained in different frequency bands or recorded from different electrodes potentially improves classification accuracy. Here we use different methods to strive for such an improvement, and use statistical tests to determine whether results are (really) significantly different.
+
+## 1.
+Based on your results from **ROC analysis**, select the best frequency bands for classification and use this range for the following tasks. Classify your data with the **K-nearest neighbors (k-NN)** and **support vector machine (SVM)** algorithms in the selected frequency bands. You can adjust the hyperparameters of these algorithms as needed to optimize classification performance. What is the best accuracy that you can achieve? Which method performs better?
+
+## 2.
+Now, you have applied three different techniques to classify your data (namely ROC, k-NN, and SVM). These techniques have different performances, but is this difference statistically significant? Apply the **Fisher exact test** for these methods against each other. Is there a method significantly better than the other one?
