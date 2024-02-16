@@ -96,7 +96,7 @@ $$M_{\infty} = \frac{1}{1+ \exp(-(V+57mV) / 6.2mV)}$$
 
 $$H_{\infty} = \frac{1}{1+ \exp(-(V+81mV) / 4mV)}$$
 
-$$\tau_M = 0.612 ms + \frac{1ms}{\exp(-(V+132mV)/16.7 mV) + \exp(-(V+16.8mV)/18.2 mV)}$$
+$$\tau_M = 0.612 ms + \frac{1ms}{\exp(-(V+132mV)/16.7 mV) + \exp((V+16.8mV)/18.2 mV)}$$
 
 if $V < -80 mV$:
 
@@ -105,3 +105,10 @@ $$\tau_H = 1ms \exp((V+467mV)/66.6mV)$$
 else:
 
 $$\tau_H = 28ms + 1ms \exp(-(V+22mV)/10.5mV)$$
+
+## Ca2+- depentdent K+ Conducatance
+
+$$c_\infty = \left( \frac{[Ca^{2+}]}{[Ca^{2+}] + 3 \mu M} \right) \frac{1}{1+\exp(-V+28.3mV)/12.6mV}$$
+
+$$\tau_C = 90.3ms - \frac{75.1ms}{1+\exp(-V+46mV)/22.7mV}$$
+
