@@ -96,5 +96,5 @@ $$M_{\infty} = \frac{1}{1+ \exp(-(V+57mV) / 6.2mV)}$$
 
 $$H_{\infty} = \frac{1}{1+ \exp(-(V+81mV) / 4mV)}$$
 
-$$\tau_M = 0.612 ms + \frac{1ms}{\exp(-(V+132mV)/16.7 mV) + \exp(-(V+132mV)/16.7 mV)}
+$$\tau_M = 0.612 ms + \frac{1ms}{\exp(-(V+132mV)/16.7 mV) + \exp(-(V+16.8mV)/18.2 mV)}
 
