@@ -110,5 +110,5 @@ $$\tau_H = 28ms + 1ms \exp(-(V+22mV)/10.5mV)$$
 
 $$c_\infty = \left( \frac{[Ca^{2+}]}{[Ca^{2+}] + 3 \mu M} \right) \frac{1}{1+\exp(-V+28.3mV)/12.6mV}$$
 
-$$\tau_C = 90.3ms - \frac{75.1ms}{1+\exp((-V+46mV)/22.7mV})$$
+$$\tau_C = 90.3ms - \frac{75.1ms}{1+\exp((-V+46mV)/22.7mV)}$$
 
