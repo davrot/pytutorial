@@ -227,6 +227,8 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 
 ## S1: Advanced Programming (last update 16.02.2024)
 
+* [S1 Advanced programming and data analysis](advanced_programming/overview_2024/README.md)
+* [Task1 -- Classycal neurons: Simulation and Mathematical Anaylsis](advanced_programming/task_1/README.md)
 * Neuron Models Equations
   - [DivInE-model for MT neurons](advanced_programming/DivInE/README.md)
   - [Leaky Integrate-and-Fire](advanced_programming/leaky_integrate_and_fire/README.md)
