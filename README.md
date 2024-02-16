@@ -232,7 +232,9 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 * [Task 2 -- Collective coherent cortices: Data analysis](advanced_programming/task_2/README.md)
 * Neuron Models Equations
   - For detailed descriptions, please see: ['Neuronal Dynamics' textbook](https://neuronaldynamics.epfl.ch/online) ['Theoretical Neuroscience' textbook](https://boulderschool.yale.edu/sites/default/files/files/DayanAbbott.pdf)
+* Neuron Models Equations -- Rate-based neurons
   - [DivInE-model for MT neurons](advanced_programming/DivInE/README.md)
+* Neuron Models Equations -- Spiking neurons without explicit spike generation mechanism
   - [Leaky Integrate-and-Fire](advanced_programming/leaky_integrate_and_fire/README.md)
   - [Exponential Integrate-and-Fire](advanced_programming/exponential_integrate_and_fire/README.md)
   - [Quadratic Integrate-and-Fire](advanced_programming/quadratic_integrate_and_fire/README.md)
