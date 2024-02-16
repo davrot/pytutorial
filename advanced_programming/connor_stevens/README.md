@@ -1,4 +1,7 @@
 
+$$i_m =\bar{g}_L (V - E_L )  + \bar{g}_{Na} m^3 h (V - E_{Na}) + \bar{g}_{K} n^4 (V - E_{K}) + \bar{g}_{A} a^3 b (V-E_A)$$
+
+
 ## alpha-values
 $$\alpha_n(V) = \frac{0.02mV^{-1} (V + 45.7mV)}{1 - \exp(-0.1mV^{-1} (V + 45.7mV))}$$
 
