@@ -35,3 +35,17 @@ $$n_\infty(V) = \alpha_n(V) * \tau_n(V)$$
 $$m_\infty(V) = \alpha_m(V) * \tau_m(V)$$
 
 $$h_\infty(V) = \alpha_h(V) * \tau_h(V)$$
+
+## Suitable initial conditions
+
+$$m(t=0) = 0.010$$
+
+$$n(t=0) = 0.156$$
+
+$$h(t=0) = 0.966$$
+
+$$a(t=0) = 0.540$$
+
+$$b(t=0) = 0.289$$
+
+$$V(t=0) = -68.0 mV$$
