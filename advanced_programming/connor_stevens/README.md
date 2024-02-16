@@ -30,11 +30,11 @@ $$a_\infty(V) = \left( \frac{0.0761 * \exp(0.0314mV^{-1} (V + 94.22mV))}{1 + \ex
         
 $$b_\infty(V) = \left(\frac{1}{1 + \exp(0.0688mV^{-1} (V + 53.3mV))} \right)^4 ms$$
   
-$$n_\infty(V) = \alpha_n(V) * \tau_n(V)$$
+$$n_\infty(V) = \alpha_n(V) \tau_n(V)$$
 
-$$m_\infty(V) = \alpha_m(V) * \tau_m(V)$$
+$$m_\infty(V) = \alpha_m(V) \tau_m(V)$$
 
-$$h_\infty(V) = \alpha_h(V) * \tau_h(V)$$
+$$h_\infty(V) = \alpha_h(V) \tau_h(V)$$
 
 ## Suitable initial conditions
 
@@ -49,3 +49,19 @@ $$a(t=0) = 0.540$$
 $$b(t=0) = 0.289$$
 
 $$V(t=0) = -68.0 mV$$
+
+## Parameter
+
+$$c_m = 0.1 \frac{\mu F}{mm^2}$$
+
+$$\frac{I_e}{A} = 0.35 \frac{\mu A}{mm^2}$$
+
+g_na_max: float = 1.2  # mS/mm^2
+g_k_max: float = 0.2  # mS/mm^2
+# gL_max: float = 0.003  # mS/mm^2 -> g_leak
+g_a_max: float = 0.477  # mS/mm^2
+ENa: float = 55.0  # mV
+EK: float = -72.0  # mV
+# EL: float = -17.0  # mV -> v_rest
+EA: float = -75.0  # mV
+
