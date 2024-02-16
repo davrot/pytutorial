@@ -26,15 +26,9 @@ $$\tau_b(V) = 1.24ms + \frac{2.678ms}{1.0 + \exp(0.0624mV^{-1} (V + 50.0mV))}$$
 
 ## asymptotic values
 
-        a_endless = np.power(
-            (
-                (0.0761 * np.exp(0.0314 * (v + 94.22)))
-                / (1 + np.exp(0.0346 * (v + 1.17)))
-            ),
-            1 / 3,
-        )
+$$a_\infty(V) = \left( \frac{0.0761 * \exp(0.0314mV^{-1} (V + 94.22mV))}{1 + \exp(0.0346mV^{-1} (V + 1.17mV))}) \right)^{1 / 3} ms$$
         
-$$b_\infty(V) = \left(\frac{1}{1 + \exp(0.0688mV^{-1} (V + 53.3mV))} \right)^4$$
+$$b_\infty(V) = \left(\frac{1}{1 + \exp(0.0688mV^{-1} (V + 53.3mV))} \right)^4 ms$$
   
 $$n_\infty(V) = \alpha_n(V) * \tau_n(V)$$
 
