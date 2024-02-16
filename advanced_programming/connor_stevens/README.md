@@ -56,12 +56,19 @@ $$c_m = 0.1 \frac{\mu F}{mm^2}$$
 
 $$\frac{I_e}{A} = 0.35 \frac{\mu A}{mm^2}$$
 
-g_na_max: float = 1.2  # mS/mm^2
-g_k_max: float = 0.2  # mS/mm^2
-# gL_max: float = 0.003  # mS/mm^2 -> g_leak
-g_a_max: float = 0.477  # mS/mm^2
-ENa: float = 55.0  # mV
-EK: float = -72.0  # mV
-# EL: float = -17.0  # mV -> v_rest
-EA: float = -75.0  # mV
+$$\bar{g}_L = 0.003  \frac{mS}{mm^2}$$
+
+$$\bar{g}_{Na} = 1.2 \frac{mS}{mm^2}$$
+
+$$\bar{g}_{K} =  0.2 \frac{mS}{mm^2}$$
+
+$$\bar{g}_{A} =  0.477 \frac{mS}{mm^2}$$
+
+$$E_L = -17.0 mV$$
+
+$$E_{Na} = 55.0 mV$$
+
+$$E_K = -72.0 mV$$
+
+$$E_A = -75.0 mV$$
 
