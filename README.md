@@ -231,5 +231,6 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
   - [DivInE-model for MT neurons](advanced_programming/DivInE/README.md)
   - [Leaky Integrate-and-Fire](advanced_programming/leaky_integrate_and_fire/README.md)
   - [Exponential Integrate-and-Fire](advanced_programming/exponential_integrate_and_fire/README.md)
+  - [Quadratic Integrate-and-Fire](advanced_programming/quadratic_integrate_and_fire/README.md)
   - [Connor Stevens](advanced_programming/connor_stevens/README.md)
 
