@@ -29,38 +29,39 @@ The main data set **FlickerV1V4\_LFP1kHz.mat** comprises three arrays containing
 
 ## Mandatory Tasks
 
-1. The goal of this project is for you to practice the process of scientific research. Before getting into the tasks, try to think thoroughly about the data set you have and the experiment by which this dataset is obtained. What questions can you investigate having such data? What methods can you propose to utilize in order to explore these questions? How can you handle your data and write your code for having a well-structured solution with re-usable components, which is easy to understand for outsiders (which include YOU after not having looked into the code for two weeks)?
+### 1.
+The goal of this project is for you to practice the process of scientific research. Before getting into the tasks, try to think thoroughly about the data set you have and the experiment by which this dataset is obtained. What questions can you investigate having such data? What methods can you propose to utilize in order to explore these questions? How can you handle your data and write your code for having a well-structured solution with re-usable components, which is easy to understand for outsiders (which include YOU after not having looked into the code for two weeks)?
    
 **We will ask some of you to present your thoughts on this task before you are going to implement the data analysis.**
     
-2. Some scientists believe that (selective) information processing in the visual system is strongly linked to oscillatory and coherent neural activity, which is modulated by attention. Spectral analysis helps you in discovering and pinpointing oscillatory components in neural signals.
+## 2.
+Some scientists believe that (selective) information processing in the visual system is strongly linked to oscillatory and coherent neural activity, which is modulated by attention. Spectral analysis helps you in discovering and pinpointing oscillatory components in neural signals.
   
 Use **the wavelet transform** (see [A Practical Guide to Wavelet Analysis](https://doi.org/10.1175/1520-0477(1998)079<0061:APGTWA>2.0.CO;2)) to compute the trial-averaged amplitude spectrum over the whole trial duration and plot it. Make sure to transform your trials to have zero mean and unit standard deviation before applying the wavelet transform. Consider the parameters to choose for the analysis -- what would be an appropriate frequency range and spacing (linear or logarithmic)?
 
 Which part of your result can you trust? -- include the cone-of-influence into your plot. Does the presentation of a stimulus generate oscillatory activity, and if yes, in which frequency band? 
 
-3. If appearance of stimuli is accompanied by enhanced oscillatory activity, you can use this dependence to determine **regions of interest (ROIs)** in the V1 neurons, i.e. sites that have the two visual stimuli in their receptive fields.
+## 3.
+If appearance of stimuli is accompanied by enhanced oscillatory activity, you can use this dependence to determine **regions of interest (ROIs)** in the V1 neurons, i.e. sites that have the two visual stimuli in their receptive fields.
     
 To do so, you can calculate the power spectrum in a specific frequency band for each channel and compare the oscillatory power across the neural population. Plot your results in a $10\times10$ grid. Where are the regions of interest? Select two neurons exhibiting the most significant power and report their corresponding indices.
 
-\item
-% task 5b
-    After performing the previous task, you might know which neurons are driven by visual stimuli, but not which site is responding to which individual stimulus [ie, flicker A or flicker B].
+## 4.
 
-    Find out by computing \textbf{phase coherence} and \textbf{spectral coherence} between the two selected neurons in V1 with each flicker signal. Compare the results.
+After performing the previous task, you might know which neurons are driven by visual stimuli, but not which site is responding to which individual stimulus [ie, flicker A or flicker B].
 
-    For two \textbf{wavelet-transformed} signals with \(a_1(t,f), a_2(t,f)\) being the complex wavelet coefficients, the phase coherence \(p(f) \in [0,1] \) is given by:        
-	% \begin{eqnarray}
-	% 	p(f) = \left | \frac{\sum_t a_1(t,f)}{\left| a_1(t,f)  \right |} \frac{\overline{a_2(t,f)}}{\left| a_2(t,f)  \right |} \right |^2
-	% \end{eqnarray}
-	\begin{eqnarray}
-		p(f) = \left |\frac{1}{T}\sum_t^T \frac{a_1(t,f)}{\left| a_1(t,f)  \right |} \frac{\overline{a_2(t,f)}}{\left| a_2(t,f)  \right |} \right |
-	\end{eqnarray}
-    Similarly, you can compute the \textbf{spectral coherence} of these signals. The spectral coherence \(c(f) \in [0,1] \) is given by:        
-	\begin{eqnarray}
-		c(f) = \frac{\left | \sum_t a_1(t,f)\overline{a_2(t,f)} \right |^2}{
-			\left ( \sum_t \left | a_1(t,f)  \right |^2 \right )\left ( \sum_t \left | a_2(t,f)  \right |^2 \right )}
-	\end{eqnarray}
+Find out by computing **phase coherence** and **spectral coherence** between the two selected neurons in V1 with each flicker signal. Compare the results.
+
+For two **wavelet-transformed** signals with $a_1(t,f)$, $a_2(t,f)$ being the complex wavelet coefficients, the phase coherence $p(f) \in [0,1]$  is given by:        
+
+$$p(f) = \left |\frac{1}{T}\sum_t^T \frac{a_1(t,f)}{\left| a_1(t,f)  \right |} \frac{\overline{a_2(t,f)}}{\left| a_2(t,f)  \right |} \right |$$
+ 
+Similarly, you can compute the **spectral coherence** of these signals. The spectral coherence $c(f) \in [0,1]$ is given by:
+
+$$c(f) = \frac{\left| \sum_t a_1(t,f) \overline{a_2(t,f)} \right|^2}{1}$$
+
+{ \left( \sum_t \left| a_1(t,f)  \right|^2 \right) \left( \sum_t \left| a_2(t,f) \right|^2 \right)}
+$T$ contains time and trials. 
 
 \item 
 % task 4
