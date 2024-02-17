@@ -68,6 +68,6 @@ If you wish, you can again compare the activation dynamics of your model to expe
 
 ## Literature
 
-[1] Ben-Yishai, R., Bar-Or, R. L., and Sompolinsky, H. (1995). \textbf{Theory of orientation tuning in visual cortex.} Proceedings of the National Academy of Sciences of the United States of America, 92(9), 3844-3848.
+[1] Ben-Yishai, R., Bar-Or, R. L., and Sompolinsky, H. (1995). **Theory of orientation tuning in visual cortex.** *Proceedings of the National Academy of Sciences of the United States of America*, 92(9), 3844-3848.
 
-[2] Trasch\"utz A, Kreiter AK, and Wegener D (2015). \textbf{Transient activity in monkey area MT represents speed changes and is correlated with human behavioral performance.} J Neurophysiol. 113: 890-903.
+[2] Traschütz A, Kreiter AK, and Wegener D (2015). **Transient activity in monkey area MT represents speed changes and is correlated with human behavioral performance.** *J Neurophysiol.* 113: 890-903.
