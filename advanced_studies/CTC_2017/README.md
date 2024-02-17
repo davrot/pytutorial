@@ -8,7 +8,7 @@ In support of CTC, an experimental study has shown that V1 and V4 neuron populat
 
 ![1CTC.png](1CTC.png)
 
-***Communication through coherence (Fries 2015)***
+**Caption: Communication through coherence (Fries 2015)**
 
 In this project, you will eventually construct a simple model that recreates the basic neural activity from the experimental setup in [1,4]. Further, using the model, you will test the merits and plausibility of CTC, as well as make inferences about what the mechanism requires to function properly (and hence make predictions about what the brain's neural activity should look like if the CTC mechanism is truly employed).
 
@@ -16,7 +16,7 @@ In the experiment, two stimuli were shown simultaneously to the test subject, su
 
 ![WC_fig2_XYZ.png](WC_fig2_XYZ.png)
 
-***Model setup***
+**Caption: Model setup**
 
 The rhythmic behavior of local populations may stem from two basic circuits: ING and PING [3]. In the ING circuit, the rhythmic activity is realized exclusively by the inhibitory population, whereas in the PING mechanism the oscillations occur as pull-push dynamics between the excitatory and inhibitory groups of neurons (Fig. 2 bottom).
 
