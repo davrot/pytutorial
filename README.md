@@ -226,7 +226,6 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 * [Datasets](other/datasets/README.md)
 
 ## S1: Advanced Programming (last update 16.02.2024)
-
 * [S1 Advanced programming and data analysis](advanced_programming/overview_2024/README.md)
 * [Preperations](advanced_programming/preperations/README.md)
 * [Task 1 -- Classycal neurons: Simulation and Mathematical Anaylsis](advanced_programming/task_1/README.md)
@@ -242,5 +241,11 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
   - [Connor Stevens](advanced_programming/connor_stevens/README.md)
 * [References](advanced_programming/references/README.md)
 
-  
+## Advanced Studies
+* Material from ages past
+  - [2017: Oscillations and information routing: CTC model](advanced_studies/CTC_2017/README.md)
+  - [2017: Change detection: The DivInE-Model](advanced_studies/DivInE_2017/README.md)
+  - [2017: Contour Integration](advanced_studies/contour_integration_2017/README.md)
+  - [2017: Computation Spike by Spike](advanced_studies/sbs_2017/README.md)
+  - [2017: Natural scenes and sparse coding in visual cortex](advanced_studies/sparse_coding_2017/README.md)
 
