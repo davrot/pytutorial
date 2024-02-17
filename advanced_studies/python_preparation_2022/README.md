@@ -21,7 +21,7 @@ Arrival of an action potential at the presynaptic terminal leads to the release 
 ## Task 1. Variables, Functions, Plotting
 The postsynaptic current may be described by a function $PSP(t) = at\exp(-t/b)$ depending on time $t$.
 * Plot this function over time for different parameters $a$, $b$ and annotate the axes properly.
-* Define a Python function \py{PSP} with default parameters $a$, $b$ which computes and returns $PSP(t)$.
+* Define a Python function **PSP** with default parameters $a$, $b$ which computes and returns $PSP(t)$.
 
 ## Task 2. Loops, Conditional Execution, Flow Control
 Transport of neurotransmitter from the release site $A$ to the destination $B$ can be simulated by a one-dimensional random walk of particles described by the following rules:
@@ -42,7 +42,7 @@ The postsynaptic current is proportional to the amount of neurotransmitter arriv
 
 * Plot $h(t)$ and $PSP(t)$ into the same graph and adjust the parameters $a$, $b$ by hand until you obtain a good fit, use a legend to distinguish the two curves.
 * Quantify the fit error by computing the mean quadratic distance $QD(h, PSP) = 1/T \sum_t (h(t)-PSP(t))^2$ between the two curves.
-* Define a Python function \py{mqdis} for computing $QD$.
+* Define a Python function **mqdis** for computing $QD$.
 
 ## Task 4. Some more flow control
 
@@ -62,7 +62,7 @@ Modify your code for Task \#4 such that it uses the functions imported from your
 
 ## Task 6. Towards classes
 
-Construct an \py{upper}-class which you can use to study random walks, and populate this class with internal variables and methods. Here are some ideas how you might do it:
+Construct an **upper**-class which you can use to study random walks, and populate this class with internal variables and methods. Here are some ideas how you might do it:
 
 * The **\_\_init\_\_**-method sets the parameter $k$ for a specific random walk.
 * Method **sim(n)** simulates $n$ (additional) particles and stores (adds) their durations (to the existing data).
