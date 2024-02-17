@@ -244,6 +244,7 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 ## Advanced Studies
 * Material from ages past
   - [2022: Deep Networks and Pytorch](advanced_studies/pytorch_2022/README.md)
+  - [2022: Divisive inhibition: a dynamical circuit for change detection](advanced_studies/divisive_inhibition_2022/README.md)
   - [2022: Synchronization and dynamic oscillations in the visual system](advanced_studies/synchronization_2022/README.md)
   - [2020: Deep Networks and Tensor Flow](advanced_studies/tensor_flow_2020/README.md)
   - [2020: Divisive Normalization -- a Universal Concept for Adaptive Dynamics and Function of Cortical Circuits](advanced_studies/divisive_normalization_2020/README.md)
