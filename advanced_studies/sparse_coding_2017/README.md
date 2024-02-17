@@ -11,7 +11,8 @@ Sparse coding assumes that an image $\vec{x}$ with $N$ pixels can be written as 
 ![project_rozell_linear_sup_hp.png](project_rozell_linear_sup_hp.png)
 
 
-$$\vec{x} = \sum_{j=1}^M a_j \vec{\varphi}_{j},$$
+**Equation (1)** 
+$$\vec{x} = \sum_{j=1}^M a_j \vec{\varphi}_{j},$$ 
 
 where actually just a very small number of coefficients $a_j$ is different from zero.
 
@@ -23,22 +24,41 @@ Both the features $\vec{\varphi}_j$ and the coefficients $a_j$ can be found by s
 
 This optimization problem can be expressed as minimization of an energy function $E$ via
 
-$$\min_{a_j, \vec{\varphi}_j} \left\{ E(a_j, \vec{\varphi}_j) \right\} \label{eq:minime}$$
+**Equation (2)**
+$$\min\_{a_j, \left\{ \vec{\varphi}\_j} E(a\_j, \vec{\varphi}\_j) \right\}$$
 
-$$\mbox{with:} \, \, E(a_j, \vec{\varphi}_j) & := & \sum_{k=1}^N \sum_{j=1}^M \big(x_k - \varphi_{kj}a_j \big)^2 + \lambda \sum_{j=1}^M |a_j|\label{eq:energy}$$
+with:
+
+**Equation (3)**
+$$E(a\_j, \vec{\varphi}\_j) := \sum\_{k=1}^N \sum_{j=1}^M \big(x\_k - \varphi\_{kj}a\_j \big)^2 + \lambda \sum_{j=1}^M |a\_j|$$
 
 and can be solved in several ways. Interestingly, the result one gets is that the features will look like localized oriented filters of different spatial frequencies as shown above.
 
 This naturally suggest to interpret the quantities $\vec{\varphi}_{j}$ as (classical) receptive fields of V1 cells and the coefficients $a_j$ as the firing rates of these neurons.
 
-Now, assume that you already know a complete feature set $\{ \vec{\varphi}_{j} \}_{j=1,\ldots,M}$ (this is often called 'dictionary' in the literature). What you will implement is a dynamical system that gives as output the coefficients needed to represent a visual input. It is described by two simple equations: 
+Now, assume that you already know a complete feature set 
+
+$${\vec{\varphi}\_{j}}\_{j=1,\ldots,M}$$
+
+(this is often called 'dictionary' in the literature). What you will implement is a dynamical system that gives as output the coefficients needed to represent a visual input. It is described by two simple equations: 
 
 
-$$\tau \frac{du_j}{dt} &= -u_j + \sum_{k=1}^N x_k(t) \varphi_{kj} - \sum_{k=1}^N \sum_{\substack{i=1,\ldots, M\\ i\neq j}}\varphi_{ki}\varphi_{kj}a_i(t) \label{eq:dyn_u}\\
-a_j(t) &= [u_j(t) - \lambda]^{+} \label{eq:dyn_a}$$
+**Equation (4)**
+$$\tau \frac{du_j}{dt} = -u_j + \sum_{k=1}^N x_k(t) \varphi_{kj} - \sum_{k=1}^N \sum_{\substack{i=1,\ldots, M\\ i\neq j}}\varphi_{ki}\varphi_{kj}a_i(t)$$
+
+**Equation (5)**
+$$a_j(t) = [u_j(t) - \lambda]^{+}$$
 
 
-$$Each of the $M$ internal units is characterized by a 'membrane potential' $u_j$ and receives a feed-forward input $\sum_{k=1}^N x_k(t) \varphi_{kj}$ from a visual stimulus $\vec{x}$, and a recurrent input $-\sum_{k=1}^N \sum_{\substack{i=1,\ldots, M\\ i\neq j}}\varphi_{ki}\varphi_{kj}a_i(t)$ from other units; the output or 'firing rate' $a_j(t)$ is a thresholded version of $u_j(t)$.$$
+Each of the $M$ internal units is characterized by a 'membrane potential' $u_j$ and receives a feed-forward input 
+
+$$\sum_{k=1}^N x_k(t) \varphi_{kj}$$
+
+from a visual stimulus $\vec{x}$, and a recurrent input 
+
+$$-\sum_{k=1}^N \sum_{\substack{i=1,\ldots, M\\ i\neq j}}\varphi_{ki}\varphi_{kj}a_i(t)$$ 
+
+from other units; the output or 'firing rate' $a_j(t)$ is a thresholded version of $u_j(t)$.
 
 
 ## Analysis
@@ -47,12 +67,12 @@ $$Each of the $M$ internal units is characterized by a 'membrane potential' $u_j
 Sketch the network with circles representing the neurons and arrows representing the feedforward and recurrent input contributions. Annotate your sketch with the mathematical symbols introduced above. 
 
 ### 2.
-Rewrite the model (equations \eqref{eq:dyn_u}-\eqref{eq:dyn_a}) in a vectorized form: 
+Rewrite the model (equations (4)-(5)) in a vectorized form: 
 it will be extremely helpful for your Matlab implementation.
 
 ### 3.
-Prove that the dynamics proposed by the model (equations \eqref{eq:dyn_u} and \eqref{eq:dyn_a}) 
-indeed solves the optimization problem defined by expression \eqref{eq:minime}. For this, you have to use the definition for the energy $E$ (\eqref{eq:energy}) and show that $$\dot{a}_m \propto -\frac{\partial E}{\partial a_m}$$
+Prove that the dynamics proposed by the model (equations (4) and (5)) 
+indeed solves the optimization problem defined by expression (2). For this, you have to use the definition for the energy $E$ (3) and show that $$\dot{a}_m \propto -\frac{\partial E}{\partial a_m}$$
 
 
 
@@ -61,8 +81,8 @@ indeed solves the optimization problem defined by expression \eqref{eq:minime}. 
 ## 1.
 write a function that takes as input an image $\vec{x}$ and a matrix containing the $N$ features and gives as output the coefficients $a_j(t)$.
 
-To help you build it and debug it, we provide you with a data set of ten pre-processed natural images (see matlab variable \texttt{images})
-and various collections of features (see Matlab variabes \texttt{Dict\_Npix\_Mfeat}).
+To help you build it and debug it, we provide you with a data set of ten pre-processed natural images (see matlab variable *images*)
+and various collections of features (see Matlab variabes *Dict\_Npix\_Mfeat*).
 
 Take a look at these variables, find a way to visualize them and explore their content. 
 Think of how to extract an input $\vec{x}$ from the image dataset (maybe write a function that does this for you!)
@@ -72,7 +92,7 @@ Take the dictionaries provided by us and test your function by computing the coe
 How many coefficients are non-zero? How well can you recover the image? How does this depend on the parameter $\lambda$?
 
 ## 3.
-Neurons in the primary visual cortex (V1) are selective for the size, orientation and frequency of a stimulus falling within a restricted portion of the visual space known as the receptive field. However, many electrophysiological studies show that stimuli placed \emph{outside} the classical receptive field (CRF) can influence the response of V1 cells, causing the emergence of non linear behaviours. These contextual modulations and non linear response properties are commonly referred to as non-classical receptive field (nCRF) effects. Surprisingly, the model you are investigating can reproduce many of these effects -- check out how your model behaves with respect to the nCRF experiments mentioned in the paper. For this purpose, choose one (or more) nCRF effect(s) described in [2] and reproduce them!
+Neurons in the primary visual cortex (V1) are selective for the size, orientation and frequency of a stimulus falling within a restricted portion of the visual space known as the receptive field. However, many electrophysiological studies show that stimuli placed *outside* the classical receptive field (CRF) can influence the response of V1 cells, causing the emergence of non linear behaviours. These contextual modulations and non linear response properties are commonly referred to as non-classical receptive field (nCRF) effects. Surprisingly, the model you are investigating can reproduce many of these effects -- check out how your model behaves with respect to the nCRF experiments mentioned in the paper. For this purpose, choose one (or more) nCRF effect(s) described in [2] and reproduce them!
 
 ## Extras
 
@@ -83,7 +103,7 @@ Think of an algorithm to learn from real data the coefficients together with a d
 
 **Hint:** The model you implemented already does half of the work for you. 
 
-How would you optimize the function $E(a_j,  \mathbf{\varphi}_{j})$ with respect to $\mathbf{\varphi}_{j}$?
+How would you optimize the function $E(a\_j,  \mathbf{\varphi}\_{j})$ with respect to $\mathbf{\varphi}\_{j}$?
 Write it down on paper and, if you have time, go ahead and implement it!
 
 ## 2.
