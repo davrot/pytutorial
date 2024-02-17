@@ -45,29 +45,24 @@ As reading material please look into the following parts of [1] taken from [http
 
 Please don't lose too much time on their examples. Your goal is NOT to understand everything in those chapters. Your goal is to understand what is happening here:
 
-* Prepare example data: \py{https://www.neurotec.uni-bremen.de/drupal/node/29}
-* Data augmentation: \py{https://www.neurotec.uni-bremen.de/drupal/node/30}
-* Interfacing your data: \py{https://www.neurotec.uni-bremen.de/drupal/node/32}
-* Everything is a layer: \py{https://www.neurotec.uni-bremen.de/drupal/node/52}
-* Creating networks: \py{https://www.neurotec.uni-bremen.de/drupal/node/53}
-* Train the network: \py{https://www.neurotec.uni-bremen.de/drupal/node/54}
+* [Converting the original MNIST files into numpy](https://github.com/davrot/pytutorial/blob/main/pytorch/MNIST/README.md)
+* [Interfacing Data](https://davrot.github.io/pytutorial/pytorch/interfacing_data/)
+* [Data augmentation](https://github.com/davrot/pytutorial/blob/main/pytorch/augmentation/README.md)
+* [Everything is a layer](https://github.com/davrot/pytutorial/blob/main/pytorch/layers/README.md)
+* [Creating networks](https://github.com/davrot/pytutorial/blob/main/pytorch/networks/README.md)
+* [Train the network](https://github.com/davrot/pytutorial/blob/main/pytorch/train/README.md)
 
 
 BTW, understanding means:
-\vspace*{-1.3\topsep}
-\begin{enumerate}[a)]
-\setlength\itemsep{-0.5em}
-\item Reproduce the MNIST network on your own.
-\item If somebody ask you what the stuff means, you should be able to explain it to them.
-\end{enumerate}
+a. Reproduce the MNIST network on your own.
+b. If somebody ask you what the stuff means, you should be able to explain it to them.
 
-\textbf{Hint:} If you don't know what a PyTorch command is doing then there is an extensive documentation under: \py{https://pytorch.org}.
-Just put the command in the search box...
+*Hint:* If you don't know what a PyTorch command is doing then there is an extensive documentation under: [https://pytorch.org](https://pytorch.org). Just put the command in the search box...
 
-\textbf{2. Now you are on your own...}
+## 2. Now you are on your own...
 
 We will give you a dataset and then you have to deal with it on your own...
 
-\phraselast
+Literature
 
-\literature{[1] A. Zhang, Z.C. Lipton, M. Li and A.J. Smola (2021), Dive into Deep Learning, \href{https://d2l.ai/d2l-en-pytorch.pdf}{https://d2l.ai/d2l-en-pytorch.pdf}}
+[1] A. Zhang, Z.C. Lipton, M. Li and A.J. Smola (2021), **Dive into Deep Learning**, [https://d2l.ai/d2l-en-pytorch.pdf](https://d2l.ai/d2l-en-pytorch.pdf)
