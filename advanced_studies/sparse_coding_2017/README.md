@@ -25,7 +25,7 @@ Both the features $\vec{\varphi}_j$ and the coefficients $a_j$ can be found by s
 This optimization problem can be expressed as minimization of an energy function $E$ via
 
 **Equation (2)**
-$$\min\_{a_j, \left\{ \vec{\varphi}\_j} E(a\_j, \vec{\varphi}\_j) \right\}$$
+$$\min\_{a_j,  \vec{\varphi}\_j} \left\\{ E(a\_j, \vec{\varphi}\_j) \right\\}$$
 
 with:
 
