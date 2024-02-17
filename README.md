@@ -243,6 +243,8 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 
 ## Advanced Studies
 * Material from ages past
+  - [2020: Divisive Normalization -- a Universal Concept for Adaptive Dynamics and Function of Cortical Circuits](advanced_studies/divisive_normalization_2020/README.md)
+  - [2020: Recurrent networks: Temporal dynamics and synchronization](advanced_studies/recurrent_networks_2020/README.md)
   - [2017: Oscillations and information routing: CTC model](advanced_studies/CTC_2017/README.md)
   - [2017: Change detection: The DivInE-Model](advanced_studies/DivInE_2017/README.md)
   - [2017: Contour Integration](advanced_studies/contour_integration_2017/README.md)
