@@ -170,6 +170,70 @@ result = sympy.dsolve(diffeq, f(x))
 print(result)  # -> Eq(f(x), (C1 + C2*x)*exp(x) + cos(x)/2)
 ```
 
+Sometimes it is necessary to simplyify the problem for the solver:
+
+```python
+import sympy
+
+u = sympy.symbols("u", cls=sympy.Function, real=True)
+t, tau, a0, urest, uc, r, i, uthr = sympy.symbols(
+    "t tau a0 urest uc r i uthr", real=True
+)
+c0, c1, c2 = sympy.symbols("c0 c1 c2", real=True)
+
+diffeq_rhs = (a0 * (u(t) - urest) * (u(t) - uc) + r * i) / tau
+
+print("Original")
+print(diffeq_rhs)
+print()
+
+diffeq_rhs = sympy.expand(diffeq_rhs)
+diffeq_rhs = sympy.collect(diffeq_rhs, u(t))
+
+c0_coeffs = diffeq_rhs.coeff(u(t), 0)
+c1_coeffs = diffeq_rhs.coeff(u(t), 1)
+c2_coeffs = diffeq_rhs.coeff(u(t), 2)
+
+diffeq_rhs = diffeq_rhs.subs(c0_coeffs, c0)
+diffeq_rhs = diffeq_rhs.subs(c1_coeffs, c1)
+diffeq_rhs = diffeq_rhs.subs(c2_coeffs, c2)
+
+print("Simplified")
+print(diffeq_rhs)
+print()
+
+diffeq = sympy.Eq(u(t).diff(t), diffeq_rhs)
+
+print("Full equation")
+print(diffeq)
+print()
+
+solved_diffeq_rhs = sympy.dsolve(diffeq, u(t), ics={u(0): uc}, simplify=False).rhs
+
+solved_diffeq_rhs = solved_diffeq_rhs.subs(c0, c0_coeffs)
+solved_diffeq_rhs = solved_diffeq_rhs.subs(c1, c1_coeffs)
+solved_diffeq_rhs = solved_diffeq_rhs.subs(c2, c2_coeffs)
+
+print("Result")
+print(solved_diffeq_rhs)
+print()
+```
+
+Output:
+```python
+Original
+(a0*(-uc + u(t))*(-urest + u(t)) + i*r)/tau
+
+Simplified
+c0 + c1*u(t) + c2*u(t)**2
+
+Full equation
+Eq(Derivative(u(t), t), c0 + c1*u(t) + c2*u(t)**2)
+
+Result
+-t + sqrt(-1/(4*a0*(a0*uc*urest/tau + i*r/tau)/tau - (-a0*uc/tau - a0*urest/tau)**2))*log(uc - 2*sqrt(-1/(4*a0*(a0*uc*urest/tau + i*r/tau)/tau - (-a0*uc/tau - a0*urest/tau)**2))*(a0*uc*urest/tau + i*r/tau) + tau*sqrt(-1/(4*a0*(a0*uc*urest/tau + i*r/tau)/tau - (-a0*uc/tau - a0*urest/tau)**2))*(-a0*uc/tau - a0*urest/tau)**2/(2*a0) + tau*(-a0*uc/tau - a0*urest/tau)/(2*a0)) - sqrt(-1/(4*a0*(a0*uc*urest/tau + i*r/tau)/tau - (-a0*uc/tau - a0*urest/tau)**2))*log(uc + 2*sqrt(-1/(4*a0*(a0*uc*urest/tau + i*r/tau)/tau - (-a0*uc/tau - a0*urest/tau)**2))*(a0*uc*urest/tau + i*r/tau) - tau*sqrt(-1/(4*a0*(a0*uc*urest/tau + i*r/tau)/tau - (-a0*uc/tau - a0*urest/tau)**2))*(-a0*uc/tau - a0*urest/tau)**2/(2*a0) + tau*(-a0*uc/tau - a0*urest/tau)/(2*a0))
+```
+
 ## [Numerical Evaluation](https://docs.sympy.org/latest/modules/evalf.html)
 
 ```python
