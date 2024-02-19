@@ -30,6 +30,10 @@
 
 ![image9.png](image9.png)
 
+## Gain function LIAF analytically 
+
+![image11.png](image11.png)
+
 # 4
 
 # 5
