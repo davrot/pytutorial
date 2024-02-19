@@ -241,7 +241,7 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
   - [Quadratic Integrate-and-Fire](advanced_programming/quadratic_integrate_and_fire/README.md)
   - [Connor Stevens](advanced_programming/connor_stevens/README.md)
 * [References](advanced_programming/references/README.md)
-* Task 2 -- Pictures for comparision
+* Task 1 -- Pictures for comparision
   - [Mandatory Tasks](advanced_programming/task_1_result_pictures/README.md)
 * Task 2 -- Pictures for comparision
   - [Mandatory Tasks](advanced_programming/task_2_result_pictures/README.md)
