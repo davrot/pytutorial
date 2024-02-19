@@ -21,11 +21,12 @@ Performance correct: 95.0%
 ## 2
 
 Is x vs y significant different? (p<0.01)
-||||
+
+||p-value|different|
 |---|---|---|
-|ROC vs KNN| p-value=1.286e-06| different:True|
-|ROC vs SVM| p-value=5.646e-08| different:True|
-|KNN vs SVM| p-value=6.684e-01| different:False|
+|ROC vs KNN| 1.286e-06| True|
+|ROC vs SVM| 5.646e-08| True|
+|KNN vs SVM| 6.684e-01| False|
 
 ||# of correct pattern|
 |---|---|
