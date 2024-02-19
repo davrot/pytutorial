@@ -11,3 +11,9 @@ Spectral power (done with scipy.signal.periodogram) before and after cleaning:
 ## 2
 
 ![image2.png](image2.png)
+
+## 3
+
+![image3.png](image3.png)
+
+
