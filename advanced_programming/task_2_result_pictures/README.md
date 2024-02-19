@@ -53,4 +53,9 @@ Spectral Coherence
 
 ![image9.png](image9.png)
 
+## 6
+
+![image12.png](image12.png)
+
+
 
