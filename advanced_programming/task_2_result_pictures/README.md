@@ -63,6 +63,10 @@ Scaled by divison max() for every individual frequency band (Bad times happen):
 
 ![image13.png](image13.png)
 
+## 7
+
+![image14.png](image14.png)
+
 
 
 
