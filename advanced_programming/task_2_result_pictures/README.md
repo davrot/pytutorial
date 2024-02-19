@@ -57,6 +57,17 @@ Spectral Coherence
 
 ## 6
 
+{: .topic-optional}
+Don't normalize the time series! 
+
+i.e. don't do something like this: 
+
+```python
+data -= data.mean(axis=1, keepdims=True)
+data /= data.std(axis=1, keepdims=True)
+```
+Otherwise you will not classify anything.
+
 ![image12.png](image12.png)
 
 Scaled by divison max() for every individual frequency band (Bad times happen):
@@ -64,6 +75,17 @@ Scaled by divison max() for every individual frequency band (Bad times happen):
 ![image13.png](image13.png)
 
 ## 7
+
+{: .topic-optional}
+Don't normalize the time series! 
+
+i.e. don't do something like this: 
+
+```python
+data -= data.mean(axis=1, keepdims=True)
+data /= data.std(axis=1, keepdims=True)
+```
+Otherwise you will not classify anything.
 
 ![image14.png](image14.png)
 
