@@ -242,6 +242,8 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
   - [Connor Stevens](advanced_programming/connor_stevens/README.md)
 * [References](advanced_programming/references/README.md)
 * Task 2 -- Pictures for comparision
+  - [Mandatory Tasks](advanced_programming/task_1_result_pictures/README.md)
+* Task 2 -- Pictures for comparision
   - [Mandatory Tasks](advanced_programming/task_2_result_pictures/README.md)
   - [Voluntary Tasks: Preprocessing](advanced_programming/task_2_result_pictures_preprocessing/README.md)
   - [Voluntary Tasks: More Information!](advanced_programming/task_2_result_pictures_information/README.md)
