@@ -19,3 +19,10 @@ without preparing the data via /= std:
 with equalizing the power via /= std (obviously not the best idea in this case):
 
 ![image3.png](image3.png)
+
+## 4
+
+![image4.png](image4.png)
+
+
+![image5.png](image5.png)
