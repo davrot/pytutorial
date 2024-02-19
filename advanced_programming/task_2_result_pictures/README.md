@@ -35,3 +35,22 @@ Spectral Coherence
 
 
 ![image7.png](image7.png)
+
+## 5
+
+Phase Coherence
+
+![image10.png](image10.png)
+
+
+![image11.png](image11.png)
+
+
+Spectral Coherence
+
+![image8.png](image8.png)
+
+
+![image9.png](image9.png)
+
+
