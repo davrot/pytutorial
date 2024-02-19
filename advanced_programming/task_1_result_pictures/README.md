@@ -1,6 +1,8 @@
 
 # 2
 
+(done with RK45)
+
 ## leaky integrate-and-fire neuron (LIAF)
 ![image0.png](image0.png)
 
@@ -34,7 +36,6 @@
 
 ![image11.png](image11.png)
 
-# 4
 
 # 5
 
