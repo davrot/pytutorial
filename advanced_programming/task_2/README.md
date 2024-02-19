@@ -42,6 +42,9 @@ Use **the wavelet transform** (see [A Practical Guide to Wavelet Analysis](https
 Which part of your result can you trust? -- include the cone-of-influence into your plot. Does the presentation of a stimulus generate oscillatory activity, and if yes, in which frequency band? 
 
 ## 3.
+
+{: .topic-optional} Don't normalize the time series!
+
 If appearance of stimuli is accompanied by enhanced oscillatory activity, you can use this dependence to determine **regions of interest (ROIs)** in the V1 neurons, i.e. sites that have the two visual stimuli in their receptive fields.
     
 To do so, you can calculate the power spectrum in a specific frequency band for each channel and compare the oscillatory power across the neural population. Plot your results in a $10\times10$ grid. Where are the regions of interest? Select two neurons exhibiting the most significant power and report their corresponding indices.
@@ -68,6 +71,9 @@ In the experiment, attention was devoted to one of the visual stimuli. You do no
 Compute the coherence of the V4 signal with each of the flicker signals. We first start with the **phase coherence**, and next apply the **spectral coherence**. Which of the two flicker stimuli is attended?
 
 ## 6.
+
+{: .topic-optional} Don't normalize the time series!
+
 You might have observed that also V1 activity is modulated by attention (explain which result of your previous analysis supports such a statement!). How well can location of attention be decoded from one recorded electrode?
 
 Here you will use some machine-learning techniques to classify **attended** against **non-attended** signals based on V1 LFPs. For this purpose, you have been provided with:
@@ -79,6 +85,9 @@ which contain training data sets for 100 trials recorded from one specific chann
 To get started, similar to what was previously done, load these signals and compute their time-frequency spectrum for different frequency bands. Since you need these spectra for all the following sub-tasks, it is recommended that you save your results in separate files.
 
 ## 7.
+
+{: .topic-optional} Don't normalize the time series!
+
 Implement the **ROC analysis** as your own function/module. Then compute the **ROC curve** for different frequency bands. Plot the ROC accuracy over different frequencies: in which band do you get a better performance? 
 
 
@@ -125,6 +134,9 @@ print(data.shape)
 Combining information contained in different frequency bands or recorded from different electrodes potentially improves classification accuracy. Here we use different methods to strive for such an improvement, and use statistical tests to determine whether results are (really) significantly different.
 
 ## 1.
+
+{: .topic-optional} Don't normalize the time series!
+
 Based on your results from **ROC analysis**, select the best frequency bands for classification and use this range for the following tasks. Classify your data with the **K-nearest neighbors (k-NN)** and **support vector machine (SVM)** algorithms in the selected frequency bands. You can adjust the hyperparameters of these algorithms as needed to optimize classification performance. What is the best accuracy that you can achieve? Which method performs better?
 
 ## 2.
