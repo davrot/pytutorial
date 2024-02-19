@@ -1,3 +1,5 @@
+Errors are an option... 
+
 # Mandatory Tasks
 
 ## 2 
@@ -56,6 +58,11 @@ Spectral Coherence
 ## 6
 
 ![image12.png](image12.png)
+
+Scaled by divison max() for every individual frequency band (Bad times happen):
+
+![image13.png](image13.png)
+
 
 
 
