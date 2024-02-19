@@ -22,7 +22,16 @@ with equalizing the power via /= std (obviously not the best idea in this case):
 
 ## 4
 
+Phase Coherence
+
 ![image4.png](image4.png)
 
 
 ![image5.png](image5.png)
+
+Spectral Coherence
+
+![image6.png](image6.png)
+
+
+![image7.png](image7.png)
