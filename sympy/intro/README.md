@@ -317,4 +317,4 @@ plt.xlabel("Input [nA]")
 plt.ylabel("Rate [Hz]")
 plt.show()
 ```
-
+![image_qiaf.png](image_qiaf.png)
