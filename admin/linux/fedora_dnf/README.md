@@ -56,3 +56,27 @@ No match for argument: darktable-4.4.2-1.fc37.x86_64
 Error: No packages marked for reinstall.
 ```
 
+Okay, maybe we need to delete the old package manually: 
+
+```shell
+cat error.log | awk -F 'conflicts with file from package' '{print $2}' | sort -u | awk 'NF'
+```
+
+The problem lies with:
+
+```shell
+ darktable-tools-noise-4.0.1-2.fc37.x86_64
+```
+
+We will remove it carefully(!!!). Don't use -y and check the list if something important is on the to-be-deleted list:  
+
+```shell
+dnf remove --noautoremove darktable-tools-noise-4.0.1-2.fc37.x86_64
+```
+Now we should be able to do this: 
+
+```shell
+dnf -y remove --duplicates 
+```
+
+
