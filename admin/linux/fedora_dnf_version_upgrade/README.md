@@ -39,7 +39,33 @@ Now we can try to remove the obsolte package carefully(!!!):
 yum remove --noautoremove jack-audio-connection-kit-example-clients
 ```
 
-After that we can try to run the upgrage again: 
+After that we can try to run the upgrade again: 
+
+```shell
+dnf -y system-upgrade download --refresh --releasever=38 --allowerasing --best --skip-broken 2> error.log ; dnf system-upgrade reboot
+cat error.log | grep -v "^No match for group package" | grep -v "^Error:"
+```
+
+### Remove packages from an OS version before the current one
+
+We are at version 37, want to get to version 38 but get complains about pacakges from version 36:
+
+```shell
+cat error.log | grep -v "^No match for group package" | grep -v "^Error:"
+```
+
+```shell
+ Problem: package kernel-modules-extra-5.19.16-200.fc36.x86_64 from @System requires kernel-uname-r = 5.19.16-200.fc36.x86_64, but none of the providers can be installed
+  - conflicting requests
+```
+
+Now we can try to remove the obsolte package carefully(!!!). However, use the full(!!!) package name. Means with package and os version: 
+
+```shell
+dnf remove --noautoremove kernel-modules-extra-5.19.16-200.fc36.x86_64
+```
+
+After that we can try to run the upgrade again: 
 
 ```shell
 dnf -y system-upgrade download --refresh --releasever=38 --allowerasing --best --skip-broken 2> error.log ; dnf system-upgrade reboot
