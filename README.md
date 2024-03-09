@@ -263,3 +263,7 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
   - [2017: Computation Spike by Spike](advanced_studies/sbs_2017/README.md)
   - [2017: Natural scenes and sparse coding in visual cortex](advanced_studies/sparse_coding_2017/README.md)
 
+
+# Non Python tutorials:
+* [Computer admin tutorials](admin/README.md)
+  
