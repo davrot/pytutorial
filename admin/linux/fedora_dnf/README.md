@@ -14,7 +14,7 @@ systemctl disable --now systemd-oomd
 
 Now you are stuck in dnf limbo. How to get out of it with less effort as possible?  
 
-### Try 0
+## Try 0
 
 If you can do this without an error then you are on a good way: 
 
@@ -22,7 +22,7 @@ If you can do this without an error then you are on a good way:
 dnf -y remove --duplicates 
 ```
 
-### Try 1
+## Try 1
 
 Well, if try 0 resulted in conflicts, we can try to solve them semi-autotamic: 
 
@@ -32,7 +32,7 @@ cat error.log | awk -F 'from install of|conflicts with file from package' '{prin
 dnf -y remove --duplicates 2> error.log
 ```
 
-### Try 2
+## Try 2
 
 We end up here if errors after try 1 still remained: 
 
@@ -79,4 +79,32 @@ Now we should be able to do this:
 dnf -y remove --duplicates 
 ```
 
+## Finalize 
 
+Now we can finalize the repair with:
+
+```shell
+yum -y update --best --allowerasing --skip-broken
+```
+
+or 
+
+```shell
+yum -y --enablerepo=* update --best --allowerasing --skip-broken
+```
+
+Depending on if you want to include other non-default repos from your repo-list. 
+
+## Proteced packages 
+
+If you get complaints about protected system packages, you can disable this protection by: 
+
+```shell
+mv /etc/dnf/protected.d /etc/dnf/protected.d_xxx
+```
+
+However, you should restore the protection later:
+
+```shell
+mv /etc/dnf/protected.d_xxx /etc/dnf/protected.d
+```
