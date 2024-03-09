@@ -39,3 +39,20 @@ We end up here if errors after try 1 still remained:
 ```shell
 cat error.log | awk -F 'from install of|conflicts with file from package' '{print $2}' | sort -u | awk 'NF' 
 ```
+
+Now we need to deal with the remaining problem manually. This package is still broken: 
+
+```shell
+darktable-4.4.2-1.fc37.x86_64
+```
+
+This does not work: 
+
+```shell
+[root ~]# dnf -y reinstall darktable-4.4.2-1.fc37.x86_64
+Last metadata expiration check: 0:03:59 ago on Sat 09 Mar 2024 04:17:07 AM CET.
+Package darktable available, but not installed.
+No match for argument: darktable-4.4.2-1.fc37.x86_64
+Error: No packages marked for reinstall.
+```
+
