@@ -84,13 +84,13 @@ dnf -y remove --duplicates
 Now we can finalize the repair with:
 
 ```shell
-yum -y update --best --allowerasing --skip-broken
+dnf -y update --best --allowerasing --skip-broken
 ```
 
 or 
 
 ```shell
-yum -y --enablerepo=* update --best --allowerasing --skip-broken
+dnf -y --enablerepo=* update --best --allowerasing --skip-broken
 ```
 
 Depending on if you want to include other non-default repos from your repo-list. 
