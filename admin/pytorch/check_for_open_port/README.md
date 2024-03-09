@@ -25,5 +25,7 @@ else
     ncat $master_ip $master_port
 ```
 
+The script needs to be started on the computer with the master ip first. 
+
 If this fails, the port is already used or your firewall settings is blocking it. 
 
