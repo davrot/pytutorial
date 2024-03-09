@@ -1,4 +1,4 @@
-# Check the port for torchrun is open via ncat
+# Check if the port for torchrun is open via ncat
 
 ## Top
 
