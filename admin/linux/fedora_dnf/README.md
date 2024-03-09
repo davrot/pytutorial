@@ -6,6 +6,12 @@ Questions to [David Rotermund](mailto:davrot@uni-bremen.de)
 
 Let us assume the dnf update inbetween. You lost the remote connection to the computer where the update was running or systemd oom killed the dnf task. 
 
+Concerning systemd-oomd, you turn it off via: 
+
+```shell
+systemctl disable --now systemd-oomd
+```
+
 Now you are stuck in dnf limbo. How to get out of it with less effort as possible?  
 
 ### Try 0
