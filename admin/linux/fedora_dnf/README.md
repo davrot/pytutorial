@@ -95,7 +95,7 @@ yum -y --enablerepo=* update --best --allowerasing --skip-broken
 
 Depending on if you want to include other non-default repos from your repo-list. 
 
-## Proteced packages 
+## Protected packages 
 
 If you get complaints about protected system packages, you can disable this protection by: 
 
