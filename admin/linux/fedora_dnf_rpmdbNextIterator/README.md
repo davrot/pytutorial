@@ -63,6 +63,6 @@ dnf -y install --best --allowerasing intel-iotkit
 And don't forget to do the update you wanted to do:
 
 ```shell
-dnf -y install --best --allowerasing
+dnf -y update --best --allowerasing
 ```
 
