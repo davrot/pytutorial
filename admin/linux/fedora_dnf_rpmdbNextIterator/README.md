@@ -59,3 +59,10 @@ dnf -y install --best --allowerasing intel-dlfdkit
 dnf -y install --best --allowerasing intel-hpckit
 dnf -y install --best --allowerasing intel-iotkit
 ```
+
+And don't forget to do the update you wanted to do:
+
+```shell
+dnf -y install --best --allowerasing
+```
+
