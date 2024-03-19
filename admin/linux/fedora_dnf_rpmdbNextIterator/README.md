@@ -53,9 +53,9 @@ we remove those package. However you need to make sure that these are not import
 In the case of intel oneapi:
 
 ```shell
-dnf -y install intel-aikit
-dnf -y install intel-basekit
-dnf -y install intel-dlfdkit
-dnf -y install intel-hpckit
-dnf -y install intel-iotkit
+dnf -y install --best --allowerasing intel-aikit
+dnf -y install --best --allowerasing intel-basekit
+dnf -y install --best --allowerasing intel-dlfdkit
+dnf -y install --best --allowerasing intel-hpckit
+dnf -y install --best --allowerasing intel-iotkit
 ```
