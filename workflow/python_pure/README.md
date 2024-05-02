@@ -111,19 +111,19 @@ pip uninstall numpy numba
 ### Linux
 
 ```shell
-cd /home/[YOURUSERNAME]/P3.11/bin
+cd /home/[YOURUSERNAME]/P3.12/bin
 ./pip install numpy
 ```
 
 ```shell
-cd /home/[YOURUSERNAME]/P3.11/bin
+cd /home/[YOURUSERNAME]/P3.12/bin
 ./pip install numba
 ```
 
 If so then you have to decide if you want to remove numba and the downgraded numpy version before continuing. I would remove it! 
 
 ```shell
-cd /home/[YOURUSERNAME]/P3.11/bin
+cd /home/[YOURUSERNAME]/P3.12/bin
 ./pip uninstall numpy numba
 ```
 
@@ -142,7 +142,7 @@ pip3 install numpy scipy pandas flake8 pep8-naming black matplotlib seaborn ipyt
 ### Linux
 
 ```shell
-cd /home/[YOURUSERNAME]/P3.11/bin
+cd /home/[YOURUSERNAME]/P3.12/bin
 ./pip3 install numpy scipy pandas flake8 pep8-naming black matplotlib seaborn ipython jupyterlab mypy dataclasses-json dataconf ipympl pywavelets scikit-image opencv-python scikit-learn tqdm argh sympy jsmin pybind11 pybind11-stubgen pigar asciichartpy natsort ipykernel 
 ```
 
@@ -203,14 +203,14 @@ pip3 install torch torchvision torchaudio torchtext  --index-url https://downloa
 ##### CPU only
 
 ```shell
-cd /home/[YOURUSERNAME]/P3.11/bin
+cd /home/[YOURUSERNAME]/P3.12/bin
 ./pip3 install torch torchvision torchaudio torchtext --index-url https://download.pytorch.org/whl/cpu
 ```
 
 ##### NVidia GPU
 
 ```shell
-cd /home/[YOURUSERNAME]/P3.11/bin
+cd /home/[YOURUSERNAME]/P3.12/bin
 ./pip3 install torch torchvision torchaudio torchtext
 ```
 
@@ -242,14 +242,14 @@ pip3 install tensorflow[and-cuda]
 ##### CPU only
 
 ```shell
-cd /home/[YOURUSERNAME]/P3.11/bin
+cd /home/[YOURUSERNAME]/P3.12/bin
 ./pip3 install tensorflow
 ```
 
 ##### NVidia GPU
 
 ```shell
-cd /home/[YOURUSERNAME]/P3.11/bin
+cd /home/[YOURUSERNAME]/P3.12/bin
 ./pip3 install tensorflow[and-cuda]
 ```
 
