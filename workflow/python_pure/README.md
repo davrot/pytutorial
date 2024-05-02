@@ -58,13 +58,13 @@ Python installation (after the dependencies are solved):
 ```shell
 mkdir PySource
 cd PySource
-wget https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tgz
-tar -xvzf Python-3.11.9.tgz
-cd Python-3.11.9
-./configure --prefix=/home/[YOURUSERNAME]/P3.11 --enable-optimizations
+wget https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tgz
+tar -xvzf Python-3.12.3.tgz
+cd Python-3.12.3
+./configure --prefix=/home/[YOURUSERNAME]/P3.12 --enable-optimizations
 make -j 10
 make install
-cd /home/[YOURUSERNAME]/P3.11/bin
+cd /home/[YOURUSERNAME]/P3.12/bin
 ./pip3 install --upgrade pip
 ```
 
@@ -228,13 +228,13 @@ cd /home/[YOURUSERNAME]/P3.11/bin
 ##### CPU only
 
 ```shell
-pip install tensorflow
+pip3 install tensorflow
 ```
 
 ##### NVidia GPU
 
 ```shell
-pip install tensorflow[and-cuda]
+pip3 install tensorflow[and-cuda]
 ```
 
 #### Linux
@@ -243,14 +243,14 @@ pip install tensorflow[and-cuda]
 
 ```shell
 cd /home/[YOURUSERNAME]/P3.11/bin
-./pip install tensorflow
+./pip3 install tensorflow
 ```
 
 ##### NVidia GPU
 
 ```shell
 cd /home/[YOURUSERNAME]/P3.11/bin
-./pip install tensorflow[and-cuda]
+./pip3 install tensorflow[and-cuda]
 ```
 
 |Package||
