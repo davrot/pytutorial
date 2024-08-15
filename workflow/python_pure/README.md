@@ -58,9 +58,9 @@ Python installation (after the dependencies are solved):
 ```shell
 mkdir PySource
 cd PySource
-wget https://www.python.org/ftp/python/3.12.3/Python-3.12.3.tgz
-tar -xvzf Python-3.12.3.tgz
-cd Python-3.12.3
+wget https://www.python.org/ftp/python/3.12.5/Python-3.12.5.tgz
+tar -xvzf Python-3.12.5.tgz
+cd Python-3.12.5
 ./configure --prefix=/home/[YOURUSERNAME]/P3.12 --enable-optimizations
 make -j 10
 make install
