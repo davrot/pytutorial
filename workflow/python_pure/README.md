@@ -16,7 +16,7 @@ We need to download a suitable Python version from [https://www.python.org](http
 ## Windows
 
 I downloaded this file: 
-[https://www.python.org/ftp/python/3.11.7/python-3.11.9-amd64.exe](https://www.python.org/ftp/python/3.11.7/python-3.11.9-amd64.exe)
+[https://www.python.org/ftp/python/3.12.7/python-3.12.7-amd64.exe](https://www.python.org/ftp/python/3.12.7/python-3.12.7-amd64.exe)
 
 ![figure 1](Image1.png)
 
@@ -58,9 +58,9 @@ Python installation (after the dependencies are solved):
 ```shell
 mkdir PySource
 cd PySource
-wget https://www.python.org/ftp/python/3.12.5/Python-3.12.5.tgz
-tar -xvzf Python-3.12.5.tgz
-cd Python-3.12.5
+wget https://www.python.org/ftp/python/3.12.7/Python-3.12.7.tgz
+tar -xvzf Python-3.12.7.tgz
+cd Python-3.12.7
 ./configure --prefix=/home/[YOURUSERNAME]/P3.12 --enable-optimizations
 make -j 10
 make install
