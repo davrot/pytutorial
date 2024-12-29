@@ -143,7 +143,7 @@ pip3 install numpy scipy pandas flake8 pep8-naming black matplotlib seaborn ipyt
 
 ```shell
 cd /home/[YOURUSERNAME]/P3.12/bin
-./pip3 install numpy scipy pandas flake8 pep8-naming black matplotlib seaborn ipython jupyterlab mypy dataclasses-json dataconf ipympl pywavelets scikit-image opencv-python scikit-learn tqdm argh sympy jsmin pybind11 pybind11-stubgen pigar asciichartpy natsort ipykernel 
+./pip3 install numpy scipy pandas flake8 pep8-naming black matplotlib seaborn ipython jupyterlab mypy dataclasses-json dataconf ipympl pywavelets scikit-image opencv-python scikit-learn tqdm argh sympy jsmin pybind11 pybind11-stubgen pigar asciichartpy natsort ipykernel filelock importlib-metadata regex fsspec
 ```
 
 
