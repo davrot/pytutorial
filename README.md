@@ -17,123 +17,28 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [Flow chart for baking bread](flow/baking_bread/README.md)
 
 ## Workflow
-* [Python installation](workflow/python_pure/README.md)
-* [VS Code installation](workflow/vscode_install/README.md)
-* [VS Code configuration](workflow/vscode_config/README.md)
-* [VS Code Microsoft Tutorials](workflow/microsoft_tutorials/README.md)
-* [VS Code Python Interactive window](workflow/vscode_interactive/README.md)
-* [VS Code Markdown](workflow/vscode_markdown/README.md)
-* [VS Code Debugging](workflow/vscode_debug/README.md)
-* [VS Code Working remotely via ssh](workflow/vscode_ssh/README.md)
+[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
 
-Important VS Code notes:
-* You can mark segments of source node with your mouse (or keyboard) and use the TAB key to increase the level of the indentation or use SHIFT + TAB do decrease the indentation level. ​
-* Linux: CTRL + SHIFT + 7 toggles between comment and normal source code.​
-* The function key F2 allows you to change variable and function names. VS Code goes through all the node in your Project directory and changes all occurrences of the function or variable name accordingly. The same is true if you change a file name in a project directory.   
 
 ## Python: The Basics of the basics
-* [Overview](python_basics/where_to_start/README.md)
-* [Hello, Python](python_basics/hello_python/README.md)
-  - [input, print, string, int, float](python_basics/input_output_string_int_float/README.md)
-* [Style Rulez](python_basics/style_rulez/README.md)
-* [Programming Recommendations](python_basics/programming_recommendations/README.md)
-  - [Assert](python_basics/assert/README.md) 
-* [Basic Math Operations](python_basics/basic_math_operations/README.md)
-* [Truth Value Testing](python_basics/truth_value_testing/README.md)
-* [Formatted String Literals](python_basics/formatted_string_literals/README.md)
-* [Flow Control Overview](python_basics/flow_control_overview/README.md)
-  - [Flow Control: if, elif, else](python_basics/if/README.md)
-  - [Flow Control: for-loop](python_basics/for/README.md)
-  - [Flow Control: while, pass, break, continue](python_basics/while/README.md)
-  - [Flow Control: match case](python_basics/match/README.md)
-* Sequence Types
-  - [Lists](python_basics/list/README.md)
-    + [List Comprehensions​](python_basics/list_comprehensions/README.md)
-  - [Tuple](python_basics/tuple/README.md)
-    + [zip](python_basics/zip/README.md)
-* Mapping Types
-  - [Dict​](python_basics/dict/README.md)
-* [Functions](python_basics/functions/README.md)
-* [Type annotations](python_basics/python_typing/README.md)
-* [Files](python_basics/files/README.md)
-* [JSON and dict for parameter files](python_basics/json/README.md)
-* [Creating order via sub-directories: os.makedirs](python_basics/os_makedirs/README.md)
-* [Finding files in a directory: glob](python_basics/glob/README.md)
-* [Class](python_basics/class/README.md)
-* [Exceptions (try / except)](python_basics/exceptions/README.md)
-* [Importing Modules](python_basics/modules/README.md)
-* [Built-in Functions](python_basics/built_in/README.md)
-* [Built-in Keywords](python_basics/keywords/README.md)
+[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
+
 
 ## Python: Special topics
-* [pickle: save and load Python objects](python_basics/pickle/README.md)
-* [The Python Standard Library​](python_basics/standard_libraries/README.md)
-* [Dataclass](python_basics/dataclass/README.md)
-* [Organizing parameters: dataclasses and dataconf](python_basics/dataconf/README.md)
-* [ProcessPoolExecutor: A fast way to implement multiprocessing](python_basics/ProcessPoolExecutor/README.md)
-* [Logging](python_basics/logger/README.md)
-* [Python Scopes and Namespaces](python_basics/namespaces/README.md)
-* [Collection of distinct hashable objects -- set and frozenset](python_basics/set_frozenset/README.md)
+[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
+
 
 ## Numpy: The Basics of the basics
-* [The N-dimensional array (ndarray)​](numpy/ndarray/README.md)
-  - [set_printoptions](numpy/set_printoptions/README.md)
-* [Dimensions and shape](numpy/dimensions/README.md)
-  - [Broadcasting: Automatic adaption of dimensions​](numpy/broadcasting/README.md)
-* [Making a matrix from numerical ranges](numpy/numerical_ranges​/README.md)
-* [Convert other data into numpy arrays e.g. asarray](numpy/convert_into_ndarray/README.md)
-* [New matrix](numpy/new_matrix/README.md)
-* [Save and load](numpy/load_save/README.md)
-* [Reshape and flatten](numpy/reshape/README.md)
-* [Slices and Views](numpy/slices_views/README.md)
-* [Concatenate Matrices and arrays](numpy/concatenate/README.md)
-* [Merging matrices](numpy/merging/README.md)
-* [Unique](numpy/unique/README.md)
-* [Where](numpy/where/README.md)
-  - [Piecewise](numpy/piecewise​/README.md)
-* [Extending an existing matrix: tile, repeat, pad](numpy/extending/README.md)
-* [Boolean matricies and logic functions](numpy/bool_matrix/README.md)
-* [Advanced Indexing](numpy/advanced_indexing/README.md)
-  - [Ravel and UnRavel](numpy/ravel_unravel/README.md)
-* [Available dtypes](numpy/dtype/README.md)
-* [Constants](numpy/constants/README.md)
-* [Math functions](numpy/math_functions/README.md)
-* [Linear algebra](numpy/linear_alg/README.md)
-* [Random numbers the non-legacy way](numpy/random/README.md)
-* [Statistics](numpy/statistics/README.md)
-* [FFT](numpy/fft/README.md)
-  - [rfft and spectral power](numpy/numpy_fft_1/README.md)
-  - [Spectral power and averaging over trials](numpy/power_mean/README.md)
-* [Meshgrid](numpy/mesh_grid/README.md)
-* [Flip, rot90, and roll a matrix](numpy/reverse_an_axis/README.md)
-* Iterate
-  - [ndenumerate](numpy/ndenumerate/README.md)
-  - [ndindex](numpy/ndindex/README.md)
-  - [flat](numpy/flat/README.md)
+[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
+
 
 ## Numpy: Special topics
-* [Einstein summation](numpy/einstein/README.md)
-* [Numba: Numpy just in time compiler -- speeding Numpy up](numpy/numba/README.md)
-* [Memory layout of Numpy matrices](numpy/layout/README.md)
-* [Stack and Split, Compress](numpy/stack_split/README.md)
-* [Beyond normal np.save](numpy/save_special/README.md)
-* [Trim Zeros of a 1d array](numpy/trim_zeros/README.md)
-* Iterating over an array / matrix
-  - [nditer provides many ways to visit all the elements of one or more arrays](numpy/nditer/README.md)
-  - [Replacing an inner for loop with apply_along_axis](numpy/iterating/README.md)
-  - [nested_iters](numpy/nested_iters/README.md)
-* [Manipulation of integers and their bits](numpy/bits_and_integers​/README.md)
-* [Numpy <-> JSON over Pandas](numpy/JSON/README.md)
-* [Resize: Compensation for bad planning? Don't!](numpy/resize/README.md)
-* [Dealing with the main diagonal / triangles of a matrix](numpy/diagonal_triangles/README.md)
+[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
+
 
 ## Numpy: Matlab topics
-* [Dealing with Matlab files](numpy/mat_files/README.md)
-* [Matlab is also just a Python package](matlab/matlab_as_a_python_pakage/README.md)
-* [Running Python remotely from Matlab](matlab/python_used_by_matlab/README.md)
+[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
 
-In the case you know Matlab check here: 
-[NumPy for MATLAB users](numpy/matlab_guide/README.md)
 
 ## Matplotlib.pyplot
 * [Simple plot and imshow examples](matplotlib/basics/README.md)
@@ -267,3 +172,4 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 # Non Python tutorials:
 * [Computer admin tutorials](admin/README.md)
   
+
