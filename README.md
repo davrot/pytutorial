@@ -48,13 +48,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 
 
 ## Sci-kit Learn
-* [Overview](scikit-learn/overview/README.md)
-* [KMeans](scikit-learn/kmeans/README.md)
-* [PCA](scikit-learn/pca/README.md)
-* [FastICA](scikit-learn/fast_ica/README.md)
-* [ROC (pure numpy)](numpy/roc/README.md)
-* [Support Vector Machine](scikit-learn/svm/README.md)
-* [K Nearest Neighbours (pure numpy)](numpy/knn/README.md)
+[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
 
 ## SciPy
 [Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
@@ -167,5 +161,6 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 # Non Python tutorials:
 * [Computer admin tutorials](admin/README.md)
   
+
 
 
