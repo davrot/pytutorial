@@ -41,14 +41,10 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 
 
 ## Matplotlib.pyplot
-* [Simple plot and imshow examples](matplotlib/basics/README.md)
-* [Subplot](matplotlib/subplot/README.md)
-* [subplots and gridspec: A more flexible placement](matplotlib/subplots/README.md)
-* [Overview of the available functions](matplotlib/overview/README.md)
-* [Animation and Slider](matplotlib/animation_and_slider/README.md)
+[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
 
 ## Pandas 
-* [Basics](pandas/basics/README.md)
+[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
 
 
 ## Sci-kit Learn
@@ -61,8 +57,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [K Nearest Neighbours (pure numpy)](numpy/knn/README.md)
 
 ## SciPy
-* [Remove a common signal from your data with SVD](scipy/SVD_data_cleaning/README.md)
-* [scipy.signal: Butterworth low, high and band-pass](scipy/scipy.signal_butterworth/README.md)
+[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
 
 
 ## Python: Questions of spectral nature
@@ -172,4 +167,5 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 # Non Python tutorials:
 * [Computer admin tutorials](admin/README.md)
   
+
 
