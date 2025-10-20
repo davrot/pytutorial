@@ -7,14 +7,13 @@ kramdown:
   input: GFM
   math_engine: mathjax
   parse_block_html: true
-  
+
 use_math: true
-  
+
 defaults:
   - scope:
       path: "" 
     values:
-      layout: "default" 
+      layout: "default"
 
 toc: true
-
