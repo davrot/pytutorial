@@ -5,10 +5,9 @@ markdown: kramdown
 
 kramdown:
   input: GFM
-  math_engine: mathjax
+  math_engine: nil
   parse_block_html: true
   
-use_math: true
   
 defaults:
   - scope:
