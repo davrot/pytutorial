@@ -197,15 +197,15 @@
     </style>
 
     <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ["$'", "'$"]]
-        }
-      };
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
     </script>
-    <script id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 </head>
 
@@ -351,7 +351,14 @@
             }            
         });
     </script>
-    
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.MathJax && MathJax.typesetPromise) {
+        MathJax.typesetPromise();
+      }
+    });
+    </script>
 </body>
 
 </html>
