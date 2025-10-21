@@ -25,11 +25,10 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * OpenCV2 and Python
 * PyTorch
 * PyBind11
+* Tensorflow / Keras 
   
 [Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
 
-## Tensorflow / Keras 
-* [A fast non-introduction](tensorflow/intro/README.md)
 
 ## Sympy
 * [Symbolic Computation](sympy/intro/README.md)
@@ -98,6 +97,7 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 # Non Python tutorials:
 * [Computer admin tutorials](admin/README.md)
   
+
 
 
 
