@@ -22,12 +22,9 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * SciPy
 * Python: Questions of spectral nature
 * Python: Daily little helper
+* OpenCV2 and Python
   
 [Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
-
-## OpenCV2 and Python
-* [OpenCV2: Play, write, read a video](cv2/write_read_play/README.md)
-* [How to read a webcam with CV2](cv2/webcam/README.md)
 
 ## PyTorch 
 * [Get CUDA ready!](pytorch/cuda/README.md)
@@ -119,6 +116,7 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 # Non Python tutorials:
 * [Computer admin tutorials](admin/README.md)
   
+
 
 
 
