@@ -24,13 +24,9 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * Python: Daily little helper
 * OpenCV2 and Python
 * PyTorch
+* PyBind11
   
 [Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
-
-## PyBind11
-* [Expanding Python with C++ modules](PyBind11/basics/README.md)
-* [The fast and furious way (CPU and GPU CUDA)](PyBind11/direct/README.md)
-* [PyBind11 Stub-Generation](PyBind11/stubs/README.md)
 
 ## Tensorflow / Keras 
 * [A fast non-introduction](tensorflow/intro/README.md)
@@ -102,6 +98,7 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 # Non Python tutorials:
 * [Computer admin tutorials](admin/README.md)
   
+
 
 
 
