@@ -23,23 +23,9 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * Python: Questions of spectral nature
 * Python: Daily little helper
 * OpenCV2 and Python
+* PyTorch
   
 [Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
-
-## PyTorch 
-* [Get CUDA ready!](pytorch/cuda/README.md)
-* [Converting the original MNIST files into numpy](pytorch/MNIST/README.md) 
-* [Interfacing Data](pytorch/interfacing_data/README.md)
-* [Data augmentation](pytorch/augmentation/README.md)
-* [Layers](pytorch/layers/README.md)
-* [Creating networks](pytorch/networks/README.md)
-* [Train the network](pytorch/train/README.md)
-* [Fisher Exact Test: Test if your performance difference is significant](scipy/scipy.stats.fisher_exact/README.md)
-* [Write your own layer](pytorch/own_layer/README.md)
-  - [Replace the automatic autograd with your own torch.autograd.Function](pytorch/replace_autograd/README.md)
-* [How to take advantage of an optimizer for your non-Pytorch project](pytorch/optimizer_special/README.md)
-* [How to take advantage of a learning rate scheduler for your non-Pytorch project](pytorch/scheduler_special/README.md)
-* [Unfold: How to manually calculate the indices for a sliding 2d window](pytorch/Unfold/README.md)
 
 ## PyBind11
 * [Expanding Python with C++ modules](PyBind11/basics/README.md)
@@ -116,6 +102,7 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 # Non Python tutorials:
 * [Computer admin tutorials](admin/README.md)
   
+
 
 
 
