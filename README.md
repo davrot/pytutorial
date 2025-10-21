@@ -9,12 +9,7 @@
 All the tutorials are tested with Python 3.11.x. Older version might have a problem with the new versions of type anotations. 
 
 ## Flow chart
-* [Basic Structure of a Computer](matlab/1/README.md)
-* [Representation of Numbers in the Computer](matlab/2/README.md)
-* [Systematic Programming](matlab/5/README.md)
-* [Flow chart symbols](flow/overview/README.md)
-* [Examples](flow/examples/README.md)
-* [Flow chart for baking bread](flow/baking_bread/README.md)
+[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
 
 ## Workflow
 [Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
@@ -161,6 +156,7 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 # Non Python tutorials:
 * [Computer admin tutorials](admin/README.md)
   
+
 
 
 
