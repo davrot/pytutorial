@@ -21,16 +21,9 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * Sci-kit Learn
 * SciPy
 * Python: Questions of spectral nature
+* Python: Daily little helper
   
 [Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
-
-
-## Python: Daily little helper
-* [TQDM: Make your progress visible](helper/TQDM/README.md)
-* [Argh: Organize your command line arguments](helper/argh/README.md)
-* [psutil vs os.cpu_count: How many "CPUs" do I have?](helper/psutil/README.md)
-* [ZeroMQ: Microservices as well as connecting computers via message queue](helper/ZeroMQ/README.md)
-* [Austin: Time and memory profiling](helper/austin/README.md)
 
 ## OpenCV2 and Python
 * [OpenCV2: Play, write, read a video](cv2/write_read_play/README.md)
@@ -126,6 +119,7 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 # Non Python tutorials:
 * [Computer admin tutorials](admin/README.md)
   
+
 
 
 
