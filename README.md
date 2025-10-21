@@ -8,51 +8,20 @@
 
 All the tutorials are tested with Python 3.11.x. Older version might have a problem with the new versions of type anotations. 
 
-## Flow chart
+## Moved topics
+* Flow chart
+* Workflow
+* Python: The Basics of the basics
+* Python: Special topics
+* Numpy: The Basics of the basics
+* Numpy: Special topics
+* Numpy: Matlab topics
+* Matplotlib.pyplot
+* Pandas 
+* Sci-kit Learn
+* SciPy
+* Python: Questions of spectral nature
 [Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
-
-## Workflow
-[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
-
-
-## Python: The Basics of the basics
-[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
-
-
-## Python: Special topics
-[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
-
-
-## Numpy: The Basics of the basics
-[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
-
-
-## Numpy: Special topics
-[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
-
-
-## Numpy: Matlab topics
-[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
-
-
-## Matplotlib.pyplot
-[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
-
-## Pandas 
-[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
-
-
-## Sci-kit Learn
-[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
-
-## SciPy
-[Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
-
-
-## Python: Questions of spectral nature
-* [PyWavelets: Wavelet Transforms in Python](pywavelet/README.md)
-* [Instantanious Spectral Coherence](data_analysis/spectral_coherence/README.md)
-* [Linearize the spectral coherence](data_analysis/spectral_coherence_scale/README.md)
 
 
 ## Python: Daily little helper
@@ -156,6 +125,7 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 # Non Python tutorials:
 * [Computer admin tutorials](admin/README.md)
   
+
 
 
 
