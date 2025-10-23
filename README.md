@@ -27,6 +27,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * PyBind11
 * Tensorflow / Keras
 * Sympy
+* Numerical Integration, Differentiation, and Differential Equations
 * Arduino
 * S1: Advanced Programming (last update 16.02.2024)
 * Advanced Studies
@@ -35,13 +36,10 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
   
 [Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
 
-## Numerical Integration, Differentiation, and Differential Equations
-* [Integration and Differentiation](numpy/7/README.md) 
-* [Differential Equations](numpy/8/README.md) 
-
 # Non Python tutorials:
 * [Computer admin tutorials](admin/README.md)
   
+
 
 
 
