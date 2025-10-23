@@ -27,6 +27,7 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * PyBind11
 * Tensorflow / Keras
 * Sympy
+* Arduino
 * S1: Advanced Programming (last update 16.02.2024)
 * Advanced Studies
   
@@ -35,9 +36,6 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 ## Numerical Integration, Differentiation, and Differential Equations
 * [Integration and Differentiation](numpy/7/README.md) 
 * [Differential Equations](numpy/8/README.md) 
-
-## Arduino
-* [Basics with Python / Matlab](arduino/basics/README.md)
 
 ## Matlab: Basics
 
@@ -57,6 +55,7 @@ This pages are in a rough state. e.g. equations are broken. Don't know why...
 # Non Python tutorials:
 * [Computer admin tutorials](admin/README.md)
   
+
 
 
 
