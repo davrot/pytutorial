@@ -30,6 +30,8 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * Arduino
 * S1: Advanced Programming (last update 16.02.2024)
 * Advanced Studies
+* Matlab: Basics
+* Other topics
   
 [Lives now here](https://mscneuro.neuro.uni-bremen.de/index.php/Python_Tutorial)
 
@@ -37,24 +39,10 @@ All the tutorials are tested with Python 3.11.x. Older version might have a prob
 * [Integration and Differentiation](numpy/7/README.md) 
 * [Differential Equations](numpy/8/README.md) 
 
-## Matlab: Basics
-
-{: .topic-optional}
-This pages are in a rough state. e.g. equations are broken. Don't know why...
-
-* [Basic Commands and Variables](matlab/3/README.md)
-* [Graphics](matlab/4/README.md)
-* [Vectorization and Vector Calculus in Matlab](matlab/6/README.md)
-* [Data Analysis](matlab/9/README.md)
-
-## Other topics 
-* [Open Source Tools](other/open_source_tools/README.md)
-* [Machine Learning Resources](other/ml_resources/README.md)
-* [Datasets](other/datasets/README.md)
-
 # Non Python tutorials:
 * [Computer admin tutorials](admin/README.md)
   
+
 
 
 
